@@ -1,2 +1,2 @@
-# Core-Vocabulary
-Representation Powers and Mandates Core Vocabulary
+# RPaM Ontology
+Representation Powers and Mandates Ontology
