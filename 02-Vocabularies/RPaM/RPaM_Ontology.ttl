@@ -1,5 +1,4 @@
 @prefix : <https://joinup.ec.europa.eu/collection/rpam/1.0.0/ontology#> .
-@prefix : <http://data.europa.eu/RPaM/ontology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix ubl: <http://docs.oasis-open.org/ubl#> .
@@ -27,17 +26,17 @@
       rdfs:label "role Of" ;
       skos:definition "The role of a natural person or a legal person as a mandator or a mandatee."@en .
 
-:hasPower rdf:type owl:ObjectProperty ,
-                   owl:TransitiveProperty ;
-          rdfs:domain :Mandator, :Mandatee ;
+:hasPower rdf:type owl:ObjectProperty ;
+          rdfs:domain :Mandate ;
           rdfs:range :Power ;
-          rdfs:label "has Power"@en .
+          rdfs:label "has Power"@en ;
+          skos:definition "The Powers in a Mandate that a Mandator assigns to a Mandatee."@en .
 
-:assignedTo rdf:type owl:ObjectProperty ,
-                     owl:TransitiveProperty ;
+:assignedTo rdf:type owl:ObjectProperty ;
               rdfs:domain :Power ;
               rdfs:range :Mandatee ;
-              rdfs:label "assigned To"@en .
+              rdfs:label "assigned To"@en ; 
+              skos:definition "The Powers in a Mandate that a Mandatee receives from a Mandator."@en .
 
 :satisfiesSPInformationRequirements rdf:type owl:ObjectProperty ;
                           rdfs:domain :Mandatee ,
@@ -53,7 +52,7 @@
 
 
 :ID rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
-                       rdfs:domain :Mandatee, :Mandator, :Power ;
+                       rdfs:domain :Mandate, :Mandatee, :Mandator, :Power ;
                        rdfs:range ccts:Identifier ;
                        rdfs:label "The identifier of a Mandator, a mandatee or a power"@en .
 
@@ -89,20 +88,20 @@
 #    Classes
 #################################################################
 
-###  http://data.europa.eu/RPaM/ontology#Mandatee
+:Mandate rdf:type owl:Class ;
+       rdfs:label "Mandate"@en ;
+       skos:definition "The result of the empowerment of a Mandatee by a Mandator, i.e. the expression of which powers have been assigned by a Person (the Mandator) to another Person (the Mandatee), for certain purposes, for a certain period of time, under certain possible circumstances, etc."@en .
+
 :Mandatee rdf:type owl:Class ;
           owl:rdfs:subClassOf foaf:Agent ;
           rdfs:label "Mandatee"@en ;
           skos:definition "Natural or legal person that acts on behalf of another natural or legal person."@en .
 
-
-###  http://data.europa.eu/RPaM/ontology#Mandator
 :Mandator rdf:type owl:Class ;
           owl:rdfs:subClassOf foaf:Agent ;
           rdfs:label "Mandator"@en ;
           skos:definition "Person who needs an activity executed in his name; creator of the mandate."@en .
 
-###  http://data.europa.eu/RPaM/ontology#Power
 :Power rdf:type owl:Class ;
        rdfs:label "Power"@en ;
        skos:definition "The capacity to act on its own behalf."@en .
