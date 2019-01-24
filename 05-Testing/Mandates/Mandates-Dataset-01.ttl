@@ -1,0 +1,27 @@
+@prefix : <https://joinup.ec.europa.eu/collection/rpam/1.0.0/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ubl: <http://docs.oasis-open.org/ubl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ccev: <https://joinup.ec.europa.eu/collection/semic/ccev/2.0.3/ontology#> .
+@prefix ccts: <http://www.unece.org/cefact#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix eupt: <http://data.europa.eu/RPaM/ontology#> .
+@base <http://data.europa.eu/RPaM/ontology#> .
+
+<https://joinup.ec.europa.eu/collection/rpam/1.0.0/ontology#> rdf:type owl:Ontology ;
+                                        owl:versionIRI <https://joinup.ec.europa.eu/collection/rpam/1.0.0/ontology> .
+
+:MANDATE-1 rdf:type owl:Class, owl:NamedIndividual ;
+            :ID :MANDATE_ID-1
+            .
+
+:MANDATE_ID-1 rdf:type ccts:Identifier ;
+    ccts:identifierValue "1" .
+
+:POWER-1 rdf:type owl:Class, owl:NamedIndividual ;
+            :powerType eupt:STUDYING .
+            :
