@@ -133,13 +133,25 @@
     .
 
 #PERIODS
-##PERIODS
-
+##PERIOD 1
 :PERIOD rdf:type owl:Class, owl:NamedIndividual ;
 	:ID [ccts:identifierValue "1"] ;
 	:startDateTime "2019-01-31T21:57:00"^^xsd:dateTime ;
 	:endDateTime "2019-02-31T21:57:00"^^xsd:dateTime ;
-	:description "One Month"@en ;
+	.
+
+##PERIOD 2
+:PERIOD rdf:type owl:Class, owl:NamedIndividual ;
+	:ID [ccts:identifierValue "2"] ;
+	:startDateTime "2019-01-31T21:57:00"^^xsd:dateTime ;
+	:endDateTime "2019-02-31T21:57:00"^^xsd:dateTime ;
+	.
+
+##PERIOD 3
+:PERIOD rdf:type owl:Class, owl:NamedIndividual ;
+	:ID [ccts:identifierValue "3"] ;
+	:startDateTime "2019-01-31T21:57:00"^^xsd:dateTime ;
+	:endDateTime "2019-01-31T21:57:00"^^xsd:dateTime ;
 	.
 
 #MANDATEES
@@ -149,9 +161,13 @@
     :ID [ccts:identifierValue "1"] ;
     .
 
+#MANDTEE 2
+
 :MANDATEE-2 rdf:type owl:Class, owl:NamedIndividual ;
     :ID [ccts:identifierValue "2"] ;
     .
+
+#MANDTEE 3
 
 :MANDATEE-3 rdf:type owl:Class, owl:NamedIndividual ;
     :ID [ccts:identifierValue "3"] ;
@@ -164,6 +180,8 @@
 :MANDATOR-1 rdf:type owl:Class, owl:NamedIndividual ;
     :ID [ccts:identifierValue "1"] ;
     .
+
+#MANDATOR2
 
 :MANDATOR-2 rdf:type owl:Class, owl:NamedIndividual ;
     :ID [ccts:identifierValue "2"] ;
