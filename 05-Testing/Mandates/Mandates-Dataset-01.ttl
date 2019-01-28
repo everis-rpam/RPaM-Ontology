@@ -9,19 +9,41 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix eupt: <http://data.europa.eu/RPaM/ontology#> .
+@prefix powers: <http://data.europa.eu/RPaM/ontology/rd/powers#> .
+@prefix status: <http://data.europa.eu/RPaM/ontology/rd/status#> .
 @base <http://data.europa.eu/RPaM/ontology#> .
 
 <https://joinup.ec.europa.eu/collection/rpam/1.0.0/ontology#> rdf:type owl:Ontology ;
                                         owl:versionIRI <https://joinup.ec.europa.eu/collection/rpam/1.0.0/ontology> .
 
 :MANDATE-1 rdf:type owl:Class, owl:NamedIndividual ;
-            :ID :MANDATE_ID-1
-            .
+    :ID [ccts:identifierValue "1"] .
 
-:MANDATE_ID-1 rdf:type ccts:Identifier ;
-    ccts:identifierValue "1" .
 
 :POWER-1 rdf:type owl:Class, owl:NamedIndividual ;
-            :powerType eupt:STUDYING .
-            :
+    :ID: :POWER_ID-1 ;
+    :powerType powers:STUDYING ;
+    :statusType status:APPROVED ;
+    :geospatialConstraint "Europe" ; 
+    :currentDelegationLevel 5 
+    .
+
+:POWER_ID-1 rdf:type ccts:Identifier;
+	ccts:identifierValue "1" 
+	.
+
+:MANDATEE-1 rdf:type owl:Class, owl:NamedIndividual ;
+    :ID :MANDATEE_ID-1
+    .
+
+:MANDATEE_ID-1 rdf:type ccts:Identifier ;
+    ccts:identifierValue "1" 
+    .
+
+ :MANDATOR-1 rdf:type owl:Class, owl:NamedIndividual ;
+    :ID :MANDATOR_ID-1
+    .
+
+:MANDATOR_ID-1 rdf:type ccts:Identifier ;
+    ccts:identifierValue "1" 
+    .
