@@ -36,129 +36,156 @@
 ##POWER 1
 
 :POWER-1 rdf:type owl:Class, owl:NamedIndividual ;
-    :ID [ccts:identifierValue "1"] .
-    :powerType powers:STUDYING ;
+    :ID [ccts:identifierValue "1"] ;
+    :powerType powers:WORKING ;
     :statusType status:APPROVED ;
-    :geospatialConstraint "Europe" ; 
-    :currentDelegationLevel 5 
+    :geospatialConstraint "BELGIUM" ;
+    :currentDelegationLevel 1
     .
 
  ##POWER 2
 
 :POWER-2 rdf:type owl:Class, owl:NamedIndividual ;
-    :ID [ccts:identifierValue "1"] .
-    :powerType powers:STUDYING ;
-    :statusType status:APPROVED ;
-    :geospatialConstraint "Europe" ; 
-    :currentDelegationLevel 5 
+    :ID [ccts:identifierValue "2"] ;
+    :powerType powers:WORKING ;
+    :statusType status:EXTENDED ;
+    :geospatialConstraint "SPAIN" ; 
+    :currentDelegationLevel 1 
     .
 
 ##POWER 3
 
 :POWER-3 rdf:type owl:Class, owl:NamedIndividual ;
-    :ID [ccts:identifierValue "1"] .
-    :powerType powers:STUDYING ;
+    :ID [ccts:identifierValue "3"] ;
+    :powerType powers:STARTING-BUSINESS ;
     :statusType status:APPROVED ;
-    :geospatialConstraint "Europe" ; 
-    :currentDelegationLevel 5 
+    :geospatialConstraint "EUROPE" ; 
+    :currentDelegationLevel 1 
     .
 ##POWER 4
 
 :POWER-4 rdf:type owl:Class, owl:NamedIndividual ;
-    :ID [ccts:identifierValue "1"] .
+    :ID [ccts:identifierValue "4"] ;
     :powerType powers:STUDYING ;
-    :statusType status:APPROVED ;
-    :geospatialConstraint "Europe" ; 
-    :currentDelegationLevel 5 
+    :statusType status:EXPIRED ;
+    :geospatialConstraint "ITALY" ; 
+    :currentDelegationLevel 3 
     .
 
 ##POWER 5
 
 :POWER-5 rdf:type owl:Class, owl:NamedIndividual ;
-    :ID [ccts:identifierValue "1"] .
-    :powerType powers:STUDYING ;
+    :ID [ccts:identifierValue "5"] ;
+    :powerType powers:DOING-BUSINESS ;
     :statusType status:APPROVED ;
-    :geospatialConstraint "Europe" ; 
-    :currentDelegationLevel 5 
+    :geospatialConstraint "GERMANY" ; 
+    :currentDelegationLevel 3 
     .
 
 ##POWER 6
 
  :POWER-6 rdf:type owl:Class, owl:NamedIndividual ;
-    :ID [ccts:identifierValue "1"] .
-    :powerType powers:STUDYING ;
+    :ID [ccts:identifierValue "6"] ;
+    :powerType powers:RETIRING ;
     :statusType status:APPROVED ;
-    :geospatialConstraint "Europe" ; 
-    :currentDelegationLevel 5 
+    :geospatialConstraint "PORTUGAL" ; 
+    :currentDelegationLevel 1 
     .
 
  ##POWER 7
 
  :POWER-7 rdf:type owl:Class, owl:NamedIndividual ;
-    :ID [ccts:identifierValue "1"] .
-    :powerType powers:STUDYING ;
-    :statusType status:APPROVED ;
-    :geospatialConstraint "Europe" ; 
-    :currentDelegationLevel 5 
+    :ID [ccts:identifierValue "7"] ;
+    :powerType powers:STARTING-BUSINESS ;
+    :statusType status:REVOKED ;
+    :geospatialConstraint "FRANCE" ; 
+    :currentDelegationLevel 2 
     .
 
 ##POWER 8
 
  :POWER-8 rdf:type owl:Class, owl:NamedIndividual ;
-    :ID [ccts:identifierValue "1"] .
-    :powerType powers:STUDYING ;
+    :ID [ccts:identifierValue "8"] ;
+    :powerType powers:RESIDENCE ;
     :statusType status:APPROVED ;
-    :geospatialConstraint "Europe" ; 
-    :currentDelegationLevel 5 
+    :geospatialConstraint "EUROPE" ;
+    :currentDelegationLevel 1 
     .
 
 ##POWER 9
 
  :POWER-9 rdf:type owl:Class, owl:NamedIndividual ;
-    :ID [ccts:identifierValue "1"] .
-    :powerType powers:STUDYING ;
-    :statusType status:APPROVED ;
-    :geospatialConstraint "Europe" ; 
-    :currentDelegationLevel 5 
+    :ID [ccts:identifierValue "9"] ;
+    :powerType powers:WORKING ;
+    :statusType status:CONFIRMED ;
+    :geospatialConstraint "SPAIN" ;
+    :currentDelegationLevel 2 
     .
 
 ##POWER 10
 
  :POWER-10 rdf:type owl:Class, owl:NamedIndividual ;
-    :ID [ccts:identifierValue "1"] .
+    :ID [ccts:identifierValue "10"] ;
     :powerType powers:STUDYING ;
     :statusType status:APPROVED ;
-    :geospatialConstraint "Europe" ; 
-    :currentDelegationLevel 5 
+    :geospatialConstraint "BELGIUM" ; 
+    :currentDelegationLevel 1
     .
 
 #PERIODS
-##PERIODS
-
+##PERIOD 1
 :PERIOD rdf:type owl:Class, owl:NamedIndividual ;
-	:ID [ccts:identifierValue "1"]
-	:startDateTime "2019-01-31T21:57:00"^^xsd:dateTime;
-	:endDateTime "2019-02-31T21:57:00"^^xsd:dateTime;
-	:description "One Month"
-	:descriptionCode ""
-	:durationMeasure ""^^ccts:measureValue
-	. 
+	:ID [ccts:identifierValue "1"] ;
+	:startDateTime "2019-01-31T21:57:00"^^xsd:dateTime ;
+	:endDateTime "2019-02-31T21:57:00"^^xsd:dateTime ;
+	.
+
+##PERIOD 2
+:PERIOD rdf:type owl:Class, owl:NamedIndividual ;
+	:ID [ccts:identifierValue "2"] ;
+	:startDateTime "2019-01-31T21:57:00"^^xsd:dateTime ;
+	:endDateTime "2019-02-31T21:57:00"^^xsd:dateTime ;
+	.
+
+##PERIOD 3
+:PERIOD rdf:type owl:Class, owl:NamedIndividual ;
+	:ID [ccts:identifierValue "3"] ;
+	:startDateTime "2019-01-31T21:57:00"^^xsd:dateTime ;
+	:endDateTime "2019-01-31T21:57:00"^^xsd:dateTime ;
+	.
 
 #MANDATEES
 
 #MANDTEE 1
 :MANDATEE-1 rdf:type owl:Class, owl:NamedIndividual ;
-    :ID :MANDATEE_ID-1
+    :ID [ccts:identifierValue "1"] ;
     .
 
-:MANDATEE_ID-1 rdf:type ccts:Identifier ;
-    ccts:identifierValue "1" 
+#MANDTEE 2
+
+:MANDATEE-2 rdf:type owl:Class, owl:NamedIndividual ;
+    :ID [ccts:identifierValue "2"] ;
     .
 
- :MANDATOR-1 rdf:type owl:Class, owl:NamedIndividual ;
-    :ID :MANDATOR_ID-1
+#MANDTEE 3
+
+:MANDATEE-3 rdf:type owl:Class, owl:NamedIndividual ;
+    :ID [ccts:identifierValue "3"] ;
     .
 
-:MANDATOR_ID-1 rdf:type ccts:Identifier ;
-    ccts:identifierValue "1" 
+#MANDATORS
+
+#MANDATOR1 
+
+:MANDATOR-1 rdf:type owl:Class, owl:NamedIndividual ;
+    :ID [ccts:identifierValue "1"] ;
     .
+
+#MANDATOR2
+
+:MANDATOR-2 rdf:type owl:Class, owl:NamedIndividual ;
+    :ID [ccts:identifierValue "2"] ;
+    .
+
+
+
