@@ -20,17 +20,39 @@
 
 :roleOf rdf:type owl:ObjectProperty ,
                owl:FunctionalProperty ;
-      rdfs:domain :Mandatee ,
+        rdfs:domain :Mandatee ,
                   :Mandator ;
-      rdfs:range foaf:Agent ;
-      rdfs:label "role Of" ;
-      skos:definition "The role of a natural person or a legal person as a mandator or a mandatee."@en .
+        rdfs:range foaf:Agent ;
+        rdfs:label "role Of" ;
+        skos:definition "The role of a natural person or a legal person as a mandator or a mandatee."@en .
 
-:hasPower rdf:type owl:ObjectProperty ;
+:has rdf:type owl:ObjectProperty ;
           rdfs:domain :Mandate ;
           rdfs:range :Power ;
           rdfs:label "has Power"@en ;
           skos:definition "The Powers in a Mandate that a Mandator assigns to a Mandatee."@en .
+
+#Added
+
+:lifeSpan rdf:type owl:ObjectProperty ;
+          rdfs:domain :Mandate ;
+          rdfs:range :Period ;
+          rdfs:label "has lifeSpan"@en ;
+          skos:definition "The dates of creation and striking-off of the  Mandate in the eMandate Registry."@en .
+
+:typeOfPower  rdf:type owl:ObjectProperty ;
+              rdfs:domain :Power ;
+              rdfs:range :EUPowerTaxonomy ;
+              rdfs: label "has type of power"@en ;
+              skos:definition "The Type of Power provided through the empowerment of Mandatee by a Mandator"
+
+:typeOfPerson rdf:type owl:ObjectProperty ;
+              rdfs:domain :Mandator, :Mandatee ;
+              rdfs:range :PersonType ;
+              rdfs: label "has type of person"@en ;
+              skos:definition "The Type of person (e.g. Natural Person, Legal Entity, other future uses)"
+
+#end
 
 :assignedTo rdf:type owl:ObjectProperty ;
               rdfs:domain :Power ;
@@ -38,11 +60,11 @@
               rdfs:label "assigned To"@en ; 
               skos:definition "The Powers in a Mandate that a Mandatee receives from a Mandator."@en .
 
-:satisfiesSPInformationRequirements rdf:type owl:ObjectProperty ;
+:satisfiesRequirements rdf:type owl:ObjectProperty ;
                           rdfs:domain :Mandatee ,
                                       :Mandator ;
                           rdfs:range ccev:Criterion ;
-                          rdfs:label "satisfies SP Information Requirements"@en ;
+                          rdfs:label "satisfies Service Provider Information Requirements"@en ;
                           skos:definition "A mandator or mandatee satisfies the constraints set by the Service Provider."@en .
 
 :geospatialConstraint rdf:type owl:ObjectProperty ;
@@ -62,12 +84,11 @@
                rdfs:range skos:Concept ;
                rdfs:label "Status Type"@en .
 
-
-:validityPeriod rdf:type owl:ObjectProperty ,
+:validityPeriodConstraint rdf:type owl:ObjectProperty ,
                             owl:FunctionalProperty ;
-                   rdfs:domain :Power ;
-                   rdfs:range ubl:Period ;
-                   rdfs:label "has Validity Period"@en .
+                          rdfs:domain :Power ;
+                          rdfs:range ubl:Period ;
+                          rdfs:label "has Validity Period"@en .
 
 :financialThresholdConstraint rdf:type owl:ObjectProperty ;
                                     rdfs:domain :Power ;
@@ -106,3 +127,7 @@
        rdfs:label "Power"@en ;
        skos:definition "The capacity to act on its own behalf."@en .
 
+:Period rdf:type owl:Class ;
+        rdfs:label "Period"@en ;
+        skos:definition "The period of validity of a mandate"
+        .
