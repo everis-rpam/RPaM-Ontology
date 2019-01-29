@@ -46,7 +46,8 @@ ubl:durationMeasure rdf:type owl:ObjectProperty ,
 ubl:endDateTime rdf:type owl:DatatypeProperty ,
                       owl:FunctionalProperty ;
              rdfs:domain ubl:Period ;
-             rdfs:range xsd:dateTime .
+             rdfs:range xsd:dateTime
+             .
 
 
 ###  http://docs.oasis-open.org/ubl#startDateTime
