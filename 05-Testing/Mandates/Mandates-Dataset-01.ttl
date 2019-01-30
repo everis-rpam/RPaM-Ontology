@@ -11,7 +11,8 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix powers: <http://data.europa.eu/RPaM/ontology/rd/powers#> .
 @prefix status: <http://data.europa.eu/RPaM/ontology/rd/status#> .
-@base <http://data.europa.eu/RPaM/ontology#> .
+@prefix evidences: <http://data.europa.eu/RPaM/ontology/rd//evidences#> .
+
 
 <https://joinup.ec.europa.eu/collection/rpam/1.0.0/ontology#> rdf:type owl:Ontology ;
                                         owl:versionIRI <https://joinup.ec.europa.eu/collection/rpam/1.0.0/ontology> .
@@ -19,7 +20,7 @@
 #MANDATES
 ##MANDATE 1
 
-:MANDATE-1 rdf:type owl:Class, owl:NamedIndividual ;
+:MANDATE-1 rdf:type :Mandate;
     :ID [ccts:identifierValue "1"] ;
     skos:note "The Mandate lifeSpan informs about when the Mandate was created and when it was struck-off from the register."@en , 
     "if no endDateTime or durationMeansure are specificed it implies that the mandate is still alive."@en ;
@@ -28,7 +29,7 @@
 
 ##MANDATE 2
 
-:MANDATE-2 rdf:type owl:Class, owl:NamedIndividual ;
+:MANDATE-2 rdf:type :Mandate ;
     :ID [ccts:identifierValue "2"] ;
     skos:note "The Mandate lifeSpan informs about when the Mandate was created and when it was struck-off from the register."@en , 
     "if the endDateTime specificed is later than the current date it implies that the mandate is still alive."@en ;
@@ -37,7 +38,7 @@
 
 ##MANDATE 3
 
-:MANDATE-3 rdf:type owl:Class, owl:NamedIndividual ;
+:MANDATE-3 rdf:type :Mandate ;
     :ID [ccts:identifierValue "3"] ;
     skos:note "The Mandate lifeSpan informs about when the Mandate was created and when it was struck-off from the register."@en , 
     "if the endDateTime is earlier than the current date it implies that the Mandate is not alive anymore."@en ;
@@ -47,7 +48,7 @@
 #POWERS
 ##POWER 1
 
-:POWER-1 rdf:type owl:Class, owl:NamedIndividual ;
+:POWER-1 rdf:type :Power ;
     :ID [ccts:identifierValue "1"] ;
     :powerType powers:WORKING ;
     :statusType status:CONFIRMED ;
@@ -59,7 +60,7 @@
 
  ##POWER 2
 
-:POWER-2 rdf:type owl:Class, owl:NamedIndividual ;
+:POWER-2 rdf:type :Power ;
     :ID [ccts:identifierValue "2"] ;
     :powerType powers:WORKING ;
     :statusType status:EXTENDED ;
@@ -72,7 +73,7 @@
 
 ##POWER 3
 
-:POWER-3 rdf:type owl:Class, owl:NamedIndividual ;
+:POWER-3 rdf:type :Power ;
     :ID [ccts:identifierValue "3"] ;
     :powerType powers:STARTING-BUSINESS ;
     :statusType status:CONFIRMED ;
@@ -84,7 +85,7 @@
 
 ##POWER 4
 
-:POWER-4 rdf:type owl:Class, owl:NamedIndividual ;
+:POWER-4 rdf:type :Power ;
     :ID [ccts:identifierValue "4"] ;
     :powerType powers:STUDYING ;
     :statusType status:EXPIRED ;
@@ -96,7 +97,7 @@
 
 ##POWER 5
 
-:POWER-5 rdf:type owl:Class, owl:NamedIndividual ;
+:POWER-5 rdf:type :Power ;
     :ID [ccts:identifierValue "5"] ;
     :powerType powers:DOING-BUSINESS ;
     :statusType status:CONFIRMED ;
@@ -108,7 +109,7 @@
 
 ##POWER 6
 
- :POWER-6 rdf:type owl:Class, owl:NamedIndividual ;
+ :POWER-6 rdf:type :Power ;
     :ID [ccts:identifierValue "6"] ;
     :powerType powers:RETIRING ;
     :statusType status:CONFIRMED ;
@@ -120,7 +121,7 @@
 
  ##POWER 7
 
- :POWER-7 rdf:type owl:Class, owl:NamedIndividual ;
+ :POWER-7 rdf:type :Power ;
     :ID [ccts:identifierValue "7"] ;
     :powerType powers:STARTING-BUSINESS ;
     :statusType status:REVOKED ;
@@ -132,7 +133,7 @@
 
 ##POWER 8
 
- :POWER-7 rdf:type owl:Class, owl:NamedIndividual ;
+ :POWER-7 rdf:type :Power ;
     :ID [ccts:identifierValue "7"] ;
     :powerType powers:STARTING-BUSINESS ;
     :statusType status:REVOKED ;
@@ -144,7 +145,7 @@
 
 ##POWER 9 - Check several mandatees for one mandate.
 
- :POWER-9 rdf:type owl:Class, owl:NamedIndividual ;
+ :POWER-9 rdf:type :Power ;
     :ID [ccts:identifierValue "9"] ;
     :powerType powers:WORKING ;
     :statusType status:CONFIRMED ;
@@ -156,7 +157,7 @@
 
 ##POWER 10
 
- :POWER-10 rdf:type owl:Class, owl:NamedIndividual ;
+ :POWER-10 rdf:type :Power ;
     :ID [ccts:identifierValue "10"] ;
     :powerType powers:STUDYING ;
     :statusType status:CONFIRMED ;
@@ -165,60 +166,11 @@
     :assignedTo :MANDATEE-3 ;
     :currentDelegationLevel 0 ;
     .
-#PERIODS
-##PERIOD 1
-
-#:PERIOD rdf:type owl:Class, owl:NamedIndividual ;
-#	:ID [ccts:identifierValue "1"] ;
-#	:startDateTime "2019-01-31T21:57:00"^^xsd:dateTime ;
-#	:endDateTime "2019-02-31T21:57:00"^^xsd:dateTime ;
-#	:description "One Month"@en ;
-#	.
-
-##PERIOD 2
-:PERIOD rdf:type owl:Class, owl:NamedIndividual ;
-	:ID [ccts:identifierValue "2"] ;
-	:startDateTime "2019-01-31T21:57:00"^^xsd:dateTime ;
-	:endDateTime "2019-04-31T21:57:00"^^xsd:dateTime ;
-	:description "Three Months"@en ;
-	.
-
-##PERIOD 3
-:PERIOD rdf:type owl:Class, owl:NamedIndividual ;
-	:ID [ccts:identifierValue "3"] ;
-	:startDateTime "2019-01-31T21:57:00"^^xsd:dateTime ;
-	:endDateTime "2019-07-31T21:57:00"^^xsd:dateTime ;
-	:description "Six Month"@en ;
-	.
-
-##PERIOD 4
-:PERIOD rdf:type owl:Class, owl:NamedIndividual ;
-	:ID [ccts:identifierValue "3"] ;
-	:startDateTime "2019-01-31T21:57:00"^^xsd:dateTime ;
-	:endDateTime "2020-01-31T21:57:00"^^xsd:dateTime ;
-	:description "One Year"@en ;
-	.
-
-##PERIOD 5
-:PERIOD rdf:type owl:Class, owl:NamedIndividual ;
-	:ID [ccts:identifierValue "3"] ;
-	:startDateTime "2019-01-31T21:57:00"^^xsd:dateTime ;
-	:endDateTime "2022-01-31T21:57:00"^^xsd:dateTime ;
-	:description "Three Years"@en ;
-	.
-
-##PERIOD 6
-:PERIOD rdf:type owl:Class, owl:NamedIndividual ;
-	:ID [ccts:identifierValue "3"] ;
-	:startDateTime "2024-01-31T21:57:00"^^xsd:dateTime ;
-	:endDateTime "2019-01-31T21:57:00"^^xsd:dateTime ;
-	:description "Five Years"@en ;
-	.
 
 #MANDATEES
 
 #MANDTEE 1
-:MANDATEE-1 rdf:type owl:Class, owl:NamedIndividual ;
+:MANDATEE-1 rdf:type :Mandatee ;
     :ID [ccts:identifierValue "1"] ;
     :age 35 ;
     :firstName "Albert" ;
@@ -227,7 +179,7 @@
 
 #MANDTEE 2
 
-:MANDATEE-2 rdf:type owl:Class, owl:NamedIndividual ;
+:MANDATEE-2 rdf:type :Mandatee ;
     :ID [ccts:identifierValue "2"] ;
     :age 48 ;
     :firstName "Jean-Paul" ;
@@ -236,7 +188,7 @@
 
 #MANDTEE 3
 
-:MANDATEE-3 rdf:type owl:Class, owl:NamedIndividual ;
+:MANDATEE-3 rdf:type :Mandatee ;
     :ID [ccts:identifierValue "3"] ;
     :age 27 ;
     :firstName "Donald" ;
@@ -247,7 +199,7 @@
 
 #MANDATOR1 
 
-:MANDATOR-1 rdf:type owl:Class, owl:NamedIndividual ;
+:MANDATOR-1 rdf:type :Mandator ;
     :ID [ccts:identifierValue "1"] ;
     :age 21 ;
     :firstName "Jacques" ;
@@ -256,12 +208,9 @@
 
 #MANDATOR2
 
-:MANDATOR-2 rdf:type owl:Class, owl:NamedIndividual ;
+:MANDATOR-2 rdf:type :Mandator ;
     :ID [ccts:identifierValue "2"] ;
     :age 25 ;
     :firstName "Robert" ;
     :familyName "Schuman" 
     .
-
-
-
