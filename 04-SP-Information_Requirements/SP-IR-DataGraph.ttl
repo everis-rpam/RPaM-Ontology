@@ -42,7 +42,7 @@
 	:property :LP_ID .
 
 :645fd780-5895-4e46-b862-90eecfe974de  rdf:type :Group, owl:NamedIndividual ;
-	:description "Group of evidences, e.g. Mandates and possible delegated powers."@en ;
+	:description "Group of requirements and constraints related to evidences, e.g. Mandates and possible delegated powers."@en ;
 	:property :EVIDENCE_ID ;
 	:property :DOWNLOAD_URL ;
 	:property :EVIDENCE_TYPE ;
@@ -58,22 +58,46 @@
 	:property :AGE ;
 	:property :ABOVE_AGE .
 
+:EVIDENCE_ID rdf:type :Property, owl:NamedIndividual ;
+	:name "Evidence Identifier"@en ;
+	:description "The Identifier of an evidence."@en ;
+	:type ett:INFORMATION_REQUIREMENT ;
+	:componentType ctt:IDENTIFIER .
+
+:DOWNLOAD_URL rdf:type :Property, owl:NamedIndividual ;
+	:name "Download URL"@en ;
+	:description "The URL where to download an evidence from."@en ;
+	:type ett:INFORMATION_REQUIREMENT ;
+	:componentType ctt:URL .
+
+:LP_REGISTERED_NAME rdf:type :Property, owl:NamedIndividual ;
+	:name "Registered Name"@en ;
+	:description "The name of the organisation as registered in an official registry."@en ;
+	:type ett:INFORMATION_REQUIREMENT ;
+	:componentType ctt:TEXT .
+
+:LP_ID rdf:type :Property, owl:NamedIndividual ;
+	:name "Legal Person Identifier"@en ;
+	:description "The identifier number of the organisation. E.g. the BRIS EUID, a LEI number, etc."@en ;
+	:type ett:INFORMATION_REQUIREMENT ;
+	:componentType ctt:IDENTIFIER .
+
 :GIVEN_NAME rdf:type :Property, owl:NamedIndividual ;
 	:name "Given Name"@en ;
 	:description "The given name of the person."@en ;
-	:type ett:DATUM ;
+	:type ett:INFORMATION_REQUIREMENT ;
 	:componentType ctt:TEXT .
 
 :FAMILY_NAME rdf:type :Property, owl:NamedIndividual ;
 	:name "Family Name"@en ;
 	:description "The family name of the person."@en ;
-	:type ett:DATUM ;
+	:type ett:INFORMATION_REQUIREMENT ;
 	:componentType ctt:TEXT .
 
 :AGE rdf:type :Property, owl:NamedIndividual ;
 	:name "Age"@en ;
 	:description "The age of the person expressed as the positive integer number of years."@en ;
-	:type ett:DATUM ;
+	:type ett:INFORMATION_REQUIREMENT ;
 	:componentType ctt:POSITIVE_INTEGER .
 
 :ABOVE_AGE rdf:type :Property, owl:NamedIndividual ;
