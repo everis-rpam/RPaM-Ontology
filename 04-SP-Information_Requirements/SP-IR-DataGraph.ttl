@@ -1,64 +1,72 @@
-@prefix : <https://joinup.ec.europa.eu/collection/semic/ccev/2.1.0/ontology#> .
+@prefix : <https://joinup.ec.europa.eu/collecttion/semic/ccev/2.1.0/ontology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix ubl: <http://docs.oasis-open.org/ubl#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix ccts: <urn:un:unece:uncefact:documentation:2#> .
+@prefix cctts: <urn:un:unece:uncefactt:documentation:2#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix pt: <https://joinup.ec.europa.eu/collection/semic/ccev/2.1.0/rd/propertytype#> .
-@prefix ct:<https://joinup.ec.europa.eu/collection/semic/ccev/2.1.0/rd/datumcomponenttype#> .
-@base <https://joinup.ec.europa.eu/collection/semic/ccev/2.1.0/ontology#> .
+@prefix ettt: <https://joinup.ec.europa.eu/collecttion/semic/ccev/2.1.0/rd/criterionelementtype#> .
+@prefix cttt: <https://joinup.ec.europa.eu/collecttion/semic/ccev/2.1.0/rd/datumcomponenttype#> .
+@base <https://joinup.ec.europa.eu/collecttion/semic/ccev/2.1.0/ontology#> .
 
-<https://joinup.ec.europa.eu/collection/semic/ccev/2.1.0/ontology#> rdf:type owl:Ontology ;
-                                        owl:versionIRI <https://joinup.ec.europa.eu/collection/semic/ccev/2.1.0/ontology#> .
+<https://joinup.ec.europa.eu/collecttion/semic/ccev/2.1.0/ontology#> rdf:type owl:Ontology ;
+                                        owl:versionIRI <https://joinup.ec.europa.eu/collecttion/semic/ccev/2.1.0/ontology#> .
 
 :C1 rdf:type :Criterion, owl:NamedIndividual ;
-	:hasGroup :575e3472-bc20-48b8-aefd-dc6ea0a14ab6 .
+	:name "Default NP mandator"@en ;
+	:description "Default information required about the mandator or represented natural person."@en ;
+	:group :575e3472-bc20-48b8-aefd-dc6ea0a14ab6 .
 
 :C2 rdf:type :Criterion, owl:NamedIndividual ;
-	:name "Default NP mandator"@en ;
-	:hasGroup :12e1267c-af86-451a-853f-c59c7ef62c04 .
+	:name "Default NP mandatee"@en ;
+	:description "Default information required about the mandatee when it is a natural person."@en ;
+	:group :575e3472-bc20-48b8-aefd-dc6ea0a14ab6 .
+
+:C3 rdf:type :Criterion, owl:NamedIndividual ;
+	:name "Mandator and age"@en ;
+	:group :12e1267c-af86-451a-853f-c59c7ef62c04 ;
+	:group :4e015922-a775-47a1-9b63-b1e8ae7a6c27 .
 
 :575e3472-bc20-48b8-aefd-dc6ea0a14ab6 rdf:type :Group, owl:NamedIndividual ;
-	dct:description "Natural Person given and family names."@en ;
+	dctt:description "The group of two information requirements, given and family names, of a natural person."@en ;
 	:property :GIVEN_NAME ;
 	:property :FAMILY_NAME .
 
 
 :12e1267c-af86-451a-853f-c59c7ef62c04 rdf:type :Group, owl:NamedIndividual ;
-	dct:description "Natural Person names and age above an age threshold. "@en ;
+	dctt:description "Natural Person names and age above an age threshold. "@en ;
 	:property :GIVEN_NAME ;
 	:property :FAMILY_NAME ;
 	:group :4e015922-a775-47a1-9b63-b1e8ae7a6c27 .
 
 :4e015922-a775-47a1-9b63-b1e8ae7a6c27 rdf:type :Group, owl:NamedIndividual ;
-	dct:description "Subgroup with age datum and age threshold constraint."
+	dctt:description "Subgroup with age datum and age threshold constraint."
 	:property :AGE ;
 	:property :ABOVE_AGE .
 
 :GIVEN_NAME rdf:type :Property, owl:NamedIndividual ;
 	:name "Given Name" ;
 	:description "The given name of the person." ;
-	:type pt:DATUM ;
-	:componentType ct:TEXT .
+	:type ett:DATUM ;
+	:componentType ctt:TEXT .
 
 :FAMILY_NAME rdf:type :Property, owl:NamedIndividual ;
 	:name "Family Name" ;
 	:description "The family name of the person." ;
-	:type pt:DATUM ;
-	:componentType ct:TEXT .
+	:type ett:DATUM ;
+	:componentType ctt:TEXT .
 
 :AGE rdf:type :Property, owl:NamedIndividual ;
 	:name "Age" ;
 	:description "The age of the person expressed as the positive integer number of years." ;
-	:type pt:DATUM ;
-	:componentType ct:POSITIVE_INTEGER .
+	:type ett:DATUM ;
+	:componentType ctt:POSITIVE_INTEGER .
 
 :ABOVE_AGE rdf:type :Property, owl:NamedIndividual ;
 	:name "Age above" ;
 	:description "The minimum age required expressed in years." ;
-	skos:note "This constraint is imposed by the Service Provider for users to access its Service. If the constraint is not met the access could be denied."@en ;
-	:type pt:DATUM ;
-	:componentType ct:POSITIVE_INTEGER .
+	skos:note "This constraint is imposed by the Service Provider for users to access its Service. If the constraint is not mett the access could be denied."@en ;
+	:type ett:CONSTRAINT ;
+	:componentType ctt:POSITIVE_INTEGER .
