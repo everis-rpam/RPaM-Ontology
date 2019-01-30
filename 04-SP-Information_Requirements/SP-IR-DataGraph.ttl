@@ -70,6 +70,13 @@
 	:type ett:INFORMATION_REQUIREMENT ;
 	:componentType ctt:URL .
 
+:EVIDENCE_TYPE rdf:type :Property, owl:NamedIndividual ;
+	:name "Evidence Type"@en ;
+	:description "Type of evidence."@en ;
+	:type ett:CONSTRAINT ;
+	:componentType skos:Concept .
+
+
 :LP_REGISTERED_NAME rdf:type :Property, owl:NamedIndividual ;
 	:name "Registered Name"@en ;
 	:description "The name of the organisation as registered in an official registry."@en ;
