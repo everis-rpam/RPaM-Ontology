@@ -14,10 +14,20 @@
 <https://joinup.ec.europa.eu/collection/semic/ccev/2.1.0/ontology#> rdf:type owl:Ontology ;
                                         owl:versionIRI <https://joinup.ec.europa.eu/collection/semic/ccev/2.1.0/ontology#> .
 
+:C1 rdf:type :Criterion, owl:NamedIndividual ;
+	:hasGroup :575e3472-bc20-48b8-aefd-dc6ea0a14ab6 .
+
 :C2 rdf:type :Criterion, owl:NamedIndividual ;
-	:hasGroup :G1 .
+	:name "Default NP mandator"@en ;
+	:hasGroup :12e1267c-af86-451a-853f-c59c7ef62c04 .
 
 :575e3472-bc20-48b8-aefd-dc6ea0a14ab6 rdf:type :Group, owl:NamedIndividual ;
+	dct:description "Natural Person given and family names."@en ;
+	:property :GIVEN_NAME ;
+	:property :FAMILY_NAME .
+
+
+:12e1267c-af86-451a-853f-c59c7ef62c04 rdf:type :Group, owl:NamedIndividual ;
 	dct:description "Natural Person names and age above an age threshold. "@en ;
 	:property :GIVEN_NAME ;
 	:property :FAMILY_NAME ;
