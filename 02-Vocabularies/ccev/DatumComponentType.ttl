@@ -64,3 +64,21 @@
 						a skosxl:Label ;
 						skosxl:literalForm "Positive Integer."@en .
 					 ] . 
+
+:IDENTIFIER a skos:Concept ;					 
+	dct:created "2018-10-29T16:16:45.686+01:00"^^xsd:dateTime ;
+	skos:definition "A pointer to an object, e.g. to a Person, an Organisation, etc. (normally mapped to an ISO 15000-5 CCTS Identifier type)."@en ;
+	skos:inScheme :COMPONENT_TYPE ;
+	skosxl:prefLabel [
+						a skosxl:Label ;
+						skosxl:literalForm "Identifier."@en .
+					 ] . 
+
+:URL a skos:Concept ;					 
+	dct:created "2018-10-29T16:16:45.686+01:00"^^xsd:dateTime ;
+	skos:definition "A Uniform Resource Locator. Normally mapped to xsd:anyURI."@en ;
+	skos:inScheme :COMPONENT_TYPE ;
+	skosxl:prefLabel [
+						a skosxl:Label ;
+						skosxl:literalForm "URL."@en .
+					 ] . 
