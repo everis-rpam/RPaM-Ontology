@@ -31,21 +31,27 @@
                           skos:definition "Uses the code list containing the different types for the evaluation of criteria."@en .
 
 ###  http://data.europa.eu/RPaM/ontology#hasGroup
-:Group rdf:type owl:ObjectProperty ;
+:group rdf:type owl:ObjectProperty ;
                            rdfs:domain :Criterion ;
                            rdfs:range :Group ;
                            rdfs:label "has Criterion Property Group"@en ;
                            skos:definition "Has an organised structure of related criterion properties."@en.
 
-###  http://data.europa.eu/RPaM/ontology#hasCriterionGroupPropertyType
-:GroupType rdf:type owl:ObjectProperty ;
+:groupType rdf:type owl:ObjectProperty ;
                                rdfs:domain :Group ;
                                # See code list GroupType 
                                rdfs:range skos:Concept ; 
                                rdfs:label "Uses the code list containing the different types of groups of criteria properties."@en .
 
-###  http://data.europa.eu/RPaM/ontology#hasProperty
-:Property rdf:type owl:ObjectProperty ;
+:componentType rdf:type owl:ObjectProperty ;
+                               rdfs:domain :Group ;
+                               # See code list DatumComponentType 
+                               rdfs:range skos:Concept ; 
+                               rdfs:label "Indicates the type of datum that is expected along with an information requirement or a constraint; eg. an AMOUNT, an IDENTIFIER, a QUANTITY, etc."@en ,
+                               "This code is used by software applications to chose the correct data type needed to answer a question or to hold a constraint by the SP"@en ,
+                               "They normally mapped to standard types, e.g. ISO 15000-5 CCTS such as ccts:Identifier, ccts:Amount, W3C xsd:positiveInteger, etc."@en .
+
+:property rdf:type owl:ObjectProperty ;
                       rdfs:domain :Group ;
                       rdfs:range :Property ;
                       rdfs:label "has Criterion Property"@en ;
