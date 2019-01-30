@@ -32,8 +32,7 @@
     :ID [ccts:identifierValue "2"] ;
     skos:note "The Mandate lifeSpan informs about when the Mandate was created and when it was struck-off from the register."@en , 
     "if the endDateTime specificed is later than the current date it implies that the mandate is still alive."@en ;
-    :lifeSpan [ubl:startDateTime "2018-01-29T21:57:00"^^xsd:dateTime ] ;
-	:lifeSpan [ubl:endDateTime "2019-02-31T21:57:00"^^xsd:dateTime ] ;
+    :lifeSpan [ubl:startDateTime "2018-01-29T21:57:00"^^xsd:dateTime ; ubl:endDateTime "2019-02-31T21:57:00"^^xsd:dateTime ];
     :hasPower :POWER-4, :POWER-5, :POWER-6, :POWER-7 .
 
 ##MANDATE 3
@@ -42,8 +41,7 @@
     :ID [ccts:identifierValue "3"] ;
     skos:note "The Mandate lifeSpan informs about when the Mandate was created and when it was struck-off from the register."@en , 
     "if the endDateTime is earlier than the current date it implies that the Mandate is not alive anymore."@en ;
-    :lifeSpan [ubl:startDateTime "2018-01-29T21:57:00"^^xsd:dateTime ] ;
-	:lifeSpan [ubl:endDateTime "2019-01-01T21:57:00"^^xsd:dateTime ];
+    :lifeSpan [ubl:startDateTime "2018-01-29T21:57:00"^^xsd:dateTime ; ubl:endDateTime "2019-01-01T21:57:00"^^xsd:dateTime ] ;
     :hasPower  :POWER-8, :POWER-9, :POWER-10 .
 
 #POWERS
@@ -224,7 +222,7 @@
     :ID [ccts:identifierValue "1"] ;
     :age 35 ;
     :firstName "Albert" ;
-    :famillyName "Camus"
+    :familyName "Camus"
     .
 
 #MANDTEE 2
@@ -233,7 +231,7 @@
     :ID [ccts:identifierValue "2"] ;
     :age 48 ;
     :firstName "Jean-Paul" ;
-    :famillyName "Sartre"
+    :familyName "Sartre"
     .
 
 #MANDTEE 3
@@ -242,7 +240,7 @@
     :ID [ccts:identifierValue "3"] ;
     :age 27 ;
     :firstName "Donald" ;
-    :famillyName "Trump"
+    :familyName "Trump"
     .
 
 #MANDATORS
@@ -253,7 +251,7 @@
     :ID [ccts:identifierValue "1"] ;
     :age 21 ;
     :firstName "Jacques" ;
-    :famillyName "Brel"
+    :familyName "Brel"
     .
 
 #MANDATOR2
@@ -262,7 +260,7 @@
     :ID [ccts:identifierValue "2"] ;
     :age 25 ;
     :firstName "Robert" ;
-    :famillyName "Schuman" 
+    :familyName "Schuman" 
     .
 
 
