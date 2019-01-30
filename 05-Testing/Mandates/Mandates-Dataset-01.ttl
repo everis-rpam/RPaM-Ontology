@@ -65,7 +65,7 @@
     :ID [ccts:identifierValue "2"] ;
     :powerType powers:WORKING ;
     :statusType status:EXTENDED ;
-    :geospatialConstraint "SPAIN" ; 
+    :geospatialConstraint "BELGIUM" ; 
     :powerOf :MANDATOR-1 ;
     :assignedTo :MANDATEE-1 ;
     :currentDelegationLevel 0 ;
@@ -78,7 +78,7 @@
     :ID [ccts:identifierValue "3"] ;
     :powerType powers:STARTING-BUSINESS ;
     :statusType status:CONFIRMED ;
-    :geospatialConstraint "EUROPE" ; 
+    :geospatialConstraint "BELGIUM" ; 
     :powerOf :MANDATOR-1 ;
     :assignedTo :MANDATEE-2 ;
     :currentDelegationLevel 0;
@@ -90,7 +90,7 @@
     :ID [ccts:identifierValue "4"] ;
     :powerType powers:STUDYING ;
     :statusType status:EXPIRED ;
-    :geospatialConstraint "ITALY" ; 
+    :geospatialConstraint "SPAIN" ; 
     :powerOf :MANDATOR-1 ;
     :assignedTo :MANDATEE-2 ;
     :currentDelegationLevel 0 ;
@@ -102,7 +102,7 @@
     :ID [ccts:identifierValue "5"] ;
     :powerType powers:DOING-BUSINESS ;
     :statusType status:CONFIRMED ;
-    :geospatialConstraint "GERMANY" ; 
+    :geospatialConstraint "SPAIN" ; 
     :powerOf :MANDATOR-1 ;
     :assignedTo :MANDATEE-1, :MANDATEE-2, :MANDATEE-3 ;
     :currentDelegationLevel 2 ;
@@ -114,7 +114,7 @@
     :ID [ccts:identifierValue "6"] ;
     :powerType powers:RETIRING ;
     :statusType status:CONFIRMED ;
-    :geospatialConstraint "PORTUGAL" ; 
+    :geospatialConstraint "SPAIN" ; 
     :powerOf :MANDATOR-2 ;
     :assignedTo :MANDATEE-1, :MANDATEE-2, :MANDATEE-3 ;
     :currentDelegationLevel 2;
@@ -126,7 +126,7 @@
     :ID [ccts:identifierValue "7"] ;
     :powerType powers:STARTING-BUSINESS ;
     :statusType status:REVOKED ;
-    :geospatialConstraint "FRANCE" ; 
+    :geospatialConstraint "SPAIN" ; 
     :powerOf :MANDATOR-2 ;
     :assignedTo :MANDATEE-3 ;
     :currentDelegationLevel 0 ;
@@ -150,7 +150,7 @@
     :ID [ccts:identifierValue "9"] ;
     :powerType powers:WORKING ;
     :statusType status:CONFIRMED ;
-    :geospatialConstraint "SPAIN" ;
+    :geospatialConstraint "FRANCE" ;
     :powerOf :MANDATOR-1 ;
     :assignedTo :MANDATEE-3, :MANDATEE-2 ;
     :currentDelegationLevel 0 ;
@@ -162,7 +162,7 @@
     :ID [ccts:identifierValue "10"] ;
     :powerType powers:STUDYING ;
     :statusType status:CONFIRMED ;
-    :geospatialConstraint "BELGIUM" ; 
+    :geospatialConstraint "FRANCE" ; 
     :powerOf :MANDATOR-2 ;
     :assignedTo :MANDATEE-3 ;
     :currentDelegationLevel 0 ;
