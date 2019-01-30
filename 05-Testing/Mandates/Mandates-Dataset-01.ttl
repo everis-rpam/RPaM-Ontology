@@ -23,28 +23,28 @@
     :ID [ccts:identifierValue "1"] ;
     skos:note "The Mandate lifeSpan informs about when the Mandate was created and when it was struck-off from the register."@en , 
     "if no endDateTime or durationMeansure are specificed it implies that the mandate is still alive."@en ;
-    :lifeSpan [ubl:startDateTime "2019-01-29T21:57:00"^^xsd:dateTime] ;
-    :hasPower POWER-1, POWER-2, POWER-3 .
+    :lifeSpan [ubl:startDateTime "2019-01-29T21:57:00"^^xsd:dateTime ] ;
+    :hasPower :POWER-1, :POWER-2, :POWER-3 .
 
 ##MANDATE 2
 
 :MANDATE-2 rdf:type owl:Class, owl:NamedIndividual ;
-    :ID [ccts:identifierValue "2"] .
+    :ID [ccts:identifierValue "2"] ;
     skos:note "The Mandate lifeSpan informs about when the Mandate was created and when it was struck-off from the register."@en , 
-    "if no endDateTime or durationMeansure are specificed it implies that the mandate is still alive."@en ;
-    :lifeSpan [ubl:startDateTime "2018-01-29T21:57:00"^^xsd:dateTime] ;
-	:endDateTime "2019-02-31T21:57:00"^^xsd:dateTime ;
-    :hasPower POWER-4 .
+    "if the endDateTime specificed is later than the current date it implies that the mandate is still alive."@en ;
+    :lifeSpan [ubl:startDateTime "2018-01-29T21:57:00"^^xsd:dateTime ] ;
+	:lifeSpan [ubl:endDateTime "2019-02-31T21:57:00"^^xsd:dateTime ] ;
+    :hasPower :POWER-4, :POWER-5, :POWER-6, :POWER-7 .
 
 ##MANDATE 3
 
 :MANDATE-3 rdf:type owl:Class, owl:NamedIndividual ;
-    :ID [ccts:identifierValue "3"] .
+    :ID [ccts:identifierValue "3"] ;
     skos:note "The Mandate lifeSpan informs about when the Mandate was created and when it was struck-off from the register."@en , 
-    "if the endDateTime is later than the current date it implies that the Mandate is still alive."@en ;
-    :lifeSpan [ubl:startDateTime "2018-01-29T21:57:00"^^xsd:dateTime] ;
-	:endDateTime "2019-02-31T21:57:00"^^xsd:dateTime ;
-    :hasPower POWER-5, POWER-6, POWER-7, POWER-8, POWER-9, POWER-10 .
+    "if the endDateTime is earlier than the current date it implies that the Mandate is not alive anymore."@en ;
+    :lifeSpan [ubl:startDateTime "2018-01-29T21:57:00"^^xsd:dateTime ] ;
+	:lifeSpan [ubl:endDateTime "2019-01-01T21:57:00"^^xsd:dateTime ];
+    :hasPower  :POWER-8, :POWER-9, :POWER-10 .
 
 #POWERS
 ##POWER 1
@@ -54,10 +54,9 @@
     :powerType powers:WORKING ;
     :statusType status:CONFIRMED ;
     :geospatialConstraint "BELGIUM" ;
-    :currentDelegationLevel 1 ;
     :powerOf :MANDATOR-1 ;
-    :assignedTo :MANDATEE-1, MANDATEE-2 ;
-    :currentDelegationLevel 0;
+    :assignedTo :MANDATEE-1, :MANDATEE-2 ;
+    :currentDelegationLevel 1 ;
     .
 
  ##POWER 2
@@ -67,7 +66,10 @@
     :powerType powers:WORKING ;
     :statusType status:EXTENDED ;
     :geospatialConstraint "SPAIN" ; 
-    :currentDelegationLevel 1 
+    :powerOf :MANDATOR-1 ;
+    :assignedTo :MANDATEE-1 ;
+    :currentDelegationLevel 0 ;
+    :currentDelegationLevel 1 ;
     .
 
 ##POWER 3
@@ -77,8 +79,11 @@
     :powerType powers:STARTING-BUSINESS ;
     :statusType status:CONFIRMED ;
     :geospatialConstraint "EUROPE" ; 
-    :currentDelegationLevel 1 
+    :powerOf :MANDATOR-1 ;
+    :assignedTo :MANDATEE-2 ;
+    :currentDelegationLevel 0;
     .
+
 ##POWER 4
 
 :POWER-4 rdf:type owl:Class, owl:NamedIndividual ;
@@ -86,7 +91,9 @@
     :powerType powers:STUDYING ;
     :statusType status:EXPIRED ;
     :geospatialConstraint "ITALY" ; 
-    :currentDelegationLevel 3 
+    :powerOf :MANDATOR-1 ;
+    :assignedTo :MANDATEE-2 ;
+    :currentDelegationLevel 0 ;
     .
 
 ##POWER 5
@@ -96,7 +103,9 @@
     :powerType powers:DOING-BUSINESS ;
     :statusType status:CONFIRMED ;
     :geospatialConstraint "GERMANY" ; 
-    :currentDelegationLevel 3 
+    :powerOf :MANDATOR-1 ;
+    :assignedTo :MANDATEE-1, :MANDATEE-2, :MANDATEE-3 ;
+    :currentDelegationLevel 2 ;
     .
 
 ##POWER 6
@@ -106,7 +115,9 @@
     :powerType powers:RETIRING ;
     :statusType status:CONFIRMED ;
     :geospatialConstraint "PORTUGAL" ; 
-    :currentDelegationLevel 1 
+    :powerOf :MANDATOR-2 ;
+    :assignedTo :MANDATEE-1, :MANDATEE-2, :MANDATEE-3 ;
+    :currentDelegationLevel 2;
     .
 
  ##POWER 7
@@ -116,27 +127,33 @@
     :powerType powers:STARTING-BUSINESS ;
     :statusType status:REVOKED ;
     :geospatialConstraint "FRANCE" ; 
-    :currentDelegationLevel 2 
+    :powerOf :MANDATOR-2 ;
+    :assignedTo :MANDATEE-3 ;
+    :currentDelegationLevel 0 ;
     .
 
 ##POWER 8
 
- :POWER-8 rdf:type owl:Class, owl:NamedIndividual ;
-    :ID [ccts:identifierValue "8"] ;
-    :powerType powers:RESIDENCE ;
-    :statusType status:CONFIRMED ;
-    :geospatialConstraint "EUROPE" ;
-    :currentDelegationLevel 1 
+ :POWER-7 rdf:type owl:Class, owl:NamedIndividual ;
+    :ID [ccts:identifierValue "7"] ;
+    :powerType powers:STARTING-BUSINESS ;
+    :statusType status:REVOKED ;
+    :geospatialConstraint "FRANCE" ; 
+    :powerOf :MANDATOR-1 ;
+    :assignedTo :MANDATEE-3 ;
+    :currentDelegationLevel 0 ;
     .
 
-##POWER 9
+##POWER 9 - Check several mandatees for one mandate.
 
  :POWER-9 rdf:type owl:Class, owl:NamedIndividual ;
     :ID [ccts:identifierValue "9"] ;
     :powerType powers:WORKING ;
     :statusType status:CONFIRMED ;
     :geospatialConstraint "SPAIN" ;
-    :currentDelegationLevel 2 
+    :powerOf :MANDATOR-1 ;
+    :assignedTo :MANDATEE-3, :MANDATEE-2 ;
+    :currentDelegationLevel 0 ;
     .
 
 ##POWER 10
@@ -146,18 +163,19 @@
     :powerType powers:STUDYING ;
     :statusType status:CONFIRMED ;
     :geospatialConstraint "BELGIUM" ; 
-    :currentDelegationLevel 1
+    :powerOf :MANDATOR-2 ;
+    :assignedTo :MANDATEE-3 ;
+    :currentDelegationLevel 0 ;
     .
-
 #PERIODS
 ##PERIOD 1
 
-:PERIOD rdf:type owl:Class, owl:NamedIndividual ;
-	:ID [ccts:identifierValue "1"] ;
-	:startDateTime "2019-01-31T21:57:00"^^xsd:dateTime ;
-	:endDateTime "2019-02-31T21:57:00"^^xsd:dateTime ;
-	:description "One Month"@en ;
-	.
+#:PERIOD rdf:type owl:Class, owl:NamedIndividual ;
+#	:ID [ccts:identifierValue "1"] ;
+#	:startDateTime "2019-01-31T21:57:00"^^xsd:dateTime ;
+#	:endDateTime "2019-02-31T21:57:00"^^xsd:dateTime ;
+#	:description "One Month"@en ;
+#	.
 
 ##PERIOD 2
 :PERIOD rdf:type owl:Class, owl:NamedIndividual ;
@@ -204,18 +222,27 @@
 #MANDTEE 1
 :MANDATEE-1 rdf:type owl:Class, owl:NamedIndividual ;
     :ID [ccts:identifierValue "1"] ;
+    :age 35 ;
+    :firstName "Albert" ;
+    :famillyName "Camus"
     .
 
 #MANDTEE 2
 
 :MANDATEE-2 rdf:type owl:Class, owl:NamedIndividual ;
     :ID [ccts:identifierValue "2"] ;
+    :age 48 ;
+    :firstName "Jean-Paul" ;
+    :famillyName "Sartre"
     .
 
 #MANDTEE 3
 
 :MANDATEE-3 rdf:type owl:Class, owl:NamedIndividual ;
     :ID [ccts:identifierValue "3"] ;
+    :age 27 ;
+    :firstName "Donald" ;
+    :famillyName "Trump"
     .
 
 #MANDATORS
@@ -225,12 +252,17 @@
 :MANDATOR-1 rdf:type owl:Class, owl:NamedIndividual ;
     :ID [ccts:identifierValue "1"] ;
     :age 21 ;
+    :firstName "Jacques" ;
+    :famillyName "Brel"
     .
 
 #MANDATOR2
 
 :MANDATOR-2 rdf:type owl:Class, owl:NamedIndividual ;
     :ID [ccts:identifierValue "2"] ;
+    :age 25 ;
+    :firstName "Robert" ;
+    :famillyName "Schuman" 
     .
 
 

@@ -46,12 +46,6 @@
               rdfs: label "has type of power"@en ;
               skos:definition "The Type of Power provided through the empowerment of Mandatee by a Mandator"
 
-:typeOfPerson rdf:type owl:ObjectProperty ;
-              rdfs:domain :Mandator, :Mandatee ;
-              rdfs:range :PersonType ;
-              rdfs: label "has type of person"@en ;
-              skos:definition "The Type of person (e.g. Natural Person, Legal Entity, other future uses)"
-
 #end
 
 :assignedTo rdf:type owl:ObjectProperty ;
