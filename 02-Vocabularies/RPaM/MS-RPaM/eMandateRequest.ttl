@@ -1,0 +1,106 @@
+@prefix : <https://joinup.ec.europa.eu/collection/rpam/1.0.0/emandaterequest#> .
+@prefix : <http://data.europa.eu/RPaM/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ubl: <http://docs.oasis-open.org/ubl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ccev: <https://joinup.ec.europa.eu/collection/semic/ccev/2.0.3/ontology#> .
+@prefix ccts: <http://www.unece.org/cefact#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix cpsvap: <http://data.europa.eu/m8g/cpsvap#> .
+@prefix person: <http://www.w3.org/ns/person#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@base <https://joinup.ec.europa.eu/collection/rpam/1.0.0/emandaterequest#> .
+
+<https://joinup.ec.europa.eu/collection/rpam/1.0.0/emandaterequest#> rdf:type owl:Ontology ;
+                                        owl:versionIRI <https://joinup.ec.europa.eu/collection/rpam/1.0.0/emandaterequest> .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+:hasMandator rdf:type owl:ObjectProperty ;
+      rdfs:range :Mandator ;
+      rdfs:label "has Mandator" ;
+      skos:definition "The role of a natural person or a legal person as a mandator or a mandatee."@en .
+
+:hasPower rdf:type owl:ObjectProperty ,
+                   owl:TransitiveProperty ;
+          rdfs:domain :Mandator, :Mandatee ;
+          rdfs:range :Power ;
+          rdfs:label "has Power"@en ;
+          skos:definition "The capacity to act on ownself (power) or on behalf of another (representation power)."@en .
+
+:roleOf rdf:type owl:ObjectProperty ,
+               owl:FunctionalProperty ;
+      rdfs:domain :Mandatee ,
+                  :Mandator ;
+      rdfs:range foaf:Agent ;
+      rdfs:label "role Of" ;
+      skos:definition "The role of a natural person or a legal person as a mandator or a mandatee."@en .
+
+:validityPeriod rdf:type owl:ObjectProperty ,
+                            owl:FunctionalProperty ;
+                   rdfs:domain :Power ;
+                   rdfs:range ubl:Period ;
+                   rdfs:label "has Validity Period"@en .
+
+:geospatialConstraint rdf:type owl:ObjectProperty ;
+                         rdfs:domain :Power ;
+                         # e.g. a NUTS code
+                         rdfs:range skos:Concept ;
+                         rdfs:label "Geospatial Constraint"@en ;
+                         skos:definition "Common power constraint establishing the geographical or spatial scope of the power."@en .
+
+:ID rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
+                       rdfs:domain :Mandatee, :Mandator, :Power ;
+                       rdfs:range ccts:Identifier ;
+                       rdfs:label "The identifier of a Mandator, a mandatee or a power"@en .
+
+:statusType rdf:type owl:ObjectProperty ;
+               rdfs:domain :Power ;
+               rdfs:range skos:Concept ;
+               rdfs:label "Status Type"@en ;
+               skos:definition "The current status of the power, e.g. ACTIVE, REVOKED, TEMPORALITY_SUSPENDED, etc."@en .
+
+:financialThresholdConstraint rdf:type owl:ObjectProperty ;
+                              rdfs:domain :Power ;
+                              rdfs:range ubl:Amount ;
+                              rdfs:label "Financial Threshold Constraint"@en ;
+                              skos:definition "Common power constraint limiting the power to a financial threshold."@en .
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://data.europa.eu/RPaM/ontology#hasCurrentDelegationLevel
+:currentDelegationLevel rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :Power ;
+                           rdfs:range xsd:positiveInteger ;
+                           rdfs:label "Current Delegation Level"@en ;
+                           skos:definition "The current level of the delegation of the power, if the power can be delegated. E.g. 0 (never delegated), 1 (delegated once), 2 (delegated twice), etc."@en .
+
+#################################################################
+#    Classes
+#################################################################
+
+:eMandateRequest rdf:type owl:Class ;
+          rdfs:label "eMandate Request"@en ;
+          skos:definition "An eDocument containing data to search an eMandate in an eMandate Registry."@en .
+
+:Mandatee rdf:type owl:Class ;
+          owl:rdfs:subClassOf foaf:Agent ;
+          rdfs:label "Mandatee"@en ;
+          skos:definition "Natural or legal person that acts on behalf of another natural or legal person."@en .
+
+:Mandator rdf:type owl:Class ;
+          owl:rdfs:subClassOf foaf:Agent ;
+          rdfs:label "Mandator"@en ;
+          skos:definition "Person who needs an activity executed in his name; creator of the mandate."@en .
+
+:Power rdf:type owl:Class ;
+       rdfs:label "Power"@en ;
+       skos:definition "The capacity to act on its own behalf."@en .
+
