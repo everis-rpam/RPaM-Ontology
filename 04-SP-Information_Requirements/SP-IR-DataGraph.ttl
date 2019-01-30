@@ -70,6 +70,18 @@
 	:type ett:INFORMATION_REQUIREMENT ;
 	:componentType ctt:URL .
 
+:EVIDENCE_TYPE rdf:type :Property, owl:NamedIndividual ;
+	:name "Evidence Type"@en ;
+	:description "Type of evidence."@en ;
+	:type ett:CONSTRAINT ;
+	:componentType skos:Concept .
+
+:EVIDENCE_SCHEME_VERSION rdf:type :Property, owl:NamedIndividual ;
+	:name "Evidence Scheme Version"@en ;
+	:description "The version identifier of the model (or template) used to express the evidence."@en ;
+	:type ett:CONSTRAINT ;
+	:componentType skos:Concept .
+
 :LP_REGISTERED_NAME rdf:type :Property, owl:NamedIndividual ;
 	:name "Registered Name"@en ;
 	:description "The name of the organisation as registered in an official registry."@en ;
