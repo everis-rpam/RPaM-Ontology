@@ -7,8 +7,7 @@
 @prefix cctts: <urn:un:unece:uncefactt:documentation:2#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix ett: <https://joinup.ec.europa.eu/collecttion/semic/ccev/2.1.0/rd/propertytype#> .
-@prefix ctt: <https://joinup.ec.europa.eu/collecttion/semic/ccev/2.1.0/rd/datumcomponenttype#> .
+@prefix et: <https://joinup.ec.europa.eu/collection/semic/ccev/2.1.0/rd/evidencetype#> .
 @base <https://joinup.ec.europa.eu/collecttion/semic/ccev/2.1.0/ontology#> .
 
 <https://joinup.ec.europa.eu/collecttion/semic/ccev/2.1.0/ontology#> rdf:type owl:Ontology ;
@@ -61,61 +60,38 @@
 :EVIDENCE_ID rdf:type :Property, owl:NamedIndividual ;
 	:name "Evidence Identifier"@en ;
 	:description "The Identifier of an evidence."@en ;
-	:type ett:INFORMATION_REQUIREMENT ;
-	:componentType ctt:IDENTIFIER .
-
+	
 :DOWNLOAD_URL rdf:type :Property, owl:NamedIndividual ;
 	:name "Download URL"@en ;
 	:description "The URL where to download an evidence from."@en ;
-	:type ett:INFORMATION_REQUIREMENT ;
-	:componentType ctt:URL .
-
+	
 :EVIDENCE_TYPE rdf:type :Property, owl:NamedIndividual ;
 	:name "Evidence Type"@en ;
 	:description "Type of evidence."@en ;
-	:type ett:CONSTRAINT ;
-	:componentType skos:Concept .
-
-:EVIDENCE_SCHEME_VERSION rdf:type :Property, owl:NamedIndividual ;
-	:name "Evidence Scheme Version"@en ;
-	:description "The version identifier of the model (or template) used to express the evidence."@en ;
-	:type ett:CONSTRAINT ;
-	:componentType skos:Concept .
-
+	:constraint [:datumCode et:EU_RPAM_Mandate] .
+	
 :LP_REGISTERED_NAME rdf:type :Property, owl:NamedIndividual ;
 	:name "Registered Name"@en ;
 	:description "The name of the organisation as registered in an official registry."@en ;
-	:type ett:INFORMATION_REQUIREMENT ;
-	:componentType ctt:TEXT .
-
+	
 :LP_ID rdf:type :Property, owl:NamedIndividual ;
 	:name "Legal Person Identifier"@en ;
 	:description "The identifier number of the organisation. E.g. the BRIS EUID, a LEI number, etc."@en ;
-	:type ett:INFORMATION_REQUIREMENT ;
-	:componentType ctt:IDENTIFIER .
-
+	
 :GIVEN_NAME rdf:type :Property, owl:NamedIndividual ;
 	:name "Given Name"@en ;
 	:description "The given name of the person."@en ;
-	:type ett:INFORMATION_REQUIREMENT ;
-	:componentType ctt:TEXT .
-
+	
 :FAMILY_NAME rdf:type :Property, owl:NamedIndividual ;
 	:name "Family Name"@en ;
 	:description "The family name of the person."@en ;
-	:type ett:INFORMATION_REQUIREMENT ;
-	:componentType ctt:TEXT .
-
+	
 :AGE rdf:type :Property, owl:NamedIndividual ;
 	:name "Age"@en ;
 	:description "The age of the person expressed as the positive integer number of years."@en ;
-	:type ett:INFORMATION_REQUIREMENT ;
-	:componentType ctt:POSITIVE_INTEGER .
-
+	
 :ABOVE_AGE rdf:type :Property, owl:NamedIndividual ;
 	:name "Age above" ;
 	:description "The minimum age required expressed in years."@en ;
 	skos:note "This constraint is imposed by the Service Provider for users to access its Service. If the constraint is not mett the access could be denied."@en ;
-	:type ett:CONSTRAINT ;
-	:componentType ctt:POSITIVE_INTEGER .
-
+	:minConstraint [:datumQuantity [ccts:quantityValue 18 ; ctts:unitCode :YEARS]] .
