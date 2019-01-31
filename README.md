@@ -28,6 +28,6 @@ This is the first release of the RPaM Ontology-related deliverables, which encom
 * The Conceptual Data Model ([CDM v1.0.0](https://github.com/everis-rpam/RPaM-Ontology/wiki/Conceptual-Model-v1.0))
 * A proposal of an extension for the ISA2 CPSV-AP (Core Public Service Vocabulary - Appplication Profile) (see diagram in the [EAP file](https://github.com/everis-rpam/RPaM-Ontology/blob/master/02-Vocabularies/RPaM/RPaM.EAP))
 * Draft OWL-DL Turtle ([TTL](https://github.com/everis-rpam/RPaM-Ontology/blob/master/02-Vocabularies/RPaM/RPaM_Ontology.ttl)) implementation of the RPaM Ontology and other reused [vocabularies](https://github.com/everis-rpam/RPaM-Ontology/tree/master/02-Vocabularies)
-* A proposal for the reuse of the ISA2 [CCEV](https://github.com/everis-rpam/RPaM-Ontology/blob/master/02-Vocabularies/RPaM/SP-InformationRequirements.xlsx) (Core Criterion Vocabulary) for the expression of information requirements and constraints
+* A proposal for the reuse of the ISA2 CCEV (Core Criterion Vocabulary) for the expression of [information requirements and constraints](https://github.com/everis-rpam/RPaM-Ontology/blob/master/02-Vocabularies/RPaM/SP-InformationRequirements.xlsx)
 
 See also the WG [presentation](https://github.com/everis-rpam/RPaM-Ontology/blob/master/04-Working_Group/20190110-WG_Meeting%231v1.1.pptx) used for the WG meeting #1 and the [minutes](https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/05-Working_Group/20190110-RPaM-WG_Meeting_Minutes_v2.pdf) of the meeting.
