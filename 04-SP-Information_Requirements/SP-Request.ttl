@@ -93,5 +93,5 @@
 :ABOVE_AGE rdf:type :Property, owl:NamedIndividual ;
 	:name "Age above" ;
 	:description "The minimum age required expressed in years."@en ;
-	skos:note "This constraint is imposed by the Service Provider for users to access its Service. If the constraint is not mett the access could be denied."@en ;
+	skos:note "This constraint is imposed by the Service Provider for users to access its Service. If the constraint is not met the access could be denied."@en ;
 	:minConstraint [:datumQuantity [ccts:quantityValue 18 ; ctts:unitCode :YEARS]] .
