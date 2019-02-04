@@ -8,8 +8,26 @@ In parallel to this process, a working group composed of stakeholders from multi
 
 # Release notes
 
-## Version 1.1.0
+## Version 1.1.0 (on going, presented on the 31st January 2019)
 
-In this version, the conceptual data model has been modified to ensure that the ternary relationship between Mandator,
-Power and Mandatee is established. For this, we have introduced a new class named Mandate (see definition in the notes
-associated to the class).
+Branch 1.1.0 makes available a second iteration of development and refining of:
+
+* The Conceptual Data Model ([CDM v1.1.0](https://github.com/everis-rpam/RPaM-Ontology/wiki/Conceptual-Model-v1.1))
+* Refactoring of the corresponding [TTL files](https://github.com/everis-rpam/RPaM-Ontology/tree/v1.1.0/02-Vocabularies/RPaM)
+* Simplification of the [SP-Information Requirements](https://github.com/everis-rpam/RPaM-Ontology/tree/v1.1.0/04-SP-Information_Requirements) based on the CCEV vocabulary
+* Implementation of simple datasets for the [testing the CDM v1.1.0](https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/05-Testing/Mandates/Mandates-Dataset-01.ttl) and the [SP-Information Requirements and Constraints](https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/04-SP-Information_Requirements/SP-Request.ttl)
+* Implementation of a few simple SPARQL [Queries](https://github.com/everis-rpam/RPaM-Ontology/tree/v1.1.0/05-Testing/Queries) for testing the CDM v1.1.0
+
+See also the WG [presentation](https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/05-Working_Group/20190131-WG_Meeting%232v0.1.pptx) used for the WG meeting #2.
+
+## Version 1.0.0 (10th January 2019)
+
+This is the first release of the RPaM Ontology-related deliverables, which encompasses namely:
+
+* A draft version of the [RPaM Glossary](https://github.com/everis-rpam/Core-Vocabulary/blob/master/01-Glossary/Glossary_and_Acronyms.xlsx)
+* The Conceptual Data Model ([CDM v1.0.0](https://github.com/everis-rpam/RPaM-Ontology/wiki/Conceptual-Model-v1.0))
+* A proposal of an extension for the ISA2 CPSV-AP (Core Public Service Vocabulary - Appplication Profile) (see diagram in the [EAP file](https://github.com/everis-rpam/RPaM-Ontology/blob/master/02-Vocabularies/RPaM/RPaM.EAP))
+* Draft OWL-DL Turtle ([TTL](https://github.com/everis-rpam/RPaM-Ontology/blob/master/02-Vocabularies/RPaM/RPaM_Ontology.ttl)) implementation of the RPaM Ontology and other reused [vocabularies](https://github.com/everis-rpam/RPaM-Ontology/tree/master/02-Vocabularies)
+* A proposal for the reuse of the ISA2 CCEV (Core Criterion Vocabulary) for the expression of [information requirements and constraints](https://github.com/everis-rpam/RPaM-Ontology/blob/master/02-Vocabularies/RPaM/SP-InformationRequirements.xlsx)
+
+See also the WG [presentation](https://github.com/everis-rpam/RPaM-Ontology/blob/master/04-Working_Group/20190110-WG_Meeting%231v1.1.pptx) used for the WG meeting #1 and the [minutes](https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/05-Working_Group/20190110-RPaM-WG_Meeting_Minutes_v2.pdf) of the meeting.
