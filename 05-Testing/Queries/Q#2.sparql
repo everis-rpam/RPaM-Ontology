@@ -1,0 +1,11 @@
+PREFIX : <https://joinup.ec.europa.eu/collection/rpam/1.0.0/ontology#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ccts: <http://www.unece.org/cefact#>
+
+#USER STORY: I, as a Service Provider given a Mandatee ID, need to know the Mandates where this Mandatee has been empowered.
+
+select * where {
+	?Mandate :hasPower ?Powers .
+    ?Powers :assignedTo ?Mandatee .
+	?Mandatee :ID [ccts:identifierValue "1"]
+} 
