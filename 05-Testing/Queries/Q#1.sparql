@@ -1,0 +1,9 @@
+PREFIX : <https://joinup.ec.europa.eu/collection/rpam/1.0.0/ontology#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ccts: <http://www.unece.org/cefact#>
+
+#It retrieves all the powers assigned to one specific Mandatee.
+select * where {
+	?Powers :assignedTo ?Mandatee .
+    ?Mandatee :ID [ccts:identifierValue "1"]
+}
