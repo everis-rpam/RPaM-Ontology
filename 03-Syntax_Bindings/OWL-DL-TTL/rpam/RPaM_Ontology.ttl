@@ -63,7 +63,7 @@
                          rdfs:label "Geospatial Constraint"@en .
 
 
-:ID rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
+:id rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
                        rdfs:domain :Mandate, :Mandatee, :Mandator, :Power ;
                        rdfs:range ccts:Identifier ;
                        rdfs:label "The identifier of a Mandator, a mandatee or a power"@en .
