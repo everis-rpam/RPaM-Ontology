@@ -111,13 +111,19 @@
     # <https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/03-Syntax_Bindings/OWL-DL-TTL/rpam/EU_Power_Status_Taxonomy.ttl>
     :statusType stat:CONFIRMED ;
     # The one who has the power and empowers other Persons.
-    :powerOf :MANDATOR-1 ;
+    :powerOf :MANDATOR-2 ;
     # The Persons empowered by the Mandator.
     :assignedTo :MANDATEE-1, :MANDATEE-2 ;
     #This power has not been delegated to any Mandatee. In other words, the Mandator is the first Person in a chain of exactly one Mandate.
     :currentDelegationLevel 1 .
 
 ######################################  POWER #2  ###############################################
+### In this example, this is the Power of Mandator 2, a Natural Person Named 
+### "Francisco Lemur Cifrado", who was assigned this Power in another Mandatee
+### (observe that the level of delegation is 2). 
+### This Mandator is going to assign powers related to business and financial operations to
+### the Mandatees "Vicenç Pons i Torra" and "Rosa De La Fuente" (Mandatees 3 and 4).
+###################################################################################################
 :POWER-2 rdf:type :Power ;
     :id [
                 ccts:identifierValue "P-2"          ;
@@ -129,8 +135,9 @@
     :powerType pwr:STARTING_BUSINESS ;
     :statusType stat:CONFIRMED ;
     :powerOf :MANDATOR-1 ;
-    :assignedTo :MANDATEE-1, :MANDATEE-2 ;
-    :currentDelegationLevel 1 .
+    :assignedTo :MANDATEE-3, :MANDATEE-4 ;
+    # The Mandator is the Mandatee of another Mandate.
+    :currentDelegationLevel 2 .
 
 ######################################  POWER #3  ###############################################
 :POWER-3 rdf:type :Power ;
@@ -144,8 +151,9 @@
     :powerType pwr:DOING_BUSINESS ;
     :statusType stat:CONFIRMED ;
     :powerOf :MANDATOR-1 ;
-    :assignedTo :MANDATEE-1, :MANDATEE-2 ;
-    :currentDelegationLevel 1 .
+    :assignedTo :MANDATEE-3, :MANDATEE-4 ;
+    # The Mandator is the Mandatee of another Mandate.
+    :currentDelegationLevel 2 .
 
 ######################################  POWER #4  ###############################################
 :POWER-4 rdf:type :Power ;
@@ -158,7 +166,7 @@
     skos:note "Powers related to moving activities, either in the same region or in a different region."@en ;
     :powerType pwr:MOVING ;
     :statusType stat:CONFIRMED ;
-    :powerOf :MANDATOR-1 ;
+    :powerOf :MANDATOR-2 ;
     :assignedTo :MANDATEE-1, :MANDATEE-2 ;
     :currentDelegationLevel 1 .
 
@@ -173,6 +181,97 @@
     skos:note "The action of presenting a proposal, application, or other document for consideration or judgement."@en ;
     :powerType pwr:SUBMIT ;
     :statusType stat:CONFIRMED ;
-    :powerOf :MANDATOR-1 ;
+    :powerOf :MANDATOR-2 ;
     :assignedTo :MANDATEE-1, :MANDATEE-2 ;
     :currentDelegationLevel 1 .
+
+######################################  POWER #6  ###############################################
+:POWER-6 rdf:type :Power ;
+    :id [
+                ccts:identifierValue "P-6"          ;
+                ccts:schemeID "POWER"               ;
+                ccts:schemeAgencyID "EU-COM-DIGIT"  ;
+                ccts:schemeVersionID "1.1.0"
+    ] ;
+    skos:note "Powers related to activities that refer to birth."@en ;
+    :powerType pwr:BIRTH ;
+    :statusType stat:CONFIRMED ;
+    :powerOf :MANDATOR-2 ;
+    :assignedTo :MANDATEE-1, :MANDATEE-2 ;
+    :currentDelegationLevel 1 .
+
+######################################  POWER #7  ###############################################
+:POWER-7 rdf:type :Power ;
+    :id [
+                ccts:identifierValue "P-7"          ;
+                ccts:schemeID "POWER"               ;
+                ccts:schemeAgencyID "EU-COM-DIGIT"  ;
+                ccts:schemeVersionID "1.1.0"
+    ] ;
+    skos:note "The act to get something by paying money for it."@en ;
+    :powerType pwr:BUY ;
+    :statusType stat:CONFIRMED ;
+    :powerOf :MANDATOR-1 ;
+    :assignedTo :MANDATEE-3, :MANDATEE-4 ;
+    # The Mandator is the Mandatee of another Mandate.
+    :currentDelegationLevel 2 .
+
+######################################  MANDATOR #1  ###############################################
+### In this example the Natural Person 'Serge Novack' (named individual MANDATOR-1) will hold 
+### powers related mainly to financial operations (see Powers assigned to this Mandator, above).
+### We will use this Mandator to illustrate how the financial constraints applied to his powers are different
+### to the financial constraints of other Mandatees.
+###################################################################################################
+
+:MANDATOR-1 rdf:type :Mandator, foaf:Person ;
+    :id [
+                ccts:identifierValue "00775083-X"   ;
+                ccts:schemeID "ES-NIE"               ;
+                ccts:schemeAgencyID "ES-INTERIOR-MINISTRY"
+    ] ;
+    :givenName "Serge" ; :familyName "Novack" .
+
+######################################  MANDATOR #2  ###############################################
+:MANDATOR-2 rdf:type :Mandator, foaf:Person ;
+    :id [
+                ccts:identifierValue "20775083-D"   ;
+                ccts:schemeID "ES-NIF"               ;
+                ccts:schemeAgencyID "ES-INTERIOR-MINISTRY"
+    ] ;
+    :givenName "Vicente" ; :familyName "Francisco Lemur Cifrado" .
+
+######################################  MANDATEE #1  ###############################################
+:MANDATEE-1 rdf:type :Mandatee, foaf:Person ;
+    :id [
+                ccts:identifierValue "16124678-X"   ;
+                ccts:schemeID "ES-NIF"               ;
+                ccts:schemeAgencyID "ES-INTERIOR-MINISTRY"
+    ] ;
+    :givenName "Paula" ; :familyName "Keen" .
+
+######################################  MANDATEE #2  ###############################################
+:MANDATEE-2 rdf:type :Mandatee, foaf:Person ;
+    :id [
+                ccts:identifierValue "46620667-P"   ;
+                ccts:schemeID "ES-NIF"               ;
+                ccts:schemeAgencyID "ES-INTERIOR-MINISTRY"
+    ] ;
+    :givenName "Emma" ; :familyName "Geminada" .
+
+######################################  MANDATEE #3  ###############################################
+:MANDATEE-3 rdf:type :Mandatee, foaf:Person ;
+    :id [
+                ccts:identifierValue "545519556-Q"   ;
+                ccts:schemeID "ES-NIF"               ;
+                ccts:schemeAgencyID "ES-INTERIOR-MINISTRY"
+    ] ;
+    :givenName "Vicenç" ; :familyName "Pons i Torra" .
+
+######################################  MANDATEE #4  ###############################################
+:MANDATEE-4 rdf:type :Mandatee, foaf:Person ;
+    :id [
+                ccts:identifierValue "72345671-S"   ;
+                ccts:schemeID "ES-NIF"               ;
+                ccts:schemeAgencyID "ES-INTERIOR-MINISTRY"
+    ] ;
+    :givenName "Rosa" ; :familyName "De La Fuente-Brolladora" .
