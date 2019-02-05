@@ -1,0 +1,97 @@
+@prefix : <https://joinup.ec.europa.eu/collecttion/semic/ccev/2.1.0/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ubl: <http://docs.oasis-open.org/ubl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix cctts: <urn:un:unece:uncefactt:documentation:2#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix et: <https://joinup.ec.europa.eu/collection/semic/ccev/2.1.0/rd/evidencetype#> .
+@base <https://joinup.ec.europa.eu/collecttion/semic/ccev/2.1.0/ontology#> .
+
+<https://joinup.ec.europa.eu/collecttion/semic/ccev/2.1.0/ontology#> rdf:type owl:Ontology ;
+                                        owl:versionIRI <https://joinup.ec.europa.eu/collecttion/semic/ccev/2.1.0/ontology#> .
+
+:C1 rdf:type :Criterion, owl:NamedIndividual ;
+	:name "Default NP mandator"@en ;
+	:description "Default information required about the mandator or represented natural person."@en ;
+	:group :575e3472-bc20-48b8-aefd-dc6ea0a14ab6 .
+
+:C2 rdf:type :Criterion, owl:NamedIndividual ;
+	:name "Default NP mandatee"@en ;
+	:description "Default information required about the mandatee when it is a natural person."@en ;
+	:group :575e3472-bc20-48b8-aefd-dc6ea0a14ab6 .
+
+:C3 rdf:type :Criterion, owl:NamedIndividual ;
+	:name "Mandator and age"@en ;
+	:description "Information required about the represented natural person for which the age is relevant."@en ;
+	:group :12e1267c-af86-451a-853f-c59c7ef62c04 ;
+	:group :4e015922-a775-47a1-9b63-b1e8ae7a6c27 .
+
+:C4 rdf:type :Criterion, owl:NamedIndividual ;
+	:name "Default LP mandator"@en ;
+	:description "Default information required about the mandator or represented legal person."@en ;
+	:group :dc448ed3-2263-48d0-9aee-f9dd60618978 ;
+	:group :645fd780-5895-4e46-b862-90eecfe974de .
+
+:dc448ed3-2263-48d0-9aee-f9dd60618978 rdf:type :Group, owl:NamedIndividual ;
+	:description "Organisation Registered Name and Organisation Identifier(s)"@en ;
+	:property :LP_REGISTERED_NAME ;
+	:property :LP_ID .
+
+:645fd780-5895-4e46-b862-90eecfe974de  rdf:type :Group, owl:NamedIndividual ;
+	:description "Group of requirements and constraints related to evidences, e.g. Mandates and possible delegated powers."@en ;
+	:property :EVIDENCE_ID ;
+	:property :DOWNLOAD_URL ;
+	:property :EVIDENCE_TYPE ;
+	:property :EVIDENCE_SCHEME_VERSION .
+
+:575e3472-bc20-48b8-aefd-dc6ea0a14ab6 rdf:type :Group, owl:NamedIndividual ;
+	:description "The group of two information requirements, given and family names, of a natural person."@en ;
+	:property :GIVEN_NAME ;
+	:property :FAMILY_NAME .
+
+:4e015922-a775-47a1-9b63-b1e8ae7a6c27 rdf:type :Group, owl:NamedIndividual ;
+	:description "Subgroup with age datum and age threshold constraint."@en ;
+	:property :AGE ;
+	:property :ABOVE_AGE .
+
+:EVIDENCE_ID rdf:type :Property, owl:NamedIndividual ;
+	:name "Evidence Identifier"@en ;
+	:description "The Identifier of an evidence."@en ;
+	
+:DOWNLOAD_URL rdf:type :Property, owl:NamedIndividual ;
+	:name "Download URL"@en ;
+	:description "The URL where to download an evidence from."@en ;
+	
+:EVIDENCE_TYPE rdf:type :Property, owl:NamedIndividual ;
+	:name "Evidence Type"@en ;
+	:description "Type of evidence."@en ;
+	:constraint [:datumCode et:EU_RPAM_Mandate] .
+	
+:LP_REGISTERED_NAME rdf:type :Property, owl:NamedIndividual ;
+	:name "Registered Name"@en ;
+	:description "The name of the organisation as registered in an official registry."@en ;
+	
+:LP_ID rdf:type :Property, owl:NamedIndividual ;
+	:name "Legal Person Identifier"@en ;
+	:description "The identifier number of the organisation. E.g. the BRIS EUID, a LEI number, etc."@en ;
+	
+:GIVEN_NAME rdf:type :Property, owl:NamedIndividual ;
+	:name "Given Name"@en ;
+	:description "The given name of the person."@en ;
+	
+:FAMILY_NAME rdf:type :Property, owl:NamedIndividual ;
+	:name "Family Name"@en ;
+	:description "The family name of the person."@en ;
+	
+:AGE rdf:type :Property, owl:NamedIndividual ;
+	:name "Age"@en ;
+	:description "The age of the person expressed as the positive integer number of years."@en ;
+	
+:ABOVE_AGE rdf:type :Property, owl:NamedIndividual ;
+	:name "Age above" ;
+	:description "The minimum age required expressed in years."@en ;
+	skos:note "This constraint is imposed by the Service Provider for users to access its Service. If the constraint is not met the access could be denied."@en ;
+	:minConstraint [:datumQuantity [ccts:quantityValue 16 ; ctts:unitCode :YEARS]] .
