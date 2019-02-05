@@ -39,7 +39,7 @@
 ###################################################################################################
 :MANDATE-1 rdf:type :Mandate;
     :id [
-                ccts:identifierValue "1"     ;
+                ccts:identifierValue "M-1"     ;
                 ccts:schemeID "MANDATE"      ;
                 ccts:schemeAgencyID "ES-RAE" ;
                 ccts:schemeVersionID "1.1.0"
@@ -56,7 +56,7 @@
     # For details on the ISO-15000-5 CCTS (Core Component Type Scpecification, prefix ccts herein, see
     # https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/03-Syntax_Bindings/OWL-DL-TTL/ccts/ccts.ttl
     :id [
-                ccts:identifierValue "2"     ;
+                ccts:identifierValue "M-2"     ;
                 ccts:schemeID "MANDATE"      ;
                 ccts:schemeAgencyID "ES-RAE" ;
                 ccts:schemeVersionID "1.1.0"
@@ -66,9 +66,9 @@
     :hasPower :POWER-4, :POWER-5, :POWER-6, :POWER-7 .      
 
 ######################################  MANDATE #3  ###############################################
-:MANDATE-2 rdf:type :Mandate ;
+:MANDATE-3 rdf:type :Mandate ;
     :id [
-                ccts:identifierValue "3"     ;
+                ccts:identifierValue "M-3"     ;
                 ccts:schemeID "MANDATE"      ;
                 ccts:schemeAgencyID "ES-RAE" ;
                 ccts:schemeVersionID "1.1.0"
@@ -81,7 +81,7 @@
                         ccts:unitCode uc:MONTH
                     ]
               ];
-    :hasPower :POWER-4, :POWER-5, :POWER-6, :POWER-7 .      
+    :hasPower :POWER-1, :POWER-5, :POWER-7 .      
 
 ######################################  POWER #1  ###############################################
 ### An individual (e.g. an instance) of a Power. The Power is the core link between
@@ -91,18 +91,87 @@
 ### This constraints are not directly linked to the Power but to the different Agents that intervene, 
 ### namely the Mandator and the Mandatee: *the Power is agnostic of the constraints that may be 
 ### applied to it*.
+###
+### In this example, this is the Power of Mandator 1, a Natural Person Named "Serge Novack" 
+### (MANDATOR-1), who empowers two other Natural Persons, "Paula Keen" (named individual
+### (MANDATEE-1) and "Emma Geminada" (named individual MANDATEE-2).
 ###################################################################################################
-
 :POWER-1 rdf:type :Power ;
     :id [
-                ccts:identifierValue "3"            ;
+                ccts:identifierValue "P-1"            ;
                 ccts:schemeID "POWER"             ;
                 ccts:schemeAgencyID "EU-COM-DIGIT"  ;
                 ccts:schemeVersionID "1.1.0"
     ] ;
-    # The Power is active. See the EU Powers Taxonomy.
+    # See the EU Powers Taxonomy in the RPaM GitHub repository. See examples of this Power in
+    # <https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/03-Syntax_Bindings/OWL-DL-TTL/rpam/EU_Powers_Taxonomy.ttl>
+    skos:note "Powers related to study and education activities."@en ;
     :powerType pwr:WORKING ;
-    # The Power is active. See code list with the different statuses of a Power.
+    # The Power is active. See code list in:
+    # <https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/03-Syntax_Bindings/OWL-DL-TTL/rpam/EU_Power_Status_Taxonomy.ttl>
+    :statusType stat:CONFIRMED ;
+    # The one who has the power and empowers other Persons.
+    :powerOf :MANDATOR-1 ;
+    # The Persons empowered by the Mandator.
+    :assignedTo :MANDATEE-1, :MANDATEE-2 ;
+    #This power has not been delegated to any Mandatee. In other words, the Mandator is the first Person in a chain of exactly one Mandate.
+    :currentDelegationLevel 1 .
+
+######################################  POWER #2  ###############################################
+:POWER-2 rdf:type :Power ;
+    :id [
+                ccts:identifierValue "P-2"          ;
+                ccts:schemeID "POWER"               ;
+                ccts:schemeAgencyID "EU-COM-DIGIT"  ;
+                ccts:schemeVersionID "1.1.0"
+    ] ;
+    skos:note "Powers related to certain activities at the time of the establishment of a business."@en ;
+    :powerType pwr:STARTING_BUSINESS ;
+    :statusType stat:CONFIRMED ;
+    :powerOf :MANDATOR-1 ;
+    :assignedTo :MANDATEE-1, :MANDATEE-2 ;
+    :currentDelegationLevel 1 .
+
+######################################  POWER #3  ###############################################
+:POWER-3 rdf:type :Power ;
+    :id [
+                ccts:identifierValue "P-3"          ;
+                ccts:schemeID "POWER"               ;
+                ccts:schemeAgencyID "EU-COM-DIGIT"  ;
+                ccts:schemeVersionID "1.1.0"
+    ] ;
+    skos:note "Powers related to certain activities at the time of cunducting business."@en ;
+    :powerType pwr:DOING_BUSINESS ;
+    :statusType stat:CONFIRMED ;
+    :powerOf :MANDATOR-1 ;
+    :assignedTo :MANDATEE-1, :MANDATEE-2 ;
+    :currentDelegationLevel 1 .
+
+######################################  POWER #4  ###############################################
+:POWER-4 rdf:type :Power ;
+    :id [
+                ccts:identifierValue "P-4"          ;
+                ccts:schemeID "POWER"               ;
+                ccts:schemeAgencyID "EU-COM-DIGIT"  ;
+                ccts:schemeVersionID "1.1.0"
+    ] ;
+    skos:note "Powers related to moving activities, either in the same region or in a different region."@en ;
+    :powerType pwr:MOVING ;
+    :statusType stat:CONFIRMED ;
+    :powerOf :MANDATOR-1 ;
+    :assignedTo :MANDATEE-1, :MANDATEE-2 ;
+    :currentDelegationLevel 1 .
+
+######################################  POWER #5  ###############################################
+:POWER-5 rdf:type :Power ;
+    :id [
+                ccts:identifierValue "P-5"          ;
+                ccts:schemeID "POWER"               ;
+                ccts:schemeAgencyID "EU-COM-DIGIT"  ;
+                ccts:schemeVersionID "1.1.0"
+    ] ;
+    skos:note "The action of presenting a proposal, application, or other document for consideration or judgement."@en ;
+    :powerType pwr:SUBMIT ;
     :statusType stat:CONFIRMED ;
     :powerOf :MANDATOR-1 ;
     :assignedTo :MANDATEE-1, :MANDATEE-2 ;
