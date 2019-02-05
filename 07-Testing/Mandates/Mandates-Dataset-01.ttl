@@ -9,11 +9,12 @@
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
 @prefix foaf:   <http://xmlns.com/foaf/0.1/> .
-@prefix pwr:    <http://data.europa.eu/RPaM/ontology/rd/powers#> .
-@prefix stat:   <http://data.europa.eu/RPaM/ontology/rd/status#> .
 @prefix dct:    <http://purl.org/dc/elements/1.1/> .
 @prefix adms:   <http://www.w3.org/ns/adms#> .
 @prefix dcat:   <http://www.w3.org/ns/dcat#> .
+@prefix pwr:    <http://data.europa.eu/RPaM/ontology/rd/powers#> .
+@prefix stat:   <http://data.europa.eu/RPaM/ontology/rd/status#> .
+@prefix uc:     <http://data.europa.eu/RPaM/ontology/rd/units#> .
 
 <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology#> rdf:type owl:Ontology ;
                                         owl:versionIRI <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology> ;
@@ -32,20 +33,77 @@
 
 ######################################  MANDATE #1  ###############################################
 ### An individual (e.g. an instance) of a Mandate empowering where three powers are assigned. 
-### Beware that the Powers may have different constraints for the Mandator and for the Mandatee(s).
+### Beware that the Mandatee does not contain any Service Provider Information Requirements (SP-IRs): 
+### Mandates are agnostic of the Services which may use it. Which does not imply that the 
+### eMandate Response provided by one eMandate Register may contain SP-IRs and related constraints.
 ###################################################################################################
 :MANDATE-1 rdf:type :Mandate;
     :id [
-                ccts:identifierValue "1" ;
-                ccts:schemeID "MANDATE"  ;
-                ccts:schemeAgencyID "ES-RAE" 
+                ccts:identifierValue "1"     ;
+                ccts:schemeID "MANDATE"      ;
+                ccts:schemeAgencyID "ES-RAE" ;
+                ccts:schemeVersionID "1.1.0"
     ] ;
-    
     skos:note "The Mandate lifeSpan informs about when the Mandate was created and when it was struck-off from the register."@en ,
               "If no endDateTime or durationMeansure are specificed it implies that the mandate is still alive."@en ;
+    # This Mandate is still 'alive' in the Registry.
     :lifeSpan [ubl:startDateTime "2019-01-29T21:57:00"^^xsd:dateTime ] ;
     :hasPower :POWER-1, :POWER-2, :POWER-3     
     .
 
+######################################  MANDATE #2  ###############################################
+:MANDATE-2 rdf:type :Mandate ;
+    # For details on the ISO-15000-5 CCTS (Core Component Type Scpecification, prefix ccts herein, see
+    # https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/03-Syntax_Bindings/OWL-DL-TTL/ccts/ccts.ttl
+    :id [
+                ccts:identifierValue "2"     ;
+                ccts:schemeID "MANDATE"      ;
+                ccts:schemeAgencyID "ES-RAE" ;
+                ccts:schemeVersionID "1.1.0"
+    ] ;
+    # This Mandate is still 'alive' in the Registry, but will presumably be struck-off from the Register on the 31st. February 2019.
+    :lifeSpan [ubl:startDateTime "2018-01-29T21:57:00"^^xsd:dateTime ; ubl:endDateTime "2019-02-31T21:57:00"^^xsd:dateTime ];
+    :hasPower :POWER-4, :POWER-5, :POWER-6, :POWER-7 .      
 
+######################################  MANDATE #3  ###############################################
+:MANDATE-2 rdf:type :Mandate ;
+    :id [
+                ccts:identifierValue "3"     ;
+                ccts:schemeID "MANDATE"      ;
+                ccts:schemeAgencyID "ES-RAE" ;
+                ccts:schemeVersionID "1.1.0"
+    ] ;
+    # This Mandate was presumably struck-off from the Register ten months after the date it was created (2017-95-30).
+    :lifeSpan [
+                    ubl:startDateTime "2017-05-30T21:57:00"^^xsd:dateTime ; 
+                    ubl:durationMeasure [
+                        ccts:measureValue "10"^^xsd:positiveInteger ;
+                        ccts:unitCode uc:MONTH
+                    ]
+              ];
+    :hasPower :POWER-4, :POWER-5, :POWER-6, :POWER-7 .      
 
+######################################  POWER #1  ###############################################
+### An individual (e.g. an instance) of a Power. The Power is the core link between
+### The Mandator and the Mandatee, as an individual of Power is assigned by the Mandator to owl:one
+### or more Mandatees.
+### Beware that the Powers may have different constraints for the Mandator and for the Mandatee(s).
+### This constraints are not directly linked to the Power but to the different Agents that intervene, 
+### namely the Mandator and the Mandatee: *the Power is agnostic of the constraints that may be 
+### applied to it*.
+###################################################################################################
+
+:POWER-1 rdf:type :Power ;
+    :id [
+                ccts:identifierValue "3"            ;
+                ccts:schemeID "POWER"             ;
+                ccts:schemeAgencyID "EU-COM-DIGIT"  ;
+                ccts:schemeVersionID "1.1.0"
+    ] ;
+    # The Power is active. See the EU Powers Taxonomy.
+    :powerType pwr:WORKING ;
+    # The Power is active. See code list with the different statuses of a Power.
+    :statusType stat:CONFIRMED ;
+    :powerOf :MANDATOR-1 ;
+    :assignedTo :MANDATEE-1, :MANDATEE-2 ;
+    :currentDelegationLevel 1 .
