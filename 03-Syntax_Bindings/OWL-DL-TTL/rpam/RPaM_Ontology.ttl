@@ -18,72 +18,53 @@
 #    Object Properties
 #################################################################
 
+:assignedTo rdf:type owl:ObjectProperty ;
+            rdfs:label "assigned To"@en ;
+            skos:definition "The powers received by a mandatee from a mandator."@en .
+
 :hasPower rdf:type owl:ObjectProperty ;
           rdfs:domain :Mandate ;
           rdfs:range :Power ;
-          rdfs:label "has Power"@en ;
-          skos:definition "The Powers in a Mandate that a Mandator assigns to a Mandatee."@en .
+          rdfs:label "has power."@en ;
+          skos:definition "The powers that a mandator assigns to a mandatee."@en .
 
-:powerOf  rdf:type owl:ObjectProperty ;
-          rdfs:domain :Power ;
-          rdfs:range :Mandator ;
-          rdfs:label "power of" ;
-          rdfs:definition "The Powers of a Mandator that he may be assigned to a Mandatee" 
-          .
+:id rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
+                       rdfs:domain :Mandate, :Mandatee, :Mandator, :Power ;
+                       rdfs:range ccts:Identifier ;
+                       rdfs:label "The identifier of a Mandator, a mandatee or a power."@en .
 
 :lifeSpan rdf:type owl:ObjectProperty ;
           rdfs:domain :Mandate ;
           rdfs:range ubl:Period ;
           rdfs:label "has lifeSpan"@en ;
-          skos:definition "The dates of creation and striking-off of the  Mandate in the eMandate Registry."@en .
+          skos:definition "The dates of creation and striking-off of a mandate in the eMandate Registry."@en .
 
-:typeOf   rdf:type owl:ObjectProperty ;
-          rdfs:domain :Power ;
-          rdfs:range :EUPowerTaxonomy ;
-          rdfs:label "has type of power"@en ;
-          skos:definition "The Type of Power provided through the empowerment of Mandatee by a Mandator"
-          .
+:powerOf  rdf:type owl:ObjectProperty ;
+          rdfs:label "power of" ;
+          rdfs:definition "The powers of a mandator that may be assigned to a mandatee" .
 
-:assignedTo rdf:type owl:ObjectProperty ;
-              rdfs:domain :Power ;
-              rdfs:range :Mandatee ;
-              rdfs:label "assigned To"@en ;
-              skos:definition "The Powers in a Mandate that a Mandatee receives from a Mandator."@en .
-
-:satisfiesRequirements rdf:type owl:ObjectProperty ;
-                          rdfs:domain :Mandatee ,
-                                      :Mandator ;
-                          rdfs:range ccev:Criterion ;
-                          rdfs:label "satisfies Service Provider Information Requirements"@en ;
-                          skos:definition "A mandator or mandatee satisfies the constraints set by the Service Provider."@en .
-
-:geospatialConstraint rdf:type owl:ObjectProperty ;
-                         rdfs:domain :Power ;
-                         rdfs:range :GeolocationConstraint ;
-                         rdfs:label "Geospatial Constraint"@en .
-
-
-:id rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
-                       rdfs:domain :Mandate, :Mandatee, :Mandator, :Power ;
-                       rdfs:range ccts:Identifier ;
-                       rdfs:label "The identifier of a Mandator, a mandatee or a power"@en .
-
-
+:powerUseConstraint  rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
+                     rdfs:label "power Use Constraint"@en ;
+                     skos:definition "Constraint(s) imposed on how mandatees and mandators with delegated powers may use a power."@en ;
+                     skos:example "Geospatial, temporal, financial, contractual, etc. constraints or possible combinations of these."@en .
+                                  
 :statusType rdf:type owl:ObjectProperty ;
                rdfs:domain :Power ;
                rdfs:range skos:Concept ;
                rdfs:label "Status Type"@en .
+
+:typeOf   rdf:type owl:ObjectProperty ;
+          rdfs:domain :Power ;
+          rdfs:range :EUPowerTaxonomy ;
+          rdfs:label "has type of power."@en ;
+          skos:definition "The Type of Power provided through the empowerment of Mandatee by a Mandator" .
+
 
 :validityPeriodConstraint rdf:type owl:ObjectProperty ,
                             owl:FunctionalProperty ;
                           rdfs:domain :Power ;
                           rdfs:range ubl:Period ;
                           rdfs:label "has Validity Period"@en .
-
-:financialThresholdConstraint rdf:type owl:ObjectProperty ;
-                                    rdfs:domain :Power ;
-                                    rdfs:range ubl:Amount ;
-                                    rdfs:label "Financial Threshold Constraint"@en .
 
 #################################################################
 #    Data properties
@@ -106,13 +87,37 @@
 :Mandatee rdf:type owl:Class ;
           owl:rdfs:subClassOf foaf:Agent ;
           rdfs:label "Mandatee"@en ;
-          skos:definition "Natural or legal person that acts on behalf of another natural or legal person."@en .
+          skos:definition "Natural or legal person that acts on behalf of another natural or legal person."@en ;
+          owl:subClassOf [
+                            a owl:Restriction ;
+                            owl:someValuesFrom ccev:Criterion  ;
+                            owl:onProperty :powerUseConstraint ;
+                            skos:definition "Constraint(s) imposed on how mandatees may use a power."@en ;
+                            skos:example "Geospatial, temporal, financial, contractual, etc. constraints or possible combinations of these."@en 
+                         ] .
 
 :Mandator rdf:type owl:Class ;
           owl:rdfs:subClassOf foaf:Agent ;
           rdfs:label "Mandator"@en ;
-          skos:definition "Person who needs an activity executed in his name; creator of the mandate."@en .
+          skos:definition "Person who needs an activity executed in his name; creator of the mandate."@en ;
+          owl:subClassOf [
+                            a owl:Restriction ;
+                            owl:someValuesFrom ccev:Criterion ;
+                            owl:onProperty :powerUseConstraint ;
+                            skos:definition "Constraint(s) imposed on how Mandators with delegated powers may use a power."@en ;
+                            skos:example "Geospatial, temporal, financial, contractual, etc. constraints or possible combinations of these."@en 
+                         ] .
 
 :Power rdf:type owl:Class ;
-       rdfs:label "Power"@en ;
-       skos:definition "The capacity to act on its own behalf."@en .
+       rdfs:label "power."@en ;
+       skos:definition "The capacity to act on its own behalf."@en ;
+       owl:rdfs:subClassOf [
+                             a owl:Restriction ;
+                             owl:allValuesFrom :Mandator ;
+                             owl:onProperty :powerOf
+                           ] ;
+       owl:rdfs:subClassOf [
+                             a owl:Restriction ;
+                             owl:allValuesFrom :Mandatee ;
+                             owl:onProperty :assignedTo
+                           ] .

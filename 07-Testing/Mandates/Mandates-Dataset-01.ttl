@@ -95,6 +95,12 @@
 ### In this example, this is the Power of Mandator 1, a Natural Person Named "Serge Novack" 
 ### (MANDATOR-1), who empowers two other Natural Persons, "Paula Keen" (named individual
 ### (MANDATEE-1) and "Emma Geminada" (named individual MANDATEE-2).
+### Notice that the Mandator is the "owner" of the Power, meaning that the Power was not assigned 
+### to him by another Person, which is inferred by the value of the "currentDelegationLevel".
+### Therefore there are no constraints applied to him. However, this Mandator will apply an 
+### Administrative constraint to Paula Keen: she will only be able to act on Serge's behalf in 
+### front of any EU Local Public Administation, but not in National nor Regional or 
+### EU Administrations. To see this look into the individual (instance) MANDATEE-1.
 ###################################################################################################
 :POWER-1 rdf:type :Power ;
     :id [
@@ -247,7 +253,9 @@
                 ccts:schemeID "ES-NIF"               ;
                 ccts:schemeAgencyID "ES-INTERIOR-MINISTRY"
     ] ;
-    :givenName "Paula" ; :familyName "Keen" .
+    :givenName "Paula" ; 
+    :familyName "Keen" ;
+    :constraint :CONSTRAINT-1 .
 
 ######################################  MANDATEE #2  ###############################################
 :MANDATEE-2 rdf:type :Mandatee, foaf:Person ;
@@ -277,9 +285,13 @@
     :givenName "Rosa" ; :familyName "De La Fuente-Brolladora" .
 
 ######################################  CONSTRAINT #1  ###############################################
-### From the perspective of this model, Powers *are not* constrained, but *the use* by Mandators 
-### and Mandatees Powers may be constrained. As constraints are linked to Mandator and Mandatee, and
-### these to Power, and Power to Mandate, there's a 4-nary relation between 
+### From the perspective of this model, Powers *are not* constrained, but *the use* of the powers 
+### assigned to mandatees or mandators with delegated powers may be constrained. As constraints 
+### are linked to Mandator and Mandatee, and these to Power, and Power to Mandate, there's a 4-nary 
+### relation between:
 ### (1) Mandator(and its constraints)-(2)Power-(3)Mandatee(and its constraints)-(4)Mandate.
 ###################################################################################################
+:CONSTRAINT-1 rdf:type ccev:Criterion ;
+    ccev:id "" ;
 
+    .

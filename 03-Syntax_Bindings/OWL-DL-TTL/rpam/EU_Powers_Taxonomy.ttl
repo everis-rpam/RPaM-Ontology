@@ -264,7 +264,9 @@
 :WORKING a skos:Concept ;
 	dct:created "2018-10-23T15:05:05.615+02:00"^^xsd:dateTime ;
 	skos:definition "Powers about employment-related activities."@en ;
-	skos:example "Power to apply for European Health Insurance Card (EHIC)."@en , "Power to notify changes in personal or professional circumstances of the person receiving socialsecurity benefits, relevant for such benefits."@en , "Power to request for determination of applicable legislation in accordance with Title II of Regulation (EC) No 883/2004 (i.e. social security)."@en ;
+	skos:example "Power to apply for European Health Insurance Card (EHIC)."@en , 
+				 "Power to notify changes in personal or professional circumstances of the person receiving socialsecurity benefits, relevant for such benefits."@en , 
+				 "Power to request for determination of applicable legislation in accordance with Title II of Regulation (EC) No 883/2004 (i.e. social security)."@en ;
 	skos:broader :Business_Event ;
 	skos:inScheme :conceptScheme_RPaM ;
 	skosxl:prefLabel [

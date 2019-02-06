@@ -16,21 +16,39 @@
 #    Object Properties
 #################################################################
 
-###  http://data.europa.eu/RPaM/ontology#hasSubCriterion
-:subCriterion rdf:type owl:ObjectProperty ;
-                 rdfs:domain :Criterion ;
-                 rdfs:range :Criterion ;
-                 rdfs:label "has Subcriterion"@en .
+:componentType rdf:type owl:ObjectProperty ;
+                               rdfs:domain :Group ;
+                               # See code list DatumComponentType 
+                               rdfs:range skos:Concept ; 
+                               rdfs:label "Indicates the type of datum that is expected along with an information requirement or a constraint; eg. an AMOUNT, an IDENTIFIER, a QUANTITY, etc."@en ,
+                               "This code is used by software applications to chose the correct data type needed to answer a question or to hold a constraint by the SP"@en ,
+                               "They normally mapped to standard types, e.g. ISO 15000-5 CCTS such as ccts:Identifier, ccts:Amount, W3C xsd:positiveInteger, etc."@en .
 
-###  http://data.europa.eu/RPaM/ontology#usesEvaluationMethodType
+:asksForDatum rdf:type owl:ObjectProperty ;
+             rdfs:domain :Property ;
+             rdfs:range :Datum ;
+             owl:propertyDisjointWith :expressesRequirement ;
+             rdfs:label "asks For Datum"@en .
+
 :evaluationMethodType rdf:type owl:ObjectProperty ;
                           rdfs:domain :Criterion ;
                           # See code list EvaluationMethodType
                           rdfs:range skos:Concept ; 
                           rdfs:label "uses Evaluation Method Type"@en ;
                           skos:definition "Uses the code list containing the different types for the evaluation of criteria."@en .
+:expressesRequirement rdf:type owl:ObjectProperty ;
+             rdfs:domain :Property ;
+             rdfs:range :Datum ;
+             owl:propertyDisjointWith :asksForDatum ;
+             rdfs:label "expresses Information Requirement"@en .
 
-###  http://data.europa.eu/RPaM/ontology#hasGroup
+:id rdf:type owl:ObjectProperty ;
+    rdfs:domain :Criterion, :Group, :Property, :Evidence, :Legislation ;
+    rdfs:range ccts:Identifier ;
+    rdfs:label "has Identifier"@en ;
+    skos:definition "The identifier of an instance (individual) of criterion, group, property, evidence or legislation."@en ;
+    skos:note "The preferred identifier scheme is UUUID-v4."@en .
+
 :group rdf:type owl:ObjectProperty ;
                            rdfs:domain :Criterion ;
                            rdfs:range :Group ;
@@ -43,34 +61,17 @@
                                rdfs:range skos:Concept ; 
                                rdfs:label "Uses the code list containing the different types of groups of criteria properties."@en .
 
-:componentType rdf:type owl:ObjectProperty ;
-                               rdfs:domain :Group ;
-                               # See code list DatumComponentType 
-                               rdfs:range skos:Concept ; 
-                               rdfs:label "Indicates the type of datum that is expected along with an information requirement or a constraint; eg. an AMOUNT, an IDENTIFIER, a QUANTITY, etc."@en ,
-                               "This code is used by software applications to chose the correct data type needed to answer a question or to hold a constraint by the SP"@en ,
-                               "They normally mapped to standard types, e.g. ISO 15000-5 CCTS such as ccts:Identifier, ccts:Amount, W3C xsd:positiveInteger, etc."@en .
-
 :property rdf:type owl:ObjectProperty ;
                       rdfs:domain :Group ;
                       rdfs:range :Property ;
                       rdfs:label "has Criterion Property"@en ;
-                      skos:definition "Has specific information needed to measure a criterion."@en.
+                      skos:definition "Has specific information needed to measure a criterion."@en .
 
-###  http://data.europa.eu/RPaM/ontology#expressesRequirement
-:expressesRequirement rdf:type owl:ObjectProperty ;
-                      owl:inverseOf :refinesRequirement ;
-                      rdfs:domain :Property ;
-                      rdfs:range :Datum ;
-                      rdfs:label "expresses Requirement"@en ;
-                      skos:definition "sets a constraint on an information requirement datum"@en . 
-
-###  http://data.europa.eu/RPaM/ontology#asksForData
-:asksForDatum rdf:type owl:ObjectProperty ;
-             rdfs:domain :Property ;
-             rdfs:range :Datum ;
-             owl:propertyDisjointWith :expressesRequirement ;
-             rdfs:label "asks For Datum"@en .
+:subCriterion rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Criterion ;
+                 rdfs:range :Criterion ;
+                 rdfs:label "has Subcriterion"@en ;
+                 skos:definition "A nested criterion that is a specialisation of its parent criterion."@en .
 
 ###  http://data.europa.eu/RPaM/ontology#temporalInterval
 :temporalIntervalValues rdf:type owl:ObjectProperty ;
@@ -107,12 +108,6 @@
                 rdfs:domain :Criterion ;
                 rdfs:range :Legislation ;
                 rdfs:label "has Legislation"@en .
-
-###  http://data.europa.eu/RPaM/ontology#hasCriterionIdentifier
-:identifier rdf:type owl:ObjectProperty ;
-                        rdfs:domain :Criterion, :Group, :Property, :Evidence, :Legislation ;
-                        rdfs:range ccts:Identifier ;
-                        rdfs:label "has Identifier"@en .
 
 ###  http://data.europa.eu/RPaM/ontology#hasDatumAmount
 :datumAmount rdf:type owl:ObjectProperty ;
@@ -223,8 +218,7 @@
               rdfs:domain :Criterion ;
               rdfs:range xsd:boolean ;
               rdfs:label "Objective"@en ;
-              skos:definition "The criterion is considered objective (i.e. non-subjective). Objective criteria can be
-              automatically scored (i.e. computed) based on a mathematical formula.".
+              skos:definition "The criterion is considered objective (i.e. non-subjective). Objective criteria can be automatically scored (i.e. computed) based on a mathematical formula.".
 
 ###  http://data.europa.eu/RPaM/ontology#hasWeight
 :hasWeight rdf:type owl:DatatypeProperty ;
