@@ -89,7 +89,7 @@
 
 ######################################  POWER #1  ###############################################
 ### An individual (e.g. an instance) of a Power. The Power is the core link between
-### The Mandator and the Mandatee, as an individual of Power is assigned by the Mandator to owl:one
+### The Mandator and the Mandatee, as an individual of Power is assigned by the Mandator to one
 ### or more Mandatees.
 ### Beware that the Powers may have different constraints for the Mandator and for the Mandatee(s).
 ### This constraints are not directly linked to the Power but to the different Agents that intervene, 
@@ -227,12 +227,6 @@
     :currentDelegationLevel 2 .
 
 ######################################  MANDATOR #1  ###############################################
-### In this example the Natural Person 'Serge Novack' (named individual MANDATOR-1) will hold 
-### powers related mainly to financial operations (see Powers assigned to this Mandator, above).
-### We will use this Mandator to illustrate how the financial constraints applied to his powers are different
-### to the financial constraints of other Mandatees.
-###################################################################################################
-
 :MANDATOR-1 rdf:type :Mandator, foaf:Person ;
     :id [
                 ccts:identifierValue "00775083-X"   ;
@@ -299,7 +293,7 @@
     ccev:id [
                 ccev:identifierValue "6cc9308f-ff00-4e98-9de2-cc76f1b5f8e2" ;
                 ccts:schemeID "UUID"               ;
-                ccts:schemeAgencyID "ES-INTERIOR-MINISTRY" ;         
+                ccts:schemeAgencyID "EU-COM-ISA2" ;         
                 ccts:schemeVersionID "4" 
             ] ;
     # The description of the criterion
@@ -309,7 +303,94 @@
                  ccev:property [
                                  ccev:name "Administrative Level"@en ;
                                  ccev:description "The level of the Public Administration for which the Mandatee has the power of acting on behalf of the Mandator"@en ;
-                                 ccev:type ict:CONSTRAINT ;
                                  ccev:constraint [ccev:datumCode at:LOCAL ]
+                                ]
+               ] .
+
+######################################  CONSTRAINT #2  ###############################################
+### In this example, Francisco Lemur Cifrado (see individual MANDATOR-2) is a Mandator with 
+### delegated powers. The person that assigned those powers to Francisco established a financial 
+### constraint on Francisco.
+###################################################################################################
+:CONSTRAINT-2 rdf:type ccev:Criterion ;
+    ccev:id [
+                ccev:identifierValue "2b73f156-c56d-4168-91ff-2a957035e187" ;
+                ccts:schemeID "UUID"               ;
+                ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                ccts:schemeVersionID "4" 
+            ] ;
+    # The description of the criterion
+    ccev:description "Maximum contract amount value"@en ;
+    ccev:type ctx:MAX_THRESHOLD ;
+    ccev:group [
+                 ccev:property [
+                                 ccev:name "Maximum contract value threshold"@en ;
+                                 ccev:description "The maximum amount for contracts signed by a Mandatee representing a Natural or Legal Person"@en ;
+                                 ccev:constraint [
+                                                    ccev:datumAmount "5000000.00"^^xsd:decimal ;
+                                                    ccts:currencyID "EUR"
+                                                ]
+                                ]
+               ] .
+
+######################################  CONSTRAINT #2  ###############################################
+### Francisco (MANDATOR-2), can sign contracts with the public administration for 
+### values below 5,000,000.00 Euros (see CONSTRAINT #1). As a Mandator with power to delegate onto
+### other persons, he empowers Vicenç Pons i Torra (MANDATEE-3) with one of his powers, but sets
+### a more restricted Financial constraint onto him.
+### Beware that the Identifier of the criterion is the same as for the above one, as it identifies
+### a reusable data shape where all the elements, except for the constraint value are different 
+### (100,000.00 EUR).
+###################################################################################################
+:CONSTRAINT-3 rdf:type ccev:Criterion ;
+    ccev:id [
+                ccev:identifierValue "2b73f156-c56d-4168-91ff-2a957035e187" ;
+                ccts:schemeID "UUID"               ;
+                ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                ccts:schemeVersionID "4" 
+            ] ;
+    # The description of the criterion
+    ccev:description "Maximum contract amount value"@en ;
+    ccev:type ctx:MAX_THRESHOLD ;
+    ccev:group [
+                 ccev:property [
+                                 ccev:name "Maximum contract value threshold"@en ;
+                                 ccev:description "The maximum amount for contracts signed by a Mandatee representing a Natural or Legal Person"@en ;
+                                 ccev:constraint [
+                                                    ccev:datumAmount "100000.00"^^xsd:decimal ;
+                                                    ccts:currencyID "EUR"
+                                                ]
+                                ]
+               ] .
+
+######################################  CONSTRAINT #3  ##############################################################
+### Groups of constraints can be combined (structured) to produce complex data structure. 
+### In this constraint, Francisco (MANDATOR-2) empowers Rosa (MANDATEE-4) with a complex structure
+### made of groups and subgroups of constraints to express that:
+### 1. Rosa can act in a set of one or more EU MS countries,
+### 2. In each of these countries, Rosa can sign contracts below an economic threshold,
+### 3. For each of these thresholds (and country(ies)), she can use the power only within a concrete period of time.
+###
+### THIS PRACTICE IS NOT RECOMMENDED as it becomes complicated to interpret automatically the meaning of the 
+### data. An alternative to this is to draft as many mandates with simple (*atomic*) constraints.
+#####################################################################################################################
+:CONSTRAINT-4 rdf:type ccev:Criterion ;
+    ccev:id [
+                ccev:identifierValue "2b73f156-c56d-4168-91ff-2a957035e187" ;
+                ccts:schemeID "UUID"               ;
+                ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                ccts:schemeVersionID "4" 
+            ] ;
+    # The description of the criterion
+    ccev:description "Maximum contract amount value"@en ;
+    ccev:type ctx:MAX_THRESHOLD ;
+    ccev:group [
+                 ccev:property [
+                                 ccev:name "Maximum contract value threshold"@en ;
+                                 ccev:description "The maximum amount for contracts signed by a Mandatee representing a Natural or Legal Person"@en ;
+                                 ccev:constraint [
+                                                    ccev:datumAmount "100000.00"^^xsd:decimal ;
+                                                    ccts:currencyID "EUR"
+                                                ]
                                 ]
                ] .
