@@ -15,6 +15,10 @@
 @prefix pwr:    <http://data.europa.eu/RPaM/ontology/rd/powers#> .
 @prefix stat:   <http://data.europa.eu/RPaM/ontology/rd/status#> .
 @prefix uc:     <http://data.europa.eu/RPaM/ontology/rd/units#> .
+@prefix ict:    <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/irctype#> .
+@prefix ctx:    <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/constrainttaxonomy#> .
+@prefix at:     <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/administrationleveltype#> .
+
 
 <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology#> rdf:type owl:Ontology ;
                                         owl:versionIRI <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology> ;
@@ -292,6 +296,20 @@
 ### (1) Mandator(and its constraints)-(2)Power-(3)Mandatee(and its constraints)-(4)Mandate.
 ###################################################################################################
 :CONSTRAINT-1 rdf:type ccev:Criterion ;
-    ccev:id "" ;
-
-    .
+    ccev:id [
+                ccev:identifierValue "6cc9308f-ff00-4e98-9de2-cc76f1b5f8e2" ;
+                ccts:schemeID "UUID"               ;
+                ccts:schemeAgencyID "ES-INTERIOR-MINISTRY" ;         
+                ccts:schemeVersionID "4" 
+            ] ;
+    # The description of the criterion
+    ccev:description "Administrative constraint about the power to act only in certain Public Administration Level"@en ;
+    ccev:type ctx:ADMINISTRATION_LEVEL ;
+    ccev:group [
+                 ccev:property [
+                                 ccev:name "Administrative Level"@en ;
+                                 ccev:description "The level of the Public Administration for which the Mandatee has the power of acting on behalf of the Mandator"@en ;
+                                 ccev:type ict:CONSTRAINT ;
+                                 ccev:constraint [ccev:datumCode at:LOCAL ]
+                                ]
+               ] .

@@ -16,6 +16,12 @@
 #    Object Properties
 #################################################################
 
+:basesOnEvidence rdf:type owl:ObjectProperty ;
+                 owl:inverseOf :proofsCriterion ;
+                 rdfs:domain :Criterion ;
+                 rdfs:range :Evidence ;
+                 rdfs:label "bases On Evidence"@en .
+
 :componentType rdf:type owl:ObjectProperty ;
                                rdfs:domain :Group ;
                                # See code list DatumComponentType 
@@ -24,97 +30,34 @@
                                "This code is used by software applications to chose the correct data type needed to answer a question or to hold a constraint by the SP"@en ,
                                "They normally mapped to standard types, e.g. ISO 15000-5 CCTS such as ccts:Identifier, ccts:Amount, W3C xsd:positiveInteger, etc."@en .
 
-:asksForDatum rdf:type owl:ObjectProperty ;
-             rdfs:domain :Property ;
-             rdfs:range :Datum ;
-             owl:propertyDisjointWith :expressesRequirement ;
-             rdfs:label "asks For Datum"@en .
+:confidentialityLevelTypeCode rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :Evidence ;
+                                  # See Confidentiality Level Type Code List
+                                  rdfs:range skos:Concept ; 
+                                  rdfs:label "has Confidentiality Level Type Code"@en .
 
-:evaluationMethodType rdf:type owl:ObjectProperty ;
-                          rdfs:domain :Criterion ;
-                          # See code list EvaluationMethodType
-                          rdfs:range skos:Concept ; 
-                          rdfs:label "uses Evaluation Method Type"@en ;
-                          skos:definition "Uses the code list containing the different types for the evaluation of criteria."@en .
-:expressesRequirement rdf:type owl:ObjectProperty ;
-             rdfs:domain :Property ;
-             rdfs:range :Datum ;
-             owl:propertyDisjointWith :asksForDatum ;
-             rdfs:label "expresses Information Requirement"@en .
+:constraint rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
+             owl:propertyDisjointWith :informationRequirement ;
+             rdfs:label "expresses Information Requirement"@en ;
+             skos:definition "The datum is a value that imposes a restriction on the concept described in the property."@en ;
+             skos:example "A Datum ccts:Quantity with value '16' and 'unitCode=''YEAR'' may be a constraint of 'The age of the Person MUST be above...'"@en .
 
-:id rdf:type owl:ObjectProperty ;
-    rdfs:domain :Criterion, :Group, :Property, :Evidence, :Legislation ;
-    rdfs:range ccts:Identifier ;
-    rdfs:label "has Identifier"@en ;
-    skos:definition "The identifier of an instance (individual) of criterion, group, property, evidence or legislation."@en ;
-    skos:note "The preferred identifier scheme is UUUID-v4."@en .
+:informationRequirement rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
+             owl:propertyDisjointWith :constraint ;
+             rdfs:label "information Requirement"@en ;
+             skos:definition "The datum is a value provided back as the response for an information requirement."@en ;
+             skos:example "A Datum ccts:Amount with value '1000000.00' and 'currencyID=''EUR'' may be the value provided as response to the requirement 'Please provide your turnover for the fiscal year 2018."@en .
 
-:group rdf:type owl:ObjectProperty ;
-                           rdfs:domain :Criterion ;
-                           rdfs:range :Group ;
-                           rdfs:label "has Criterion Property Group"@en ;
-                           skos:definition "Has an organised structure of related criterion properties."@en.
-
-:groupType rdf:type owl:ObjectProperty ;
-                               rdfs:domain :Group ;
-                               # See code list GroupType 
-                               rdfs:range skos:Concept ; 
-                               rdfs:label "Uses the code list containing the different types of groups of criteria properties."@en .
-
-:property rdf:type owl:ObjectProperty ;
-                      rdfs:domain :Group ;
-                      rdfs:range :Property ;
-                      rdfs:label "has Criterion Property"@en ;
-                      skos:definition "Has specific information needed to measure a criterion."@en .
-
-:subCriterion rdf:type owl:ObjectProperty ;
-                 rdfs:domain :Criterion ;
-                 rdfs:range :Criterion ;
-                 rdfs:label "has Subcriterion"@en ;
-                 skos:definition "A nested criterion that is a specialisation of its parent criterion."@en .
-
-###  http://data.europa.eu/RPaM/ontology#temporalInterval
-:temporalIntervalValues rdf:type owl:ObjectProperty ;
-             rdfs:domain :Property ;
-             rdfs:range ubl:Period ;
-             rdfs:label "temporal Interval Values"@en .
-
-###  http://data.europa.eu/RPaM/ontology#usesDatumType
-:datumType rdf:type owl:ObjectProperty ,
-                                         owl:FunctionalProperty ;
-                                rdfs:domain :Datum ;
-                                #See code list CriterionDatumType
-                                rdfs:range skos:Concept ; 
-                                rdfs:label "Criterion Property Datum Type" ;
-                                skos:definition "uses the code list containing the concepts provided to classify the criterion properties."@en .
-
-###  http://data.europa.eu/RPaM/ontology#basesOnEvidence
-:basesOnEvidence rdf:type owl:ObjectProperty ;
-                 owl:inverseOf :proofsCriterion ;
-                 rdfs:domain :Criterion ;
-                 rdfs:range :Evidence ;
-                 rdfs:label "bases On Evidence"@en .
-
-###  http://data.europa.eu/RPaM/ontology#proofsCriterion
-:proofsCriterion rdf:type owl:ObjectProperty ;
-                 owl:inverseOf :basesOnEvidence ;
-                 rdfs:domain :Evidence ;
-                 rdfs:range :Criterion ;
-                 rdfs:label "proofs Criterion"@en .
-
-
-###  http://data.europa.eu/RPaM/ontology#hasLegislation
-:legislation rdf:type owl:ObjectProperty ;
-                rdfs:domain :Criterion ;
-                rdfs:range :Legislation ;
-                rdfs:label "has Legislation"@en .
-
-###  http://data.europa.eu/RPaM/ontology#hasDatumAmount
 :datumAmount rdf:type owl:ObjectProperty ;
                                  rdfs:domain :Datum ;
                                  rdfs:range ubl:Amount ;
                                  rdfs:label "has Criterion Property Datum Amount"@en .
 
+:datumCode rdf:type owl:ObjectProperty ;
+                                 rdfs:domain :Datum ;
+                                 rdfs:range skos:Concept ;
+                                 rdfs:label "has Datum Code"@en ;
+                                 skos:definition "A datum the value of which is a code.".
 
 ###  http://data.europa.eu/RPaM/ontology#hasDatumIdentifer
 :datumIdentifer rdf:type owl:ObjectProperty ;
@@ -137,31 +80,87 @@
                                    rdfs:label "has Criterion Property Datum Quantity"@en .
 
 
-###  http://data.europa.eu/RPaM/ontology#usesConfidentialityLevelTypeCode
-:confidentialityLevelTypeCode rdf:type owl:ObjectProperty ;
-                                  rdfs:domain :Evidence ;
-                                  # See Confidentiality Level Type Code List
-                                  rdfs:range skos:Concept ; 
-                                  rdfs:label "has Confidentiality Level Type Code"@en .
+:evaluationMethodType rdf:type owl:ObjectProperty ;
+                          rdfs:domain :Criterion ;
+                          # See code list EvaluationMethodType
+                          rdfs:range skos:Concept ; 
+                          rdfs:label "uses Evaluation Method Type"@en ;
+                          skos:definition "Uses the code list containing the different types for the evaluation of criteria."@en .
 
-###  http://data.europa.eu/RPaM/ontology#usesLegalBasis
+:group rdf:type owl:ObjectProperty ;
+                           rdfs:domain :Criterion ;
+                           rdfs:range :Group ;
+                           rdfs:label "has Criterion Property Group"@en ;
+                           skos:definition "Has an organised structure of related criterion properties."@en.
+
+:type rdf:type owl:ObjectProperty ;
+               rdfs:domain :Criterion, :Group, :Property ;
+               # See code list GroupType 
+               rdfs:range skos:Concept ; 
+               rdfs:label "type"@en ;
+               skos:definition "A category assigned to a criterion, group or property."@en ;
+               skos:example "Representation Power and Mandates (RPaM): INFORMATION_REQUIREMENT, CONSTRAINT, CAPTION"@en ;
+               skos:example "European Single Procurement Document (ESPD): REQUIREMENT, QUESTION, CAPTION"@en .
+
+:id rdf:type owl:ObjectProperty ;
+    rdfs:domain :Criterion, :Group, :Property, :Evidence, :Legislation ;
+    rdfs:range ccts:Identifier ;
+    rdfs:label "has Identifier"@en ;
+    skos:definition "The identifier of an instance (individual) of criterion, group, property, evidence or legislation."@en ;
+    skos:note "The preferred identifier scheme is UUUID-v4."@en .
+
 :legalBasis rdf:type owl:ObjectProperty ;
                 rdfs:domain :Legislation ;
                 # See Legal Basis Identifier
                 rdfs:range skos:Concept ; 
                 rdfs:label "uses Legal Basis Identifier."@en .
 
+:legislation rdf:type owl:ObjectProperty ;
+                rdfs:domain :Criterion ;
+                rdfs:range :Legislation ;
+                rdfs:label "has Legislation"@en .
+
+:property rdf:type owl:ObjectProperty ;
+                      rdfs:domain :Group ;
+                      rdfs:range :Property ;
+                      rdfs:label "has Criterion Property"@en ;
+                      skos:definition "Has specific information needed to measure a criterion."@en .
+
+:subCriterion rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Criterion ;
+                 rdfs:range :Criterion ;
+                 rdfs:label "has Subcriterion"@en ;
+                 skos:definition "A nested criterion that is a specialisation of its parent criterion."@en .
+
+:proofsCriterion rdf:type owl:ObjectProperty ;
+                 owl:inverseOf :basesOnEvidence ;
+                 rdfs:domain :Evidence ;
+                 rdfs:range :Criterion ;
+                 rdfs:label "proofs Criterion"@en .
+
 #################################################################
 #    Data properties
 #################################################################
 
+:datumIndicator rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain :Datum ;
+                                    rdfs:range xsd:boolean ;
+                                    rdfs:label "has Criterion Property Datum Indicator"@en .
 
-:name rdf:type owl:DatatypeProperty ;
-                        rdfs:domain :Criterion, :Group, :Property, :Evidence, :Legislation ;
-                        rdfs:range xsd:string ;
-                        rdfs:label "name"@en ;
-                        skos:definition "The name of a Criterion, Group, Property, Evidence or Legislation."@en.
+:datumText rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :Datum ;
+                               rdfs:range xsd:string ;
+                               rdfs:label "has Criterion Property Datum Text"@en .
 
+:datumURL rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :Datum ;
+                              rdfs:range xsd:anyURI ;
+                              rdfs:label "has Criterion Property Datum URI"@en .
+
+:datumTime rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :Datum ;
+                               rdfs:range xsd:dateTime ;
+                               rdfs:label "has Criterion Property Datum Time"@en .
 
 :description rdf:type owl:DatatypeProperty ;
                          rdfs:domain :Criterion, :Group, :Property, :Evidence, :Legislation ;
@@ -169,65 +168,38 @@
                          rdfs:label "description"@en ;
                          skos:definition "The description of a Criterion, Group, Property, Evidence or Legislation."@en .
 
-###  http://data.europa.eu/RPaM/ontology#hasDatumIndicator
-:datumIndicator rdf:type owl:DatatypeProperty ;
-                                    rdfs:domain :Datum ;
-                                    rdfs:range xsd:boolean ;
-                                    rdfs:label "has Criterion Property Datum Indicator"@en .
+:hasWeight rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Criterion ;
+           rdfs:range xsd:positiveInteger ;
+           rdfs:label "Weight"@en .
 
-###  http://data.europa.eu/RPaM/ontology#hasDatumText
-:datumText rdf:type owl:DatatypeProperty ;
-                               rdfs:domain :Datum ;
-                               rdfs:range xsd:string ;
-                               rdfs:label "has Criterion Property Datum Text"@en .
-
-###  http://data.europa.eu/RPaM/ontology#hasDatumTime
-:datumTime rdf:type owl:DatatypeProperty ;
-                               rdfs:domain :Datum ;
-                               rdfs:range xsd:dateTime ;
-                               rdfs:label "has Criterion Property Datum Time"@en .
-
-
-###  http://data.europa.eu/RPaM/ontology#hasDatumURL
-:datumURL rdf:type owl:DatatypeProperty ;
-                              rdfs:domain :Datum ;
-                              rdfs:range xsd:anyURI ;
-                              rdfs:label "has Criterion Property Datum URI"@en .
-
-###  http://data.europa.eu/RPaM/ontology#hasLegislationArticle
-:legislationArticle rdf:type owl:DatatypeProperty ;
-                       rdfs:domain :Legislation ;
-                       rdfs:range xsd:string ;
-                       rdfs:label "has Legislation Article"@en .
-
-###  http://data.europa.eu/RPaM/ontology#hasLegislationTitle
-:legislationTitle rdf:type owl:DatatypeProperty ;
-                     rdfs:domain :Legislation ;
-                     rdfs:range xsd:string ;
-                     rdfs:label "has Legislation Title"@en .
-
-
-###  http://data.europa.eu/RPaM/ontology#hasLegislationURI
-:legislationURI rdf:type owl:DatatypeProperty ;
-                   rdfs:domain :Legislation ;
-                   rdfs:range xsd:anyURI ;
-                   rdfs:label "has Legislation URI"@en .
-
-###  http://data.europa.eu/RPaM/ontology#isObjective
 :isObjective rdf:type owl:DatatypeProperty ;
               rdfs:domain :Criterion ;
               rdfs:range xsd:boolean ;
               rdfs:label "Objective"@en ;
               skos:definition "The criterion is considered objective (i.e. non-subjective). Objective criteria can be automatically scored (i.e. computed) based on a mathematical formula.".
 
-###  http://data.europa.eu/RPaM/ontology#hasWeight
-:hasWeight rdf:type owl:DatatypeProperty ;
-           rdfs:domain :Criterion ;
-           rdfs:range xsd:positiveInteger ;
-           rdfs:label "Weight"@en .
+:legislationArticle rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :Legislation ;
+                       rdfs:range xsd:string ;
+                       rdfs:label "has Legislation Article"@en .
 
+:legislationTitle rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :Legislation ;
+                     rdfs:range xsd:string ;
+                     rdfs:label "has Legislation Title"@en .
 
-###  http://data.europa.eu/RPaM/ontology#hasWeightingConsiderationDescription
+:legislationURI rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Legislation ;
+                   rdfs:range xsd:anyURI ;
+                   rdfs:label "has Legislation URI"@en .
+
+:name rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :Criterion, :Group, :Property, :Evidence, :Legislation ;
+                        rdfs:range xsd:string ;
+                        rdfs:label "name"@en ;
+                        skos:definition "The name of a Criterion, Group, Property, Evidence or Legislation."@en.
+
 :weightingConsiderationDescription rdf:type owl:DatatypeProperty ;
                                       rdfs:domain :Criterion ;
                                       rdfs:range xsd:string ;
@@ -241,18 +213,30 @@
 :Criterion rdf:type owl:Class ;
     rdfs:label "Criterion"@en .
 
-:Property rdf:type owl:Class ;
-    rdfs:label "Criterion Property"@en .
-
-
 :Datum rdf:type owl:Class ;
     rdfs:label "Criterion Property Datum"@en .
 
-:Group rdf:type owl:Class ;
-    rdfs:label "Criterion Property Group"@en .
 
 :Evidence rdf:type owl:Class ;
               rdfs:label "Evidence"@en .
 
+:Group rdf:type owl:Class ;
+    rdfs:label "Criterion Property Group"@en .
+
 :Legislation rdf:type owl:Class ;
                  rdfs:label "Legislation"@en .
+
+:Property rdf:type owl:Class ;
+    rdfs:label "Criterion Property"@en ;
+    owl:subClassOf [
+                     a owl:Restriction ;
+                     owl:someValuesFrom :Datum ;
+                     owl:maxCardinality 1 ;
+                     owl:onProperty :constraint
+                   ] ;
+    owl:subClassOf [
+                     owl:someValuesFrom :Datum ;
+                     owl:maxCardinality 1 ;
+                     owl:onProperty :informationRequirement
+                   ] .
+

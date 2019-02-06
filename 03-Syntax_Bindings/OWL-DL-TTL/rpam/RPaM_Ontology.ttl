@@ -109,14 +109,14 @@
                          ] .
 
 :Power rdf:type owl:Class ;
-       rdfs:label "power."@en ;
+       rdfs:label "Power"@en ;
        skos:definition "The capacity to act on its own behalf."@en ;
-       owl:rdfs:subClassOf [
+       owl:subClassOf [
                              a owl:Restriction ;
                              owl:allValuesFrom :Mandator ;
                              owl:onProperty :powerOf
                            ] ;
-       owl:rdfs:subClassOf [
+       owl:subClassOf [
                              a owl:Restriction ;
                              owl:allValuesFrom :Mandatee ;
                              owl:onProperty :assignedTo

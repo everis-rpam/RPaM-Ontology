@@ -25,6 +25,18 @@
 :PowerIRConstraintsScheme rdf:type owl:NamedIndividual, skos:ConceptScheme ;
 				skos:prefLabel "Constraints on the EU Power Taxonomy Data Elements."@en .
 
+:ADMINISTRATIVE a owl:NamedIndividual, skos:Concept ;
+			skos:prefLabel "Administrative Constraint"@en ;
+			skos:inScheme :PowerIRConstraintsScheme ;
+			skos:definition "Limits the action to certain administrations or administrative acts."@en .
+
+:ADMINISTRATION_LEVEL a owl:NamedIndividual, skos:Concept ;
+			skos:prefLabel "Public Administration Level"@en ;
+			skos:inScheme :PowerIRConstraintsScheme ;
+			skos:definition "The level of the Public Administration for which the Mandatee has the power of acting on behalf of the Mandator"@en ;
+			skos:broader :ADMINISTRATIVE ;
+			skos:hasTopConcept :ADMINISTRATIVE .
+
 :QUANTITATIVE a owl:NamedIndividual, skos:Concept ;
 			skos:prefLabel "Quantitative Constraint"@en ;
 			skos:inScheme :PowerIRConstraintsScheme ;
