@@ -275,3 +275,11 @@
                 ccts:schemeAgencyID "ES-INTERIOR-MINISTRY"
     ] ;
     :givenName "Rosa" ; :familyName "De La Fuente-Brolladora" .
+
+######################################  CONSTRAINT #1  ###############################################
+### From the perspective of this model, Powers *are not* constrained, but *the use* by Mandators 
+### and Mandatees Powers may be constrained. As constraints are linked to Mandator and Mandatee, and
+### these to Power, and Power to Mandate, there's a 4-nary relation between 
+### (1) Mandator(and its constraints)-(2)Power-(3)Mandatee(and its constraints)-(4)Mandate.
+###################################################################################################
+
