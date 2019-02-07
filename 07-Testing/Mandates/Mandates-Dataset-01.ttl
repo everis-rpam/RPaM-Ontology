@@ -342,7 +342,7 @@
                                 ]
                ] .
 
-######################################  CONSTRAINT #2  ###############################################
+######################################  CONSTRAINT #3  ###############################################
 ### Francisco (MANDATOR-2), can sign contracts with the public administration for 
 ### values below 5,000,000.00 Euros (see CONSTRAINT #1). As a Mandator with power to delegate onto
 ### other persons, he empowers Vicenç Pons i Torra (MANDATEE-3) with one of his powers, but sets
@@ -375,7 +375,7 @@
                                 ]
                ] .
 
-######################################  CONSTRAINT #3  ##############################################################
+######################################  CONSTRAINT #4  ##############################################################
 ### Groups of constraints can be combined (structured) to produce complex data structure. 
 ### In this constraint, Francisco (MANDATOR-2) empowers Rosa (MANDATEE-4) with a complex structure
 ### made of groups and subgroups of constraints to express that:

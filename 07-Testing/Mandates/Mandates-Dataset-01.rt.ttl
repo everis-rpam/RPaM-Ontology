@@ -137,42 +137,19 @@
     :id [ccts:identifierValue "72345671-S" ; ccts:schemeID "ES-NIF" ; ccts:schemeAgencyID "ES-INTERIOR-MINISTRY"] ;
     :givenName "Rosa" ; :familyName "De La Fuente-Brolladora" .
 
-######################################  CONSTRAINT #1  ###############################################
-### From the perspective of this model, Powers *are not* constrained, but *the use* of the powers 
-### assigned to mandatees or mandators with delegated powers may be constrained. As constraints 
-### are linked to Mandator and Mandatee, and these to Power, there are two
-### 3-nary relations between: 1) Power -  Mandator - Constraints; and 2) Power -  Mandatee - Constraints.
-###################################################################################################
 :CONSTRAINT-1 rdf:type ccev:Criterion ;
-    ccev:id [
-                ccts:identifierValue "6cc9308f-ff00-4e98-9de2-cc76f1b5f8e2" ;
-                ccts:schemeID "UUID"               ;
-                ccts:schemeAgencyID "EU-COM-ISA2" ;         
-                ccts:schemeVersionID "4" 
-            ] ;
-    # The description of the criterion
+    ccev:id [   ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#c1"^^xsd:anyURI] ;
     ccev:description "Administrative constraint about the power to act only in certain Public Administration Level"@en ;
     ccev:type ctx:ADMINISTRATION_LEVEL ;
-    ccev:group [
-                 ccev:property [
+    ccev:group [ccev:property [
                                  ccev:name "Administrative Level"@en ;
                                  ccev:description "The level of the Public Administration for which the Mandatee has the power of acting on behalf of the Mandator"@en ;
                                  ccev:constraint [ccev:datumCode at:LOCAL ]
                                 ]
                ] .
 
-######################################  CONSTRAINT #2  ###############################################
-### In this example, Francisco Lemur Cifrado (see individual MANDATOR-2) is a Mandator with 
-### delegated powers. The person that assigned those powers to Francisco established a financial 
-### constraint on Francisco.
-###################################################################################################
 :CONSTRAINT-2 rdf:type ccev:Criterion ;
-    ccev:id [
-                ccts:identifierValue "2b73f156-c56d-4168-91ff-2a957035e187" ;
-                ccts:schemeID "UUID"               ;
-                ccts:schemeAgencyID "EU-COM-ISA2" ;         
-                ccts:schemeVersionID "4" 
-            ] ;
+    ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#c1"^^xsd:anyURI] ;
     # The description of the criterion
     ccev:description "Maximum contract amount value"@en ;
     ccev:type ctx:MAX_CONTRACT_THRESHOLD ;

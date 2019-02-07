@@ -9,25 +9,81 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ctx:    <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/constrainttaxonomy#> .
+@prefix at:     <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/administrationleveltype#> .
+@prefix cc:     <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/countrycode#> .
 @base <http://data.europa.eu/RPaM/ontology#> .
 
 <https://joinup.ec.europa.eu/collection/rpam/1.1.0/constraints/moremee#> rdf:type owl:Ontology ;
-                                        owl:versionIRI <https://joinup.ec.europa.eu/collection/rpam/1.1.0/constraints/moremee#> .
+                                        owl:versionIRI <https://joinup.ec.europa.eu/collection/rpam/1.1.0/constraints/moremee#> ;
+                                        skos:description "Data set containing the definitions of RPaM constraints for mandatees and mandators with delegated powers."
+                                        skos:note "BEWARE that URLs for identifiers are provisional, until the project has its own official URL and, hopefully, PURIs."@en .
 
+# <https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#c1>
 :c1 rdf:type ccev:Criterion ;
+	# Criterion data structure Identifier. Beware that multiple Identifiers are possible, even recommendable in certain circumstances.
+    ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#c1" ] ;
+	ccev:id [
+                ccts:identifierValue "6cc9308f-ff00-4e98-9de2-cc76f1b5f8e2" ;
+                ccts:schemeID "UUID"               ;
+                ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                ccts:schemeVersionID "4" 
+            ] ;
+    # The description of the criterion data structure
+    ccev:description "Administrative constraint about the power to act only in certain Public Administration Level"@en ;
+    # Link to the EU Power Taxonomy Category (the approach is still being analysed. This link is necessary for validation purposes.)
+    ccev:type ctx:ADMINISTRATION_LEVEL ;
+    ccev:group [#The constraint 
+                ccev:property [ccev:name "Administrative Level"@en ;
+                               ccev:description "The level of the Public Administration for which the Mandatee has the power of acting on behalf of the Mandator."@en ;
+                               ccev:constraint [ccev:datumCode at:LOCAL ]
+                              ]
+               ] .
+
+# <https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#c2>
+:c2 rdf:type ccev:Criterion ;
+    ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#c2"^^xsd:anyURI] ;
     ccev:id [
-                ccts:identifierValue "" ;
+                ccts:identifierValue "2b73f156-c56d-4168-91ff-2a957035e187" ;
+                ccts:schemeID "UUID"               ;
+                ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                ccts:schemeVersionID "4" 
+            ] ;
+    ccev:description "Maximum contract amount value"@en ;
+    ccev:type ctx:MAX_CONTRACT_THRESHOLD ;
+    ccev:group [
+                 ccev:property [
+                                 ccev:name "Maximum contract value threshold"@en ;
+                                 ccev:description "The maximum amount for contracts signed by a Mandatee representing a Natural or Legal Person"@en ;
+                                 ccev:constraint [
+                                                    ccev:datumAmount "5000000.00"^^xsd:decimal ;
+                                                    ccts:currencyID "EUR"
+                                                ]
+                                ]
+               ] .
+
+# <https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#c3>
+:c3 rdf:type ccev:Criterion ;
+    ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#c3"^^xsd:anyURI] ;
+    ccev:id [
+                ccts:identifierValue "2b73f156-c56d-4168-91ff-2a957035e187" ;
                 ccts:schemeID "UUID"               ;
                 ccts:schemeAgencyID "EU-COM-ISA2" ;         
                 ccts:schemeVersionID "4" 
             ] ;
     # The description of the criterion
-    ccev:description "Administrative constraint about the power to act only in certain Public Administration Level"@en ;
-    ccev:type ctx:ADMINISTRATION_LEVEL ;
+    ccev:description "Maximum contract amount value"@en ;
+    ccev:type ctx:MAX_CONTRACT_THRESHOLD ;
     ccev:group [
-                 ccev:property [
-                                 ccev:name "Administrative Level"@en ;
-                                 ccev:description "The level of the Public Administration for which the Mandatee has the power of acting on behalf of the Mandator"@en ;
-                                 ccev:constraint [ccev:datumCode at:LOCAL ]
+                 ccev:id [
+                        ccts:identifierValue "d5e43129-9418-463a-a7e8-3d8c353f61f9" ;
+                        ccts:schemeID "UUID"              ;
+                        ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                        ccts:schemeVersionID "4" 
+                    ] ;
+                    ccev:property [
+                                 ccev:name "Maximum contract value threshold"@en ;
+                                 ccev:description "The maximum amount for contracts signed by a Mandatee representing a Natural or Legal Person"@en ;
+                                 ccev:constraint [ccev:datumAmount [ ccts:amountValue "100000.00"^^xsd:decimal ; ccts:currencyID "EUR" ]]
                                 ]
                ] .
