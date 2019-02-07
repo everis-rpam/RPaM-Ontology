@@ -87,3 +87,66 @@
                                  ccev:constraint [ccev:datumAmount [ ccts:amountValue "100000.00"^^xsd:decimal ; ccts:currencyID "EUR" ]]
                                 ]
                ] .
+
+:c2012 rdf:type ccev:Criterion ;
+	ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#c2012"^^xsd:anyURI] ;
+    ccev:id [
+                        ccts:identifierValue "aa9d0e05-f45a-4a45-8be3-d02fc5369bd6" ;
+                        ccts:schemeID "UUID"              ;
+                        ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                        ccts:schemeVersionID "4" 
+                    ] ;
+    # The description of the criterion
+    ccev:description "Maximum contract amount value per EU MS, for specific periods and MS"@en ;
+    ccev:group [
+                ccev:id [ccts:identifierValue "de99c7ef-8f1e-464f-a98c-89201ed0dbf3" ] ;
+                ccev:property [
+                                 ccev:name "EU MS acting scope"@en ;
+                                 ccev:description "The country code of the EU Member State where this person can act"@en ;
+                                 # The Mandatee can only act in Spain, Belgium and Italy. Service Providers in other EU 
+                                 # Member States should reject the access to the Mandatee.
+                                 # This is a "positive constraint". The "negative" one would state something 
+                                 # like: "The country code of the EU MS where this person cannot act"
+                                 ccev:constraint [ccev:datumCode cc:ES] , [ccev:datumCode cc:BE], [ccev:datumCode cc:IT] 
+                                ] ;
+                ccev:group [
+                            ccev:id [ccts:identifierValue "e0c7de07-b228-4c94-9171-67f8919adc3a" ] ;
+                            ccev:property [
+                                             ccev:name "Maximum contract value threshold"@en ;
+                                             ccev:description "The maximum amount for contracts signed by a Mandatee representing a Natural or Legal Person"@en ;
+                                             # In ES, BE and IT, the mandatee can sign contracts up to 1,000,000.00 EUR.
+                                             ccev:constraint [ccev:datumAmount [ ccts:amountValue "1000000.00"^^xsd:decimal ; ccts:currencyID "EUR" ]]
+                                        ] ;
+                            ccev:group [
+                                        ccev:id [ccts:identifierValue "596e109b-9fdd-4704-8051-367adf130f87" ] ;
+                                        ccev:property [
+                                                        ccev:name "The lapse of time during which a power can be used"@en ;
+                                                        ccev:description "The lapse of time during which a power can be used"@en ;
+                                                        # In ES, BE and IT, the mandatee can sign contracts up to 1,000,000.00 EUR, but only until 2020-12-12.
+                                                        ccev:constraint [ccev:datumPeriod [ ubl:endDate "2020-12-12"^^xsd:date ]]
+                                                       ]           
+                                        ]
+               ] 
+        ] ;
+
+     ccev:group [
+                ccev:id [ccts:identifierValue "de99c7ef-8f1e-464f-a98c-89201ed0dbf3" ] ;
+                ccev:property [
+                                 ccev:name "EU MS acting scope"@en ;
+                                 ccev:description "The country code of the EU Member State where this person can act"@en ;
+                                 # The Mandatee can also act in the EFTA countries. Service Providers that are not 
+                                 # ES, BE, IT or EFTA countries should reject the access to the Mandatee.                                 
+                                 ccev:constraint [ccev:datumCode cc:EFTA-MS] 
+                                ] ;
+                ccev:group [
+                            ccev:id [ccts:identifierValue "e0c7de07-b228-4c94-9171-67f8919adc3a" ] ;
+                            ccev:property [
+                                             ccev:name "Maximum contract value threshold"@en ;
+                                             ccev:description "The maximum amount for contracts signed by a Mandatee representing a Natural or Legal Person"@en ;
+                                             # In the EFTA countrie the mandatee can sign contracts up to 7,000,000.00 EUR. with no time limitation.
+                                             # BUSINESS RULE: BEWARE THAT THIS CONSTRAINT SHOULD THROW AN EXCEPTION AT eMANDATE VALIDATION TIME, AS
+                                             # THE MANDATOR CANNOT SIGN CONTRACTS ABOVE 5,000,000.00 EUR. 
+                                             ccev:constraint [ccev:datumAmount [ ccts:amountValue "7000000.00"^^xsd:decimal ; ccts:currencyID "EUR" ]]
+                                        ] ;                            
+                        ] ;
+            ] .        
