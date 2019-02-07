@@ -286,9 +286,8 @@
 ######################################  CONSTRAINT #1  ###############################################
 ### From the perspective of this model, Powers *are not* constrained, but *the use* of the powers 
 ### assigned to mandatees or mandators with delegated powers may be constrained. As constraints 
-### are linked to Mandator and Mandatee, and these to Power, and Power to Mandate, there's a 4-nary 
-### relation between:
-### (1) Mandator(and its constraints)-(2)Power-(3)Mandatee(and its constraints)-(4)Mandate.
+### are linked to Mandator and Mandatee, and these to Power, there are two
+### 3-nary relations between: 1) Power -  Mandator - Constraints; and 2) Power -  Mandatee - Constraints.
 ###################################################################################################
 :CONSTRAINT-1 rdf:type ccev:Criterion ;
     ccev:id [
