@@ -19,6 +19,7 @@
 @prefix ctx:    <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/constrainttaxonomy#> .
 @prefix at:     <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/administrationleveltype#> .
 @prefix cc:     <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/countrycode#> .
+@prefix org:    <http://www.w3.org/ns/org#> .
 
 
 <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology#> rdf:type owl:Ontology ;
@@ -41,227 +42,99 @@
     :hasPower :POWER-1, :POWER-2, :POWER-3 .
 
 :MANDATE-2 rdf:type :Mandate ;
-    :id [
-                ccts:identifierValue "M-2"     ;
-                ccts:schemeID "MANDATE"      ;
-                ccts:schemeAgencyID "ES-RAE" ;
-                ccts:schemeVersionID "1.1.0"
-    ] ;
-    # This Mandate is still 'alive' in the Registry, but will presumably be struck-off from the Register on the 31st. February 2019.
+    :id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/07-Testing/Mandates/Mandates-Dataset-01.rt.ttl#MANDATE-2"; ccts:schemeID "URL"] ;
     :lifeSpan [ubl:startDateTime "2018-01-29T21:57:00"^^xsd:dateTime ; ubl:endDateTime "2019-02-31T21:57:00"^^xsd:dateTime ];
     :hasPower :POWER-4, :POWER-5, :POWER-6, :POWER-7 .      
 
-######################################  MANDATE #3  ###############################################
 :MANDATE-3 rdf:type :Mandate ;
-    :id [
-                ccts:identifierValue "M-3"     ;
-                ccts:schemeID "MANDATE"      ;
-                ccts:schemeAgencyID "ES-RAE" ;
-                ccts:schemeVersionID "1.1.0"
-    ] ;
-    # This Mandate was presumably struck-off from the Register ten months after the date it was created (2017-95-30).
-    :lifeSpan [
-                    ubl:startDateTime "2017-05-30T21:57:00"^^xsd:dateTime ; 
-                    ubl:durationMeasure [
-                        ccts:measureValue "10"^^xsd:positiveInteger ;
-                        ccts:unitCode uc:MONTH
-                    ]
-              ];
+    :id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/07-Testing/Mandates/Mandates-Dataset-01.rt.ttl#MANDATE-1"; ccts:schemeID "URL"] ;
+    :lifeSpan [ubl:startDateTime "2017-05-30T21:57:00"^^xsd:dateTime ; ubl:durationMeasure [ccts:measureValue "10"^^xsd:positiveInteger ; ccts:unitCode uc:MONTH]];
     :hasPower :POWER-1, :POWER-5, :POWER-7 .      
 
-######################################  POWER #1  ###############################################
-### An individual (e.g. an instance) of a Power. The Power is the core link between
-### The Mandator and the Mandatee, as an individual of Power is assigned by the Mandator to one
-### or more Mandatees.
-### Beware that the Powers may have different constraints for the Mandator and for the Mandatee(s).
-### This constraints are not directly linked to the Power but to the different Agents that intervene, 
-### namely the Mandator and the Mandatee: *the Power is agnostic of the constraints that may be 
-### applied to it*.
-###
-### In this example, this is the Power of Mandator 1, a Natural Person Named "Serge Novack" 
-### (MANDATOR-1), who empowers two other Natural Persons, "Paula Keen" (named individual
-### (MANDATEE-1) and "Emma Geminada" (named individual MANDATEE-2).
-### Notice that the Mandator is the "owner" of the Power, meaning that the Power was not assigned 
-### to him by another Person, which is inferred by the value of the "currentDelegationLevel".
-### Therefore there are no constraints applied to him. However, this Mandator will apply an 
-### Administrative constraint to Paula Keen: she will only be able to act on Serge's behalf in 
-### front of any EU Local Public Administation, but not in National nor Regional or 
-### EU Administrations. To see this look into the individual (instance) MANDATEE-1.
-###################################################################################################
 :POWER-1 rdf:type :Power ;
-    :id [
-                ccts:identifierValue "P-1"            ;
-                ccts:schemeID "POWER"             ;
-                ccts:schemeAgencyID "EU-COM-DIGIT"  ;
-                ccts:schemeVersionID "1.1.0"
-    ] ;
-    # See the EU Powers Taxonomy in the RPaM GitHub repository. See examples of this Power in
-    # <https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/03-Syntax_Bindings/OWL-DL-TTL/rpam/EU_Powers_Taxonomy.ttl>
-    skos:note "Powers related to study and education activities."@en ;
+    :id [ccts:identifierValue "https://rea.es/poderes#p-1"; ccts:schemeID "RPaM"; ccts:schemeVersionID "1.1.0"] ;
     :powerType pwr:WORKING ;
-    # The Power is active. See code list in:
-    # <https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/03-Syntax_Bindings/OWL-DL-TTL/rpam/EU_Power_Status_Taxonomy.ttl>
     :statusType stat:CONFIRMED ;
-    # The one who has the power and empowers other Persons.
     :powerOf :MANDATOR-2 ;
-    # The Persons empowered by the Mandator.
     :assignedTo :MANDATEE-1, :MANDATEE-2 ;
-    #This power has not been delegated to any Mandatee. In other words, the Mandator is the first Person in a chain of exactly one Mandate.
     :currentDelegationLevel 1 .
 
-######################################  POWER #2  ###############################################
-### In this example, this is the Power of Mandator 2, a Natural Person Named 
-### "Francisco Lemur Cifrado", who was assigned this Power in another Mandatee
-### (observe that the level of delegation is 2). 
-### This Mandator is going to assign powers related to business and financial operations to
-### the Mandatees "Vicenç Pons i Torra" and "Rosa De La Fuente" (Mandatees 3 and 4).
-###################################################################################################
 :POWER-2 rdf:type :Power ;
-    :id [
-                ccts:identifierValue "P-2"          ;
-                ccts:schemeID "POWER"               ;
-                ccts:schemeAgencyID "EU-COM-DIGIT"  ;
-                ccts:schemeVersionID "1.1.0"
-    ] ;
-    skos:note "Powers related to certain activities at the time of the establishment of a business."@en ;
+    :id [ccts:identifierValue "https://rea.es/poderes#p-2"; ccts:schemeID "RPaM"; ccts:schemeVersionID "1.1.0"] ;
     :powerType pwr:STARTING_BUSINESS ;
     :statusType stat:CONFIRMED ;
     :powerOf :MANDATOR-1 ;
     :assignedTo :MANDATEE-3, :MANDATEE-4 ;
-    # The Mandator is the Mandatee of another Mandate.
     :currentDelegationLevel 2 .
 
-######################################  POWER #3  ###############################################
 :POWER-3 rdf:type :Power ;
-    :id [
-                ccts:identifierValue "P-3"          ;
-                ccts:schemeID "POWER"               ;
-                ccts:schemeAgencyID "EU-COM-DIGIT"  ;
-                ccts:schemeVersionID "1.1.0"
-    ] ;
-    skos:note "Powers related to certain activities at the time of cunducting business."@en ;
+    :id [ccts:identifierValue "https://rea.es/poderes#p-3"; ccts:schemeID "RPaM"; ccts:schemeVersionID "1.1.0"] ;
     :powerType pwr:DOING_BUSINESS ;
     :statusType stat:CONFIRMED ;
     :powerOf :MANDATOR-1 ;
     :assignedTo :MANDATEE-3, :MANDATEE-4 ;
-    # The Mandator is the Mandatee of another Mandate.
     :currentDelegationLevel 2 .
 
-######################################  POWER #4  ###############################################
 :POWER-4 rdf:type :Power ;
-    :id [
-                ccts:identifierValue "P-4"          ;
-                ccts:schemeID "POWER"               ;
-                ccts:schemeAgencyID "EU-COM-DIGIT"  ;
-                ccts:schemeVersionID "1.1.0"
-    ] ;
-    skos:note "Powers related to moving activities, either in the same region or in a different region."@en ;
+    :id [ccts:identifierValue "https://rea.es/poderes#p-4"; ccts:schemeID "RPaM"; ccts:schemeVersionID "1.1.0"] ;
     :powerType pwr:MOVING ;
     :statusType stat:CONFIRMED ;
     :powerOf :MANDATOR-2 ;
     :assignedTo :MANDATEE-1, :MANDATEE-2 ;
     :currentDelegationLevel 1 .
 
-######################################  POWER #5  ###############################################
 :POWER-5 rdf:type :Power ;
-    :id [
-                ccts:identifierValue "P-5"          ;
-                ccts:schemeID "POWER"               ;
-                ccts:schemeAgencyID "EU-COM-DIGIT"  ;
-                ccts:schemeVersionID "1.1.0"
-    ] ;
-    skos:note "The action of presenting a proposal, application, or other document for consideration or judgement."@en ;
+    :id [ccts:identifierValue "https://rea.es/poderes#p-5"; ccts:schemeID "RPaM"; ccts:schemeVersionID "1.1.0"] ;
     :powerType pwr:SUBMIT ;
     :statusType stat:CONFIRMED ;
     :powerOf :MANDATOR-2 ;
     :assignedTo :MANDATEE-1, :MANDATEE-2 ;
     :currentDelegationLevel 1 .
 
-######################################  POWER #6  ###############################################
 :POWER-6 rdf:type :Power ;
-    :id [
-                ccts:identifierValue "P-6"          ;
-                ccts:schemeID "POWER"               ;
-                ccts:schemeAgencyID "EU-COM-DIGIT"  ;
-                ccts:schemeVersionID "1.1.0"
-    ] ;
-    skos:note "Powers related to activities that refer to birth."@en ;
+    :id [ccts:identifierValue "https://rea.es/poderes#p-6"; ccts:schemeID "RPaM"; ccts:schemeVersionID "1.1.0"] ;
     :powerType pwr:BIRTH ;
     :statusType stat:CONFIRMED ;
     :powerOf :MANDATOR-2 ;
     :assignedTo :MANDATEE-1, :MANDATEE-2 ;
     :currentDelegationLevel 1 .
 
-######################################  POWER #7  ###############################################
 :POWER-7 rdf:type :Power ;
-    :id [
-                ccts:identifierValue "P-7"          ;
-                ccts:schemeID "POWER"               ;
-                ccts:schemeAgencyID "EU-COM-DIGIT"  ;
-                ccts:schemeVersionID "1.1.0"
-    ] ;
+    :id [ccts:identifierValue "https://rea.es/poderes#p-7"; ccts:schemeID "RPaM"; ccts:schemeVersionID "1.1.0"] ;
     skos:note "The act to get something by paying money for it."@en ;
     :powerType pwr:STARTING_BUSINESS ;
     :statusType stat:CONFIRMED ;
     :powerOf :MANDATOR-1 ;
     :assignedTo :MANDATEE-3, :MANDATEE-4 ;
-    # The Mandator is the Mandatee of another Mandate.
     :currentDelegationLevel 2 .
 
-######################################  MANDATOR #1  ###############################################
 :MANDATOR-1 rdf:type :Mandator, foaf:Person ;
-    :id [
-                ccts:identifierValue "00775083-X"   ;
-                ccts:schemeID "ES-NIE"               ;
-                ccts:schemeAgencyID "ES-INTERIOR-MINISTRY"
-    ] ;
+    :id [ccts:identifierValue "00775083X" ; ccts:schemeID "ES-NIE" ; ccts:schemeAgencyID "ES-INTERIOR-MINISTRY"] ;
     :givenName "Serge" ; :familyName "Novack" .
 
-######################################  MANDATOR #2  ###############################################
 :MANDATOR-2 rdf:type :Mandator, foaf:Person ;
-    :id [
-                ccts:identifierValue "20775083-D"   ;
-                ccts:schemeID "ES-NIF"               ;
-                ccts:schemeAgencyID "ES-INTERIOR-MINISTRY"
-    ] ;
+    :id [ccts:identifierValue "20775083D" ; ccts:schemeID "ES-NIF" ; ccts:schemeAgencyID "ES-INTERIOR-MINISTRY"] ;
     :givenName "Vicente" ; :familyName "Francisco Lemur Cifrado" .
 
-######################################  MANDATEE #1  ###############################################
+:MANDATOR-3 rdf:type :Mandator, org:Organization ;
+    :id [ccts:identifierValue "B82387770" ; ccts:schemeID "ES-NIF" ; ccts:schemeAgencyID "ES-AEAT"] ;
+    :name "everis, Spain, SLU" .
+
 :MANDATEE-1 rdf:type :Mandatee, foaf:Person ;
-    :id [
-                ccts:identifierValue "16124678-X"   ;
-                ccts:schemeID "ES-NIF"               ;
-                ccts:schemeAgencyID "ES-INTERIOR-MINISTRY"
-    ] ;
-    :givenName "Paula" ; 
-    :familyName "Keen" ;
+    :id [ccts:identifierValue "16124678X" ; ccts:schemeID "ES-NIF" ; ccts:schemeAgencyID "ES-INTERIOR-MINISTRY"] ;
+    :givenName "Paula" ; :familyName "Keen" ;
     :constraint :CONSTRAINT-1 .
 
-######################################  MANDATEE #2  ###############################################
 :MANDATEE-2 rdf:type :Mandatee, foaf:Person ;
-    :id [
-                ccts:identifierValue "46620667-P"   ;
-                ccts:schemeID "ES-NIF"               ;
-                ccts:schemeAgencyID "ES-INTERIOR-MINISTRY"
-    ] ;
+    :id [ccts:identifierValue "46620667-P" ; ccts:schemeID "ES-NIF" ; ccts:schemeAgencyID "ES-INTERIOR-MINISTRY"] ;
     :givenName "Emma" ; :familyName "Geminada" .
 
-######################################  MANDATEE #3  ###############################################
 :MANDATEE-3 rdf:type :Mandatee, foaf:Person ;
-    :id [
-                ccts:identifierValue "545519556-Q"   ;
-                ccts:schemeID "ES-NIF"               ;
-                ccts:schemeAgencyID "ES-INTERIOR-MINISTRY"
-    ] ;
+    :id [ccts:identifierValue "545519556-Q" ; ccts:schemeID "ES-NIF" ; ccts:schemeAgencyID "ES-INTERIOR-MINISTRY"] ;
     :givenName "Vicenç" ; :familyName "Pons i Torra" .
 
-######################################  MANDATEE #4  ###############################################
 :MANDATEE-4 rdf:type :Mandatee, foaf:Person ;
-    :id [
-                ccts:identifierValue "72345671-S"   ;
-                ccts:schemeID "ES-NIF"               ;
-                ccts:schemeAgencyID "ES-INTERIOR-MINISTRY"
-    ] ;
+    :id [ccts:identifierValue "72345671-S" ; ccts:schemeID "ES-NIF" ; ccts:schemeAgencyID "ES-INTERIOR-MINISTRY"] ;
     :givenName "Rosa" ; :familyName "De La Fuente-Brolladora" .
 
 ######################################  CONSTRAINT #1  ###############################################

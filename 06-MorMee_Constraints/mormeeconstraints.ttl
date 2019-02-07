@@ -1,0 +1,33 @@
+@prefix : <https://joinup.ec.europa.eu/collection/rpam/1.1.0/constraints/moremee#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ubl: <http://docs.oasis-open.org/ubl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ccev: <https://joinup.ec.europa.eu/collection/semic/ccev/2.0.3/ontology#> .
+@prefix ccts: <http://www.unece.org/cefact#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@base <http://data.europa.eu/RPaM/ontology#> .
+
+<https://joinup.ec.europa.eu/collection/rpam/1.1.0/constraints/moremee#> rdf:type owl:Ontology ;
+                                        owl:versionIRI <https://joinup.ec.europa.eu/collection/rpam/1.1.0/constraints/moremee#> .
+
+:c1 rdf:type ccev:Criterion ;
+    ccev:id [
+                ccts:identifierValue "" ;
+                ccts:schemeID "UUID"               ;
+                ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                ccts:schemeVersionID "4" 
+            ] ;
+    # The description of the criterion
+    ccev:description "Administrative constraint about the power to act only in certain Public Administration Level"@en ;
+    ccev:type ctx:ADMINISTRATION_LEVEL ;
+    ccev:group [
+                 ccev:property [
+                                 ccev:name "Administrative Level"@en ;
+                                 ccev:description "The level of the Public Administration for which the Mandatee has the power of acting on behalf of the Mandator"@en ;
+                                 ccev:constraint [ccev:datumCode at:LOCAL ]
+                                ]
+               ] .

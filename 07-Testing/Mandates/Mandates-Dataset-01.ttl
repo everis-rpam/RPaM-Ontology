@@ -19,6 +19,7 @@
 @prefix ctx:    <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/constrainttaxonomy#> .
 @prefix at:     <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/administrationleveltype#> .
 @prefix cc:     <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/countrycode#> .
+@prefix org:    <http://www.w3.org/ns/org#> .
 
 
 <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology#> rdf:type owl:Ontology ;
@@ -244,6 +245,14 @@
                 ccts:schemeAgencyID "ES-INTERIOR-MINISTRY"
     ] ;
     :givenName "Vicente" ; :familyName "Francisco Lemur Cifrado" .
+
+######################################  MANDATOR #3  ###############################################
+### Mandator 3 is a Legal Person. The agency that issued its Identifier is the Spanish Tax Agency. 
+####################################################################################################
+:MANDATOR-3 rdf:type :Mandator, org:Organization ;
+    :id [ccts:identifierValue "B82387770" ; ccts:schemeID "ES-NIF" ; ccts:schemeAgencyID "ES-AEAT"] ;
+    :name "everis, Spain, SLU" .
+
 
 ######################################  MANDATEE #1  ###############################################
 :MANDATEE-1 rdf:type :Mandatee, foaf:Person ;
