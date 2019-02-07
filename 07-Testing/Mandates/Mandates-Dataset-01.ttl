@@ -42,14 +42,20 @@
 ### Beware that the Mandatee does not contain any Service Provider Information Requirements (SP-IRs): 
 ### Mandates are agnostic of the Services which may use it. Which does not imply that the 
 ### eMandate Response provided by one eMandate Register may contain SP-IRs and related constraints.
+###
+### Notice the use of multiple identifiers and, in the case of UUIDs, how the ISO-15000-5 CCTS
+### attributes are used.
 ###################################################################################################
 :MANDATE-1 rdf:type :Mandate;
-    :id [
-                ccts:identifierValue "M-1"     ;
-                ccts:schemeID "MANDATE"      ;
-                ccts:schemeAgencyID "ES-RAE" ;
-                ccts:schemeVersionID "1.1.0"
-    ] ;
+    :id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/07-Testing/Mandates/Mandates-Dataset-01.rt.ttl#MANDATE-1"; ccts:schemeID "URL"] ;
+    # For details on the ISO-15000-5 CCTS (Core Component Type Scpecification, prefix ccts herein, see
+    # https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/03-Syntax_Bindings/OWL-DL-TTL/ccts/ccts.ttl
+    ccev:id [
+                ccts:identifierValue "84706220-0d3f-40d5-bee2-2bae8197d21c" ;
+                ccts:schemeID "UUID" ;
+                ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                ccts:schemeVersionID "4" 
+            ] ;
     skos:note "The Mandate lifeSpan informs about when the Mandate was created and when it was struck-off from the register."@en ,
               "If no endDateTime or durationMeansure are specificed it implies that the mandate is still alive."@en ;
     # This Mandate is still 'alive' in the Registry.
@@ -59,13 +65,12 @@
 
 ######################################  MANDATE #2  ###############################################
 :MANDATE-2 rdf:type :Mandate ;
-    # For details on the ISO-15000-5 CCTS (Core Component Type Scpecification, prefix ccts herein, see
-    # https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/03-Syntax_Bindings/OWL-DL-TTL/ccts/ccts.ttl
+    :id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/07-Testing/Mandates/Mandates-Dataset-01.rt.ttl#MANDATE-2"; ccts:schemeID "URL"] ;
     :id [
                 ccts:identifierValue "M-2"     ;
-                ccts:schemeID "MANDATE"      ;
-                ccts:schemeAgencyID "ES-RAE" ;
-                ccts:schemeVersionID "1.1.0"
+                ccts:schemeID "UUID" ;
+                ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                ccts:schemeVersionID "4" 
     ] ;
     # This Mandate is still 'alive' in the Registry, but will presumably be struck-off from the Register on the 31st. February 2019.
     :lifeSpan [ubl:startDateTime "2018-01-29T21:57:00"^^xsd:dateTime ; ubl:endDateTime "2019-02-31T21:57:00"^^xsd:dateTime ];
@@ -73,11 +78,12 @@
 
 ######################################  MANDATE #3  ###############################################
 :MANDATE-3 rdf:type :Mandate ;
+    :id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/07-Testing/Mandates/Mandates-Dataset-01.rt.ttl#MANDATE-1"; ccts:schemeID "URL"] ;
     :id [
                 ccts:identifierValue "M-3"     ;
-                ccts:schemeID "MANDATE"      ;
-                ccts:schemeAgencyID "ES-RAE" ;
-                ccts:schemeVersionID "1.1.0"
+                ccts:schemeID "UUID" ;
+                ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                ccts:schemeVersionID "4" 
     ] ;
     # This Mandate was presumably struck-off from the Register ten months after the date it was created (2017-95-30).
     :lifeSpan [
@@ -107,11 +113,19 @@
 ### Administrative constraint to Paula Keen: she will only be able to act on Serge's behalf in 
 ### front of any EU Local Public Administation, but not in National nor Regional or 
 ### EU Administrations. To see this look into the individual (instance) MANDATEE-1.
+###
+### Notice that the power is accessible from the Spanish eMandate Registry REA 
+### (Registro Electronico de Apoderamientos). The URL uses herein is fake, just for illustration
+### and simplification. The official URL for this Register is 
+### https://sede.administracion.gob.es/PAG_Sede/ServiciosElectronicos/RegistroElectronicoDeApoderamientos.html
 ###################################################################################################
 :POWER-1 rdf:type :Power ;
+    :id [ccts:identifierValue "https://rea.es/poderes#p-1"; ccts:schemeID "RPaM"; ccts:schemeVersionID "1.1.0"] ;
     :id [
                 ccts:identifierValue "P-1"            ;
                 ccts:schemeID "POWER"             ;
+                # The scheme ([A,Z]-n is maintained by DIGIT), in this example the eMandate Registry has decided
+                # to use DIGI's scheme to doubly identify the power.
                 ccts:schemeAgencyID "EU-COM-DIGIT"  ;
                 ccts:schemeVersionID "1.1.0"
     ] ;
@@ -137,6 +151,7 @@
 ### the Mandatees "Vicenç Pons i Torra" and "Rosa De La Fuente" (Mandatees 3 and 4).
 ###################################################################################################
 :POWER-2 rdf:type :Power ;
+    :id [ccts:identifierValue "https://rea.es/poderes#p-2"; ccts:schemeID "RPaM"; ccts:schemeVersionID "1.1.0"] ;
     :id [
                 ccts:identifierValue "P-2"          ;
                 ccts:schemeID "POWER"               ;
@@ -153,6 +168,7 @@
 
 ######################################  POWER #3  ###############################################
 :POWER-3 rdf:type :Power ;
+    :id [ccts:identifierValue "https://rea.es/poderes#p-3"; ccts:schemeID "RPaM"; ccts:schemeVersionID "1.1.0"] ;
     :id [
                 ccts:identifierValue "P-3"          ;
                 ccts:schemeID "POWER"               ;
@@ -169,6 +185,7 @@
 
 ######################################  POWER #4  ###############################################
 :POWER-4 rdf:type :Power ;
+    :id [ccts:identifierValue "https://rea.es/poderes#p-4"; ccts:schemeID "RPaM"; ccts:schemeVersionID "1.1.0"] ;
     :id [
                 ccts:identifierValue "P-4"          ;
                 ccts:schemeID "POWER"               ;
@@ -184,6 +201,7 @@
 
 ######################################  POWER #5  ###############################################
 :POWER-5 rdf:type :Power ;
+    :id [ccts:identifierValue "https://rea.es/poderes#p-5"; ccts:schemeID "RPaM"; ccts:schemeVersionID "1.1.0"] ;
     :id [
                 ccts:identifierValue "P-5"          ;
                 ccts:schemeID "POWER"               ;
@@ -199,6 +217,7 @@
 
 ######################################  POWER #6  ###############################################
 :POWER-6 rdf:type :Power ;
+    :id [ccts:identifierValue "https://rea.es/poderes#p-6"; ccts:schemeID "RPaM"; ccts:schemeVersionID "1.1.0"] ;
     :id [
                 ccts:identifierValue "P-6"          ;
                 ccts:schemeID "POWER"               ;
@@ -214,6 +233,7 @@
 
 ######################################  POWER #7  ###############################################
 :POWER-7 rdf:type :Power ;
+    :id [ccts:identifierValue "https://rea.es/poderes#p-7"; ccts:schemeID "RPaM"; ccts:schemeVersionID "1.1.0"] ;
     :id [
                 ccts:identifierValue "P-7"          ;
                 ccts:schemeID "POWER"               ;
@@ -229,37 +249,49 @@
     :currentDelegationLevel 2 .
 
 ######################################  MANDATOR #1  ###############################################
+### Mandator 1, Serge Novack (a Belgian citizen resident in Spain), is identified with an ID 
+### issued by the Spanish Home Affairs, which is responsible for the identification of national and
+### alien citizens. In this case, Serge is a foreigner (NIE, stands for Identification Number for 
+### Foreigners), and the Ministry is one of the ID scheme Agencies that are included in the 
+### RPaM list of authorities, also used in eIDAS.
+####################################################################################################
 :MANDATOR-1 rdf:type :Mandator, foaf:Person ;
     :id [
-                ccts:identifierValue "00775083-X"   ;
+                ccts:identifierValue "00775083X"   ;
                 ccts:schemeID "ES-NIE"               ;
-                ccts:schemeAgencyID "ES-INTERIOR-MINISTRY"
+                ccts:schemeAgencyID "ES-INTERIOR"
     ] ;
     :givenName "Serge" ; :familyName "Novack" .
 
 ######################################  MANDATOR #2  ###############################################
+### Mandator 2, Francisco, is a Spanish citizen.
+####################################################################################################
 :MANDATOR-2 rdf:type :Mandator, foaf:Person ;
     :id [
-                ccts:identifierValue "20775083-D"   ;
+                ccts:identifierValue "20775083D"   ;
                 ccts:schemeID "ES-NIF"               ;
-                ccts:schemeAgencyID "ES-INTERIOR-MINISTRY"
+                ccts:schemeAgencyID "ES-INTERIOR"
     ] ;
-    :givenName "Vicente" ; :familyName "Francisco Lemur Cifrado" .
+    :givenName "Francisco" ; :familyName "Lemur Cifrado" .
 
 ######################################  MANDATOR #3  ###############################################
-### Mandator 3 is a Legal Person. The agency that issued its Identifier is the Spanish Tax Agency. 
+### Mandator 3 is a Legal Person. The agency that issued its Identifier is the Spanish Tax Agency, 
+### which is also in the list of the RPaM authorities for identification (RPaM Identifiers Policy).
 ####################################################################################################
 :MANDATOR-3 rdf:type :Mandator, org:Organization ;
-    :id [ccts:identifierValue "B82387770" ; ccts:schemeID "ES-NIF" ; ccts:schemeAgencyID "ES-AEAT"] ;
+    :id [
+            ccts:identifierValue "B82387770" ; 
+            ccts:schemeID "ES-NIF" ; 
+            ccts:schemeAgencyID "ES-AEAT"] ;
     :name "everis, Spain, SLU" .
 
 
 ######################################  MANDATEE #1  ###############################################
 :MANDATEE-1 rdf:type :Mandatee, foaf:Person ;
     :id [
-                ccts:identifierValue "16124678-X"   ;
-                ccts:schemeID "ES-NIF"               ;
-                ccts:schemeAgencyID "ES-INTERIOR-MINISTRY"
+                ccts:identifierValue "16124678X"   ;
+                ccts:schemeID "ES-NIE"               ;
+                ccts:schemeAgencyID "ES-INTERIOR"
     ] ;
     :givenName "Paula" ; 
     :familyName "Keen" ;
@@ -293,46 +325,84 @@
     :givenName "Rosa" ; :familyName "De La Fuente-Brolladora" .
 
 ######################################  CONSTRAINT #1  ###############################################
-### From the perspective of this model, Powers *are not* constrained, but *the use* of the powers 
-### assigned to mandatees or mandators with delegated powers may be constrained. As constraints 
-### are linked to Mandator and Mandatee, and these to Power, there are two
-### 3-nary relations between: 1) Power -  Mandator - Constraints; and 2) Power -  Mandatee - Constraints.
+### From the perspective of this model, the use* of the powers assigned to mandatees (or mandators 
+### with delegated powers) may be constrained (not the power in itself). As constraints 
+### are linked to Mandator and Mandatee, and these to Power, there are two3-nary relations between:
+### 1) Power -  Mandator - Constraints; and 2) Power -  Mandatee - Constraints.
+###
+### The constraints cannot be totally agnostic of the power, though: there is the need of validating
+### whether the constraint makes sense in relation with the power used by the mandatee. Thus,  
+### having a mandate saying that the mandatee has the power to request a residence in a EU MS and, 
+### simultaneously, the mandatee's constraint 'MaxContractValue' seems senseless. Hence the 
+### 'ccev:type' is used to anchor the constraint to the narrowest related concept (category) of
+### The EU Power Taxonomy. The fact that the constraint could not be anchored would imply that either
+### the EU Power Taxonomy has an opportunity to grow o that the constraint is not well defined.
+###
+### NOTE for evolution: using the property "type" of the criterion is not very smart, as it should 
+### be reserved for other purposes (i.e. to clarify the "nature" of the criterion). A nicer solution 
+### could be to extend the ccev:Criterion vocabulary with a rpam:Constraint class and, in this latter, 
+### to define an ObjectProperty `powerType` subclassing (subClassOf) the `ccev:type` property. 
 ###################################################################################################
 :CONSTRAINT-1 rdf:type ccev:Criterion ;
+    ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#AdministrativeLevelConstraint"^^xsd:anyURI] ;
     ccev:id [
                 ccts:identifierValue "6cc9308f-ff00-4e98-9de2-cc76f1b5f8e2" ;
                 ccts:schemeID "UUID"               ;
                 ccts:schemeAgencyID "EU-COM-ISA2" ;         
                 ccts:schemeVersionID "4" 
             ] ;
-    # The description of the criterion
+    ccev:name "Administrative Level"@en ;
     ccev:description "Administrative constraint about the power to act only in certain Public Administration Level"@en ;
-    ccev:type ctx:ADMINISTRATION_LEVEL ;
+    # EU Power Taxonomy narrowest category for which this constraint may apply  (the approach is still being analysed. This link is necessary for validation purposes.)
+    # ccev:type ctx:ADMINISTRATIVE_LEVEL
     ccev:group [
-                 ccev:property [
-                                 ccev:name "Administrative Level"@en ;
-                                 ccev:description "The level of the Public Administration for which the Mandatee has the power of acting on behalf of the Mandator"@en ;
-                                 ccev:constraint [ccev:datumCode at:LOCAL ]
-                                ]
+                ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#AdministrativeLevelGroup"^^xsd:anyURI ] ;
+                ccev:property [
+                               ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#AdministrativeLevelProperty"^^xsd:anyURI ] ;
+                               ccev:name "Public Administration level"@en ;
+                               ccev:description "The level of the Public Administration for which the Mandatee has the power of acting on behalf of the Mandator."@en ;
+                               ccev:constraint [ccev:datumCode at:LOCAL]
+                               ]
                ] .
 
 ######################################  CONSTRAINT #2  ###############################################
 ### In this example, Francisco Lemur Cifrado (see individual MANDATOR-2) is a Mandator with 
 ### delegated powers. The person that assigned those powers to Francisco established a financial 
-### constraint on Francisco.
+### constraint on Francisco stating that he can sign contracts (e.g. with a public administraion) 
+### up to 5,000,000.00 Euros. 
+### 
+### This example will be used later to show how mandator's and mandatee's constraint may enter in
+### conflict and to point out the need for *business rules* to enable systems to always validate 
+### the incoming information.
+### 
+### IMPLEMENTATION NOTE: The rules for data validation and integration should be decoupled as much
+### as possible from the definition of the ontology and from the dataset content. One proposal is 
+### to use SHACL to validate data graphs. See https://www.w3.org/TR/shacl/.
 ###################################################################################################
 :CONSTRAINT-2 rdf:type ccev:Criterion ;
+    ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#MaxContractValueConstraint"^^xsd:anyURI] ;
     ccev:id [
                 ccts:identifierValue "2b73f156-c56d-4168-91ff-2a957035e187" ;
                 ccts:schemeID "UUID"               ;
                 ccts:schemeAgencyID "EU-COM-ISA2" ;         
                 ccts:schemeVersionID "4" 
             ] ;
+    # The name of the criterion
+    ccev:name "Max contract value"@en ;
     # The description of the criterion
-    ccev:description "Maximum contract amount value"@en ;
-    ccev:type ctx:MAX_CONTRACT_THRESHOLD ;
-    ccev:group [
-                 ccev:property [
+    ccev:description "Maximum contract amount value."@en ;
+    # EU Power Taxonomy narrowest category for which this constraint may apply  (the approach is still being analysed. This link is necessary for validation purposes.)
+    # ccev:type ctx:MAX_CONTRACT_THRESHOLD ;
+    ccev:group [ 
+                 ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#MaxContractValueGroup"^^xsd:anyURI ;
+                 ccev:id [
+                        ccts:identifierValue "d5e43129-9418-463a-a7e8-3d8c353f61f9" ;
+                        ccts:schemeID "UUID"              ;
+                        ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                        ccts:schemeVersionID "4" 
+                    ] ;
+                    ccev:property [
+                                 ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#MaxContractValueProperty"^^xsd:anyURI ;
                                  ccev:name "Maximum contract value threshold"@en ;
                                  ccev:description "The maximum amount for contracts signed by a Mandatee representing a Natural or Legal Person"@en ;
                                  ccev:constraint [
@@ -344,23 +414,24 @@
 
 ######################################  CONSTRAINT #3  ###############################################
 ### Francisco (MANDATOR-2), can sign contracts with the public administration for 
-### values below 5,000,000.00 Euros (see CONSTRAINT #1). As a Mandator with power to delegate onto
+### values up to 5,000,000.00 Euros (see CONSTRAINT #1). As a Mandator with power to delegate onto
 ### other persons, he empowers Vicenç Pons i Torra (MANDATEE-3) with one of his powers, but sets
 ### a more restricted Financial constraint onto him.
-### Beware that the Identifier of the criterion is the same as for the above one, as it identifies
+###
+### BEWARE that the Identifier of the criterion is the same as for the above one, as it identifies
 ### a reusable data shape where all the elements, except for the constraint value are different 
-### (100,000.00 EUR).
+### (100,000.00 EUR). 
 ###################################################################################################
 :CONSTRAINT-3 rdf:type ccev:Criterion ;
+    ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#MaxContractValueConstraint"^^xsd:anyURI] ;
     ccev:id [
                 ccts:identifierValue "2b73f156-c56d-4168-91ff-2a957035e187" ;
                 ccts:schemeID "UUID"               ;
                 ccts:schemeAgencyID "EU-COM-ISA2" ;         
                 ccts:schemeVersionID "4" 
             ] ;
-    # The description of the criterion
-    ccev:description "Maximum contract amount value"@en ;
-    ccev:type ctx:MAX_CONTRACT_THRESHOLD ;
+    # EU Power Taxonomy narrowest category for which this constraint may apply  (the approach is still being analysed. This link is necessary for validation purposes.)
+    # ccev:type ctx:MAX_CONTRACT_THRESHOLD ;
     ccev:group [
                  ccev:id [
                         ccts:identifierValue "d5e43129-9418-463a-a7e8-3d8c353f61f9" ;
@@ -369,6 +440,7 @@
                         ccts:schemeVersionID "4" 
                     ] ;
                     ccev:property [
+                                 ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#MaxContractValueProperty"^^xsd:anyURI ;
                                  ccev:name "Maximum contract value threshold"@en ;
                                  ccev:description "The maximum amount for contracts signed by a Mandatee representing a Natural or Legal Person"@en ;
                                  ccev:constraint [ccev:datumAmount [ ccts:amountValue "100000.00"^^xsd:decimal ; ccts:currencyID "EUR" ]]
@@ -385,8 +457,19 @@
 ###
 ### THIS PRACTICE IS NOT RECOMMENDED as it becomes complicated to interpret automatically the meaning of the 
 ### data. An alternative to this is to draft as many mandates with simple (*atomic*) constraints.
+### 
+### Notice that the URL identifier states that the Agency responsible for this ID is the Spanish eMandate Registry 
+### (ES-REA). This means that the constraint, in principle, is not a 'standard' one (i.e. commonly shared). 
+### Nonetheless it would be interesting that, to ensure interoperability, the constraint was shared and reused by
+### other EU MS eMandate Registries and Service Providers. One existing tool aimed *_very precisely_* at this purpose
+### is *eCertis* (https://ec.europa.eu/tools/ecertis/).
 #####################################################################################################################
 :CONSTRAINT-4 rdf:type ccev:Criterion ;
+    ccev:id [
+                ccts:identifierValue "https://rea.es/mc/#MaxContractValueConstraint"^^xsd:anyURI ;
+                # The next attribute could be considered redundant, as the identifier above is in the rea.es domain.
+                ccts:schemeAgencyID "ES-REA" ;
+                ] ;
     # Attributes of the Identifier removed for brevity and clarity (in real situations these should be kept).
     ccev:id [ccts:identifierValue "aa9d0e05-f45a-4a45-8be3-d02fc5369bd6" ] ;
     # The description of the criterion
@@ -446,7 +529,7 @@
 
 ######################################  CONSTRAINT #5  ###############################################
 ### Rosa, representative mandatee of Francisco, can also create businesses on behalf of Francisco's 
-### mandator. But Francisco limits Rosa to the creation of up to 10 business for the next 3 years.
+### mandator. But Francisco limits Rosa to the creation of up to `10 business` for the next `3 years`.
 ### NOTICE that in this case the names and descriptions of the criterion and the properties have 
 ### been omitted: if every criterion is defined in a common repository, e.g. the cross-domain 
 ### EU e-Certis repository of criteria, every metaa-data about the criteria therein kept can be 
@@ -457,11 +540,16 @@
 ### (as in the example below). This enables the common sharing and reuse based on an 
 ### Open Linked Data basis.
 ### 
-### NOTIRCE that The example below is 'minimalistic', i.e. what you would see in a real production 
+### NOTICE that The example below is 'minimalistic', i.e. what you would see in a real production 
 ### environment. For the exchange of information between systems, no titles, names, descriptions 
 ### and non-layout or functional-related requirements are necessary (provided that the business 
 ### information requirements and rules are preserved, of course): the less bandwith consumed the
-### better.
+### better. If necessary, the complete metadata describing the constraint could be obtained from 
+### an RPaM official Open Linked Data repository (e.g. eCertis). For an example of how to do this
+### see this simple SPARQL Query example ("TODO").
+###
+### NOTICE also that the constraint is shared with all from the eCertis repository: 
+### (https://ec.europa.eu/tools/ecertis/).
 ###################################################################################################
 :CONSTRAINT-3 rdf:type ccev:Criterion ;
     ccev:id [ccts:identifierValue "http://ec.europa.eu/tools/ecertis/pam#MaxQuantityBusinessCreationAndPeriodConstraint"^^xsd:anyURI] ;
