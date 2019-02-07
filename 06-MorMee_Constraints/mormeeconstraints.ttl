@@ -143,10 +143,49 @@
                             ccev:property [
                                              ccev:name "Maximum contract value threshold"@en ;
                                              ccev:description "The maximum amount for contracts signed by a Mandatee representing a Natural or Legal Person"@en ;
-                                             # In the EFTA countrie the mandatee can sign contracts up to 7,000,000.00 EUR. with no time limitation.
-                                             # BUSINESS RULE: BEWARE THAT THIS CONSTRAINT SHOULD THROW AN EXCEPTION AT eMANDATE VALIDATION TIME, AS
-                                             # THE MANDATOR CANNOT SIGN CONTRACTS ABOVE 5,000,000.00 EUR. 
-                                             ccev:constraint [ccev:datumAmount [ ccts:amountValue "7000000.00"^^xsd:decimal ; ccts:currencyID "EUR" ]]
+                                             # The next line is an example of how to use the constraint. Uncomment it to use it in your dataset and supply real values.
+                                             # ccev:constraint [ccev:datumAmount [ ccts:amountValue "7000000.00"^^xsd:decimal ; ccts:currencyID "EUR" ]]
                                         ] ;                            
                         ] ;
             ] .        
+
+:MaxQuantityBusinessCreationAndPeriodConstraint rdf:type ccev:Criterion ;
+	ccev:id [ccts:identifierValue "http://ec.europa.eu/tools/ecertis/pam#MaxQuantityBusinessCreationAndPeriodConstraint"^^xsd:anyURI] ;
+    ccev:id [
+                        ccts:identifierValue "f34be3a0-db90-42c4-b401-1ed4f757889a"^^xsd:normalizedString ;
+                        ccts:schemeID "UUID"              ;
+                        ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                        ccts:schemeVersionID "4" 
+                    ] ;
+    :name "Max quantity of business creation for x years"@en ;
+    :description "Maximum quantity of business that can be created by the mandator in a period of time."@en ;
+    ccev:group [
+    			ccev:id [ccts:identifierValue "http://ec.europa.eu/tools/ecertis/isa2/pam#MaxQuantityBusinessCreationGroup"^^xsd:anyURI] ;
+    			ccev:id [
+                        ccts:identifierValue "c1ee6c5e-502f-4a9b-9c45-987a502cfe81"^^xsd:normalizedString ;
+                        ccts:schemeID "UUID"              ;
+                        ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                        ccts:schemeVersionID "4" 
+                    ] ;
+                ccev:property [ 
+                				ccev:name "Maximum quantity of businesses created"@en ;
+                				ccev:description "The maximum number of businesses a Mandatee can create on behalf of the Mandator."@en ;
+                				ccev:id [ccts:identifierValue "http://ec.europa.eu/tools/ecertis/pam/constraints#MaxQuantityBusinessCreationProperty"^^xsd:anyURI ] ;
+                                # The next line is an example of how to use the constraint. Uncomment it to use it in your dataset and supply real values.
+                                # ccev:constraint [ccev:datumQuantity [ ccts:quantityValue 10 ; ccts:unitCode :BUSINESS ]]]
+               ] ;
+    ccev:group [
+    			ccev:id [ccts:identifierValue "http://ec.europa.eu/tools/ecertis/pam#PowerUseValidityPeriodGroup>"^^xsd:anyURI ] ;
+                ccev:id [
+                        ccts:identifierValue "473f6c6d-f525-413b-a2ca-973367e617bc"^^xsd:normalizedString ;
+                        ccts:schemeID "UUID"              ;
+                        ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                        ccts:schemeVersionID "4" 
+                    ] ;
+                ccev:property [ 
+                				ccev:name "Power use validity period"@en ;
+                				ccev:description "The lapse of time during which a power can be used."@en ;
+                				ccev:id [ccts:identifierValue "http://ec.europa.eu/tools/ecertis/pam/constraints#MaxQuantityBusinessCreationProperty"^^xsd:anyURI ] ;
+                				# The next line is an example of how to use the constraint. Uncomment it to use it in your dataset and supply real values.
+                                # ccev:constraint [ccev:datumPeriod [ ubl:startDate "2019-01-01"^^xsd:date ; ubl:durationMeasure [ccts:measureValue 3; ccts:unitCode :YEAR ]]]]
+               ] .
