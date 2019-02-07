@@ -35,31 +35,12 @@
                                                 dcat:downloadURL <https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/07-Testing/Mandates/Mandates-Dataset-01.ttl>
                                         ] .
 
-
-######################################  MANDATE #1  ###############################################
-### An individual (e.g. an instance) of a Mandate empowering where three powers are assigned. 
-### Beware that the Mandatee does not contain any Service Provider Information Requirements (SP-IRs): 
-### Mandates are agnostic of the Services which may use it. Which does not imply that the 
-### eMandate Response provided by one eMandate Register may contain SP-IRs and related constraints.
-###################################################################################################
 :MANDATE-1 rdf:type :Mandate;
-    :id [
-                ccts:identifierValue "M-1"     ;
-                ccts:schemeID "MANDATE"      ;
-                ccts:schemeAgencyID "ES-RAE" ;
-                ccts:schemeVersionID "1.1.0"
-    ] ;
-    skos:note "The Mandate lifeSpan informs about when the Mandate was created and when it was struck-off from the register."@en ,
-              "If no endDateTime or durationMeansure are specificed it implies that the mandate is still alive."@en ;
-    # This Mandate is still 'alive' in the Registry.
+    :id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/07-Testing/Mandates/Mandates-Dataset-01.rt.ttl#MANDATE-1"; ccts:schemeID "URL"] ;
     :lifeSpan [ubl:startDateTime "2019-01-29T21:57:00"^^xsd:dateTime ] ;
-    :hasPower :POWER-1, :POWER-2, :POWER-3     
-    .
+    :hasPower :POWER-1, :POWER-2, :POWER-3 .
 
-######################################  MANDATE #2  ###############################################
 :MANDATE-2 rdf:type :Mandate ;
-    # For details on the ISO-15000-5 CCTS (Core Component Type Scpecification, prefix ccts herein, see
-    # https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/03-Syntax_Bindings/OWL-DL-TTL/ccts/ccts.ttl
     :id [
                 ccts:identifierValue "M-2"     ;
                 ccts:schemeID "MANDATE"      ;
