@@ -73,7 +73,7 @@ ccts:currencyID rdf:type owl:DatatypeProperty ,
 ccts:identifierValue rdf:type owl:DatatypeProperty ,
                               owl:FunctionalProperty ;
                      rdfs:domain ccts:Identifier ;
-                     rdfs:range xsd:normalizedString ;
+                     rdfs:range xsd:normalizedString, xsd:anyURI ;
                      rdfs:comment "The literal identifying an entity, like a person or an object."@en ;
                      rdfs:isDefinedBy <http://www.everis.com> .
 

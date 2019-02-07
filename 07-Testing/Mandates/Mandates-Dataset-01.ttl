@@ -18,6 +18,7 @@
 @prefix ict:    <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/irctype#> .
 @prefix ctx:    <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/constrainttaxonomy#> .
 @prefix at:     <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/administrationleveltype#> .
+@prefix cc:     <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/countrycode#> .
 
 
 <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology#> rdf:type owl:Ontology ;
@@ -219,7 +220,7 @@
                 ccts:schemeVersionID "1.1.0"
     ] ;
     skos:note "The act to get something by paying money for it."@en ;
-    :powerType pwr:BUY ;
+    :powerType pwr:STARTING_BUSINESS ;
     :statusType stat:CONFIRMED ;
     :powerOf :MANDATOR-1 ;
     :assignedTo :MANDATEE-3, :MANDATEE-4 ;
@@ -291,7 +292,7 @@
 ###################################################################################################
 :CONSTRAINT-1 rdf:type ccev:Criterion ;
     ccev:id [
-                ccev:identifierValue "6cc9308f-ff00-4e98-9de2-cc76f1b5f8e2" ;
+                ccts:identifierValue "6cc9308f-ff00-4e98-9de2-cc76f1b5f8e2" ;
                 ccts:schemeID "UUID"               ;
                 ccts:schemeAgencyID "EU-COM-ISA2" ;         
                 ccts:schemeVersionID "4" 
@@ -314,14 +315,14 @@
 ###################################################################################################
 :CONSTRAINT-2 rdf:type ccev:Criterion ;
     ccev:id [
-                ccev:identifierValue "2b73f156-c56d-4168-91ff-2a957035e187" ;
+                ccts:identifierValue "2b73f156-c56d-4168-91ff-2a957035e187" ;
                 ccts:schemeID "UUID"               ;
                 ccts:schemeAgencyID "EU-COM-ISA2" ;         
                 ccts:schemeVersionID "4" 
             ] ;
     # The description of the criterion
     ccev:description "Maximum contract amount value"@en ;
-    ccev:type ctx:MAX_THRESHOLD ;
+    ccev:type ctx:MAX_CONTRACT_THRESHOLD ;
     ccev:group [
                  ccev:property [
                                  ccev:name "Maximum contract value threshold"@en ;
@@ -344,22 +345,25 @@
 ###################################################################################################
 :CONSTRAINT-3 rdf:type ccev:Criterion ;
     ccev:id [
-                ccev:identifierValue "2b73f156-c56d-4168-91ff-2a957035e187" ;
+                ccts:identifierValue "2b73f156-c56d-4168-91ff-2a957035e187" ;
                 ccts:schemeID "UUID"               ;
                 ccts:schemeAgencyID "EU-COM-ISA2" ;         
                 ccts:schemeVersionID "4" 
             ] ;
     # The description of the criterion
     ccev:description "Maximum contract amount value"@en ;
-    ccev:type ctx:MAX_THRESHOLD ;
+    ccev:type ctx:MAX_CONTRACT_THRESHOLD ;
     ccev:group [
-                 ccev:property [
+                 ccev:id [
+                        ccts:identifierValue "d5e43129-9418-463a-a7e8-3d8c353f61f9" ;
+                        ccts:schemeID "UUID"              ;
+                        ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                        ccts:schemeVersionID "4" 
+                    ] ;
+                    ccev:property [
                                  ccev:name "Maximum contract value threshold"@en ;
                                  ccev:description "The maximum amount for contracts signed by a Mandatee representing a Natural or Legal Person"@en ;
-                                 ccev:constraint [
-                                                    ccev:datumAmount "100000.00"^^xsd:decimal ;
-                                                    ccts:currencyID "EUR"
-                                                ]
+                                 ccev:constraint [ccev:datumAmount [ ccts:amountValue "100000.00"^^xsd:decimal ; ccts:currencyID "EUR" ]]
                                 ]
                ] .
 
@@ -375,22 +379,84 @@
 ### data. An alternative to this is to draft as many mandates with simple (*atomic*) constraints.
 #####################################################################################################################
 :CONSTRAINT-4 rdf:type ccev:Criterion ;
-    ccev:id [
-                ccev:identifierValue "2b73f156-c56d-4168-91ff-2a957035e187" ;
-                ccts:schemeID "UUID"               ;
-                ccts:schemeAgencyID "EU-COM-ISA2" ;         
-                ccts:schemeVersionID "4" 
-            ] ;
+    # Attributes of the Identifier removed for brevity and clarity (in real situations these should be kept).
+    ccev:id [ccts:identifierValue "aa9d0e05-f45a-4a45-8be3-d02fc5369bd6" ] ;
     # The description of the criterion
-    ccev:description "Maximum contract amount value"@en ;
-    ccev:type ctx:MAX_THRESHOLD ;
+    ccev:description "Maximum contract amount value per EU MS, for specific periods and MS"@en ;
     ccev:group [
-                 ccev:property [
-                                 ccev:name "Maximum contract value threshold"@en ;
-                                 ccev:description "The maximum amount for contracts signed by a Mandatee representing a Natural or Legal Person"@en ;
-                                 ccev:constraint [
-                                                    ccev:datumAmount "100000.00"^^xsd:decimal ;
-                                                    ccts:currencyID "EUR"
-                                                ]
-                                ]
-               ] .
+                ccev:id [ccts:identifierValue "de99c7ef-8f1e-464f-a98c-89201ed0dbf3" ] ;
+                ccev:property [
+                                 ccev:name "EU MS acting scope"@en ;
+                                 ccev:description "The country code of the EU Member State where this person can act"@en ;
+                                 # The Mandatee can only act in Spain, Belgium and Italy. Service Providers in other EU 
+                                 # Member States should reject the access to the Mandatee.
+                                 # This is a "positive constraint". The "negative" one would state something 
+                                 # like: "The country code of the EU MS where this person cannot act"
+                                 ccev:constraint [ccev:datumCode cc:ES] , [ccev:datumCode cc:BE], [ccev:datumCode cc:IT] 
+                                ] ;
+                ccev:group [
+                            ccev:id [ccts:identifierValue "e0c7de07-b228-4c94-9171-67f8919adc3a" ] ;
+                            ccev:property [
+                                             ccev:name "Maximum contract value threshold"@en ;
+                                             ccev:description "The maximum amount for contracts signed by a Mandatee representing a Natural or Legal Person"@en ;
+                                             # In ES, BE and IT, the mandatee can sign contracts up to 1,000,000.00 EUR.
+                                             ccev:constraint [ccev:datumAmount [ ccts:amountValue "1000000.00"^^xsd:decimal ; ccts:currencyID "EUR" ]]
+                                        ] ;
+                            ccev:group [
+                                        ccev:id [ccts:identifierValue "596e109b-9fdd-4704-8051-367adf130f87" ] ;
+                                        ccev:property [
+                                                        ccev:name "The lapse of time during which a power can be used"@en ;
+                                                        ccev:description "The lapse of time during which a power can be used"@en ;
+                                                        # In ES, BE and IT, the mandatee can sign contracts up to 1,000,000.00 EUR, but only until 2020-12-12.
+                                                        ccev:constraint [ccev:datumPeriod [ ubl:endDate "2020-12-12"^^xsd:date ]]
+                                                       ]           
+                                        ]
+               ] 
+        ] ;
+
+     ccev:group [
+                ccev:id [ccts:identifierValue "de99c7ef-8f1e-464f-a98c-89201ed0dbf3" ] ;
+                ccev:property [
+                                 ccev:name "EU MS acting scope"@en ;
+                                 ccev:description "The country code of the EU Member State where this person can act"@en ;
+                                 # The Mandatee can also act in the EFTA countries. Service Providers that are not 
+                                 # ES, BE, IT or EFTA countries should reject the access to the Mandatee.                                 
+                                 ccev:constraint [ccev:datumCode cc:EFTA-MS] 
+                                ] ;
+                ccev:group [
+                            ccev:id [ccts:identifierValue "e0c7de07-b228-4c94-9171-67f8919adc3a" ] ;
+                            ccev:property [
+                                             ccev:name "Maximum contract value threshold"@en ;
+                                             ccev:description "The maximum amount for contracts signed by a Mandatee representing a Natural or Legal Person"@en ;
+                                             # In the EFTA countrie the mandatee can sign contracts up to 7,000,000.00 EUR. with no time limitation.
+                                             # BUSINESS RULE: BEWARE THAT THIS CONSTRAINT SHOULD THROW AN EXCEPTION AT eMANDATE VALIDATION TIME, AS
+                                             # THE MANDATOR CANNOT SIGN CONTRACTS ABOVE 5,000,000.00 EUR. 
+                                             ccev:constraint [ccev:datumAmount [ ccts:amountValue "7000000.00"^^xsd:decimal ; ccts:currencyID "EUR" ]]
+                                        ] ;                            
+                        ] ;
+            ] .        
+
+######################################  CONSTRAINT #5  ###############################################
+### Rosa, representative mandatee of Francisco, can also create businesses on behalf of Francisco's 
+### mandator. But Francisco limits Rosa to the creation of up to 10 business for the next 3 years.
+### NOTICE that in this case the names and descriptions of the criterion and the properties have 
+### been omitted: if every criterion is defined in a common repository, e.g. the cross-domain 
+### EU e-Certis repository of criteria, every metaa-data about the criteria therein kept can be 
+### easily retrieved (see https://ec.europa.eu/tools/ecertis).
+###
+### RECOMMENDATION: consider using URLs (even better PURIs), along with a term, for the 
+### identification of both the criteria and the properties (as in the example below). 
+### This would enable the common sharing and reuse based on an Open Linked Data basis.
+###################################################################################################
+:CONSTRAINT-3 rdf:type ccev:Criterion ;
+    ccev:id [ccts:identifierValue "http://ec.europa.eu/tools/ecertis/pam#MaxQuantityBusinessCreationAndPeriodConstraint"^^xsd:anyURI] ;
+    ccev:group [ccev:id [ccts:identifierValue "http://ec.europa.eu/tools/ecertis/pam#MaxQuantityBusinessCreationGroup"^^xsd:anyURI ] ;
+                ccev:property [ ccev:id [ccts:identifierValue "http://ec.europa.eu/tools/ecertis/pam/constraints#MaxQuantityBusinessCreationProperty"^^xsd:anyURI ] ;
+                                ccev:constraint [ccev:datumQuantity [ ccts:quantityValue 10 ; ccts:unitCode :BUSINESS ]]]
+               ] ;
+    ccev:group [ccev:id [ccts:identifierValue "http://ec.europa.eu/tools/ecertis/pam#PowerUseValidityPeriodGroup>"^^xsd:anyURI ] ;
+                ccev:property [ ccev:id [ccts:identifierValue "http://ec.europa.eu/tools/ecertis/pam/constraints#MaxQuantityBusinessCreationProperty"^^xsd:anyURI ] ;
+                                ccev:constraint [ccev:datumPeriod [ ubl:startDate "2019-01-01"^^xsd:date ; 
+                                                                    ubl:durationMeasure [ccts:measureValue 3; ccts:unitCode :YEAR ]]]]
+               ] 
+     .
