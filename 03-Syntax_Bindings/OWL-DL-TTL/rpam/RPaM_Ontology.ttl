@@ -18,36 +18,38 @@
 #    Object Properties
 #################################################################
 
-:assignedTo rdf:type owl:ObjectProperty ;
-            rdfs:label "assigned To"@en ;
-            skos:definition "The powers received by a mandatee from a mandator."@en .
-
-:hasPower rdf:type owl:ObjectProperty ;
-          rdfs:domain :Mandate ;
-          rdfs:range :Power ;
-          rdfs:label "has power."@en ;
-          skos:definition "The powers that a mandator assigns to a mandatee."@en .
-
 :id rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
                        rdfs:domain :Mandate, :Mandatee, :Mandator, :Power ;
                        rdfs:range ccts:Identifier ;
                        rdfs:label "The identifier of a Mandator, a mandatee or a power."@en .
+
+:constraint  rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
+                     rdfs:label "power Use Constraint"@en ;
+                     skos:definition "Constraint(s) imposed on how mandatees and mandators with delegated powers may use a power."@en ;
+                     skos:example "Geospatial, temporal, financial, contractual, etc. constraints or possible combinations of these."@en .
+
+:empowerment rdf:type owl:ObjectProperty, owl:FunctionalProperty;
+          rdfs:label "empowerment" ;
+          rdfs:definition "Specifies who is the mandator and its power assignements to one or more mandatees." .
+
+:powerAssignment rdf:type owl:ObjectProperty, owl:FunctionalProperty;
+          rdfs:label "powerAssignment" ;
+          rdfs:definition "Specifies who is the empowered mandatee and which powers and constraints the mandator assigns to it." .
+
+:empowered  rdf:type owl:ObjectProperty, owl:FunctionalProperty;
+          rdfs:label "empowered" ;
+          rdfs:definition "Points at the empowered Mandatee." .
 
 :lifeSpan rdf:type owl:ObjectProperty ;
           rdfs:domain :Mandate ;
           rdfs:range ubl:Period ;
           rdfs:label "has lifeSpan"@en ;
           skos:definition "The dates of creation and striking-off of a mandate in the eMandate Registry."@en .
-
-:powerOf  rdf:type owl:ObjectProperty ;
+                                 
+:powerOf  rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
           rdfs:label "power of" ;
-          rdfs:definition "The powers of a mandator that may be assigned to a mandatee" .
+          rdfs:definition "Points at the owner Mandator." .
 
-:powerUseConstraint  rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
-                     rdfs:label "power Use Constraint"@en ;
-                     skos:definition "Constraint(s) imposed on how mandatees and mandators with delegated powers may use a power."@en ;
-                     skos:example "Geospatial, temporal, financial, contractual, etc. constraints or possible combinations of these."@en .
-                                  
 :statusType rdf:type owl:ObjectProperty ;
                rdfs:domain :Power ;
                rdfs:range skos:Concept ;
@@ -70,10 +72,9 @@
 #    Data properties
 #################################################################
 
-###  http://data.europa.eu/RPaM/ontology#hasCurrentDelegationLevel
-:currentDelegationLevel rdf:type owl:DatatypeProperty ;
-                           rdfs:domain :Power ;
-                           rdfs:range xsd:positiveInteger ;
+:delegationLevel rdf:type owl:DatatypeProperty , owl:FunctionalProperty ;
+                           rdfs:domain :Empowerment ;
+                           rdfs:range xsd:integer ;
                            rdfs:label "Current Delegation Level"@en .
 
 #################################################################
@@ -82,8 +83,13 @@
 
 :Mandate rdf:type owl:Class ;
        rdfs:label "Mandate"@en ;
-       skos:definition "The result of the empowerment of a Mandatee by a Mandator, i.e. the expression of which powers have been assigned by a Person (the Mandator) to another Person (the Mandatee), for certain purposes, for a certain period of time, under certain possible circumstances, etc."@en .
-
+       skos:definition "The result of the empowerment of a Mandatee by a Mandator, i.e. the expression of which powers have been assigned by a Person (the Mandator) to another Person (the Mandatee), for certain purposes, for a certain period of time, under certain possible circumstances, etc."@en ;
+       owl:subClassOf [
+                             a owl:Restriction ;
+                             owl:someValuesFrom :Empowerment ;
+                             owl:onProperty :empowerment
+                           ] .
+      
 :Mandatee rdf:type owl:Class ;
           owl:rdfs:subClassOf foaf:Agent ;
           rdfs:label "Mandatee"@en ;
@@ -110,14 +116,43 @@
 
 :Power rdf:type owl:Class ;
        rdfs:label "Power"@en ;
-       skos:definition "The capacity to act on its own behalf."@en ;
+       skos:definition "The capacity to act on its own behalf."@en .
+       
+:Empowerment rdf:type owl:Class ;
+       rdfs:label "AssignedTo"@en ;
+       skos:definition "N-ary relation class to link the power with the mandatee and its constraints."@en ;
        owl:subClassOf [
                              a owl:Restriction ;
-                             owl:allValuesFrom :Mandator ;
+                             owl:someValuesFrom :Mandator ;
                              owl:onProperty :powerOf
                            ] ;
        owl:subClassOf [
                              a owl:Restriction ;
-                             owl:allValuesFrom :Mandatee ;
+                             owl:someValuesFrom :Power ;
+                             owl:onProperty :power
+                           ] ;
+      owl:subClassOf [
+                             a owl:Restriction ;
+                             owl:someValuesFrom ccev:Criterion ;
+                             owl:onProperty :constraint
+                           ] ;
+      owl:subClassOf [
+                             a owl:Restriction ;
+                             owl:someValuesFrom :PowerAssignment ;
+                             owl:onProperty :powerAssignment
+                           ] .                          
+
+:PowerAssignment rdf:type owl:Class ;
+       rdfs:label "PowerAssignment"@en ;
+       skos:definition "N-ary relation class to link the Mandator's powers and constraints with the empowered mandatee's ones."@en ;
+       owl:subClassOf [
+                             a owl:Restriction ;
+                             owl:someValuesFrom :Mandatee;
                              owl:onProperty :assignedTo
-                           ] .
+                           ] ;
+       owl:subClassOf [
+                             a owl:Restriction ;
+                             owl:someValuesFrom ccev:Criterion ;
+                             owl:onProperty :constraint
+                           ] .                          
+

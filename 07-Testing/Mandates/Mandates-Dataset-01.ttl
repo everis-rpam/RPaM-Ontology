@@ -60,31 +60,43 @@
               "If no endDateTime or durationMeansure are specificed it implies that the mandate is still alive."@en ;
     # This Mandate is still 'alive' in the Registry.
     :lifeSpan [ubl:startDateTime "2019-01-29T21:57:00"^^xsd:dateTime ] ;
-    :hasPower :POWER-1, :POWER-2, :POWER-3     
-    .
+    :empowerment [
+            # The powers of the Mandator
+            :power :POWER-2 ;
+            # The one who has the power and empowers other Persons.
+            :powerOf :MANDATOR-1 ;
+            # No constraints are applied to the use of this Power by the mandater nor the mandatee
+            :powerAssignment [:assignedTo :MANDATEE-1, :MANDATEE-2 ] 
+            ] ;
+    :empowerment [
+            :power :POWER-3 ;
+            :powerOf :MANDATOR-1 ;
+            # No constraints are applied to the use of this Power by the mandater nor the mandatee
+            :powerAssignment [:assignedTo :MANDATEE-1, :MANDATEE-2 ] 
+            ] ;
+    :empowerment [
+            :power :POWER-7 ;
+            :powerOf :MANDATOR-1 ;
+            # No constraints are applied to the use of this Power by the mandater nor the mandatee
+            :powerAssignment [:assignedTo :MANDATEE-1, :MANDATEE-2 ] 
+            ]
+    ] .
+
 
 ######################################  MANDATE #2  ###############################################
 :MANDATE-2 rdf:type :Mandate ;
     :id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/07-Testing/Mandates/Mandates-Dataset-01.rt.ttl#MANDATE-2"; ccts:schemeID "URL"] ;
-    :id [
-                ccts:identifierValue "M-2"     ;
-                ccts:schemeID "UUID" ;
-                ccts:schemeAgencyID "EU-COM-ISA2" ;         
-                ccts:schemeVersionID "4" 
-    ] ;
     # This Mandate is still 'alive' in the Registry, but will presumably be struck-off from the Register on the 31st. February 2019.
     :lifeSpan [ubl:startDateTime "2018-01-29T21:57:00"^^xsd:dateTime ; ubl:endDateTime "2019-02-31T21:57:00"^^xsd:dateTime ];
-    :hasPower :POWER-4, :POWER-5, :POWER-6, :POWER-7 .      
+    :empowerment [
+            :power :POWER-4 ;
+            :powerOf :MANDATOR-2 ;
+            # No constraints are applied to the use of this Power by the mandater nor the mandatee
+            :powerAssignment [:assignedTo :MANDATEE-1, :MANDATEE-2] .
 
 ######################################  MANDATE #3  ###############################################
 :MANDATE-3 rdf:type :Mandate ;
-    :id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/07-Testing/Mandates/Mandates-Dataset-01.rt.ttl#MANDATE-1"; ccts:schemeID "URL"] ;
-    :id [
-                ccts:identifierValue "M-3"     ;
-                ccts:schemeID "UUID" ;
-                ccts:schemeAgencyID "EU-COM-ISA2" ;         
-                ccts:schemeVersionID "4" 
-    ] ;
+    :id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/07-Testing/Mandates/Mandates-Dataset-01.rt.ttl#MANDATE-3"; ccts:schemeID "URL"] ;
     # This Mandate was presumably struck-off from the Register ten months after the date it was created (2017-95-30).
     :lifeSpan [
                     ubl:startDateTime "2017-05-30T21:57:00"^^xsd:dateTime ; 
@@ -93,7 +105,79 @@
                         ccts:unitCode uc:MONTH
                     ]
               ];
-    :hasPower :POWER-1, :POWER-5, :POWER-7 .      
+:empowerment [
+            # Power 5: The action of presenting a proposal, application, or other document for consideration or judgement.
+            :power :POWER-5 ;
+            :powerOf :MANDATOR-2 ;
+            :powerAssignment [:assignedTo :MANDATEE-1, :MANDATEE-2; 
+                              # Constraint-1: Administrative constraint about the power to act only in certain Public Administration Level -> :LOCAL
+                              # Paula and Emma (Mandatees 1 and 2) can use this power only for local administrations.
+                              :constraint :CONSTRAINT-1] .
+
+######################################  MANDATE #4  ###############################################
+:MANDATE-3 rdf:type :Mandate ;
+    :id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/07-Testing/Mandates/Mandates-Dataset-01.rt.ttl#MANDATE-4"; ccts:schemeID "URL"] ;
+    # This Mandate was presumably struck-off from the Register ten months after the date it was created (2017-95-30).
+    :lifeSpan [
+                    ubl:startDateTime "2017-05-30T21:57:00"^^xsd:dateTime ; 
+                    ubl:durationMeasure [
+                        ccts:measureValue "10"^^xsd:positiveInteger ;
+                        ccts:unitCode uc:MONTH
+                    ]
+              ];
+    :empowerment [
+            :power :POWER-6 ;
+            :powerOf :MANDATOR-2 ;
+            # No constraints are applied to the use of this Power by the mandater nor the mandatee
+            :powerAssignment [:assignedTo :MANDATEE-1, :MANDATEE-2] ;
+
+    :empowerment [
+            :power :POWER-8 ;
+            :powerOf :MANDATOR-2 ;
+            # Francisco (mandator 2) can sign up contracts up to 5,000,000 EUR, but limits  
+            # the amount for the mandatees he empowers.
+            # Francisco (the mandator) has this power through another mandate where he was the mandatee.
+            :delegationLevel 1 ;
+            :constraint :CONSTRAINT-2 ; 
+            # Vicenç (mandatee 3) can only sign contract up to 100,000.00 EUR
+            :powerAssignment [:assignedTo :MANDATEE-3; :constraint :CONSTRAINT-3] .        
+
+######################################  MANDATE #5  ###############################################
+### Francisco (MANDATOR-2) empowers Rosa (MANDATEE-4) with a complex structure
+### made of groups and subgroups of constraints to express that:
+### 1. Rosa can act in a set of one or more EU MS countries,
+### 2. In each of these countries, Rosa can sign contracts below an economic threshold,
+### 3. For each of these thresholds (and country(ies)), she can use the power only within a concrete 
+### period of time.
+###
+### THIS PRACTICE IS NOT RECOMMENDED as it becomes complicated to interpret automatically the meaning of the 
+### data. An alternative to this is to draft as many mandates with simple (*atomic*) constraints.
+### 
+### This mandate should throw an exception at validation time, as Francisco (the mandator) 
+### cannot sign contracts above 5,000,000.00 EUR. 
+######################################################################################################
+:MANDATE-5 rdf:type :Mandate ;
+    :id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/07-Testing/Mandates/Mandates-Dataset-01.rt.ttl#MANDATE-5"; ccts:schemeID "URL"] ;
+    :lifeSpan [ubl:startDateTime "2017-05-30T21:57:00"^^xsd:dateTime ; ]];
+    :empowerment [
+            :power :POWER-8 ;
+            :powerOf :MANDATOR-2 ;
+            # Francisco (mandator 2) can sign up contracts up to 5,000,000 EUR, but limits  
+            # the amount for the mandatees he empowers.
+            # Francisco (the mandator) has this power through another mandate where he was the mandatee.
+            :delegationLevel 1 ;
+            :powerAssignment [:assignedTo :MANDATEE-1, :MANDATEE-2] ;
+
+    :empowerment [
+            :power :POWER-8 ;
+            :powerOf :MANDATOR-2 ;
+            # Francisco (mandator 2) can sign up contracts up to 5,000,000 EUR, but limits  
+            # the amount for the mandatees he empowers.
+            :constraint :CONSTRAINT-2 ; 
+            # Rosa (mandatee 4) is assigned a constraint to sign contracts up to 7,000,000.00 EUR.
+            # HOWEVER FRANCISCO CAN SIGN CONTRACTS ONLY UP TO 5,000,000.00 EUR. THIS SHOULD 
+            # THROW AN EXCEPTION.
+            :powerAssignment [:assignedTo :MANDATEE-3; :constraint :CONSTRAINT-4] .        
 
 ######################################  POWER #1  ###############################################
 ### An individual (e.g. an instance) of a Power. The Power is the core link between
@@ -108,7 +192,7 @@
 ### (MANDATOR-1), who empowers two other Natural Persons, "Paula Keen" (named individual
 ### (MANDATEE-1) and "Emma Geminada" (named individual MANDATEE-2).
 ### Notice that the Mandator is the "owner" of the Power, meaning that the Power was not assigned 
-### to him by another Person, which is inferred by the value of the "currentDelegationLevel".
+### to him by another Person, which is inferred by the value of the "delegationLevel".
 ### Therefore there are no constraints applied to him. However, this Mandator will apply an 
 ### Administrative constraint to Paula Keen: she will only be able to act on Serge's behalf in 
 ### front of any EU Local Public Administation, but not in National nor Regional or 
@@ -135,14 +219,8 @@
     :powerType pwr:WORKING ;
     # The Power is active. See code list in:
     # <https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/03-Syntax_Bindings/OWL-DL-TTL/rpam/EU_Power_Status_Taxonomy.ttl>
-    :statusType stat:CONFIRMED ;
-    # The one who has the power and empowers other Persons.
-    :powerOf :MANDATOR-2 ;
-    # The Persons empowered by the Mandator.
-    :assignedTo :MANDATEE-1, :MANDATEE-2 ;
-    #This power has not been delegated to any Mandatee. In other words, the Mandator is the first Person in a chain of exactly one Mandate.
-    :currentDelegationLevel 1 .
-
+    :statusType stat:CONFIRMED .
+    
 ######################################  POWER #2  ###############################################
 ### In this example, this is the Power of Mandator 2, a Natural Person Named 
 ### "Francisco Lemur Cifrado", who was assigned this Power in another Mandatee
@@ -160,11 +238,7 @@
     ] ;
     skos:note "Powers related to certain activities at the time of the establishment of a business."@en ;
     :powerType pwr:STARTING_BUSINESS ;
-    :statusType stat:CONFIRMED ;
-    :powerOf :MANDATOR-1 ;
-    :assignedTo :MANDATEE-3, :MANDATEE-4 ;
-    # The Mandator is the Mandatee of another Mandate.
-    :currentDelegationLevel 2 .
+    :statusType stat:CONFIRMED .
 
 ######################################  POWER #3  ###############################################
 :POWER-3 rdf:type :Power ;
@@ -177,11 +251,7 @@
     ] ;
     skos:note "Powers related to certain activities at the time of cunducting business."@en ;
     :powerType pwr:DOING_BUSINESS ;
-    :statusType stat:CONFIRMED ;
-    :powerOf :MANDATOR-1 ;
-    :assignedTo :MANDATEE-3, :MANDATEE-4 ;
-    # The Mandator is the Mandatee of another Mandate.
-    :currentDelegationLevel 2 .
+    :statusType stat:CONFIRMED .
 
 ######################################  POWER #4  ###############################################
 :POWER-4 rdf:type :Power ;
@@ -194,10 +264,7 @@
     ] ;
     skos:note "Powers related to moving activities, either in the same region or in a different region."@en ;
     :powerType pwr:MOVING ;
-    :statusType stat:CONFIRMED ;
-    :powerOf :MANDATOR-2 ;
-    :assignedTo :MANDATEE-1, :MANDATEE-2 ;
-    :currentDelegationLevel 1 .
+    :statusType stat:CONFIRMED .
 
 ######################################  POWER #5  ###############################################
 :POWER-5 rdf:type :Power ;
@@ -210,10 +277,7 @@
     ] ;
     skos:note "The action of presenting a proposal, application, or other document for consideration or judgement."@en ;
     :powerType pwr:SUBMIT ;
-    :statusType stat:CONFIRMED ;
-    :powerOf :MANDATOR-2 ;
-    :assignedTo :MANDATEE-1, :MANDATEE-2 ;
-    :currentDelegationLevel 1 .
+    :statusType stat:CONFIRMED .
 
 ######################################  POWER #6  ###############################################
 :POWER-6 rdf:type :Power ;
@@ -226,10 +290,7 @@
     ] ;
     skos:note "Powers related to activities that refer to birth."@en ;
     :powerType pwr:BIRTH ;
-    :statusType stat:CONFIRMED ;
-    :powerOf :MANDATOR-2 ;
-    :assignedTo :MANDATEE-1, :MANDATEE-2 ;
-    :currentDelegationLevel 1 .
+    :statusType stat:CONFIRMED .
 
 ######################################  POWER #7  ###############################################
 :POWER-7 rdf:type :Power ;
@@ -242,11 +303,14 @@
     ] ;
     skos:note "The act to get something by paying money for it."@en ;
     :powerType pwr:STARTING_BUSINESS ;
-    :statusType stat:CONFIRMED ;
-    :powerOf :MANDATOR-1 ;
-    :assignedTo :MANDATEE-3, :MANDATEE-4 ;
-    # The Mandator is the Mandatee of another Mandate.
-    :currentDelegationLevel 2 .
+    :statusType stat:CONFIRMED .
+    
+######################################  POWER #8  ###############################################
+:POWER-8 rdf:type :Power ;
+    :id [ccts:identifierValue "https://rea.es/poderes#p-8"; ccts:schemeID "RPaM"; ccts:schemeVersionID "1.1.0"] ;
+    skos:note "Powers related to certain activities at the time of cunducting business."@en ;
+    :powerType pwr:DOING_BUSINESS ;
+    :statusType stat:CONFIRMED .
 
 ######################################  MANDATOR #1  ###############################################
 ### Mandator 1, Serge Novack (a Belgian citizen resident in Spain), is identified with an ID 
@@ -285,7 +349,6 @@
             ccts:schemeAgencyID "ES-AEAT"] ;
     :name "everis, Spain, SLU" .
 
-
 ######################################  MANDATEE #1  ###############################################
 :MANDATEE-1 rdf:type :Mandatee, foaf:Person ;
     :id [
@@ -294,8 +357,7 @@
                 ccts:schemeAgencyID "ES-INTERIOR"
     ] ;
     :givenName "Paula" ; 
-    :familyName "Keen" ;
-    :constraint :CONSTRAINT-1 .
+    :familyName "Keen" .
 
 ######################################  MANDATEE #2  ###############################################
 :MANDATEE-2 rdf:type :Mandatee, foaf:Person ;
@@ -325,24 +387,6 @@
     :givenName "Rosa" ; :familyName "De La Fuente-Brolladora" .
 
 ######################################  CONSTRAINT #1  ###############################################
-### From the perspective of this model, the use* of the powers assigned to mandatees (or mandators 
-### with delegated powers) may be constrained (not the power in itself). As constraints 
-### are linked to Mandator and Mandatee, and these to Power, there are two3-nary relations between:
-### 1) Power -  Mandator - Constraints; and 2) Power -  Mandatee - Constraints.
-###
-### The constraints cannot be totally agnostic of the power, though: there is the need of validating
-### whether the constraint makes sense in relation with the power used by the mandatee. Thus,  
-### having a mandate saying that the mandatee has the power to request a residence in a EU MS and, 
-### simultaneously, the mandatee's constraint 'MaxContractValue' seems senseless. Hence the 
-### 'ccev:type' is used to anchor the constraint to the narrowest related concept (category) of
-### The EU Power Taxonomy. The fact that the constraint could not be anchored would imply that either
-### the EU Power Taxonomy has an opportunity to grow o that the constraint is not well defined.
-###
-### NOTE for evolution: using the property "type" of the criterion is not very smart, as it should 
-### be reserved for other purposes (i.e. to clarify the "nature" of the criterion). A nicer solution 
-### could be to extend the ccev:Criterion vocabulary with a rpam:Constraint class and, in this latter, 
-### to define an ObjectProperty `powerType` subclassing (subClassOf) the `ccev:type` property. 
-###################################################################################################
 :CONSTRAINT-1 rdf:type ccev:Criterion ;
     ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#AdministrativeLevelConstraint"^^xsd:anyURI] ;
     ccev:id [
@@ -414,7 +458,7 @@
 
 ######################################  CONSTRAINT #3  ###############################################
 ### Francisco (MANDATOR-2), can sign contracts with the public administration for 
-### values up to 5,000,000.00 Euros (see CONSTRAINT #1). As a Mandator with power to delegate onto
+### values up to 5,000,000.00 Euros (see CONSTRAINT #2). As a Mandator with power to delegate onto
 ### other persons, he empowers Vicenç Pons i Torra (MANDATEE-3) with one of his powers, but sets
 ### a more restricted Financial constraint onto him.
 ###
