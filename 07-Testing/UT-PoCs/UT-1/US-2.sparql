@@ -1,0 +1,19 @@
+PREFIX : <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ccts: <http://www.unece.org/cefact#>
+PREFIX cc: <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/countrycode#>
+PREFIX ccev: <https://joinup.ec.europa.eu/collection/semic/ccev/2.0.3/ontology#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+# USER STORY-2: All Mandates of Serge
+
+select distinct ?Mandator ?Mandates
+from <https://joinup.ec.europa.eu/collection/rpam/1.1.0/mandates#>
+where {
+    ?Mandates a  :Mandate ;
+              	 :has ?Empowerment .
+    ?Empowerment :mandator ?Mandator 
+    
+    filter ( ?Mandator = :Serge )
+    
+} order by ?Mandates

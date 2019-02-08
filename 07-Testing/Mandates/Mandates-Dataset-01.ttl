@@ -593,7 +593,7 @@
 ### NOTICE also that the constraint is shared with all from the eCertis repository: 
 ### (https://ec.europa.eu/tools/ecertis/).
 ###################################################################################################
-:CONSTRAINT-3 rdf:type ccev:Criterion ;
+:CONSTRAINT-5 rdf:type ccev:Criterion ;
     ccev:id [ccts:identifierValue "http://ec.europa.eu/tools/ecertis/pam#MaxQuantityBusinessCreationAndPeriodConstraint"^^xsd:anyURI] ;
     # This second uuid is in fact unnecessary, too, as you could get it from the eCertis repository.
     ccev:id [ccts:identifierValue "f34be3a0-db90-42c4-b401-1ed4f757889a"^^xsd:normalizedString] ;
