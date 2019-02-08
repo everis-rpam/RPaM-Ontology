@@ -10,30 +10,21 @@ PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 select ?MandatorName ?Power ?MandateeName ?MandatorConstraint ?MandateeConstraint
 FROM <https://joinup.ec.europa.eu/collection/rpam/1.1.0/mandates#>
 where {
-
     ?Mandate a :Mandate ;
              :id [ccts:identifierValue ?MandateId] ;
              :empowerment ?Empowerment .
-    filter (?MandateId = "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/07-Testing/Mandates/Mandates-Dataset-01.rt.ttl#MANDATE-4")
+    filter (?MandateId = "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/07-Testing/Mandates/Mandates-Dataset-01.rt.ttl#MANDATE-3")
     ?Empowerment :powerOf ?Mandator ;
                  :power [:powerType ?Power] ;
                  :powerAssignment ?PowerAssignment .
     ?PowerAssignment :assignedTo ?Mandatee
-    OPTIONAL {
-        ?PowerAssignment :constraint ?MeeConstraint .
-        ?MeeConstraint ccev:group [ccev:property [ccev:name ?MeePropertyName; ccev:constraint [ccev:datumAmount ?MeeConstraintAmount; ccts:currencyID ?MeeConstraintCurrency]]]
-    }
-    OPTIONAL {?Empowerment :constraint ?MorConstraint .
-    		  ?MorConstraint ccev:group [ccev:property [ccev:name ?MorPropertyName; ccev:constraint [ccev:datumAmount ?MorConstraintAmount; ccts:currencyID ?MorConstraintCurrency]]]
-    }
+
+    OPTIONAL {?Empowerment :constraint ?MandatorConstraint }
+    OPTIONAL {?PowerAssignment :constraint ?MandateeConstraint }
     ?Mandator :givenName ?MorGivenName ;
               :familyName ?MorFamilyName .
     ?Mandatee :givenName ?MeeGivenName ;
               :familyName ?MeeFamilyName
     bind(concat(?MorGivenName, " ", ?MorFamilyName) as ?MandatorName)
     bind(concat(?MeeGivenName, " ", ?MeeFamilyName) as ?MandateeName)
-    bind (?MeeConstraint as ?MandateeConstraint)
-    bind (concat(str(?MorPropertyName), ": ", str(?MorConstraintAmount), " ", str(?MorConstraintCurrency))  as ?MandatorConstraint)
-    #bind (concat(str(?MeePropertyName), ": ", str(?MeeConstraintAmount), " ", str(?MeeConstraintCurrency))  as ?MandateeConstraint)
-    bind (?MeeConstraint as ?MandateeConstraint)
 }
