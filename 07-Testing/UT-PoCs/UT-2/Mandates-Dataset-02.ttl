@@ -21,11 +21,11 @@
 @prefix cc:     <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/countrycode#> .
 @prefix tu:     <https://eurostat/nuts/2016/> .
 @prefix org:    <http://www.w3.org/ns/org#> .
-@prefix ct:		<https://joinup.ec.europa.eu/collection/rpam/1.1.0/constraints/moremee#> .
+@prefix ct:		<https://joinup.ec.europa.eu/collection/rpam/1.1.0/constraints/moremeeconstraints.ttl#> .
 
 
 <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology#> rdf:type owl:Ontology ;
-                                        owl:versionIRI <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology> ;
+                                        owl:versionIRI <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology.ttl> ;
                                         dct:description "A Data Set with example (fake) Mandates conformat to the RPaM Ontology specification."@en ,
                                                         "BEWARE that this Ontology is an ongoing development"@en ;
                                         dct:title "Representation Powers and Mandates"@en ;
@@ -208,55 +208,64 @@
 :c1 a ccev:Criterion ;
 	# Criterion data structure Identifier. Beware that multiple Identifiers are possible, even recommendable in certain circumstances.
 	ccev:id [ccts:identifierValue "503faff0-9c27-47fe-97de-957ebf9921f1"; ccts:schemeID "UUID"; ccts:schemeVersionID "4"] ;
-    ccev:type ct:GenericConstraint ;
+    ccev:type ct:GenericConstraintCriterion ;
 	# The short name of the criterion
     ccev:name "GenericConstraints"@en ;
     # The description of the criterion data structure
     ccev:description "Group of usual constraints expressed in a very generic way."@en ;
-    ccev:group [
+    ccev:group [ccev:type :GenericConstraintsGroup ;
     			ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#GenericConstraintGroup"^^xsd:anyURI ] ;
-    			ccev:property [ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#FinancialConstraintProperty"^^xsd:anyURI ] ;
+    			ccev:property [ccev:type :FinancialCeil ; ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#FinancialConstraintProperty"^^xsd:anyURI ] ;
                 			   ccev:name "Financial Ceil"@en ;
                                ccev:description "The person cannot use the power above the amount of."@en ;
 							   ccev:constraint [ccev:datumAmount [ccts:amountValue "1000000.00"^^xsd:decimal ; ccts:currencyID "EUR"]]
                               ]] ; 
-				ccev:property [
+				ccev:property [ccev:type :TerritorialUnitScope ;
 				               ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#GeographicalConstraintProperty"^^xsd:anyURI ] ;
 				               ccev:name "Territorial unit scope"@en ;
 				               ccev:description "The person can not use the power out of the following territorial unit(s)"@en ;
-							   # The next line is an example of how to use the constraint. Uncomment it to use it in your dataset and supply real values.
 							   # Beware that the cardinality of the Datum class is multiple. 
 							   # The person can only act in Italy, Belgium and Spain. He 'cannot' use the power out of these EU MS countries.
 							   ccev:constraint [ccev:datumCode  [ccts:codeValue tu:IT; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"],
 																[ccts:codeValue tu:BE; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"], 
 																[ccts:codeValue tu:ES; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]]
 				               ];
-				ccev:property [
-				               ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#ValidityPeriodConstraintProperty"^^xsd:anyURI ] ;
-				               ccev:name "Max validity period"@en ;
+				ccev:property [ccev:type :ValidityPeriodConstraint ; 
+				               ccev:name "Validity period"@en ;
 				               ccev:description "The person cannot use the power beyond this time interval"@en ;
-							   # The next line is an example of how to use the constraint. Uncomment it to use it in your dataset and supply real values.
 							   ccev:constraint [ccev:datumPeriod [ ubl:endDate "2020-12-12"^^xsd:date ]]
-				               ] .
+				               ] ;
+				ccev:property [ccev:type :OneSingleUse ; 
+							   ccev:name "One single use"@en ;
+				               ccev:description "The person cannot use the power more than once"@en ;
+							   
 
-### The rest of criteria are expressed in a "minimalistic" way, for the sake of clarity and brevity. Compare them with the Criterion above.
+								ccev:constraint [ccev:datumIndicator "true"^^xsd:boolean]] .
+
+### The rest of criteria are expressed in a "minimalistic" way, for the sake of clarity and brevity. Compare them with the Criterion above. 
+### Only the necessary elements are instantiated. The rest of them can be retrieve from the definition of constraints in:
+### <https://joinup.ec.europa.eu/collection/rpam/1.1.0/constraints/moremeeconstraints.ttl>.
+
 :c2 a ccev:Criterion ;
     ccev:id [ccts:identifierValue "ee87abdd-b62e-401c-9bf6-e29fa119df5a"; ccts:schemeID "UUID"; ccts:schemeVersionID "4"] ;
-    ccev:type ct:GenericConstraint ;
-	ccev:group [
-    			ccev:property [ccev:constraint [ccev:datumAmount [ccts:amountValue "5000000.00"^^xsd:decimal ; ccts:currencyID "EUR"]]]] ; 
-				ccev:property [
+    ccev:type ct:GenericConstraintCriterion ;
+	ccev:group [ccev:type :GenericConstraintsGroup ;
+    			ccev:property [ccev:type :FinancialCeil ; ccev:constraint [ccev:datumAmount [ccts:amountValue "5000000.00"^^xsd:decimal ; ccts:currencyID "EUR"]]]] ; 
+				ccev:property [ccev:type :TerritorialUnitScope ;
 							   # Beware that the cardinality of the Datum class is multiple. 
 							   # The person can only act in Italy, Belgium and Spain. He 'cannot' use the power out of these EU MS countries.
 							   ccev:constraint [ccev:datumCode  [ccts:codeValue tu:IT; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"],
 																[ccts:codeValue tu:BE; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"], 
 																[ccts:codeValue tu:ES; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]]
 				               ];
-				ccev:property [ccev:constraint [ccev:datumPeriod [ ubl:endDate "2020-12-12"^^xsd:date ]]] .
+				ccev:property [ccev:type :ValidityPeriodConstraint ; ccev:constraint [ccev:datumPeriod [ ubl:endDate "2020-12-12"^^xsd:date ]]] ;
+				ccev:property [ccev:type :OneSingleUse ; ccev:constraint [ccev:datumIndicator "false"^^xsd:boolean]] .
 
 # In this case only a validity period is specified, the rest of properties are not needed (not realised).
 :c3 a ccev:Criterion ;
     ccev:id [ccts:identifierValue "d10ebe8a-6b53-48c0-aa04-73215efd9e40"; ccts:schemeID "UUID"; ccts:schemeVersionID "4"] ;
     ccev:type ct:GenericConstraint ;
 	ccev:group [ccev:property [ccev:constraint [ccev:datumPeriod [ ubl:startDate "2019-01-01"^^xsd:date; ubl:endDate "2022-12-12"]]]] .
+
+# TODO: Complete the data about the rest of the constraints.
 
