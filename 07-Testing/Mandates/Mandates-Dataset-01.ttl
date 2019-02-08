@@ -105,7 +105,7 @@
                         ccts:unitCode uc:MONTH
                     ]
               ];
-:empowerment [
+    :empowerment [
             # Power 5: The action of presenting a proposal, application, or other document for consideration or judgement.
             :power :POWER-5 ;
             :powerOf :MANDATOR-2 ;
@@ -115,7 +115,7 @@
                               :constraint :CONSTRAINT-1] ].
 
 ######################################  MANDATE #4  ###############################################
-:MANDATE-3 rdf:type :Mandate ;
+:MANDATE-4 rdf:type :Mandate ;
     :id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/07-Testing/Mandates/Mandates-Dataset-01.rt.ttl#MANDATE-4"; ccts:schemeID "URL"] ;
     # This Mandate was presumably struck-off from the Register ten months after the date it was created (2017-95-30).
     :lifeSpan [
