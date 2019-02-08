@@ -79,8 +79,7 @@
             :powerOf :MANDATOR-1 ;
             # No constraints are applied to the use of this Power by the mandater nor the mandatee
             :powerAssignment [:assignedTo :MANDATEE-1, :MANDATEE-2 ] 
-            ]
-    ] .
+            ] .
 
 
 ######################################  MANDATE #2  ###############################################
@@ -92,7 +91,8 @@
             :power :POWER-4 ;
             :powerOf :MANDATOR-2 ;
             # No constraints are applied to the use of this Power by the mandater nor the mandatee
-            :powerAssignment [:assignedTo :MANDATEE-1, :MANDATEE-2] .
+            :powerAssignment [:assignedTo :MANDATEE-1, :MANDATEE-2]
+            ] .
 
 ######################################  MANDATE #3  ###############################################
 :MANDATE-3 rdf:type :Mandate ;
@@ -112,7 +112,7 @@
             :powerAssignment [:assignedTo :MANDATEE-1, :MANDATEE-2; 
                               # Constraint-1: Administrative constraint about the power to act only in certain Public Administration Level -> :LOCAL
                               # Paula and Emma (Mandatees 1 and 2) can use this power only for local administrations.
-                              :constraint :CONSTRAINT-1] .
+                              :constraint :CONSTRAINT-1] ].
 
 ######################################  MANDATE #4  ###############################################
 :MANDATE-3 rdf:type :Mandate ;
@@ -129,7 +129,7 @@
             :power :POWER-6 ;
             :powerOf :MANDATOR-2 ;
             # No constraints are applied to the use of this Power by the mandater nor the mandatee
-            :powerAssignment [:assignedTo :MANDATEE-1, :MANDATEE-2] ;
+            :powerAssignment [:assignedTo :MANDATEE-1, :MANDATEE-2] ];
 
     :empowerment [
             :power :POWER-8 ;
@@ -140,7 +140,7 @@
             :delegationLevel 1 ;
             :constraint :CONSTRAINT-2 ; 
             # Vicenç (mandatee 3) can only sign contract up to 100,000.00 EUR
-            :powerAssignment [:assignedTo :MANDATEE-3; :constraint :CONSTRAINT-3] .        
+            :powerAssignment [:assignedTo :MANDATEE-3; :constraint :CONSTRAINT-3] ].        
 
 ######################################  MANDATE #5  ###############################################
 ### Francisco (MANDATOR-2) empowers Rosa (MANDATEE-4) with a complex structure
@@ -158,7 +158,7 @@
 ######################################################################################################
 :MANDATE-5 rdf:type :Mandate ;
     :id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/07-Testing/Mandates/Mandates-Dataset-01.rt.ttl#MANDATE-5"; ccts:schemeID "URL"] ;
-    :lifeSpan [ubl:startDateTime "2017-05-30T21:57:00"^^xsd:dateTime ; ]];
+    :lifeSpan [ubl:startDateTime "2017-05-30T21:57:00"^^xsd:dateTime];
     :empowerment [
             :power :POWER-8 ;
             :powerOf :MANDATOR-2 ;
@@ -166,7 +166,7 @@
             # the amount for the mandatees he empowers.
             # Francisco (the mandator) has this power through another mandate where he was the mandatee.
             :delegationLevel 1 ;
-            :powerAssignment [:assignedTo :MANDATEE-1, :MANDATEE-2] ;
+            :powerAssignment [:assignedTo :MANDATEE-1, :MANDATEE-2] ];
 
     :empowerment [
             :power :POWER-8 ;
@@ -177,8 +177,7 @@
             # Rosa (mandatee 4) is assigned a constraint to sign contracts up to 7,000,000.00 EUR.
             # HOWEVER FRANCISCO CAN SIGN CONTRACTS ONLY UP TO 5,000,000.00 EUR. THIS SHOULD 
             # THROW AN EXCEPTION.
-            :powerAssignment [:assignedTo :MANDATEE-3; :constraint :CONSTRAINT-4] .        
-
+            :powerAssignment [:assignedTo :MANDATEE-3; :constraint :CONSTRAINT-4] ].        
 ######################################  POWER #1  ###############################################
 ### An individual (e.g. an instance) of a Power. The Power is the core link between
 ### The Mandator and the Mandatee, as an individual of Power is assigned by the Mandator to one
@@ -607,5 +606,5 @@
                 ccev:property [ ccev:id [ccts:identifierValue "http://ec.europa.eu/tools/ecertis/pam/constraints#MaxQuantityBusinessCreationProperty"^^xsd:anyURI ] ;
                                 ccev:constraint [ccev:datumPeriod [ ubl:startDate "2019-01-01"^^xsd:date ; 
                                                                     ubl:durationMeasure [ccts:measureValue 3; ccts:unitCode :YEAR ]]]]
-               ] 
-     .
+               ] .
+
