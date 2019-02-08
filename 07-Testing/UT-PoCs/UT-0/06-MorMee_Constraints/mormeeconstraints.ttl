@@ -1,0 +1,359 @@
+@prefix : <https://joinup.ec.europa.eu/collection/rpam/1.1.0/constraints/moremee#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ubl: <http://docs.oasis-open.org/ubl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ccev: <https://joinup.ec.europa.eu/collection/semic/ccev/2.0.3/ontology#> .
+@prefix ccts: <http://www.unece.org/cefact#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ctx:    <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/constrainttaxonomy#> .
+@prefix at:     <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/administrationleveltype#> .
+@prefix cc:     <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/countrycode#> .
+@base <http://data.europa.eu/RPaM/ontology#> .
+
+<https://joinup.ec.europa.eu/collection/rpam/1.1.0/constraints/moremee#> rdf:type owl:Ontology ;
+                                        owl:versionIRI <https://joinup.ec.europa.eu/collection/rpam/1.1.0/constraints/moremee#> ;
+                                        skos:description "Data set containing the definitions of RPaM constraints for mandatees and mandators with delegated powers." ;
+                                        skos:note "BEWARE that URLs for identifiers are provisional, until the project has its own official URL and, hopefully, PURIs."@en .
+
+# <https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#EUMSGeographicalConstraint>
+:EUMSGeographical rdf:type ccev:Criterion ;
+	# Criterion data structure Identifier. Beware that multiple Identifiers are possible, even recommendable in certain circumstances.
+    ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#EUMSGeographicalConstraint"^^xsd:anyURI ] ;
+	ccev:id [
+                ccts:identifierValue "84706220-0d3f-40d5-bee2-2bae8197d21c" ;
+                ccts:schemeID "UUID" ;
+                ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                ccts:schemeVersionID "4" 
+            ] ;
+    # The short name of the criterion
+    ccev:name "EU-MS Geographical"@en ;
+    # The description of the criterion data structure
+    ccev:description "Administrative constraint about the power to act only in certain Public Administration Level"@en ;
+    # EU Power Taxonomy narrowest category for which this constraint may apply  (the approach is still being analysed. This link is necessary for validation purposes.)
+    # ccev:type ctx:GEOGRAPHICAL_LOCATION ;
+    ccev:group [
+    			ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#EUMSGeographicalGroup"^^xsd:anyURI ] ;
+    			#The constraint 
+                ccev:property [ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#EUMSGeographicalProperty"^^xsd:anyURI ] ;
+                			   ccev:name "Administrative Level"@en ;
+                               ccev:description "The level of the Public Administration for which the Mandatee has the power of acting on behalf of the Mandator."@en ;
+                               # The next line is an example of how to use the constraint. Uncomment it to use it in your dataset and supply real values.
+                               # ccev:constraint [ccev:datumCode at:LOCAL ]
+                              ]
+               ] .
+
+# <https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#AdministrativeLevelConstraint>
+:AdministrativeLevel rdf:type ccev:Criterion ;
+    ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#AdministrativeLevelConstraint"^^xsd:anyURI] ;
+    ccev:id [
+                ccts:identifierValue "6cc9308f-ff00-4e98-9de2-cc76f1b5f8e2" ;
+                ccts:schemeID "UUID"               ;
+                ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                ccts:schemeVersionID "4" 
+            ] ;
+    ccev:name "Administrative Level"@en ;
+    ccev:description "Administrative constraint about the power to act only in certain Public Administration Level"@en ;
+    # EU Power Taxonomy narrowest category for which this constraint may apply  (the approach is still being analysed. This link is necessary for validation purposes.)
+    # ccev:type ctx:ADMINISTRATIVE_LEVEL
+    ccev:group [
+    			ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#AdministrativeLevelGroup"^^xsd:anyURI ] ;
+                ccev:property [
+                               ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#AdministrativeLevelProperty"^^xsd:anyURI ] ;
+                               ccev:name "Public Administration level"@en ;
+                               ccev:description "The level of the Public Administration for which the Mandatee has the power of acting on behalf of the Mandator."@en ;
+                			   # The next line is an example of how to use the constraint. Uncomment it to use it in your dataset and supply real values.
+                			   # ccev:constraint [ccev:datumCode at:LOCAL]
+                               ]
+               ] .
+
+# <https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#MaxPaymentThresholdConstraint>
+:MaxPaymentThreshold rdf:type ccev:Criterion ;
+    ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#MaxPaymentThresholdConstraint"^^xsd:anyURI] ;
+    ccev:id [
+                ccts:identifierValue "b033b149-aa22-49e3-8c96-b1a9132c8456" ;
+                ccts:schemeID "UUID"               ;
+                ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                ccts:schemeVersionID "4" 
+            ] ;
+    # The short name of the criterion
+    ccev:name "Max payment threshold"@en ;
+    # The description of the criterion
+    ccev:description "Maximum amount for payments."@en ;
+    # EU Power Taxonomy narrowest category for which this constraint may apply  (the approach is still being analysed. This link is necessary for validation purposes.)
+    # ccev:type ctx:MAX_PAYMENT_THRESHOLD ;
+    ccev:group [ ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#MaxPaymentThresholdGroup"^^xsd:anyURI ] ;
+                 ccev:id [
+                        ccts:identifierValue "d5e43129-9418-463a-a7e8-3d8c353f61f9" ;
+                        ccts:schemeID "UUID"              ;
+                        ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                        ccts:schemeVersionID "4" 
+                    ] ;
+                    ccev:property [
+                    			    ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#MaxPaymentThresholdProperty"^^xsd:anyURI ] ;
+                                    ccev:name "Maximum contract value threshold"@en ;
+                                    ccev:description "The maximum amount for contracts signed by a Mandatee representing a Natural or Legal Person."@en ;
+                                    # The next line is an example of how to use the constraint. Uncomment it to use it in your dataset and supply real values.
+                			        # ccev:constraint [ccev:datumAmount [ ccts:amountValue "100000.00"^^xsd:decimal ; ccts:currencyID "EUR" ]]
+                                ]
+               ] .
+
+# <https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#MaxPurchaseThresholdConstraint>
+:MaxPurchaseThreshold rdf:type ccev:Criterion ;
+    ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#MaxPurchaseThresholdConstraint"^^xsd:anyURI] ;
+    ccev:id [
+                ccts:identifierValue "174aefea-5538-4fc0-b503-4383f028f054" ;
+                ccts:schemeID "UUID"               ;
+                ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                ccts:schemeVersionID "4" 
+            ] ;
+    # The short name of the criterion
+    ccev:name "Max purchase threshold"@en ;
+    # The description of the criterion
+    ccev:description "Maximum amount for purchases."@en ;
+    # EU Power Taxonomy narrowest category for which this constraint may apply  (the approach is still being analysed. This link is necessary for validation purposes.)
+    # ccev:type ctx:MAX_PURCHASE_THRESHOLD ;
+    ccev:group [ ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#MaxPurchaseThresholdGroup"^^xsd:anyURI ] ;
+                 ccev:id [
+                        ccts:identifierValue "ca00c375-8d8a-477d-a301-e139e85308c8" ;
+                        ccts:schemeID "UUID"              ;
+                        ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                        ccts:schemeVersionID "4" 
+                    ] ;
+                    ccev:property [
+                    			    ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#MaxPurchaseThresholdProperty"^^xsd:anyURI ] ;
+                                    ccev:name "Maximum purchase threshold"@en ;
+                                    ccev:description "The maximum amount a Mandatee can pay when purchasing works, supplies or services on behalf of the Mandator."@en ;
+                                    # The next line is an example of how to use the constraint. Uncomment it to use it in your dataset and supply real values.
+                			        # ccev:constraint [ccev:datumAmount [ ccts:amountValue "100000.00"^^xsd:decimal ; ccts:currencyID "EUR" ]]
+                                ]
+               ] .
+
+# <https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#MaxBusinessCreationConstraint>
+:MaxBusinessCreation rdf:type ccev:Criterion ;
+    ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#MaxBusinessCreationConstraint"^^xsd:anyURI] ;
+    ccev:id [
+                ccts:identifierValue "5f43a998-e2de-411e-97fb-36c420f5da86" ;
+                ccts:schemeID "UUID"               ;
+                ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                ccts:schemeVersionID "4" 
+            ] ;
+    # The name of the criterion
+    ccev:name "Max business creation"@en ;
+    # The description of the criterion
+    ccev:description "Maximum quantity of business that can be created."@en ;
+    # EU Power Taxonomy narrowest category for which this constraint may apply  (the approach is still being analysed. This link is necessary for validation purposes.)
+    # ccev:type ctx:MAX_BUSINESS;
+    ccev:group [ ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#MaxBusinessCreationGroup"^^xsd:anyURI ] ;
+                 ccev:property [
+                                 ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#MaxBusinessCreationProperty"^^xsd:anyURI ] ;
+                                 ccev:name "Maximum quantity of businesses created"@en ;
+                                 ccev:description "The maximum number of businesses a Mandator can create on behalf of the Mandator."@en ;
+                                 # The next line is an example of how to use the constraint. Uncomment it to use it in your dataset and supply real values.
+                			     # ccev:constraint [ccev:datumQuantity [ ccts:quantityValue 10 ; ccts:unitCode :BUSINESS ]]
+                                ]
+               ] .
+
+# <https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#MaxContractValueConstraint>
+:MaxContractValue rdf:type ccev:Criterion ;
+    ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#MaxContractValueConstraint"^^xsd:anyURI] ;
+    ccev:id [
+                ccts:identifierValue "2b73f156-c56d-4168-91ff-2a957035e187" ;
+                ccts:schemeID "UUID"               ;
+                ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                ccts:schemeVersionID "4" 
+            ] ;
+    # The name of the criterion
+    ccev:name "Max contract value"@en ;
+    # The description of the criterion
+    ccev:description "Maximum contract amount value."@en ;
+    # EU Power Taxonomy narrowest category for which this constraint may apply  (the approach is still being analysed. This link is necessary for validation purposes.)
+    # ccev:type ctx:MAX_CONTRACT_THRESHOLD ;
+    ccev:group [ 
+    			 ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#MaxContractValueGroup"^^xsd:anyURI ;
+                 ccev:id [
+                        ccts:identifierValue "d5e43129-9418-463a-a7e8-3d8c353f61f9" ;
+                        ccts:schemeID "UUID"              ;
+                        ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                        ccts:schemeVersionID "4" 
+                    ] ;
+                    ccev:property [
+                    			 ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#MaxContractValueProperty"^^xsd:anyURI ;
+                                 ccev:name "Maximum contract value threshold"@en ;
+                                 ccev:description "The maximum amount for contracts signed by a Mandatee representing a Natural or Legal Person"@en ;
+                                 # The next line is an example of how to use the constraint. Uncomment it to use it in your dataset and supply real values.
+                                 # ccev:constraint [ccev:datumAmount [ ccts:amountValue "100000.00"^^xsd:decimal ; ccts:currencyID "EUR" ]]
+                                ]
+               ] .
+
+# <https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#GeoLocationScopeConstraint>
+:GeoLocationScope rdf:type ccev:Criterion ;
+    ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#GeoLocationScopeConstraint"^^xsd:anyURI] ;
+    ccev:id [
+                ccts:identifierValue "19f4478a-1a7c-483a-bbce-fcefc0f45628" ;
+                ccts:schemeID "UUID"               ;
+                ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                ccts:schemeVersionID "4" 
+            ] ;
+    # The name of the criterion
+    ccev:name "Geo-location scope"@en ;
+    # The description of the criterion
+    ccev:description "Geospatial constraint, e.g. power to act only in certain geographical locations."@en ;
+    # EU Power Taxonomy narrowest category for which this constraint may apply  (the approach is still being analysed. This link is necessary for validation purposes.)
+    # ccev:type ctx:GEO_LOCATION_SCOPE ;
+    ccev:group [ 
+    			 ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#GeoLocationScopeGroup"^^xsd:anyURI ;
+                 ccev:id [
+                        ccts:identifierValue "596e109b-9fdd-4704-8051-367adf130f87" ;
+                        ccts:schemeID "UUID"              ;
+                        ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                        ccts:schemeVersionID "4" 
+                    ] ;
+                    ccev:property [
+                    			 ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#GeoLocationScopeProperty"^^xsd:anyURI ;
+                                 ccev:name "Geo-location scope"@en ;
+                                 ccev:description "The geographical locations where the Mandatee can act, e.g. regions, disctricts, towns, etc."@en ;
+                                 # The next line is an example of how to use the constraint. Uncomment it to use it in your dataset and supply real values.
+                                 # ccev:constraint [ccev:datumCode at:RB419 ; ccev:listId="NUTS" ; listAgencyId="EUROSTAT" listVersionId="3"]
+                                ]
+               ] .
+
+# <https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#PowerValdityPeriodConstraint>
+:GeoLocationScope rdf:type ccev:Criterion ;
+    ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#PowerValdityPeriodConstraint"^^xsd:anyURI] ;
+    ccev:id [
+                ccts:identifierValue "19f4478a-1a7c-483a-bbce-fcefc0f45628" ;
+                ccts:schemeID "UUID"               ;
+                ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                ccts:schemeVersionID "4" 
+            ] ;
+    # The name of the criterion
+    ccev:name "Power validity period"@en ;
+    # The description of the criterion
+    ccev:description "Time lapse for the use of the power"@en ;
+    # EU Power Taxonomy narrowest category for which this constraint may apply  (the approach is still being analysed. This link is necessary for validation purposes.)
+    # ccev:type ctx:VALIDITY_PERIOD ; 
+    # This case is clear: the narrowest category would be POWER!
+    ccev:group [ 
+    			 ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#PowerValdityPeriodGroup"^^xsd:anyURI ;
+                 ccev:id [
+                        ccts:identifierValue "596e109b-9fdd-4704-8051-367adf130f87" ;
+                        ccts:schemeID "UUID"              ;
+                        ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                        ccts:schemeVersionID "4" 
+                    ] ;
+                    ccev:property [
+                    			 ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#PowerValdityPeriodGroup"^^xsd:anyURI ;
+                                 ccev:name "Power use validity period"@en ;
+                                 ccev:description "The lapse of time during which a power can be used."@en ;
+                                 # The next line is an example of how to use the constraint. Uncomment it to use it in your dataset and supply real values.
+                                 # ccev:constraint [ccev:datumCode at:RB419 ; ccev:listId="NUTS" ; listAgencyId="EUROSTAT" listVersionId="3"]
+                                ]
+               ] .
+
+:c2012 rdf:type ccev:Criterion ;
+	ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#c2012"^^xsd:anyURI] ;
+    ccev:id [
+                        ccts:identifierValue "aa9d0e05-f45a-4a45-8be3-d02fc5369bd6" ;
+                        ccts:schemeID "UUID"              ;
+                        ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                        ccts:schemeVersionID "4" 
+                    ] ;
+    # The description of the criterion
+    ccev:description "Maximum contract amount value per EU MS, for specific periods and MS"@en ;
+    ccev:group [
+                ccev:id [ccts:identifierValue "de99c7ef-8f1e-464f-a98c-89201ed0dbf3" ] ;
+                ccev:property [
+                                 ccev:name "EU MS acting scope"@en ;
+                                 ccev:description "The country code of the EU Member State where this person can act"@en ;
+                                 # The Mandatee can only act in Spain, Belgium and Italy. Service Providers in other EU 
+                                 # Member States should reject the access to the Mandatee.
+                                 # This is a "positive constraint". The "negative" one would state something 
+                                 # like: "The country code of the EU MS where this person cannot act"
+                                 ccev:constraint [ccev:datumCode cc:ES] , [ccev:datumCode cc:BE], [ccev:datumCode cc:IT] 
+                                ] ;
+                ccev:group [
+                            ccev:id [ccts:identifierValue "e0c7de07-b228-4c94-9171-67f8919adc3a" ] ;
+                            ccev:property [
+                                             ccev:name "Maximum contract value threshold"@en ;
+                                             ccev:description "The maximum amount for contracts signed by a Mandatee representing a Natural or Legal Person"@en ;
+                                             # In ES, BE and IT, the mandatee can sign contracts up to 1,000,000.00 EUR.
+                                             ccev:constraint [ccev:datumAmount [ ccts:amountValue "1000000.00"^^xsd:decimal ; ccts:currencyID "EUR" ]]
+                                        ] ;
+                            ccev:group [
+                                        ccev:id [ccts:identifierValue "596e109b-9fdd-4704-8051-367adf130f87" ] ;
+                                        ccev:property [
+                                                        ccev:name "The lapse of time during which a power can be used"@en ;
+                                                        ccev:description "The lapse of time during which a power can be used"@en ;
+                                                        # In ES, BE and IT, the mandatee can sign contracts up to 1,000,000.00 EUR, but only until 2020-12-12.
+                                                        ccev:constraint [ccev:datumPeriod [ ubl:endDate "2020-12-12"^^xsd:date ]]
+                                                       ]           
+                                        ]
+               ] 
+        ] ;
+
+     ccev:group [
+                ccev:id [ccts:identifierValue "de99c7ef-8f1e-464f-a98c-89201ed0dbf3" ] ;
+                ccev:property [
+                                 ccev:name "EU MS acting scope"@en ;
+                                 ccev:description "The country code of the EU Member State where this person can act"@en ;
+                                 # The Mandatee can also act in the EFTA countries. Service Providers that are not 
+                                 # ES, BE, IT or EFTA countries should reject the access to the Mandatee.                                 
+                                 ccev:constraint [ccev:datumCode cc:EFTA-MS] 
+                                ] ;
+                ccev:group [
+                            ccev:id [ccts:identifierValue "e0c7de07-b228-4c94-9171-67f8919adc3a" ] ;
+                            ccev:property [
+                                             ccev:name "Maximum contract value threshold"@en ;
+                                             ccev:description "The maximum amount for contracts signed by a Mandatee representing a Natural or Legal Person"@en ;
+                                             # The next line is an example of how to use the constraint. Uncomment it to use it in your dataset and supply real values.
+                                             # ccev:constraint [ccev:datumAmount [ ccts:amountValue "7000000.00"^^xsd:decimal ; ccts:currencyID "EUR" ]]
+                                        ] ;                            
+                        ] ;
+            ] .        
+
+:MaxQuantityBusinessCreationAndPeriodConstraint rdf:type ccev:Criterion ;
+	ccev:id [ccts:identifierValue "http://ec.europa.eu/tools/ecertis/pam#MaxQuantityBusinessCreationAndPeriodConstraint"^^xsd:anyURI] ;
+    ccev:id [
+                        ccts:identifierValue "f34be3a0-db90-42c4-b401-1ed4f757889a"^^xsd:normalizedString ;
+                        ccts:schemeID "UUID"              ;
+                        ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                        ccts:schemeVersionID "4" 
+                    ] ;
+    :name "Max quantity of business creation for x years"@en ;
+    :description "Maximum quantity of business that can be created by the mandator in a period of time."@en ;
+    ccev:group [
+    			ccev:id [ccts:identifierValue "http://ec.europa.eu/tools/ecertis/isa2/pam#MaxQuantityBusinessCreationGroup"^^xsd:anyURI] ;
+    			ccev:id [
+                        ccts:identifierValue "c1ee6c5e-502f-4a9b-9c45-987a502cfe81"^^xsd:normalizedString ;
+                        ccts:schemeID "UUID"              ;
+                        ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                        ccts:schemeVersionID "4" 
+                    ] ;
+                ccev:property [ 
+                				ccev:name "Maximum quantity of businesses created"@en ;
+                				ccev:description "The maximum number of businesses a Mandatee can create on behalf of the Mandator."@en ;
+                				ccev:id [ccts:identifierValue "http://ec.europa.eu/tools/ecertis/pam/constraints#MaxQuantityBusinessCreationProperty"^^xsd:anyURI ] ;
+                                # The next line is an example of how to use the constraint. Uncomment it to use it in your dataset and supply real values.
+                                # ccev:constraint [ccev:datumQuantity [ ccts:quantityValue 10 ; ccts:unitCode :BUSINESS ]]
+                                ]
+               ] ;
+    ccev:group [
+    			ccev:id [ccts:identifierValue "http://ec.europa.eu/tools/ecertis/pam#PowerUseValidityPeriodGroup>"^^xsd:anyURI ] ;
+                ccev:id [
+                        ccts:identifierValue "473f6c6d-f525-413b-a2ca-973367e617bc"^^xsd:normalizedString ;
+                        ccts:schemeID "UUID"              ;
+                        ccts:schemeAgencyID "EU-COM-ISA2" ;         
+                        ccts:schemeVersionID "4" 
+                    ] ;
+                ccev:property [ 
+                				ccev:name "Power use validity period"@en ;
+                				ccev:description "The lapse of time during which a power can be used."@en ;
+                				ccev:id [ccts:identifierValue "http://ec.europa.eu/tools/ecertis/pam/constraints#MaxQuantityBusinessCreationProperty"^^xsd:anyURI ] ;
+                				# The next line is an example of how to use the constraint. Uncomment it to use it in your dataset and supply real values.
+                                # ccev:constraint [ccev:datumPeriod [ ubl:startDate "2019-01-01"^^xsd:date ; ubl:durationMeasure [ccts:measureValue 3; ccts:unitCode :YEAR ]]]
+                                ]
+               ] .

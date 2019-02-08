@@ -1,0 +1,22 @@
+PREFIX : <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ccts: <http://www.unece.org/cefact#>
+PREFIX cc: <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/countrycode#>
+PREFIX ccev: <https://joinup.ec.europa.eu/collection/semic/ccev/2.0.3/ontology#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+# USER STORY-7: Powers and Constraints of Serge and Thomas in all the Empowerements in SergeMandate-2
+
+select distinct ?Empowerment ?Mandator ?PowerAssigned ?MorConstraint ?Mandatee ?MeeConstraint
+from <https://joinup.ec.europa.eu/collection/rpam/1.1.0/mandates#>
+where {
+    ?Mandate a  :Mandate ;
+              	 :has ?Empowerment .
+    ?Empowerment :powerType ?PowerAssigned ;
+        		 :mandator ?Mandator ;
+                 :constraint ?MorConstraint ;
+                 :assignedTo ?Mandatee .
+	?Mandatee :constraint ?MeeConstraint                
+    filter ( ?Mandator = :Serge && ?Mandate = :SergeMandate-2 && ?Mandatee = :Thomas)
+    
+} order by ?Empowerment

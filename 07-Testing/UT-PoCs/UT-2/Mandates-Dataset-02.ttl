@@ -36,22 +36,6 @@
                                                 dcat:downloadURL <https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/07-Testing/Mandates/Mandates-Dataset-01.ttl>
                                         ] .
 
-:SergeMandate-1 a :Mandate .
-:SergeMandate-2 a :Mandate .
-:SergeMandate-3 a :Mandate .
-:PacoMandate-1 a :Mandate .
-:PacoMandate-2 a :Mandate .
-
-############## Mandator's empowerments ###################
-
-:SergeMandate-1 :has :Empowerment-1 .
-:SergeMandate-2 :has :Empowerment-2, :Empowerment-3, :Empowerment-4 .
-:SergeMandate-3 :has :Empowerment-5, :Empowerment-6.
-
-:PacoMandate-1 :has :Empowerment-7 .
-:PacoMandate-2 :has :Empowerment-8, :Empowerment-9, :Empowerment-10 .
-
-
 ############## Mandators ###################
 :Serge a :Mandator .
 :Paco a :Mandator .
@@ -63,12 +47,35 @@
 :Thomas a :Mandatee .
 :Ken a :Mandatee .
 
-############## Berto's Mandatees ###################
+############## Paco's Mandatees ###################
 :Berto a :Mandatee .
 :Neil a :Mandatee .
 :Lula a :Mandatee .
 :Helena a :Mandatee .
 :Suzanne a :Mandatee .
+
+############## Serges's Mandates ###################
+:SergeMandate-1 a :Mandate .
+:SergeMandate-2 a :Mandate .
+:SergeMandate-3 a :Mandate .
+
+############## Paco'ss Mandates ###################
+:PacoMandate-1 a :Mandate .
+:PacoMandate-2 a :Mandate .
+
+############## Mandator's empowerments ###################
+
+:SergeMandate-1 :empowerment :Empowerment-1 ; 
+				:mandator :Serge .
+:SergeMandate-2 :empowerment :Empowerment-2, :Empowerment-3, :Empowerment-4 ;
+				:mandator :Serge .
+:SergeMandate-3 :empowerment :Empowerment-5, :Empowerment-6 ;
+				:mandator :Serge .
+
+:PacoMandate-1 :empowerment :Empowerment-7 ;
+			   :mandator :Paco .
+:PacoMandate-2 :empowerment :Empowerment-8, :Empowerment-9, :Empowerment-10 ;
+			   :mandator :Paco .
 
 ############# Powers ##################################################
 # RULE 1: One Mandate -> One Mandator -> Many Empowerments 
@@ -76,111 +83,104 @@
 # Rule 3: One Empowerment -> Many Constraints applied to the Mandator 
 # Rule 3: One Empowerment -> Many Constraints applied to ALL the Mandatees
 
-:Empowerment-1      
+:Empowerment-1	a :Empowerment ;
+				:mandator :Serge ;
+				#Serge's power
+				:powerType :DOING_BUSINESS ;
+				#Serge's constraints on this power 
+				:mandatorConstraint :sc1;
+				#Serge empowers these mandatees whit this power
+		   		:mandatee :Paula, :Rosa ;
+		   		#Paula's and Rosa's constraints to use this power
+		   		:mandateeConstraint :c1 .
+
+:Empowerment-2  a :Empowerment ;    
 				:mandator :Serge ;
 				:powerType :DOING_BUSINESS ;
-				:constraint :e1c1, :e1c2, :e1c3 ;
-		   		:assignedTo :Paula, :Rosa .
+				:mandatorConstraint :sc2;
+				:mandateeConstraint :c2;
+		   		:mandatee :Thomas .
 
-:Empowerment-2      
+:Empowerment-3  a :Empowerment ;    
 				:mandator :Serge ;
 				:powerType :DOING_BUSINESS ;
-				:constraint :e2c1, :e2c2, :e2c3 ;
-		   		:assignedTo :Thomas .
+		   		:mandatorConstraint :sc3;
+				:mandateeConstraint :c3;
+		   		:mandatee :Vicenc .
 
-:Empowerment-3      
+:Empowerment-4  a :Empowerment ;
 				:mandator :Serge ;
 				:powerType :DOING_BUSINESS ;
-		   		:constraint :e3c1 ;
-		   		:assignedTo :Vicenc .
+				:mandatorConstraint :sc4;
+				:mandateeConstraint :c4;
+				:mandatee :Ken, :Thomas, :Vicenc . 
 
-:Empowerment-4  :mandator :Serge ;
-				:powerType :DOING_BUSINESS ;
-				:constraint :e4c1 ;
-				:assignedTo :Ken, :Thomas, :Vicenc . 
-
-:Empowerment-5  :mandator :Serge ; 
+:Empowerment-5  a :Empowerment ;
+				:mandator :Serge ; 
 				:powerType :DOING_BUSINESS ; 
-				:constraint :e5c1 ;
-				:assignedTo :Roberto .
+				:mandatorConstraint :sc5;
+				:mandateeConstraint :c5;
+				:mandatee :Roberto .
 
-:Empowerment-6  :mandator :Serge ; 
+:Empowerment-6  a :Empowerment ;
+				:mandator :Serge ; 
 				:powerType :DOING_BUSINESS ; 
-				:constraint :e6c1 ;
-				:assignedTo :Neil, :Lula .
+				:mandatorConstraint :sc6;
+				:mandateeConstraint :c6;
+				:mandatee :Neil, :Lula .
 
-:Empowerment-7  :mandator :Paco ; 
+:Empowerment-7  a :Empowerment ;
+				:mandator :Paco ; 
 				:powerType :DOING_BUSINESS ; 
-				:constraint :e7c1 ;
-				:assignedTo :Helena, :Lula, :Suzanne .
+				:mandatorConstraint :pc1;
+				:mandateeConstraint :c7;
+				:mandatee :Helena, :Lula, :Suzanne .
 
-:Empowerment-8  :mandator :Paco ; 
+:Empowerment-8  a :Empowerment ;
+				:mandator :Paco ; 
 				:powerType :DOING_BUSINESS ; 
-				:constraint :e8c1 ;
-				:assignedTo :Vicenc .
+				:mandatorConstraint :pc2;
+				:mandateeConstraint :c8;
+				:mandatee :Vicenc .
 
-:Empowerment-9  :mandator :Paco ; 
+:Empowerment-9  a :Empowerment ;
+				:mandator :Paco ; 
 				:powerType :DOING_BUSINESS ; 
-				:assignedTo :Paula .
+				:mandatorConstraint :pc3;
+				:mandateeConstraint :c9;
+				:mandatee :Paula .
 
-:Empowerment-10 :mandator :Paco ; 
+# No constraints applied
+:Empowerment-10 a :Empowerment ;
+				:mandator :Paco ; 
 				:powerType :DOING_BUSINESS ; 
-				:assignedTo :Berto .
+				:mandatee :Berto .
 
-:e1c1 a ccev:Criterion .
-:e2c1 a ccev:Criterion .
-:e2c2 a ccev:Criterion .
-:e2c3 a ccev:Criterion .
-:e3c1 a ccev:Criterion .
-:e4c1 a ccev:Criterion .
-:e5c1 a ccev:Criterion .
-:e6c1 a ccev:Criterion .
-:e7c1 a ccev:Criterion .
-:e8c1 a ccev:Criterion .
 
-############# Paula's constraints #############################
+### Serge's constraints
+:sc1 a ccev:Criterion .
+:sc2 a ccev:Criterion .
+:sc3 a ccev:Criterion .
+:sc4 a ccev:Criterion .
+:sc5 a ccev:Criterion .
+:sc6 a ccev:Criterion .
+### Paco's constraints
 :pc1 a ccev:Criterion .
-:Paula :constraint :pc1 .
+:pc2 a ccev:Criterion .
+:pc3 a ccev:Criterion .
+:pc4 a ccev:Criterion .
 
-############# Vicenc's constraints ############################
-:vc2 a ccev:Criterion .
-:Vicenc :constraint :vc2 .
+### Constraints applied to Mandatees
+:c0 a ccev:Criterion .
+:c1 a ccev:Criterion .
+:c2 a ccev:Criterion .
+:c3 a ccev:Criterion .
+:c4 a ccev:Criterion .
+:c5 a ccev:Criterion .
+:c6 a ccev:Criterion .
+:c7 a ccev:Criterion .
+:c8 a ccev:Criterion .
+:c9 a ccev:Criterion .
 
-############# Rosa's constraints ##############################
-:rc3 a ccev:Criterion .
-:rc4 a ccev:Criterion .
-:rc5 a ccev:Criterion .
-:Rosa :constraint :rc3, :rc4, :rc5 .
 
-############# Thomas's constraints ############################
-:tc6 a ccev:Criterion .
-:tc7 a ccev:Criterion .
-:Thomas :constraint :tc6, :tc7 .
 
-############# Ken's constraints ###############################
-:kc8 a ccev:Criterion .
-:Ken :constraint :kc8 .
-
-############# Berto's constraints ###########################
-:b9 a ccev:Criterion .
-:Berto :constraint :bc9 .
-
-################ Neil's constraints ###########################
-:nc10 a ccev:Criterion .
-:nc11 a ccev:Criterion .
-:nc12 a ccev:Criterion .
-:nc13 a ccev:Criterion .
-:Neil :constraint :nc10, :nc11, :nc12, :nc13 .
-
-################ Lula's constraints ###########################
-:lc14 a ccev:Criterion .
-:Lula :constraint :lc14 .
-
-################ Helena's constraints #########################
-:hc15 a ccev:Criterion .
-:Helena :constraint :hc15 .
-
-################ Suzanne's constraints #########################
-:sc16 a ccev:Criterion .
-:sc17 a ccev:Criterion .
-:Suzanne :constraint :sc16, :sc17 .
