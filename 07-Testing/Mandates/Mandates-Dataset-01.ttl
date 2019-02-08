@@ -66,19 +66,19 @@
             # The one who has the power and empowers other Persons.
             :powerOf :MANDATOR-1 ;
             # No constraints are applied to the use of this Power by the mandater nor the mandatee
-            :powerAssignment [:assignedTo :MANDATEE-1, :MANDATEE-2 ] 
+            :powerAssignment [:assignedTo :MANDATEE-1 ] 
             ] ;
     :empowerment [
             :power :POWER-3 ;
             :powerOf :MANDATOR-1 ;
             # No constraints are applied to the use of this Power by the mandater nor the mandatee
-            :powerAssignment [:assignedTo :MANDATEE-1, :MANDATEE-2 ] 
+            :powerAssignment [:assignedTo :MANDATEE-2 ] 
             ] ;
     :empowerment [
             :power :POWER-7 ;
             :powerOf :MANDATOR-1 ;
             # No constraints are applied to the use of this Power by the mandater nor the mandatee
-            :powerAssignment [:assignedTo :MANDATEE-1, :MANDATEE-2 ] 
+            :powerAssignment [:assignedTo :MANDATEE-3 ] 
             ] .
 
 

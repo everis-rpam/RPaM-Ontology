@@ -3,7 +3,7 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX ccts: <http://www.unece.org/cefact#>
 
 
-# USER STORY: I, as the CIO of our national central eMandate Registry, want to obtain the list of all the Mandates that have been registered in the Registry, so I can produce some statistic for accountability purposes.
+# USER STORY 1: I, as the CIO of our national central eMandate Registry, want to obtain the list of all the Mandates that have been registered in the Registry, so I can produce some statistic for accountability purposes.
 
 select ?Mandate ?MandateId
 FROM <https://joinup.ec.europa.eu/collection/rpam/1.1.0/mandates#>
