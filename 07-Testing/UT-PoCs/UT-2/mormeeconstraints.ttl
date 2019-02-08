@@ -37,14 +37,14 @@
                 			   ccev:name "Financial Ceil"@en ;
                                ccev:description "The person cannot use the power above the amount of."@en ;
                                # The next line is an example of how to use the constraint. Uncomment it to use it in your dataset and supply real values.
-                               # ccev:constraint [ccev:datumCode tu:XXXX ]
+                               # ccev:constraint [ccev:datumAmount [ccts:amountValue "1000000.00"^^xsd:decimal ; ccts:currencyID "EUR"] ]
                               ]] ; 
 				ccev:property [
 				               ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#GeographicalConstraintProperty"^^xsd:anyURI ] ;
 				               ccev:name "Territorial unit scope"@en ;
 				               ccev:description "The person can not use the power out of the following territorial unit(s)"@en ;
 							   # The next line is an example of how to use the constraint. Uncomment it to use it in your dataset and supply real values.
-							   # ccev:constraint [ccev:datumCode tu:XXXX]
+							   # ccev:constraint [ccev:datumCode [ccts:codeValue tu:IT; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]]
 				               ];
 				ccev:property [
 				               ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#ValidityPeriodConstraintProperty"^^xsd:anyURI ] ;

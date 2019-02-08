@@ -19,7 +19,9 @@
 @prefix ctx:    <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/constrainttaxonomy#> .
 @prefix at:     <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/administrationleveltype#> .
 @prefix cc:     <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/countrycode#> .
+@prefix tu:     <https://eurostat/nuts/2016/> .
 @prefix org:    <http://www.w3.org/ns/org#> .
+@prefix ct:		<https://joinup.ec.europa.eu/collection/rpam/1.1.0/constraints/moremee#> .
 
 
 <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology#> rdf:type owl:Ontology ;
@@ -37,22 +39,24 @@
                                         ] .
 
 ############## Mandators ###################
-:Serge a :Mandator .
-:Paco a :Mandator .
+:Serge a :Mandator  , foaf:Person .
+:Paco a :Mandator   , foaf:Person .
+:everis a :Mandator , org:Organization .
+:com a :Mandator    , org:Organization .
 
 ############## Serge's Mandatees ###################
-:Paula a :Mandatee .
-:Vicenc a :Mandatee .
-:Rosa a :Mandatee .
-:Thomas a :Mandatee .
-:Ken a :Mandatee .
+:Paula a :Mandatee  , foaf:Person .
+:Vicenc a :Mandatee , foaf:Person .
+:Rosa a :Mandatee   , foaf:Person .
+:Thomas a :Mandatee , foaf:Person .
+:Ken a :Mandatee    , foaf:Person .
 
 ############## Paco's Mandatees ###################
-:Berto a :Mandatee .
-:Neil a :Mandatee .
-:Lula a :Mandatee .
-:Helena a :Mandatee .
-:Suzanne a :Mandatee .
+:Berto a :Mandatee , foaf:Person .
+:Neil a :Mandatee  , foaf:Person .
+:Lula a :Mandatee  , foaf:Person .
+:Helena a :Mandatee, foaf:Person .
+:Suzane a :Mandatee, foaf:Person .
 
 ############## Serges's Mandates ###################
 :SergeMandate-1 a :Mandate .
@@ -134,7 +138,7 @@
 				:powerType :DOING_BUSINESS ; 
 				:mandatorConstraint :pc1;
 				:mandateeConstraint :c7;
-				:mandatee :Helena, :Lula, :Suzanne .
+				:mandatee :Helena, :Lula, :Suzane .
 
 :Empowerment-8  a :Empowerment ;
 				:mandator :Paco ; 
@@ -183,4 +187,76 @@
 :c9 a ccev:Criterion .
 
 
+### Mandator's data 
+
+:Serge  :givenName "Serge"  ; :familyName "Novack"; :id [:identifierValue "12030132X"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"] .
+:Paco   :givenName "Paco"   ; :familyName "Obsom" ; :id [:identifierValue "341341314K"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"] .
+:Paula  :givenName "Paula"  ; :familyName "Keen" ; :id [:identifierValue "2072391388P"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"] .
+:Vicenc :givenName "Vicenç" ; :familyName "Pons i Torra" ; :id [:identifierValue "77812129V"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"] .
+:Rosa   :givenName "Rosa"   ; :familyName "Fonts-Brolladores" ; :id [:identifierValue "66928954R"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"] .
+:Thomas :givenName "Thomas" ; :familyName "Shutterfield" ; :id [:identifierValue "23141243X"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"] .
+:Ken    :givenName "Ken"    ; :familyName "Goodman" ; :id [:identifierValue "32531334X"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"] .
+:Berto  :givenName "Berto"  ; :familyName "Lo" ; :id [:identifierValue "45215633B"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"] .
+:Neil   :givenName "Neil"   ; :familyName "Armstrong" ; :id [:identifierValue "16732733X"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"] .
+:Lula 	:givenName "Pura"   ; :familyName "Lula" ; :id [:identifierValue "02133132L"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"] .
+:Helena :givenName "Helena" ; :familyName "Staropitxoska" ; :id [:identifierValue "35876429X"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"] .
+:Suzane :givenName "Suzane" ; :familyName "Wittgenstein" ; :id [:identifierValue "13434893X"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"] .
+:everis :name "everis, Spain, SLU" ; :id [:identifierValue "http://everis.com"; :schemeID "URI"] .
+:digit  :name "DIGIT, European Commission" ; :id [:identifierValue "https://ec.europa.eu/info/departments/informatics_en"; :schemeID "URI" ] .
+
+### Mandatee's constraints. See definition of the GenericConstraint in momeconstraints.ttl
+:c1 a ccev:Criterion ;
+	# Criterion data structure Identifier. Beware that multiple Identifiers are possible, even recommendable in certain circumstances.
+	ccev:id [ccts:identifierValue "503faff0-9c27-47fe-97de-957ebf9921f1"; ccts:schemeID "UUID"; ccts:schemeVersionID "4"] ;
+    ccev:type ct:GenericConstraint ;
+	# The short name of the criterion
+    ccev:name "GenericConstraints"@en ;
+    # The description of the criterion data structure
+    ccev:description "Group of usual constraints expressed in a very generic way."@en ;
+    ccev:group [
+    			ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#GenericConstraintGroup"^^xsd:anyURI ] ;
+    			ccev:property [ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#FinancialConstraintProperty"^^xsd:anyURI ] ;
+                			   ccev:name "Financial Ceil"@en ;
+                               ccev:description "The person cannot use the power above the amount of."@en ;
+							   ccev:constraint [ccev:datumAmount [ccts:amountValue "1000000.00"^^xsd:decimal ; ccts:currencyID "EUR"]]
+                              ]] ; 
+				ccev:property [
+				               ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#GeographicalConstraintProperty"^^xsd:anyURI ] ;
+				               ccev:name "Territorial unit scope"@en ;
+				               ccev:description "The person can not use the power out of the following territorial unit(s)"@en ;
+							   # The next line is an example of how to use the constraint. Uncomment it to use it in your dataset and supply real values.
+							   # Beware that the cardinality of the Datum class is multiple. 
+							   # The person can only act in Italy, Belgium and Spain. He 'cannot' use the power out of these EU MS countries.
+							   ccev:constraint [ccev:datumCode  [ccts:codeValue tu:IT; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"],
+																[ccts:codeValue tu:BE; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"], 
+																[ccts:codeValue tu:ES; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]]
+				               ];
+				ccev:property [
+				               ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#ValidityPeriodConstraintProperty"^^xsd:anyURI ] ;
+				               ccev:name "Max validity period"@en ;
+				               ccev:description "The person cannot use the power beyond this time interval"@en ;
+							   # The next line is an example of how to use the constraint. Uncomment it to use it in your dataset and supply real values.
+							   ccev:constraint [ccev:datumPeriod [ ubl:endDate "2020-12-12"^^xsd:date ]]
+				               ] .
+
+### The rest of criteria are expressed in a "minimalistic" way, for the sake of clarity and brevity. Compare them with the Criterion above.
+:c2 a ccev:Criterion ;
+    ccev:id [ccts:identifierValue "ee87abdd-b62e-401c-9bf6-e29fa119df5a"; ccts:schemeID "UUID"; ccts:schemeVersionID "4"] ;
+    ccev:type ct:GenericConstraint ;
+	ccev:group [
+    			ccev:property [ccev:constraint [ccev:datumAmount [ccts:amountValue "5000000.00"^^xsd:decimal ; ccts:currencyID "EUR"]]]] ; 
+				ccev:property [
+							   # Beware that the cardinality of the Datum class is multiple. 
+							   # The person can only act in Italy, Belgium and Spain. He 'cannot' use the power out of these EU MS countries.
+							   ccev:constraint [ccev:datumCode  [ccts:codeValue tu:IT; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"],
+																[ccts:codeValue tu:BE; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"], 
+																[ccts:codeValue tu:ES; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]]
+				               ];
+				ccev:property [ccev:constraint [ccev:datumPeriod [ ubl:endDate "2020-12-12"^^xsd:date ]]] .
+
+# In this case only a validity period is specified, the rest of properties are not needed (not realised).
+:c3 a ccev:Criterion ;
+    ccev:id [ccts:identifierValue "d10ebe8a-6b53-48c0-aa04-73215efd9e40"; ccts:schemeID "UUID"; ccts:schemeVersionID "4"] ;
+    ccev:type ct:GenericConstraint ;
+	ccev:group [ccev:property [ccev:constraint [ccev:datumPeriod [ ubl:startDate "2019-01-01"^^xsd:date; ubl:endDate "2022-12-12"]]]] .
 
