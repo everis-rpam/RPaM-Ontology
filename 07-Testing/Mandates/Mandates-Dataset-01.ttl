@@ -166,8 +166,7 @@
             # the amount for the mandatees he empowers.
             # Francisco (the mandator) has this power through another mandate where he was the mandatee.
             :delegationLevel 1 ;
-            :powerAssignment [:assignedTo :MANDATEE-1, :MANDATEE-2] ];
-
+            :powerAssignment [:assignedTo :MANDATEE-1, :MANDATEE-4] ];
     :empowerment [
             :power :POWER-8 ;
             :powerOf :MANDATOR-2 ;
@@ -177,7 +176,7 @@
             # Rosa (mandatee 4) is assigned a constraint to sign contracts up to 7,000,000.00 EUR.
             # HOWEVER FRANCISCO CAN SIGN CONTRACTS ONLY UP TO 5,000,000.00 EUR. THIS SHOULD 
             # THROW AN EXCEPTION.
-            :powerAssignment [:assignedTo :MANDATEE-3; :constraint :CONSTRAINT-4] ].        
+            :powerAssignment [:assignedTo :MANDATEE-4; :constraint :CONSTRAINT-4] ].        
 ######################################  POWER #1  ###############################################
 ### An individual (e.g. an instance) of a Power. The Power is the core link between
 ### The Mandator and the Mandatee, as an individual of Power is assigned by the Mandator to one
