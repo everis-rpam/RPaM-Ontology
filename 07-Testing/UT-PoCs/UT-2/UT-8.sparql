@@ -5,9 +5,9 @@ PREFIX cc: <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/countryco
 PREFIX ccev: <https://joinup.ec.europa.eu/collection/semic/ccev/2.0.3/ontology#>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
-# USER STORY-7: All constraints of mandators and mandatees in all Mandates
+# USER STORY-8: All powers and constraints of Paula, regardless of the Mandator
 
-select distinct ?Mandate ?Mandator ?Power ?Mandatee ?MandatorConstraint ?MandateeConstraint
+select distinct *
 from <https://joinup.ec.europa.eu/collection/rpam/1.1.0/mandates#>
 where {
     ?Mandate a  :Mandate ;
@@ -15,8 +15,7 @@ where {
               	:empowerment ?Empowerment .
     ?Empowerment :mandatee ?Mandatee ;
                  :powerType ?Power
-    optional {?Empowerment :mandatorConstraint ?MandatorConstraint}
     optional {?Empowerment :mandateeConstraint ?MandateeConstraint}
-
+    filter (?Mandatee = :Paula)
 
 }
