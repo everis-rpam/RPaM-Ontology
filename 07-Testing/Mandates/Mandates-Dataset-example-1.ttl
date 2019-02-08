@@ -1,0 +1,271 @@
+@prefix :       <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ubl:    <http://docs.oasis-open.org/ubl#> .
+@prefix xml:    <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix ccev:   <https://joinup.ec.europa.eu/collection/semic/ccev/2.0.3/ontology#> .
+@prefix ccts:   <http://www.unece.org/cefact#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+@prefix foaf:   <http://xmlns.com/foaf/0.1/> .
+@prefix dct:    <http://purl.org/dc/elements/1.1/> .
+@prefix adms:   <http://www.w3.org/ns/adms#> .
+@prefix dcat:   <http://www.w3.org/ns/dcat#> .
+@prefix pwr:    <http://data.europa.eu/RPaM/ontology/rd/powers#> .
+@prefix stat:   <http://data.europa.eu/RPaM/ontology/rd/status#> .
+@prefix uc:     <http://data.europa.eu/RPaM/ontology/rd/units#> .
+@prefix ict:    <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/irctype#> .
+@prefix ctx:    <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/constrainttaxonomy#> .
+@prefix at:     <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/administrationleveltype#> .
+@prefix cc:     <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/countrycode#> .
+@prefix tu:     <https://eurostat/nuts/2016/> .
+@prefix org:    <http://www.w3.org/ns/org#> .
+@prefix ct:		<https://joinup.ec.europa.eu/collection/rpam/1.1.0/constraints/moremeeconstraints.ttl#> .
+
+
+<https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology#> rdf:type owl:Ontology ;
+                                        owl:versionIRI <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology.ttl> ;
+                                        dct:description "A Data Set with example (fake) Mandates conformat to the RPaM Ontology specification."@en ,
+                                                        "BEWARE that this Ontology is an ongoing development"@en ;
+                                        dct:title "Representation Powers and Mandates"@en ;
+                                        dct:publisher "European Commission, ISA2 Programme"@en ;
+                                        dct:creator "everis, Spain, S.L.U"@en ;
+                                        dcat:distribution [
+                                                skos:note "The GitHub Repository where this development is being maintained."@en ;
+                                                dcat:accessURL <https://github.com/everis-rpam> ;
+                                                skos:note "The URL GitHub Repository to download this file."@en ;
+                                                dcat:downloadURL <https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/07-Testing/Mandates/Mandates-Dataset-01.ttl>
+                                        ] .
+
+############## Mandators ###################
+:Serge a :Mandator  , foaf:Person .
+:Paco a :Mandator   , foaf:Person .
+:everis a :Mandator , org:Organization .
+:com a :Mandator    , org:Organization .
+
+############## Serge's Mandatees ###################
+:Paula a :Mandatee  , foaf:Person .
+:Vicenc a :Mandatee , foaf:Person .
+:Rosa a :Mandatee   , foaf:Person .
+:Thomas a :Mandatee , foaf:Person .
+:Ken a :Mandatee    , foaf:Person .
+
+############## Paco's Mandatees ###################
+:Berto a :Mandatee , foaf:Person .
+:Neil a :Mandatee  , foaf:Person .
+:Lula a :Mandatee  , foaf:Person .
+:Helena a :Mandatee, foaf:Person .
+:Suzane a :Mandatee, foaf:Person .
+
+############## Serges's Mandates ###################
+:SergeMandate-1 a :Mandate .
+:SergeMandate-2 a :Mandate .
+:SergeMandate-3 a :Mandate .
+
+############## Paco'ss Mandates ###################
+:PacoMandate-1 a :Mandate .
+:PacoMandate-2 a :Mandate .
+
+############## Mandator's empowerments ###################
+
+:SergeMandate-1 :empowerment :Empowerment-1 ; 
+				:mandator :Serge .
+:SergeMandate-2 :empowerment :Empowerment-2, :Empowerment-3, :Empowerment-4 ;
+				:mandator :Serge .
+:SergeMandate-3 :empowerment :Empowerment-5, :Empowerment-6 ;
+				:mandator :Serge .
+
+:PacoMandate-1 :empowerment :Empowerment-7 ;
+			   :mandator :Paco .
+:PacoMandate-2 :empowerment :Empowerment-8, :Empowerment-9, :Empowerment-10 ;
+			   :mandator :Paco .
+
+############# Powers ##################################################
+# RULE 1: One Mandate -> One Mandator -> Many Empowerments 
+# RULE 2: One Empowerment -> One Type Of Power -> Many Mandatees
+# Rule 3: One Empowerment -> Many Constraints applied to the Mandator 
+# Rule 3: One Empowerment -> Many Constraints applied to ALL the Mandatees
+
+:Empowerment-1	a :Empowerment ;
+				:mandator :Serge ;
+				#Serge's power
+				:powerType :DOING_BUSINESS ;
+				#Serge's constraints on this power 
+				:mandatorConstraint :sc1;
+				#Serge empowers these mandatees whit this power
+		   		:mandatee :Paula, :Rosa ;
+		   		#Paula's and Rosa's constraints to use this power
+		   		:mandateeConstraint :c1 .
+
+:Empowerment-2  a :Empowerment ;    
+				:mandator :Serge ;
+				:powerType :DOING_BUSINESS ;
+				:mandatorConstraint :sc2;
+				:mandateeConstraint :c2;
+		   		:mandatee :Thomas .
+
+:Empowerment-3  a :Empowerment ;    
+				:mandator :Serge ;
+				:powerType :DOING_BUSINESS ;
+		   		:mandatorConstraint :sc3;
+				:mandateeConstraint :c3;
+		   		:mandatee :Vicenc .
+
+:Empowerment-4  a :Empowerment ;
+				:mandator :Serge ;
+				:powerType :DOING_BUSINESS ;
+				:mandatorConstraint :sc4;
+				:mandateeConstraint :c4;
+				:mandatee :Ken, :Thomas, :Vicenc . 
+
+:Empowerment-5  a :Empowerment ;
+				:mandator :Serge ; 
+				:powerType :DOING_BUSINESS ; 
+				:mandatorConstraint :sc5;
+				:mandateeConstraint :c5;
+				:mandatee :Roberto .
+
+:Empowerment-6  a :Empowerment ;
+				:mandator :Serge ; 
+				:powerType :DOING_BUSINESS ; 
+				:mandatorConstraint :sc6;
+				:mandateeConstraint :c6;
+				:mandatee :Neil, :Lula .
+
+:Empowerment-7  a :Empowerment ;
+				:mandator :Paco ; 
+				:powerType :DOING_BUSINESS ; 
+				:mandatorConstraint :pc1;
+				:mandateeConstraint :c7;
+				:mandatee :Helena, :Lula, :Suzane .
+
+:Empowerment-8  a :Empowerment ;
+				:mandator :Paco ; 
+				:powerType :DOING_BUSINESS ; 
+				:mandatorConstraint :pc2;
+				:mandateeConstraint :c8;
+				:mandatee :Vicenc .
+
+:Empowerment-9  a :Empowerment ;
+				:mandator :Paco ; 
+				:powerType :DOING_BUSINESS ; 
+				:mandatorConstraint :pc3;
+				:mandateeConstraint :c9;
+				:mandatee :Paula .
+
+# No constraints applied
+:Empowerment-10 a :Empowerment ;
+				:mandator :Paco ; 
+				:powerType :DOING_BUSINESS ; 
+				:mandatee :Berto .
+
+
+### Serge's constraints
+:sc1 a ccev:Criterion .
+:sc2 a ccev:Criterion .
+:sc3 a ccev:Criterion .
+:sc4 a ccev:Criterion .
+:sc5 a ccev:Criterion .
+:sc6 a ccev:Criterion .
+### Paco's constraints
+:pc1 a ccev:Criterion .
+:pc2 a ccev:Criterion .
+:pc3 a ccev:Criterion .
+:pc4 a ccev:Criterion .
+
+### Constraints applied to Mandatees
+:c0 a ccev:Criterion .
+:c1 a ccev:Criterion .
+:c2 a ccev:Criterion .
+:c3 a ccev:Criterion .
+:c4 a ccev:Criterion .
+:c5 a ccev:Criterion .
+:c6 a ccev:Criterion .
+:c7 a ccev:Criterion .
+:c8 a ccev:Criterion .
+:c9 a ccev:Criterion .
+
+
+### Mandator's data 
+
+:Serge  :givenName "Serge"  ; :familyName "Novack"; :id [:identifierValue "12030132X"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"] .
+:Paco   :givenName "Paco"   ; :familyName "Obsom" ; :id [:identifierValue "341341314K"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"] .
+:Paula  :givenName "Paula"  ; :familyName "Keen" ; :id [:identifierValue "2072391388P"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"] .
+:Vicenc :givenName "Vicenç" ; :familyName "Pons i Torra" ; :id [:identifierValue "77812129V"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"] .
+:Rosa   :givenName "Rosa"   ; :familyName "Fonts-Brolladores" ; :id [:identifierValue "66928954R"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"] .
+:Thomas :givenName "Thomas" ; :familyName "Shutterfield" ; :id [:identifierValue "23141243X"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"] .
+:Ken    :givenName "Ken"    ; :familyName "Goodman" ; :id [:identifierValue "32531334X"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"] .
+:Berto  :givenName "Berto"  ; :familyName "Lo" ; :id [:identifierValue "45215633B"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"] .
+:Neil   :givenName "Neil"   ; :familyName "Armstrong" ; :id [:identifierValue "16732733X"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"] .
+:Lula 	:givenName "Pura"   ; :familyName "Lula" ; :id [:identifierValue "02133132L"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"] .
+:Helena :givenName "Helena" ; :familyName "Staropitxoska" ; :id [:identifierValue "35876429X"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"] .
+:Suzane :givenName "Suzane" ; :familyName "Wittgenstein" ; :id [:identifierValue "13434893X"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"] .
+:everis :name "everis, Spain, SLU" ; :id [:identifierValue "http://everis.com"; :schemeID "URI"] .
+:digit  :name "DIGIT, European Commission" ; :id [:identifierValue "https://ec.europa.eu/info/departments/informatics_en"; :schemeID "URI" ] .
+
+### Mandatee's constraints. See definition of the GenericConstraint in momeconstraints.ttl
+:c1 a ccev:Criterion ;
+	# Criterion data structure Identifier. Beware that multiple Identifiers are possible, even recommendable in certain circumstances.
+	ccev:id [ccts:identifierValue "503faff0-9c27-47fe-97de-957ebf9921f1"; ccts:schemeID "UUID"; ccts:schemeVersionID "4"] ;
+    ccev:type ct:GenericConstraintCriterion ;
+	# The short name of the criterion
+    ccev:name "GenericConstraints"@en ;
+    # The description of the criterion data structure
+    ccev:description "Group of usual constraints expressed in a very generic way."@en ;
+    ccev:group [ccev:type :GenericConstraintsGroup ;
+    			ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#GenericConstraintGroup"^^xsd:anyURI ] ;
+    			ccev:property [ccev:type :FinancialCeil ; ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#FinancialConstraintProperty"^^xsd:anyURI ] ;
+                			   ccev:name "Financial Ceil"@en ;
+                               ccev:description "The person cannot use the power above the amount of."@en ;
+							   ccev:constraint [ccev:datumAmount [ccts:amountValue "1000000.00"^^xsd:decimal ; ccts:currencyID "EUR"]]
+                              ]] ; 
+				ccev:property [ccev:type :TerritorialUnitScope ;
+				               ccev:id [ccts:identifierValue "https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/06-MorMee_Constraints/mormeeconstraints.ttl#GeographicalConstraintProperty"^^xsd:anyURI ] ;
+				               ccev:name "Territorial unit scope"@en ;
+				               ccev:description "The person can not use the power out of the following territorial unit(s)"@en ;
+							   # Beware that the cardinality of the Datum class is multiple. 
+							   # The person can only act in Italy, Belgium and Spain. He 'cannot' use the power out of these EU MS countries.
+							   ccev:constraint [ccev:datumCode  [ccts:codeValue tu:IT; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"],
+																[ccts:codeValue tu:BE; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"], 
+																[ccts:codeValue tu:ES; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]]
+				               ];
+				ccev:property [ccev:type :ValidityPeriodConstraint ; 
+				               ccev:name "Validity period"@en ;
+				               ccev:description "The person cannot use the power beyond this time interval"@en ;
+							   ccev:constraint [ccev:datumPeriod [ ubl:endDate "2020-12-12"^^xsd:date ]]
+				               ] ;
+				ccev:property [ccev:type :OneSingleUse ; 
+							   ccev:name "One single use"@en ;
+				               ccev:description "The person cannot use the power more than once"@en ;
+							   
+
+								ccev:constraint [ccev:datumIndicator "true"^^xsd:boolean]] .
+
+### The rest of criteria are expressed in a "minimalistic" way, for the sake of clarity and brevity. Compare them with the Criterion above. 
+### Only the necessary elements are instantiated. The rest of them can be retrieve from the definition of constraints in:
+### <https://joinup.ec.europa.eu/collection/rpam/1.1.0/constraints/moremeeconstraints.ttl>.
+
+:c2 a ccev:Criterion ;
+    ccev:id [ccts:identifierValue "ee87abdd-b62e-401c-9bf6-e29fa119df5a"; ccts:schemeID "UUID"; ccts:schemeVersionID "4"] ;
+    ccev:type ct:GenericConstraintCriterion ;
+	ccev:group [ccev:type :GenericConstraintsGroup ;
+    			ccev:property [ccev:type :FinancialCeil ; ccev:constraint [ccev:datumAmount [ccts:amountValue "5000000.00"^^xsd:decimal ; ccts:currencyID "EUR"]]]] ; 
+				ccev:property [ccev:type :TerritorialUnitScope ;
+							   # Beware that the cardinality of the Datum class is multiple. 
+							   # The person can only act in Italy, Belgium and Spain. He 'cannot' use the power out of these EU MS countries.
+							   ccev:constraint [ccev:datumCode  [ccts:codeValue tu:IT; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"],
+																[ccts:codeValue tu:BE; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"], 
+																[ccts:codeValue tu:ES; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]]
+				               ];
+				ccev:property [ccev:type :ValidityPeriodConstraint ; ccev:constraint [ccev:datumPeriod [ ubl:endDate "2020-12-12"^^xsd:date ]]] ;
+				ccev:property [ccev:type :OneSingleUse ; ccev:constraint [ccev:datumIndicator "false"^^xsd:boolean]] .
+
+# In this case only a validity period is specified, the rest of properties are not needed (not realised).
+:c3 a ccev:Criterion ;
+    ccev:id [ccts:identifierValue "d10ebe8a-6b53-48c0-aa04-73215efd9e40"; ccts:schemeID "UUID"; ccts:schemeVersionID "4"] ;
+    ccev:type ct:GenericConstraint ;
+	ccev:group [ccev:property [ccev:constraint [ccev:datumPeriod [ ubl:startDate "2019-01-01"^^xsd:date; ubl:endDate "2022-12-12"]]]] .
+
+# TODO: Complete the data about the rest of the constraints.
+

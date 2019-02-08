@@ -1,0 +1,21 @@
+PREFIX : <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ccts: <http://www.unece.org/cefact#>
+PREFIX cc: <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/countrycode#>
+PREFIX ccev: <https://joinup.ec.europa.eu/collection/semic/ccev/2.0.3/ontology#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+# USER STORY-5: Constraints of Serge and Serge's Mandatees in all the Empowerements in SergeMandate-2
+
+select distinct *
+from <https://joinup.ec.europa.eu/collection/rpam/1.1.0/mandates#>
+where {
+    ?Mandate a  :Mandate ;
+             	:mandator :Serge ;
+              	:empowerment ?Empowerment .
+    optional {?Empowerment :mandatorConstraint ?mandatorConstraint}
+    optional {?Empowerment :mandateeConstraint ?mandateeConstraint}
+
+    filter(?Mandate = :SergeMandate-2)
+    
+} order by ?Empowerment
