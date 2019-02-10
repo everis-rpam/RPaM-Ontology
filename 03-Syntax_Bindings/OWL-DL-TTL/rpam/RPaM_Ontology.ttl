@@ -25,15 +25,11 @@
 
 :mandatorConstraint  rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
                      rdfs:label "power Use Constraint"@en ;
-                     rdfs:domain :Mandator ;
-                     rdfs:range ccev:Criterion ;
                      skos:definition "Constraint(s) imposed on how mandators with delegated powers may use a power."@en ;
                      skos:example "Geospatial, temporal, financial, contractual, etc. constraints or possible combinations of these."@en .
 
 :mandateeConstraint  rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
                      rdfs:label "mandateeConstraint"@en ;
-                     rdfs:domain :Mandatee ;
-                     rdfs:domain ccev:Criterion ;
                      skos:definition "Constraint(s) imposed on how mandators with delegated powers may use a power."@en ;
                      skos:example "Geospatial, temporal, financial, contractual, etc. constraints or possible combinations of these."@en .
 
@@ -49,11 +45,11 @@
                                  
 :mandator  rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
           rdfs:label "hasMandator" ;
-          rdfs:definition "Points at the mandator." .
+          rdfs:definition "The person that empowers." .
 
 :mandatee  rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
           rdfs:label "hasMandatee" ;
-          rdfs:definition "Points at the mandatee." .
+          rdfs:definition "The person being empowered." .
 
 :powerType  rdf:type owl:ObjectProperty ;
           rdfs:domain :Empowerment ;
@@ -94,8 +90,14 @@
        owl:subClassOf [
                              a owl:Restriction ;
                              owl:someValuesFrom ccev:Criterion ;
-                             owl:onProperty :constraint
+                             owl:onProperty :mandatorConstraint
                            ] ;
+       owl:subClassOf [
+                             a owl:Restriction ;
+                             owl:someValuesFrom ccev:Criterion ;
+                             owl:onProperty :mandateeConstraint
+                    ] ;
+
       owl:subClassOf [
                              a owl:Restriction ;
                              owl:someValuesFrom :Mandatee ;

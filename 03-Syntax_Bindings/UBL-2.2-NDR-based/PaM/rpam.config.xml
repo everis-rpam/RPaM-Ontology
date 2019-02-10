@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ <ndr>
+  <name-abbreviations>
+    <!--a list of abbreviations mapping a short string to a long string
+        where the abbreviation is allowed in a component name-->
+    <abbreviation short="CV2">Card Verification Value</abbreviation>
+  </name-abbreviations>
+  <den-abbreviations>
+    <!--a list of abbreviations mapping a short string to a long string
+        where the abbreviation is allowed in a dectionary entry name-->
+    <abbreviation short="CV2">Card Verification Value</abbreviation>
+  </den-abbreviations>
+  <equivalences>
+    <!--a list of equivalences between a primary noun and a rep. term-->
+    <equivalence>
+      <primary-noun>URI</primary-noun>
+      <representation-term>Identifier</representation-term>
+    </equivalence>
+  </equivalences>
+  <expected-maindoc-BIEs>
+    <!--a list of required Document ABIE initial properties that may be
+        aribrarily positioned or otherwise specifically positioned in an
+        order based on the attribute-->
+    <property-term type="BBIE" cardinality="0..1" order="1"
+                                  >UBL Version Identifier</property-term>
+    <property-term type="ASBIE" cardinality="0..n"
+                                  >Signature</property-term>
+  </expected-maindoc-BIEs>
+  <types>
+    <!--the list of CCTS primary and secondary representation terms from
+        CCTS table 8-3: Permissible Representation Terms-->
+    <type>Amount</type>
+  </types>
+ </ndr>
+ <schema version="2.1">
+  <comment>
+    The content of a metadata comment at the head of every file that is
+    generated; the available string substitutions are:
+       %% - a single percent sign
+       %f - the module's configuration subdirectories and file name
+       %n - the output ABIE name
+       %t - the local time stamp for the file
+       %z - the UTC (Zulu) time stamp for the file
+</comment>
+  <copyright position="end">
+    The content of a copyright comment that can be positioned either
+    at the start or the end of the generated file based on the mandatory
+    position= attribute being "start" or "end".
+</copyright>
+  <type-documentation>
+    <ccts:Component xmlns:ccts="urn:un:unece:uncefact:documentation:2">
+       <!--the documentation to fill out for each component; the text value
+           of the element is the compressed title of the CCTS spreadsheet
+           column--> 
+       <ccts:ComponentType>ComponentType</ccts:ComponentType>
+    </ccts:Component>
+  </type-documentation>
+  <!--the directory structure (using <dir>) of a single file (using <file>)
+      or a set of document ABIE files (using <files>) to be realized in the
+      generated results:
+      name= - the name of the documented directory or file
+      runtime-name= - the name of the runtime directory or file
+      type= - CVA - context/value association file
+            - DABIE - Document ABIE file or files
+            - CABIE - common Library ABIE file
+            - CBBIE - common BBIE file
+            - AABIE - alternate Document ABIE file or files
+            - XABIE - extension ABIE file or files
+            - SABIE - supplemental Library ABIE files
+            - SBBIE - supplemental Library BBIE files
+            - QDT - qualified data type file
+            - UDT - unqualified data type file
+            - EXT - extension metadata file
+      skeleton-uri= - the pro-forma CVA file with qualification
+                      data types
+      prefix= - the namespace prefix to declare in the fragments for
+                constructs in the given file
+      namespace= - the namespace URI to declare in the fragments for
+                   constructs in the given file 
+      syntax= - indication of a non-XML syntax (e.g. "JSON")
+      
+      Specialized children of the <file> or <files> element
+      
+      type="{any}"
+       <imports> = the list of <xsd:import> statements to add to the result
+       
+      type="XABIE"
+       <elements> = the element declarations to add after all of the
+                    BBIE and ASBIE child elements of the extension
+                    ABIE have been declared
+                    
+      type="EXT":
+       <elements> = the extension element declaration at the start of
+                    every Document ABIE or alternate Document ABIE
+                    
+      type="EXT", syntax="JSON":
+       <declarations> = the extension declaration to be added at the start of
+                        every Document ABIE or alternate Document ABIE
+  -->
+  <dir name="{base directory name}">
+    <dir name="{subdirectory name}">     
+    <!--file declarations-->
+    </dir>
+  </dir>
+ </schema>
+</configuration>

@@ -1,0 +1,3067 @@
+<table>
+   <title>Changes to Library Elements Demo UBL</title>
+   <tgroup cols="3"><!--Library Demo UBL-->
+      <colspec colwidth="35*"/>
+      <colspec colwidth="35*"/>
+      <colspec colwidth="30*"/>
+      <thead>
+         <row>
+            <entry>Aggregate BIE</entry>
+            <entry>Basic or Association BIE</entry>
+            <entry>Changes for Version 2.0</entry>
+         </row>
+      </thead>
+      <tbody>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ActivityDataLine</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ActivityProperty</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>Address</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>LocationCoordinate</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>AllowanceCharge</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>AllowanceChargeReason</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PerUnitAmount</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>AppealTerms</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>AuctionTerms</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>AwardingCriterion</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>AwardingCriterionResponse</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>AwardingTerms</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>BudgetAccount</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>BudgetAccountLine</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>Capability</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>CatalogueLine</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ReplacedRelatedItem</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>KeywordItemProperty</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>CallForTendersLineReference</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>CallForTendersDocumentReference</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>Certificate</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>CertificateOfOriginApplication</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Remarks</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ExporterParty</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ImporterParty</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ClassificationScheme</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Note</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>Clause</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>CompletedTask</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>Condition</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>Consignment</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>CarrierAssignedID</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ConsigneeAssignedID</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ConsignorAssignedID</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>FreightForwarderAssignedID</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>BrokerAssignedID</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ContractedCarrierAssignedID</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PerformingCarrierAssignedID</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>AnimalFoodIndicator</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>HumanFoodIndicator</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>LivestockIndicator</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>BulkCargoIndicator</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ContainerizedIndicator</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>GeneralCargoIndicator</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>SpecialSecurityIndicator</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ThirdPartyPayerIndicator</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>CarrierServiceInstructions</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>CustomsClearanceServiceInstructions</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ForwarderServiceInstructions</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>SpecialServiceInstructions</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>SequenceID</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ShippingPriorityLevelCode</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>HandlingCode</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>HandlingInstructions</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Information</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>TotalGoodsItemQuantity</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>TotalTransportHandlingUnitQuantity</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>InsuranceValueAmount</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>DeclaredForCarriageValueAmount</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>DeclaredStatisticsValueAmount</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>FreeOnBoardValueAmount</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>SpecialInstructions</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>SplitConsignmentIndicator</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>DeliveryInstructions</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ConsignmentQuantity</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ConsolidatableIndicator</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>HaulageInstructions</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>LoadingSequenceID</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ChildConsignmentQuantity</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>TotalPackagesQuantity</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ConsolidatedShipment</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>CustomsDeclaration</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>RequestedPickupTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>RequestedDeliveryTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PlannedPickupTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PlannedDeliveryTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Status</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ChildConsignment</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PerformingCarrierParty</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>SubstituteCarrierParty</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>LogisticsOperatorParty</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>TransportAdvisorParty</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>HazardousItemNotificationParty</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>InsuranceParty</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>MortgageHolderParty</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>BillOfLadingHolderParty</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>TransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>CollectPaymentTerms</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>DisbursementPaymentTerms</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PrepaidPaymentTerms</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ExtraAllowanceCharge</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>MainCarriageShipmentStage</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PreCarriageShipmentStage</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>OnCarriageShipmentStage</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>TransportHandlingUnit</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>FirstArrivalPortLocation</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>LastExitPortLocation</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>Consumption</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ConsumptionAverage</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ConsumptionCorrection</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ConsumptionHistory</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ConsumptionLine</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ConsumptionPoint</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ConsumptionReport</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ConsumptionReportReference</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>Contact</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Note</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>Contract</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>NominationDate</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>NominationTime</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Note</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>VersionID</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Description</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>NominationPeriod</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ContractualDelivery</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ContractExecutionRequirement</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ContractExtension</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ContractingActivity</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ContractingParty</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ContractingPartyType</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>CreditNoteLine</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Note</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PaymentPurposeCode</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>FreeOfChargeIndicator</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>InvoicePeriod</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>OrderLineReference</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>OriginatorParty</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PaymentTerms</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>AllowanceCharge</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>DeliveryTerms</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>SubCreditNoteLine</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ItemPriceExtension</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>CustomsDeclaration</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>DebitNoteLine</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Note</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PaymentPurposeCode</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>AllowanceCharge</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>SubDebitNoteLine</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>Declaration</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>Delivery</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ReleaseID</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>AlternativeDeliveryLocation</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>CarrierParty</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>NotifyParty</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>DeliveryTerms</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>MinimumDeliveryUnit</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>MaximumDeliveryUnit</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Shipment</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>DeliveryTerms</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>SpecialTerms</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>LossRisk</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Amount</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>DependentPriceReference</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>Despatch</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>GuaranteedDespatchDate</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>GuaranteedDespatchTime</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ReleaseID</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Instructions</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>DespatchLocation</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>CarrierParty</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>NotifyParty</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>EstimatedDespatchPeriod</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>RequestedDespatchPeriod</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>DespatchLine</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Note</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>BackorderReason</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>OutstandingReason</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>DocumentReference</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>IssueTime</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>LanguageID</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>LocaleCode</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>VersionID</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>DocumentStatusCode</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>DocumentDescription</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ValidityPeriod</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>IssuerParty</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ResultOfVerification</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>DocumentResponse</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>DocumentReference</entry>
+            <entry>Changed cardinality from 1 to 1..n</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>Duty</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>EconomicOperatorRole</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>EconomicOperatorShortList</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>EmissionCalculationMethod</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>EnergyTaxReport</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>EnergyWaterSupply</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>EnvironmentalEmission</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>EvaluationCriterion</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>Event</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>EventComment</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>EventLineItem</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>EventTactic</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>EventTacticEnumeration</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>Evidence</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>EvidenceSupplied</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ExceptionCriteriaLine</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ExceptionNotificationLine</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ExternalReference</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>HashAlgorithmMethod</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>MimeCode</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>FormatCode</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>EncodingCode</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>CharacterSetCode</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>FileName</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Description</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>FinancialAccount</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>AliasName</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>AccountFormatCode</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>FinancialGuarantee</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ForecastException</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ForecastExceptionCriterionLine</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ForecastLine</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ForecastRevisionLine</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>FrameworkAgreement</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>GoodsItem</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ID</entry>
+            <entry>Changed cardinality from 1 to 0..1</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ChargeableQuantity</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ReturnableQuantity</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>TraceID</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Delivery</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Pickup</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Despatch</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>MeasurementDimension</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ContainingPackage</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ShipmentDocumentReference</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>MinimumTemperature</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>MaximumTemperature</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>HazardousItem</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>AdditionalInformation</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ImmobilizedSecurity</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>InstructionForReturnsLine</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>InventoryReportLine</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>InvoiceLine</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Note</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PaymentPurposeCode</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>InvoicePeriod</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>WithholdingTaxTotal</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>SubInvoiceLine</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ItemPriceExtension</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>Item</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>AdditionalInformation</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Certificate</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Dimension</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ItemComparison</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PriceAmount</entry>
+            <entry>Changed dictionary entry name from “Item Comparison. Price. Amount” to “Item Comparison. Price Amount. Amount”</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ItemIdentification</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>BarcodeSymbologyID</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ItemInformationRequestLine</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ItemInstance</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>BestBeforeDate</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ItemLocationQuantity</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Package</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>AllowanceCharge</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>DependentPriceReference</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ItemManagementProfile</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ItemProperty</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ID</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>NameCode</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>TestMethod</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Value</entry>
+            <entry>Changed cardinality from 1 to 0..1</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ValueQuantity</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ValueQualifier</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ImportanceCode</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ListValue</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>RangeDimension</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ItemPropertyRange</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ItemPropertyGroup</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ImportanceCode</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ItemPropertyRange</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>LineItem</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Note</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>WarrantyInformation</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>SubLineItem</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>WarrantyValidityPeriod</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>WarrantyParty</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>TaxTotal</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ItemPriceExtension</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>LineReference</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>Location</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Description</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Conditions</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>LocationTypeCode</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>InformationURI</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Name</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>SubsidiaryLocation</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>LocationCoordinate</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>LocationCoordinate</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>AltitudeMeasure</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>MaritimeTransport</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>RadioCallSignID</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ShipsRequirements</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>GrossTonnageMeasure</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>NetTonnageMeasure</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>RegistryCertificateDocumentReference</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>RegistryPortLocation</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>Meter</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>MeterProperty</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>MeterReading</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>MiscellaneousEvent</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>MonetaryTotal</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>AllowanceTotalAmount</entry>
+            <entry>Changed dictionary entry name from “Monetary Total. Allowance Total Amount. Amount” to “Monetary Total. Allowance_ Total Amount. Amount”</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ChargeTotalAmount</entry>
+            <entry>Changed dictionary entry name from “Monetary Total. Charge Total Amount. Amount” to “Monetary Total. Charge_ Total Amount. Amount”</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PayableAlternativeAmount</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>NotificationRequirement</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>OnAccountPayment</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>OrderLine</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Note</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>OrderLineReference</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>OrderReference</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>SalesOrderID</entry>
+            <entry>Changed dictionary entry name from “Order Reference. Sales Order Identifier. Identifier” to “Order Reference. Sales_ Order Identifier. Identifier”</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>OrderTypeCode</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>Package</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>TraceID</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ContainingTransportEquipment</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Delivery</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Pickup</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Despatch</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>Party</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>IndustryClassificationCode</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Person</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ServiceProviderParty</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PowerOfAttorney</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>FinancialAccount</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>PartyLegalEntity</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>RegistrationDate</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>RegistrationExpirationDate</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>CompanyLegalFormCode</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>CompanyLegalForm</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>SoleProprietorshipIndicator</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>CompanyLiquidationStatusCode</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>CorporateStockAmount</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>FullyPaidSharesIndicator</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>HeadOfficeParty</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ShareholderParty</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>PartyTaxScheme</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ExemptionReason</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>PaymentMandate</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>PaymentMeans</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PaymentMandate</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>TradeFinancing</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>PaymentTerms</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PaymentMeansID</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PaymentPercent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>SettlementDiscountAmount</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PenaltyAmount</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PaymentTermsDetailsURI</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PaymentDueDate</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>InstallmentDueDate</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>InvoicingPartyReference</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ExchangeRate</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ValidityPeriod</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>PerformanceDataLine</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>Person</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ID</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>OtherName</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>NationalityID</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>GenderCode</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>BirthDate</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>BirthplaceName</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Contact</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>FinancialAccount</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>IdentityDocumentReference</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ResidenceAddress</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>Pickup</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>PowerOfAttorney</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>Price</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PricingExchangeRate</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>PriceExtension</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ProcessJustification</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ProcurementProject</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ProcurementProjectLot</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ProjectReference</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>PromotionalEvent</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>PromotionalEventLineItem</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>PromotionalSpecification</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>QualificationResolution</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>QualifyingParty</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>QuotationLine</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Note</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>RequestForQuotationLineID</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>AlternativeLineItem</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>RequestLineReference</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ReceiptLine</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Note</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>RejectReason</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>QuantityDiscrepancyCode</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>OversupplyQuantity</entry>
+            <entry>Changed dictionary entry name from “Receipt Line. Oversupply Quantity. Quantity” to “Receipt Line. Oversupply_ Quantity. Quantity”</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>Regulation</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ReminderLine</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Note</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PenaltySurchargePercent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Amount</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PaymentPurposeCode</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>RemittanceAdviceLine</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Note</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PaymentPurposeCode</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>InvoicingPartyReference</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>Renewal</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>RequestForQuotationLine</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Note</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>OptionalLineItemIndicator</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PrivacyCode</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>SecurityClassificationCode</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>RequestForTenderLine</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>RequestedTenderTotal</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>Response</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ReferenceID</entry>
+            <entry>Changed cardinality from 1 to 0..1</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>EffectiveDate</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>EffectiveTime</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Status</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ResultOfVerification</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>RetailPlannedImpact</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>SalesItem</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>SecondaryHazard</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Extension</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ServiceFrequency</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ServiceProviderParty</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ShareholderParty</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>Shipment</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>HandlingInstructions</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Information</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ConsignmentQuantity</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Consignment</entry>
+            <entry>Changed cardinality from 1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ReturnAddress</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>ShipmentStage</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PreCarriageIndicator</entry>
+            <entry>Changed cardinality from 1 to 0..1</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>OnCarriageIndicator</entry>
+            <entry>Changed cardinality from 1 to 0..1</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>EstimatedDeliveryDate</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>EstimatedDeliveryTime</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>RequiredDeliveryDate</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>RequiredDeliveryTime</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>LoadingSequenceID</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>SuccessiveSequenceID</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Instructions</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>DemurrageInstructions</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>CrewQuantity</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PassengerQuantity</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>LoadingTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ExaminationTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>AvailabilityTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ExportationTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>DischargeTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>WarehousingTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>TakeoverTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>OptionalTakeoverTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>DropoffTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ActualPickupTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>DeliveryTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ReceiptTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>StorageTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>AcceptanceTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>TerminalOperatorParty</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>CustomsAgentParty</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>EstimatedTransitPeriod</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>FreightAllowanceCharge</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>FreightChargeLocation</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>DetentionTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>RequestedDepartureTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>RequestedArrivalTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>RequestedWaypointTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PlannedDepartureTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PlannedArrivalTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PlannedWaypointTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ActualDepartureTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ActualWaypointTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ActualArrivalTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>TransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>EstimatedDepartureTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>EstimatedArrivalTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PassengerPerson</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>DriverPerson</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ReportingPerson</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>CrewMemberPerson</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>SecurityOfficerPerson</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>MasterPerson</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ShipsSurgeonPerson</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>Signature</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Note</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ValidatorID</entry>
+            <entry>Changed dictionary entry name from “Signature. Validator Identifier. Identifier” to “Signature. Validator. Identifier”</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>SignatoryParty</entry>
+            <entry>Changed cardinality from 1 to 0..1</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>StatementLine</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Note</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PaymentPurposeCode</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>AllowanceCharge</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>CollectedPayment</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>Status</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ReferenceDate</entry>
+            <entry>Changed dictionary entry name from “Status. Reference_ Date. Date” to “Status. Reference Date. Date”</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ReferenceTime</entry>
+            <entry>Changed dictionary entry name from “Status. Reference_ Time. Time” to “Status. Reference Time. Time”</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Description</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>StatusReason</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>SequenceID</entry>
+            <entry>Changed dictionary entry name from “Status. Sequence. Identifier” to “Status. Sequence Identifier. Identifier”</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Text</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ReliabilityPercent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Condition</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>StockAvailabilityReportLine</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>SubcontractTerms</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>SubscriberConsumption</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>SupplierConsumption</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>TaxCategory</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>TaxExemptionReason</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>TaxTotal</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>TaxIncludedIndicator</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>TelecommunicationsService</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>TelecommunicationsSupply</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>TelecommunicationsSupplyLine</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>TenderLine</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>TenderPreparation</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>TenderRequirement</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>TenderResult</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>TenderedProject</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>TendererPartyQualification</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>TendererQualificationRequest</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>TendererRequirement</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>TenderingProcess</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>TenderingTerms</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>TradeFinancing</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>TransportEquipment</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ReferencedConsignmentID</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Information</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>AirFlowPercent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>HumidityPercent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>AnimalFoodApprovedIndicator</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>HumanFoodApprovedIndicator</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>DangerousGoodsApprovedIndicator</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>RefrigeratedIndicator</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Characteristics</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>DamageRemarks</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Description</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>SpecialTransportRequirements</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>GrossWeightMeasure</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>GrossVolumeMeasure</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>TareWeightMeasure</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>TrackingDeviceCode</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PowerIndicator</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>TraceID</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>SupplierParty</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>OwnerParty</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>OperatingParty</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>UnloadingLocation</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>StorageLocation</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PositioningTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>QuarantineTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>DeliveryTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PickupTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>HandlingTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>LoadingTransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>TransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ApplicableTransportMeans</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>HaulageTradingTerms</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>HazardousGoodsTransit</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PackagedTransportHandlingUnit</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ServiceAllowanceCharge</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>FreightAllowanceCharge</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>AttachedTransportEquipment</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Delivery</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Pickup</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Despatch</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ShipmentDocumentReference</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ContainedInTransportEquipment</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Package</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>GoodsItem</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>TransportEvent</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Description</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>CurrentStatus</entry>
+            <entry>Changed cardinality from 1..n to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Location</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Signature</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Period</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>TransportExecutionTerms</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>TransportHandlingUnit</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>HandlingInstructions</entry>
+            <entry>Changed cardinality from 0..1 to 0..n</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>TraceID</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>TransportMeans</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>GoodsItem</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>FloorSpaceMeasurementDimension</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>PalletSpaceMeasurementDimension</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ShipmentDocumentReference</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Status</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>CustomsDeclaration</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ReferencedShipment</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Package</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>TransportMeans</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>TransportMeansTypeCode</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>TradeServiceCode</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>MeasurementDimension</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>TransportSchedule</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>TransportationSegment</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>TransportationService</entry>
+            <entry> </entry>
+            <entry> </entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>TransportationServiceDescription</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>TransportationServiceDetailsURI</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>NominationDate</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>NominationTime</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>Name</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>SequenceNumeric</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>TransportEquipment</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>SupportedTransportEquipment</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>UnsupportedTransportEquipment</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>CommodityClassification</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>SupportedCommodityClassification</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>UnsupportedCommodityClassification</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>TotalCapacityDimension</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ShipmentStage</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>TransportEvent</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ResponsibleTransportServiceProviderParty</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>EnvironmentalEmission</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>EstimatedDurationPeriod</entry>
+            <entry>Added</entry>
+         </row>
+         <row>
+            <entry> </entry>
+            <entry>ScheduledServiceFrequency</entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>UnstructuredPrice</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>UtilityItem</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>WebSiteAccess</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>WinningParty</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+         <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+            <entry>WorkPhaseReference</entry>
+            <entry> </entry>
+            <entry>Added</entry>
+         </row>
+      </tbody>
+   </tgroup>
+</table>
