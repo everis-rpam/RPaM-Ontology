@@ -10,6 +10,66 @@
                         <scenarioAssociation-array>
                             <scenarioAssociation>
                                 <field name="url">
+                                    <String>Crane_tools/gc2obndr/ubl/config-rpam.xml</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>ODS2GC</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XSL</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>Crane_tools/gc2obndr/ubl/mod/mydoc/rpam.gc</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>ODS2GC</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XSL</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>PaM/rpam.gc</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>ODS2GC</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XSL</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>Crane_tools/gc2obndr/bde/config-bde-1.1.xml</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>check-ods</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XSL</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
                                     <String>Crane_tools/gc2obndr/Crane-checkgc4obdndr.xsl</String>
                                 </field>
                                 <field name="scenarioIds">
@@ -26,21 +86,6 @@
                             <scenarioAssociation>
                                 <field name="url">
                                     <String>PaM/MyRARequestResponse.xml</String>
-                                </field>
-                                <field name="scenarioIds">
-                                    <list>
-                                        <String>check-ods</String>
-                                    </list>
-                                </field>
-                                <field name="scenarioTypes">
-                                    <list>
-                                        <String>XSL</String>
-                                    </list>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="url">
-                                    <String>PaM/rpam.gc</String>
                                 </field>
                                 <field name="scenarioIds">
                                     <list>
@@ -85,11 +130,11 @@
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="url">
-                                    <String>Crane_tools/gc2obndr/bde/config-bde-1.1.xml</String>
+                                    <String>READ-ME-FIRST.txt</String>
                                 </field>
                                 <field name="scenarioIds">
                                     <list>
-                                        <String>check-ods</String>
+                                        <String>ODS2GC</String>
                                     </list>
                                 </field>
                                 <field name="scenarioTypes">
@@ -143,21 +188,6 @@
                                     </list>
                                 </field>
                             </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="url">
-                                    <String>READ-ME-FIRST.txt</String>
-                                </field>
-                                <field name="scenarioIds">
-                                    <list>
-                                        <String>ODS2GC</String>
-                                    </list>
-                                </field>
-                                <field name="scenarioTypes">
-                                    <list>
-                                        <String>XSL</String>
-                                    </list>
-                                </field>
-                            </scenarioAssociation>
                         </scenarioAssociation-array>
                     </entry>
                     <entry>
@@ -189,7 +219,7 @@
                                     <String>file:/C:/RPaM-Ontology/03-Syntax_Bindings/UBL-2.2-NDR-based/Crane_tools/ods2obdgc/Crane-ods2obdgc.xsl</String>
                                 </field>
                                 <field name="inputXMLURL">
-                                    <String>file:/C:/RPaM-Ontology/03-Syntax_Bindings/UBL-2.2-NDR-based/UBL-2.2/mod/content.xml</String>
+                                    <String>file:/C:/RPaM-Ontology/03-Syntax_Bindings/UBL-2.2-NDR-based/Crane_tools/gc2obndr/ubl/mod/mydoc/RPaMRequestResponse-Entities.xml</String>
                                 </field>
                                 <field name="defaultScenario">
                                     <Boolean>false</Boolean>
