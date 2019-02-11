@@ -187,7 +187,7 @@
 :c9 a ccev:Criterion .
 
 
-### Mandator's data 
+### Mandator's and Mandatee's data 
 
 :Serge  :givenName "Serge"  ; :familyName "Novack"; :id [:identifierValue "12030132X"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"] .
 :Paco   :givenName "Paco"   ; :familyName "Obsom" ; :id [:identifierValue "341341314K"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"] .
@@ -204,7 +204,7 @@
 :everis :name "everis, Spain, SLU" ; :id [:identifierValue "http://everis.com"; :schemeID "URI"] .
 :digit  :name "DIGIT, European Commission" ; :id [:identifierValue "https://ec.europa.eu/info/departments/informatics_en"; :schemeID "URI" ] .
 
-### Mandatee's constraints. See definition of the GenericConstraint in momeconstraints.ttl
+### Constraints. See definition of the GenericConstraint in momeconstraints.ttl
 :c1 a ccev:Criterion ;
 	# Criterion data structure Identifier. Beware that multiple Identifiers are possible, even recommendable in certain circumstances.
 	ccev:id [ccts:identifierValue "503faff0-9c27-47fe-97de-957ebf9921f1"; ccts:schemeID "UUID"; ccts:schemeVersionID "4"] ;
