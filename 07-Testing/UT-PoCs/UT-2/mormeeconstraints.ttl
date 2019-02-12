@@ -55,4 +55,10 @@
 				               ccev:description "The person cannot use the power more than once"@en ;
 							   # The next line is an example of how to use the constraint. Uncomment it to use it in your dataset and supply real values.
 							   # ccev:constraint [ccev:datumIndicator "true"^^xsd:boolean]
+				               ] ;
+				ccev:property [ccev:type :NoneDelegation ;
+				               ccev:name "None-Delegation"@en ;
+				               ccev:description "The power cannot be delegated"@en ;
+							   # The next line is an example of how to use the constraint. Uncomment it to use it in your dataset and supply real values.
+							   # ccev:constraint [ccev:datumIndicator "true"^^xsd:boolean]
 				               ] .
