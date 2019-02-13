@@ -21,7 +21,7 @@
 #    Object Properties
 #################################################################
 
-:provides rdf:type owl:ObjectProperty ;
+:provides rdf:type owl:ObjectProperty, owl:TransitiveProperty ;
       rdfs:range :Mandate ;
       rdfs:label "provides" ;
       skos:definition "The response of and eMandate, as a result, provides a Mandate."@en .
@@ -67,7 +67,7 @@
        rdfs:label "Exception"@en ;
        skos:definition "Describes the possible causes of the exceptions."@en .                          
 
-# DELETE 
+###### DELETE ######
 
 #:Mandatee rdf:type owl:Class ;
 #          owl:rdfs:subClassOf foaf:Agent ;
