@@ -36,19 +36,13 @@
                        rdfs:range xsd:string ;
                        rdfs:label "The description of a mandate, mandator, mandatee or empowerment."@en .
 
-:mandatorConstraint  rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
-                     rdfs:label "power Use Constraint"@en ;
-                     skos:definition "Constraint(s) imposed on how mandators with delegated powers may use a power."@en ;
-                     skos:example "Geospatial, temporal, financial, contractual, etc. constraints or possible combinations of these."@en .
-
-:mandateeConstraint  rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
-                     rdfs:label "mandateeConstraint"@en ;
-                     skos:definition "Constraint(s) imposed on how mandators with delegated powers may use a power."@en ;
-                     skos:example "Geospatial, temporal, financial, contractual, etc. constraints or possible combinations of these."@en .
-
 :empowerment rdf:type owl:ObjectProperty, owl:FunctionalProperty;
-          rdfs:label "hasEmpowerment" ;
-          rdfs:definition "The assignment of one power and restrictions on its use to one or more mandatees ." .
+          rdfs:label "hasEmpowerment"@en ;
+          rdfs:definition "The assignment of one power and restrictions on its use to one or more mandatees ."@en .
+
+:intermediary rdf:type owl:ObjectProperty ;
+              rdfs:label "hasIntermediary"@en .
+              #skos:definition "..."@en . 
 
 :lifeSpan rdf:type owl:ObjectProperty ;
           rdfs:domain :Mandate ;
@@ -103,6 +97,7 @@
        owl:subClassOf [
                              a owl:Restriction ;
                              owl:someValuesFrom skos:Concept ;
+                             owl:minCardinality "1"^^xsd:nonNegativeInteger ;
                              owl:onProperty :powerType
                            ] ;
      
@@ -121,11 +116,18 @@
       owl:subClassOf [
                              a owl:Restriction ;
                              owl:someValuesFrom :Mandatee ;
+                             owl:Cardinality "1"^^xsd:nonNegativeInteger ;
                              owl:onProperty :mandatee
-                           ] .                          
+                           ] ;  
+      owl:subClassOf [
+                             a owl:Restriction ;
+                             owl:someValuesFrom :Intermediary ;
+                             owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onProperty :intermediary
+                           ] .                         
 
-:Intermediary rdf:type owl:Class
-              rdf:subClassOf foaf:Agent;
+:Intermediary rdf:type owl:Class ;
+              rdf:subClassOf foaf:Agent ;
               rdfs:label "Intermediary"@en .
               # skos:definition "..."@en .
 
@@ -136,11 +138,13 @@
       owl:subClassOf [
                              a owl:Restriction ;
                              owl:allValuesFrom :Mandator ;
+                             owl:cardinality "1"^^xsd:nonNegativeInteger ;
                              owl:onProperty :mandator
                            ] ;
        owl:subClassOf [
                              a owl:Restriction ;
                              owl:someValuesFrom :Empowerment ; #allValuesFrom?
+                             owl:minCardinality "1"^^xsd:nonNegativeInteger ;
                              owl:onProperty :empowerment
                            ] .
       
