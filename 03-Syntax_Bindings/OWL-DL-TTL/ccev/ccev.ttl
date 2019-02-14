@@ -99,8 +99,7 @@
                rdfs:range skos:Concept ; 
                rdfs:label "type"@en ;
                skos:definition "A category assigned to a criterion, group or property."@en ;
-               skos:example "Representation Power and Mandates (RPaM): INFORMATION_REQUIREMENT, CONSTRAINT, CAPTION"@en ;
-               skos:example "European Single Procurement Document (ESPD): REQUIREMENT, QUESTION, CAPTION"@en .
+               skos:example "The Representation Power and Mandates (RPaM) Ontology, uses the type for instance to semantise constraints on the use of the powers (type of property): FINANCIAL_CONSTRAINT, GEOSPATIAL_CONSTRAINT, ONE_SINGLE_USE_CONSTRAINT, VALIDITY_PERIOD_CONSTRAINT, etc."@en .
 
 :id rdf:type owl:ObjectProperty ;
     rdfs:domain :Criterion, :Group, :Property, :Evidence, :Legislation ;
