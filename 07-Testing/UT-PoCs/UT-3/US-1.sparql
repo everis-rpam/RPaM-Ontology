@@ -5,7 +5,7 @@ PREFIX cc: <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/countryco
 PREFIX ccev: <https://joinup.ec.europa.eu/collection/semic/ccev/2.0.3/ontology#>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
-# USER STORY-1: All Mandates
+# USER STORY: All Mandates
 
 select ?Mandates
 from <https://joinup.ec.europa.eu/collection/rpam/1.1.0/mandates#>

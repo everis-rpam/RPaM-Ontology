@@ -1,0 +1,37 @@
+PREFIX : <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ccts: <http://www.unece.org/cefact#>
+PREFIX cc: <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/countrycode#>
+PREFIX ccev: <https://joinup.ec.europa.eu/collection/semic/ccev/2.0.3/ontology#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX ubl: <http://docs.oasis-open.org/ubl#>
+PREFIX mee: <https://joinup.ec.europa.eu/collection/rpam/1.1.0/mandates#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX ct: <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/moremee#>
+
+# USER STORY: Compare the mandates where Paula's power is limited with a financial maximum amount constraint with its mandator financial maximum amount constraint.
+
+    select distinct ?Mandate ?Power ?Mandator ?Mor_Constraint ?Paula_Constraint ?coherence
+    from mee:
+	from ct:
+    where {
+        ?Mandate a  :Mandate ;
+                 :mandator ?Mandator ;
+                 :empowerment ?Power .
+        ?Power :mandatee :Paula ;
+               :mandatorConstraint ?MorConstraint ;
+               :mandateeConstraint ?MeeConstraint .
+    	?MorConstraint ccev:constraint ?MorConstraintNode ; ccev:type ct:FinancialCeil .
+    	?MeeConstraint ccev:constraint ?MeeConstraintNode ; ccev:type ct:FinancialCeil .
+
+    optional {?MorConstraint ccev:type ct:FinancialCeil. ?MorConstraintNode ccev:datumAmount [ccts:amountValue ?MorCeil ; ccts:currencyID ?MorCeilCur]}         optional {?MorConstraint ccev:type ct:FinancialFloor. ?MorConstraintNode ccev:datumAmount [ccts:amountValue ?Morfloor ; ccts:currencyID ?MorFloorCur] }
+
+	optional {?MeeConstraint ccev:type ct:FinancialCeil. ?MeeConstraintNode ccev:datumAmount [ccts:amountValue ?MeeCeil ; ccts:currencyID ?MeeCeilCur]}
+    optional {?MeeConstraint ccev:type ct:FinancialFloor. ?MeeConstraintNode ccev:datumAmount [ccts:amountValue ?Meefloor ; ccts:currencyID ?MeeFloorCur]}
+
+        bind(if (str(?MorCeil) !="", concat(str(?MorCeil), " ", ?MorCeilCur), "") as ?Mor_Constraint)
+        bind(if (str(?MeeCeil) !="", concat(str(?MeeCeil), " ", ?MeeCeilCur), "") as ?Paula_Constraint)
+
+    bind(if (?MorCeil >= ?MeeCeil, "The constraints are coherent", "The constraints are are INCOHERENT!!!") as ?coherence)
+
+}

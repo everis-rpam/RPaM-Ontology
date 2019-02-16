@@ -73,25 +73,25 @@
 :SergeMandate-1 :empowerment :Power-1, :Power-3, :Power-4 ; 
 				:mandator :Serge .
 
-:VincencMandate-1 :empowerement :Power-2;
+:VincencMandate-1 :empowerment :Power-2;
 				:mandator :Vincenc .
 
-:PacoMandate-1 :empowerement :Power-5;
+:PacoMandate-1 :empowerment :Power-5;
 				:mandator :Paco .
 
-:KenMandate-1 :empowerement :Power-6;
+:KenMandate-1 :empowerment :Power-6;
 				:mandator :Ken .
 
-:KenMandate-2 :empowerement :Power-7;
+:KenMandate-2 :empowerment :Power-7;
 				:mandator :Ken .
 
-:NeilMandate-1 :empowerement :Power-8;
+:NeilMandate-1 :empowerment :Power-8;
 				:mandator :Neil . 
 
-:RosaMandate-1 :empowerement :Power-9;
+:RosaMandate-1 :empowerment :Power-9;
 				:mandator :Rosa .
 
-:DIGITMandate-1 :empowerement :Power-10;
+:DIGITMandate-1 :empowerment :Power-10;
 				:mandator :DIGIT .
 
 ############# Powers ##################################################
@@ -135,7 +135,7 @@
 				:powerType :PAY ;
                 :mandatorConstraint :Morcp15, :Morcp16 ;
                 :mandateeConstraint :Meecp15, :Morcp16 ;
-                :mandatee :Paul, :Ken;
+                :mandatee :Paula, :Ken;
                 :delegationlevel 0 .
 
 :Power-6  a :Power ;
@@ -149,7 +149,7 @@
                 :delegationlevel 0 ;
 				:powerType :PAY ;
                 :mandatorConstraint :Morcp20, :Morcp21, :Morcp22, :Morcp23 ;
-                :mandateeConstraint :Meecp20, :Morcp21, :Morcp22, :Morcp23 ;
+                :mandateeConstraint :Meecp20, :Meecp21, :Meecp22, :Meecp23 ;
                 :mandatee :Paula .
 
 :Power-8  a :Power ;
@@ -256,7 +256,7 @@
 
 #Criterion Properties of Power-1
 :Morcp01 a 	ccev:CriterionProperty ;
-    		ccev:type :FinancialCeil ; 
+    		ccev:type ct:FinancialCeil ; 
 			# See code list MorMeeConstraintType:
 			# Financial Ceil: The person cannot use the power above the amount of...
 			# BEWARE that the instance of the criterion property has its own name and descritption that can be used if you want to customise (i.e. "refine") the constraint. 
@@ -264,144 +264,141 @@
 			.
 
 :Meecp01 a	ccev:CriterionProperty ;
-    		ccev:type :FinancialCeil ; 			
+    		ccev:type ct:FinancialCeil ; 			
 			ccev:constraint [ccev:datumAmount [ccts:amountValue "400000.00"^^xsd:decimal ; ccts:currencyID "EUR"]] 
 			.
 
 :Morcp02 a   ccev:CriterionProperty ;
-			ccev:type :TerritorialUnitScope ;
-			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:IT; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"],
-											[ccts:codeValue tu:BE; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"], 
-											[ccts:codeValue tu:ES; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
+			ccev:type ct:TerritorialUnitScope ;
+			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:EEA; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
 			.
-:Meecp02 a   ccev:CriterionPropperty ;
-			ccev:type :TerritorialUnitScope ;
-			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:IT; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"],
-											[ccts:codeValue tu:BE; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
+
+:Meecp02 a   ccev:CriterionProperty ;
+			ccev:type ct:TerritorialUnitScope ;
+			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:EU; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
 			.
 
 :Morcp03 a   ccev:CriterionProperty ;
-			ccev:type :ValidityPeriodConstraint ;
+			ccev:type ct:ValidityPeriod ;
 			ccev:constraint [ccev:datumPeriod [ ubl:endDate "2020-12-12"^^xsd:date ]]
 			.
 
 :Meecp03 a   ccev:CriterionProperty ;
-			ccev:type :ValidityPeriodConstraint ;
+			ccev:type ct:ValidityPeriod ;
 			ccev:constraint [ccev:datumPeriod [ ubl:endDate "2019-12-12"^^xsd:date ]]
 			.
 
 :Morcp04 a   ccev:CriterionProperty ;
-			ccev:type :OneSingleUse ;
+			ccev:type ct:OneSingleUse ;
 			ccev:constraint [ccev:datumIndicator "false"^^xsd:boolean]
 			.
 
 :Meecp04 a   ccev:CriterionProperty ;
-			ccev:type :OneSingleUse ;
+			ccev:type ct:OneSingleUse ;
 			ccev:constraint [ccev:datumIndicator "true"^^xsd:boolean]
 			.
 
 #Criterion Properties of Power-2
 :Morcp05 a 	ccev:CriterionProperty ;
-    		ccev:type :FinancialCeil ; 
+    		ccev:type ct:FinancialCeil ; 
 			ccev:constraint [ccev:datumAmount [ccts:amountValue "400000.00"^^xsd:decimal ; ccts:currencyID "EUR"]] 
 			.
 
 :Meecp05 a	ccev:CriterionProperty ;
-    		ccev:type :FinancialCeil ; 			
+    		ccev:type ct:FinancialCeil ; 			
 			ccev:constraint [ccev:datumAmount [ccts:amountValue "170000.00"^^xsd:decimal ; ccts:currencyID "EUR"]] 
 			.
 
 :Morcp06 a   ccev:CriterionProperty ;
-			ccev:type :TerritorialUnitScope ;
-			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:IT; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"],
-											[ccts:codeValue tu:BE; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
+			ccev:type ct:TerritorialUnitScope ;
+			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:EEA; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"],
+											[ccts:codeValue tu:BENELUX; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
 			.
-:Meecp06 a   ccev:CriterionPropperty ;
-			ccev:type :TerritorialUnitScope ;
-			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:IT; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
+:Meecp06 a   ccev:CriterionProperty ;
+			ccev:type ct:TerritorialUnitScope ;
+			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:BENELUX; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
 			.
 
 :Morcp07 a   ccev:CriterionProperty ;
-			ccev:type :ValidityPeriodConstraint ;
+			ccev:type ct:ValidityPeriod ;
 			ccev:constraint [ccev:datumPeriod [ ubl:endDate "2019-12-12"^^xsd:date ]]
 			.
 
 :Meecp07 a   ccev:CriterionProperty ;
-			ccev:type :ValidityPeriodConstraint ;
+			ccev:type ct:ValidityPeriod ;
 			ccev:constraint [ccev:datumPeriod [ ubl:endDate "2019-12-06"^^xsd:date ]]
 			.
 
 :Morcp08 a   ccev:CriterionProperty ;
-			ccev:type :OneSingleUse ;
+			ccev:type ct:OneSingleUse ;
 			ccev:constraint [ccev:datumIndicator "true"^^xsd:boolean]
 			.
 
 :Meecp08 a   ccev:CriterionProperty ;
-			ccev:type :OneSingleUse ;
+			ccev:type ct:OneSingleUse ;
 			ccev:constraint [ccev:datumIndicator "true"^^xsd:boolean]
 			.
 
 #Criterion Properties of Power-3
 
 :Morcp09 a 	ccev:CriterionProperty ;
-    		ccev:type :FinancialCeil ; 
+    		ccev:type ct:FinancialCeil ; 
 			ccev:constraint [ccev:datumAmount [ccts:amountValue "900000.00"^^xsd:decimal ; ccts:currencyID "EUR"]] 
 			.
 
 :Meecp09 a	ccev:CriterionProperty ;
-    		ccev:type :FinancialCeil ; 			
+    		ccev:type ct:FinancialCeil ; 			
 			ccev:constraint [ccev:datumAmount [ccts:amountValue "100000.00"^^xsd:decimal ; ccts:currencyID "EUR"]] 
 			.
 
 :Morcp10 a   ccev:CriterionProperty ;
-			ccev:type :TerritorialUnitScope ;
-			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:IT; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"],
-											[ccts:codeValue tu:BE; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
+			ccev:type ct:TerritorialUnitScope ;
+			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:EEA; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
 			.
-:Meecp10 a   ccev:CriterionPropperty ;
-			ccev:type :TerritorialUnitScope ;
-			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:IT; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
+:Meecp10 a   ccev:CriterionProperty ;
+			ccev:type ct:TerritorialUnitScope ;
+			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:EFTA; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
 			.
 
 :Morcp11 a   ccev:CriterionProperty ;
-			ccev:type :ValidityPeriodConstraint ;
+			ccev:type ct:ValidityPeriod ;
 			ccev:constraint [ccev:datumPeriod [ ubl:endDate "2025-12-12"^^xsd:date ]]
 			.
 
 :Meecp11 a   ccev:CriterionProperty ;
-			ccev:type :ValidityPeriodConstraint ;
+			ccev:type ct:ValidityPeriod ;
 			ccev:constraint [ccev:datumPeriod [ ubl:endDate "2019-12-31"^^xsd:date ]]
 			.
 
 :Morcp12 a   ccev:CriterionProperty ;
-			ccev:type :OneSingleUse ;
+			ccev:type ct:OneSingleUse ;
 			ccev:constraint [ccev:datumIndicator "true"^^xsd:boolean]
 			.
 
 :Meecp12 a   ccev:CriterionProperty ;
-			ccev:type :OneSingleUse ;
+			ccev:type ct:OneSingleUse ;
 			ccev:constraint [ccev:datumIndicator "true"^^xsd:boolean]
 			.
 
 #Criterion Properties of Power-4
 
 :Morcp13 a   ccev:CriterionProperty ;
-			ccev:type :TerritorialUnitScope ;
+			ccev:type ct:TerritorialUnitScope ;
 			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:IT; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"],
 											[ccts:codeValue tu:BE; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
 			.
-:Meecp13 a   ccev:CriterionPropperty ;
-			ccev:type :TerritorialUnitScope ;
+:Meecp13 a   ccev:CriterionProperty ;
+			ccev:type ct:TerritorialUnitScope ;
 			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:BE; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
 			.
 
 :Morcp14 a   ccev:CriterionProperty ;
-			ccev:type :OneSingleUse ;
+			ccev:type ct:OneSingleUse ;
 			ccev:constraint [ccev:datumIndicator "false"^^xsd:boolean]
 			.
 
 :Meecp14 a   ccev:CriterionProperty ;
-			ccev:type :OneSingleUse ;
+			ccev:type ct:OneSingleUse ;
 			ccev:constraint [ccev:datumIndicator "false"^^xsd:boolean]
 			.
 
@@ -409,166 +406,166 @@
 #Criterion Properties of Power-5
 
 :Morcp15 a   ccev:CriterionProperty ;
-			ccev:type :TerritorialUnitScope ;
+			ccev:type ct:TerritorialUnitScope ;
 			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:EU; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
 			.
-:Meecp15 a   ccev:CriterionPropperty ;
-			ccev:type :TerritorialUnitScope ;
-			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:ES; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
+:Meecp15 a   ccev:CriterionProperty ;
+			ccev:type ct:TerritorialUnitScope ;
+			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:EU; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
 			.
 
 :Morcp16 a   ccev:CriterionProperty ;
-			ccev:type :OneSingleUse ;
+			ccev:type ct:OneSingleUse ;
 			ccev:constraint [ccev:datumIndicator "false"^^xsd:boolean]
 			.
 
 :Meecp16 a   ccev:CriterionProperty ;
-			ccev:type :OneSingleUse ;
+			ccev:type ct:OneSingleUse ;
 			ccev:constraint [ccev:datumIndicator "false"^^xsd:boolean]
 			.
 
 #Criterion Properties of Power-6
 
 :Morcp17 a   ccev:CriterionProperty ;
-			ccev:type :TerritorialUnitScope ;
+			ccev:type ct:TerritorialUnitScope ;
 			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:EU; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
 			.
 
-:Meecp17 a   ccev:CriterionPropperty ;
-			ccev:type :TerritorialUnitScope ;
+:Meecp17 a   ccev:CriterionProperty ;
+			ccev:type ct:TerritorialUnitScope ;
 			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:ES; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
 			.
 
 :Morcp18 a   ccev:CriterionProperty ;
-			ccev:type :ValidityPeriodConstraint ;
+			ccev:type ct:ValidityPeriod ;
 			ccev:constraint [ccev:datumPeriod [ ubl:endDate "2025-12-12"^^xsd:date ]]
 			.
 
 :Meecp18 a   ccev:CriterionProperty ;
-			ccev:type :ValidityPeriodConstraint ;
+			ccev:type ct:ValidityPeriod ;
 			ccev:constraint [ccev:datumPeriod [ ubl:endDate "2019-12-31"^^xsd:date ]]
 			.
 
 :Morcp19 a   ccev:CriterionProperty ;
-			ccev:type :OneSingleUse ;
+			ccev:type ct:OneSingleUse ;
 			ccev:constraint [ccev:datumIndicator "true"^^xsd:boolean]
 			.
 
 :Meecp19 a   ccev:CriterionProperty ;
-			ccev:type :OneSingleUse ;
+			ccev:type ct:OneSingleUse ;
 			ccev:constraint [ccev:datumIndicator "true"^^xsd:boolean]
 			.
 
 #Criterion Properties of Power-7
 
 :Morcp20 a   ccev:CriterionProperty ;
-			ccev:type :TerritorialUnitScope ;
+			ccev:type ct:TerritorialUnitScope ;
 			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:EU; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
 			.
-:Meecp20 a   ccev:CriterionPropperty ;
-			ccev:type :TerritorialUnitScope ;
+:Meecp20 a   ccev:CriterionProperty ;
+			ccev:type ct:TerritorialUnitScope ;
 			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:ES; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
 			.
 
 :Morcp21 a 	ccev:CriterionProperty ;
-    		ccev:type :FinancialCeil ; 
+    		ccev:type ct:FinancialCeil ; 
 			ccev:constraint [ccev:datumAmount [ccts:amountValue "30000.00"^^xsd:decimal ; ccts:currencyID "EUR"]] 
 			.
 
 :Meecp21 a	ccev:CriterionProperty ;
-    		ccev:type :FinancialCeil ; 			
+    		ccev:type ct:FinancialCeil ; 			
 			ccev:constraint [ccev:datumAmount [ccts:amountValue "10000.00"^^xsd:decimal ; ccts:currencyID "EUR"]] 
 			.
 
 :Morcp22 a  ccev:CriterionProperty ;
-			ccev:type :ValidityPeriodConstraint ;
+			ccev:type ct:ValidityPeriod ;
 			ccev:constraint [ccev:datumPeriod [ ubl:endDate "2025-12-12"^^xsd:date ]]
 			.
 
 :Meecp22 a  ccev:CriterionProperty ;
-			ccev:type :ValidityPeriodConstraint ;
+			ccev:type ct:ValidityPeriod ;
 			ccev:constraint [ccev:datumPeriod [ ubl:endDate "2019-12-31"^^xsd:date ]]
 			.
 
 :Morcp23 a  ccev:CriterionProperty ;
-			ccev:type :OneSingleUse ;
+			ccev:type ct:OneSingleUse ;
 			ccev:constraint [ccev:datumIndicator "true"^^xsd:boolean]
 			.
 
 :Meecp23 a  ccev:CriterionProperty ;
-			ccev:type :OneSingleUse ;
+			ccev:type ct:OneSingleUse ;
 			ccev:constraint [ccev:datumIndicator "true"^^xsd:boolean]
 			.
 
 #Criterion Properties of Power-8
 
 :Morcp24 a   ccev:CriterionProperty ;
-			ccev:type :TerritorialUnitScope ;
-			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:EU; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
+			ccev:type ct:TerritorialUnitScope ;
+			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:EEA; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
 			.
-:Meecp24 a   ccev:CriterionPropperty ;
-			ccev:type :TerritorialUnitScope ;
-			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:IT; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
+:Meecp24 a   ccev:CriterionProperty ;
+			ccev:type ct:TerritorialUnitScope ;
+			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:EEA; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
 			.
 
 :Morcp25 a  ccev:CriterionProperty ;
-			ccev:type :OneSingleUse ;
+			ccev:type ct:OneSingleUse ;
 			ccev:constraint [ccev:datumIndicator "true"^^xsd:boolean]
 			.
 
 :Meecp25 a  ccev:CriterionProperty ;
-			ccev:type :OneSingleUse ;
+			ccev:type ct:OneSingleUse ;
 			ccev:constraint [ccev:datumIndicator "true"^^xsd:boolean]
 			.
 
 #Criterion Properties of Power-9
 
 :Morcp26 a   ccev:CriterionProperty ;
-			ccev:type :TerritorialUnitScope ;
-			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:EU; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
+			ccev:type ct:TerritorialUnitScope ;
+			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:EEA; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
 			.
-:Meecp26 a   ccev:CriterionPropperty ;
-			ccev:type :TerritorialUnitScope ;
-			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:ES; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
+:Meecp26 a   ccev:CriterionProperty ;
+			ccev:type ct:TerritorialUnitScope ;
+			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:EU; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
 			.
 
 :Meecp27 a	ccev:CriterionProperty ;
-    		ccev:type :FinancialCeil ; 			
+    		ccev:type ct:FinancialCeil ; 			
 			ccev:constraint [ccev:datumAmount [ccts:amountValue "50000.00"^^xsd:decimal ; ccts:currencyID "EUR"]] 
 			.
 
 :Meecp28 a   ccev:CriterionProperty ;
-			ccev:type :ValidityPeriodConstraint ;
+			ccev:type ct:ValidityPeriod ;
 			ccev:constraint [ccev:datumPeriod [ ubl:endDate "2019-05-31"^^xsd:date ]]
 			.
 
 :Morcp27 a  ccev:CriterionProperty ;
-			ccev:type :OneSingleUse ;
+			ccev:type ct:OneSingleUse ;
 			ccev:constraint [ccev:datumIndicator "false"^^xsd:boolean]
 			.
 
 :Meecp29 a  ccev:CriterionProperty ;
-			ccev:type :OneSingleUse ;
+			ccev:type ct:OneSingleUse ;
 			ccev:constraint [ccev:datumIndicator "false"^^xsd:boolean]
 			.
 
 #Criterion Properties of Power-10
 
 :Morcp28 a   ccev:CriterionProperty ;
-			ccev:type :TerritorialUnitScope ;
+			ccev:type ct:TerritorialUnitScope ;
 			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:EU; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
 			.
 
-:Meecp30 a   ccev:CriterionPropperty ;
-			ccev:type :TerritorialUnitScope ;
+:Meecp30 a   ccev:CriterionProperty ;
+			ccev:type ct:TerritorialUnitScope ;
 			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:EU; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
 			.
 
 :Morcp29 a  ccev:CriterionProperty ;
-			ccev:type :OneSingleUse ;
+			ccev:type ct:OneSingleUse ;
 			ccev:constraint [ccev:datumIndicator "false"^^xsd:boolean]
 			.
 :Meecp31 a  ccev:CriterionProperty ;
-			ccev:type :OneSingleUse ;
+			ccev:type ct:OneSingleUse ;
 			ccev:constraint [ccev:datumIndicator "false"^^xsd:boolean]
 			.
