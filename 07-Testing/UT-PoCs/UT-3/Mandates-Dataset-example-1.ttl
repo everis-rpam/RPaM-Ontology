@@ -12,7 +12,6 @@
 @prefix dct:    <http://purl.org/dc/elements/1.1/> .
 @prefix adms:   <http://www.w3.org/ns/adms#> .
 @prefix dcat:   <http://www.w3.org/ns/dcat#> .
-@prefix pwr:    <http://data.europa.eu/RPaM/ontology/rd/powers#> .
 @prefix stat:   <http://data.europa.eu/RPaM/ontology/rd/status#> .
 @prefix uc:     <http://data.europa.eu/RPaM/ontology/rd/units#> .
 @prefix ict:    <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/irctype#> .
@@ -21,21 +20,24 @@
 @prefix cc:     <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/countrycode#> .
 @prefix tu:     <https://eurostat/nuts/2016/> .
 @prefix org:    <http://www.w3.org/ns/org#> .
-@prefix ct: <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/moremee#> .
+@prefix ct: 	<https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/moremee#> .
+@prefix pwr:    <http://data.europa.eu/RPaM/ontology/rd/powers#> .
 
 <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology#> rdf:type owl:Ontology ;
                                         owl:versionIRI <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology.ttl> ;
-                                        dct:description "A Data Set with example (fake) Mandates conformat to the RPaM Ontology specification."@en ,
-                                                        "BEWARE that this Ontology is an ongoing development"@en ;
-                                        dct:title "Representation Powers and Mandates"@en ;
+                                        dct:description "This file contains instances of mandates that would be kept in a MS eMandate Registry."@en ;
+                                        dct:title "Example of a dataset containing mandates."@en ;
                                         dct:publisher "European Commission, ISA2 Programme"@en ;
                                         dct:creator "everis, Spain, S.L.U"@en ;
                                         dcat:distribution [
                                                 skos:note "The GitHub Repository where this development is being maintained."@en ;
                                                 dcat:accessURL <https://github.com/everis-rpam> ;
                                                 skos:note "The URL GitHub Repository to download this file."@en ;
-                                                dcat:downloadURL <https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/07-Testing/Mandates/Mandates-Dataset-01.ttl>
+                                                dcat:downloadURL <https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/07-Testing/examples/eMandateRequest-example-1.ttl>
                                         ] .
+
+############################
+
 
 ############## Mandators ###################
 :Serge a :Mandator , foaf:Person .
@@ -103,14 +105,14 @@
 
 :Power-1  a :Power ;
                 :delegationlevel 0 ;
-                :powerType :STARTING_BUSINESS ;
+                :powerType pwr:STARTING_BUSINESS ;
                 :mandatorConstraint :Morcp01, :Morcp02, :Morcp03, :Morcp04;
                 :mandatee :Vicenc ;
                 :mandateeConstraint :Meecp01, :Meecp02, :Meecp03, :Meecp04 .
 		        
 :Power-2  a :Power ;
                 :mandator :Vicenc ;
-                :powerType :STARTING_BUSINESS ;
+                :powerType pwr:STARTING_BUSINESS ;
                 :mandatorConstraint :Morcp05, :Morcp06, :Morcp07, :Morcp08 ;
                 :mandateeConstraint :Meecp05, :Meecp06, :Meecp07, :Meecp08 ;
                 :mandatee :Thomas ;
@@ -118,7 +120,7 @@
 
 :Power-3  a :Power ;                
                 :delegationlevel 0 ;
-                :powerType :DOING_BUSINESS ;
+                :powerType pwr:DOING_BUSINESS ;
                 :mandatorConstraint :Morcp09, :Morcp10, :Morcp11, :Morcp12 ;
                 :mandatee :Vicenc, :Thomas ;
                 :mandateeConstraint :Meecp09, :Meecp10, :Meecp11, :Meecp12 .
@@ -126,13 +128,13 @@
 :Power-4  a :Power ;
                 :delegationlevel 0 ;
                 :mandatorConstraint :Morcp13, :Morcp14 ;
-                :powerType :WORKING ;
+                :powerType pwr:WORKING ;
                 :mandateeConstraint :Meecp13, :Meecp14 ;
                 :mandatee :Roberto .
 
 :Power-5  a :Power ;
                 :delegationlevel 0 ;
-				:powerType :PAY ;
+				:powerType pwr:PAY ;
                 :mandatorConstraint :Morcp15, :Morcp16 ;
                 :mandateeConstraint :Meecp15, :Morcp16 ;
                 :mandatee :Paula, :Ken;
@@ -140,35 +142,35 @@
 
 :Power-6  a :Power ;
                 :delegationlevel 0 ;
-				:powerType :STUDYING ; 
+				:powerType pwr:STUDYING ; 
                 :mandatorConstraint :Morcp17, :Morcp18, :Morcp19 ;
                 :mandateeConstraint :Meecp17, :Meecp18, :Meecp19 ;
                 :mandatee :Helena, :Berto .
 
 :Power-7  a :Power ;
                 :delegationlevel 0 ;
-				:powerType :PAY ;
+				:powerType pwr:PAY ;
                 :mandatorConstraint :Morcp20, :Morcp21, :Morcp22, :Morcp23 ;
                 :mandateeConstraint :Meecp20, :Meecp21, :Meecp22, :Meecp23 ;
                 :mandatee :Paula .
 
 :Power-8  a :Power ;
                 :delegationlevel 0 ;
-				:powerType :SUBMIT ;
+				:powerType pwr:SUBMIT ;
 				:mandatorConstraint :Morcp24, :Morcp25;
                 :mandateeConstraint :Meecp24, :Meecp25;
                 :mandatee :Lula .
 
 :Power-9  a :Power ;
                 :delegationlevel 0 ;
-				:powerType :PAY ;
+				:powerType pwr:PAY ;
                 :mandatorConstraint :Morcp26, :Morcp27 ;
                 :mandateeConstraint :Meecp26, :Meecp27, :Meecp28, :Meecp29 ;
                 :mandatee :Berto .
 
 :Power-10 a :Power ;
                 :delegationlevel 0 ;
-				:powerType :STARTING_BUSINESS ;
+				:powerType pwr:STARTING_BUSINESS ;
                 :mandatee :everis ;
                 :mandatorConstraint :Morcp28, :Morcp29 ;
                 :mandateeConstraint :Meecp30, :Meecp31 .
