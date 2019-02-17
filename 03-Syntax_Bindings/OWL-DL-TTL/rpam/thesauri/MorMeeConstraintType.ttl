@@ -1,16 +1,18 @@
-@prefix : <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/moremee#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix ccts: <http://www.unece.org/cefact#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@base <http://data.europa.eu/RPaM/ontology#> .
+@prefix : 	<https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/moremee#> .
+@prefix owl: 	<http://www.w3.org/2002/07/owl#> .
+@prefix rdf: 	<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: 	<http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: 	<http://www.w3.org/2001/XMLSchema#> .
+@prefix ccts: 	<http://www.unece.org/cefact#> .
+@prefix rdfs: 	<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: 	<http://www.w3.org/2004/02/skos/core#> .
+@prefix foaf: 	<http://xmlns.com/foaf/0.1/> .
+@prefix adms:	<http://www.w3.org/ns/adms#>.
+@base  		  	<https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/moremee#> .
 
-<https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/moremee#> rdf:type owl:Ontology ;
-                                        owl:versionIRI <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/moremee#> ;
+
+<https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/moremee#> rdf:type owl:Ontology, adms:Asset ;
+                                        owl:versionIRI <https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/03-Syntax_Bindings/OWL-DL-TTL/rpam/thesauri/MorMeeConstraintType.ttl> ;
                                         skos:description "Code List containing the definitions of RPaM constraints for mandators with delegated powers and mandatees."@en .
 
 :PowerUseConstraints rdf:type owl:NamedIndividual, skos:ConceptScheme ;

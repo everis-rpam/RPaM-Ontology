@@ -1,30 +1,42 @@
-@prefix : <http://data.europa.eu/RPaM/ontology/rd/status#> .
-@prefix adms: <http://www.w3.org/ns/adms#>.
-@prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix grddl: <http://www.w3.org/2003/g/data-view#> .
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix :        <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/status#> .
+@prefix adms:    <http://www.w3.org/ns/adms#>.
+@prefix foaf:    <http://xmlns.com/foaf/0.1/>.
+@prefix grddl:   <http://www.w3.org/2003/g/data-view#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix skosxl:  <http://www.w3.org/2008/05/skos-xl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  	 <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@base            <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/status#> .
 
 #metadata
 
-<http://data.europa.eu/RPaM/ontology#> a owl:Ontology, adms:Asset;
-  dcterms:title "Powers Status Taxonomy"@en;
-  #dcterms:description "The Powers Taxonomy ...."@en;
-  dcterms:created "2018-10-10"^^xsd:date;
-  #vann:preferredNamespacePrefix "rpam";
-  #foaf:homepage <http://...>;
-  #dcterms:publisher [foaf:name "European Commission"];
-  #dcterms:creator [foaf:name "Core Public Service Working Group"; foaf:homepage <http://joinup.ec.europa.eu/asset/core_public_service/document/core-public-service-working-group>.];
-  dcterms:type <http://purl.org/adms/assettype/Ontology>;
-  dcterms:status <http://purl.org/adms/status/UnderDevelopment>.
-
+<https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/status#> a owl:Ontology, adms:Asset;
+	owl:versionIRI <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/status#> ;
+	dcterms:title "Powers Status Taxonomy"@en;
+	skos:description "Definition of the powers used in the European Union to act on behalf of another person in front of a service, e.g. an online service supplied by a public administration."@en ;
+	#dcterms:description "The Powers Taxonomy ...."@en;
+	dcterms:created "2018-10-10"^^xsd:date;
+	#vann:preferredNamespacePrefix "rpam";
+	#foaf:homepage <http://...>;
+	#dcterms:publisher [foaf:name "European Commission"];
+	#dcterms:creator [foaf:name "Core Public Service Working Group"; foaf:homepage <http://joinup.ec.europa.eu/asset/core_public_service/document/core-public-service-working-group>.];
+	dcterms:type <http://purl.org/adms/assettype/Ontology>;
+	dcterms:status <http://purl.org/adms/status/UnderDevelopment> ;
+	dct:description "A Data Set with one mandates conformat to the RPaM Ontology specification, supplied from an eMandate Registry in response to the request of a Service Provider (SP)."@en ,
+	                "BEWARE that this Ontology is an ongoing development"@en ;
+	dct:publisher "European Commission, ISA2 Programme"@en ;
+	dct:creator "everis, Spain, S.L.U"@en ;
+	dcat:distribution [
+	        dcat:accessURL <https://github.com/everis-rpam> ;
+	        skos:note "The URL GitHub Repository to download this file."@en ;
+	        dcat:downloadURL <https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/03-Syntax_Bindings/OWL-DL-TTL/rpam/thesauri/EU_Power_Status_Taxonomy.ttl>                                         
+	] .
 #skos:ConceptScheme
 
 :EU_RPaM_Status_Taxonomy a skos:ConceptScheme ;
@@ -33,6 +45,15 @@
 
 :EU_POWER_STATUS a skosxl:Label ;
 	skosxl:literalForm "EU RPaM Status Taxonomy"@en .
+
+:POWER_STATUS a skos:Concept ;
+	dct:created "2018-10-25T11:17:04.836+02:00"^^xsd:dateTime ;
+	skos:inScheme :EU_RPaM_Status_Taxonomy ;
+	skos:topConceptOf :EU_RPaM_Status_Taxonomy ;
+	skosxl:prefLabel [
+						a skosxl:Label ;
+						skosxl:literalForm "Power Status"@en .
+					 ] .
 
 #skos:Concepts
 
@@ -114,22 +135,13 @@
 						skosxl:literalForm "Revoked"@en .
 					 ] .
 
-:UNAUTHORISED a skos:Concept ;
-	dct:created "2018-10-25T11:17:34.229+02:00"^^xsd:dateTime ;
+
+:STRUCK-OFF-MANDATE a skos:Concept ;
+	dct:created "2019-02-17T14:18:16"^^xsd:dateTime ;
 	skos:broader :ePower_Status ;
-	skos:definition "The SP hasn't approved/accepted the ePower request."@en ;
+	skos:definition "The power is no longer valid because the mandate where it was defined has been struck off."@en ;
 	skos:inScheme :EU_RPaM_Status_Taxonomy ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
-						skosxl:literalForm "Unauthorised"@en .
+						skosxl:literalForm "Revoked"@en .
 					 ] .
-
-:POWER_STATUS a skos:Concept ;
-	dct:created "2018-10-25T11:17:04.836+02:00"^^xsd:dateTime ;
-	skos:inScheme :EU_RPaM_Status_Taxonomy ;
-	skos:topConceptOf :EU_RPaM_Status_Taxonomy ;
-	skosxl:prefLabel [
-						a skosxl:Label ;
-						skosxl:literalForm "Power Status"@en .
-					 ] .
-

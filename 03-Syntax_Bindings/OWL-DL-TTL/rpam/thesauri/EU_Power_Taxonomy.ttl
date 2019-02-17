@@ -1,29 +1,36 @@
-@prefix : <http://data.europa.eu/RPaM/ontology/rd/powers#> .
-@prefix adms: <http://www.w3.org/ns/adms#>.
-@prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix grddl: <http://www.w3.org/2003/g/data-view#> .
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix :			<https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/powers#> .
+@prefix adms:		<http://www.w3.org/ns/adms#>.
+@prefix foaf: 		<http://xmlns.com/foaf/0.1/>.
+@prefix grddl: 		<http://www.w3.org/2003/g/data-view#> .
+@prefix dct: 		<http://purl.org/dc/terms/> .
+@prefix rdf: 		<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: 		<http://www.w3.org/2002/07/owl#> .
+@prefix skosxl: 	<http://www.w3.org/2008/05/skos-xl#> .
+@prefix xsd: 		<http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: 		<http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: 		<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc: 		<http://purl.org/dc/elements/1.1/> .
+@prefix dcterms:	<http://purl.org/dc/terms/> .
+@prefix dcat:       <http://www.w3.org/ns/dcat#> .
 
 #metadata
 
-<http://data.europa.eu/RPaM/ontology#> a owl:Ontology, adms:Asset;
-  dcterms:title "Powers Taxonomy"@en;
-  #dcterms:description "The Powers Taxonomy ...."@en;
-  dcterms:created "2018-10-10"^^xsd:date;
-  #vann:preferredNamespacePrefix "rpam";
+<https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/powers#> a owl:Ontology, adms:Asset ;
+  owl:versionIRI <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/powers#> ;
+  dcterms:title "Powers Taxonomy"@en ;
+  skos:description "Definition of the powers used in the European Union to act on behalf of another person in front of a service, e.g. an online service supplied by a public administration."@en ;
+  dcterms:created "2018-10-10"^^xsd:date ;
   #foaf:homepage <http://...>;
   #dcterms:publisher [foaf:name "European Commission"];
-  #dcterms:creator [foaf:name "Core Public Service Working Group"; foaf:homepage <http://joinup.ec.europa.eu/asset/core_public_service/document/core-public-service-working-group>.];
-  dcterms:type <http://purl.org/adms/assettype/Ontology>;
-  dcterms:status <http://purl.org/adms/status/UnderDevelopment>.
+  dcterms:type <http://purl.org/adms/assettype/Ontology> ;
+  dcterms:status <http://purl.org/adms/status/UnderDevelopment> ; 
+  dct:publisher "European Commission, ISA2 Programme"@en ;
+  dct:creator "everis, Spain, S.L.U"@en ;
+  dcat:distribution [
+        dcat:accessURL <https://github.com/everis-rpam> ;
+        skos:note "The URL GitHub Repository to download this file."@en ;
+        dcat:downloadURL <https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/03-Syntax_Bindings/OWL-DL-TTL/rpam/thesauri/EU_Power_Taxonomy.ttl> 
+	] .
 
 #skos:Conceptscheme
 
