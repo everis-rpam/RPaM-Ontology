@@ -23,9 +23,9 @@
 @prefix ct: 	<https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/moremee#> .
 @prefix pwr:    <http://data.europa.eu/RPaM/ontology/rd/powers#> .
 
-<https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology#> rdf:type owl:Ontology ;
-                                        owl:versionIRI <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology.ttl> ;
-                                        dct:description "This file contains instances of mandates that would be kept in a MS eMandate Registry."@en ;
+<https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology#> rdf:type owl:Ontology, dcat:Dataset ;
+                                        owl:versionIRI "https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology.ttl" ;
+                                                                                dct:description "This file contains instances of mandates that would be kept in a MS eMandate Registry."@en ;
                                         dct:title "Example of a dataset containing mandates."@en ;
                                         dct:publisher "European Commission, ISA2 Programme"@en ;
                                         dct:creator "everis, Spain, S.L.U"@en ;
@@ -35,9 +35,6 @@
                                                 skos:note "The URL GitHub Repository to download this file."@en ;
                                                 dcat:downloadURL <https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/07-Testing/examples/eMandateRequest-example-1.ttl>
                                         ] .
-
-############################
-
 
 ############## Mandators ###################
 :Serge a :Mandator , foaf:Person .
@@ -83,7 +80,7 @@
 #### This mandate has been struck-off, see endDate
 :PacoMandate-1 :empowerment :Power-5 ;
 				:mandator :Paco ;
-				:lifeSpan [:startDateTime "2018-01-01T12:13:11"^^xsd:dateTime :endDateTime "2018-01-01T12:13:11"^^xsd:dateTime ] .
+				:lifeSpan [:startDateTime "2018-01-01T12:13:11"^^xsd:dateTime ; :endDateTime "2018-01-01T12:13:11"^^xsd:dateTime ] .
 
 :KenMandate-1 :empowerment :Power-6 ;
 				:mandator :Ken ;
@@ -92,6 +89,7 @@
 :KenMandate-2 :empowerment :Power-7 ;
 				:mandator :Ken ;
 				:lifeSpan [:startDateTime "2019-01-12T02:03:10"^^xsd:dateTime ] .
+
 
 :NeilMandate-1 :empowerment :Power-8 ;
 				:mandator :Neil ;

@@ -23,10 +23,10 @@
 @prefix org:    <http://www.w3.org/ns/org#> .
 @prefix ct: <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/moremee#> .
 
-<https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology#> rdf:type owl:Ontology ;
-                                        owl:versionIRI <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology.ttl> ;
+<https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology#> rdf:type owl:Ontology, dcat:Dataset ;
+                                        owl:versionIRI "https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology.ttl" ;
                                         dct:description "A document containing an eMandate Request prepared by a Service Provider (SP) used to discover and get a mandate in a cross-border Member State eMandate Registry."@en ,
-                                                        "A document eMandate Response (conformant to the RPaM  specification) is expected containing at least one mandate or, if not, the description of the exception(s) occured."@en ;
+                                                        "A document eMandate Response (conformant to the RPaM  specification) is expected containing at least one mandate or, if not, the description of the exception(s) occured."@en ,
                                                         "BEWARE that this Ontology is an ongoing development"@en ;
                                         dct:title "Example of an eMandateRequest document instance."@en ;
                                         dct:publisher "European Commission, ISA2 Programme"@en ;
@@ -58,7 +58,7 @@
 #### No profileID is provided, as this Request is using the RPaM standard model, not an Application Profile.
 :emr-1 :profileExecutionID [:identifierValue "T-UC01-S01"; :schemeID "RPaM-PROFILE-PATTERN" ; :schemeAgencyID "RPaM"] .
 :emr-1 skos:note "In this Request, the SP requests mandates based on two main data: 1) the user identifier and 2) the type of power in the EU Power Taxonomy that is required to access the Service."@en ,
-       			 "The service is presumably a `harmonised-service`, thus no special SP-IRC (Service Provider-specific or Service-specific Information Requirements and Constraints) are specified."@en .
+                 "The service is presumably a `harmonised-service`, thus no special SP-IRC (Service Provider-specific or Service-specific Information Requirements and Constraints) are specified."@en .
 #### The version of the RPaM specification upon which this document instance is based on.
 :emr-1 :RPaMVersionID [:identifierValue "1.1.0"; :schemeID "RPaM-VERSION-PATTERN" ; :schemeAgencyID "RPaM"] .
 
@@ -71,7 +71,7 @@
 :sys :id [:identifierValue "http://efin.min.fr/rpam#na03-sys0001"; :schemeID "RoR-NA-ID" ; :schemeAgencyID "EU-RoR"] .
 #### An x509 Base64-coded certificate could also be used to identify the system.
 :sys :id [:identifierValue "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" ;
-		  :schemeID "x509" ; :schemeAgencyID "RPaM"].
+          :schemeID "x509" ; :schemeAgencyID "RPaM"].
 
 #### Association between Request and Mandate
 :emr-1 :requests :man .
@@ -81,16 +81,16 @@
 #### In the example-1 of dataset of mandates the mandatee 'Thomas' has the power of starting businesses on behalf of 'Vicenc'. See file in GitHub: 
 #### https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/07-Testing/examples/Mandates-Dataset-example-1.ttl
 :man :empowerment 
-				##### The Power
-				[
-					##### The type of power neeeded to be authorised in the SP-Service. 
-					##### This power is defined in the EU Power Taxnomy. See file in GitHub:  
-					##### https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/03-Syntax_Bindings/OWL-DL-TTL/rpam/thesauri/EU_Power_Taxonomy.ttl
-					:powerType pwr:STARTING_BUSINESS ;
-					##### The empowered Mandatee (Only the identifier is provided). 
-					##### Notice that Thomas is a non-Spanish citizen that is resident in Spain. 
-					##### Thomas is using a Spanish ID card issued by the Spanish Ministry of Interior to foreigners.
-					:mandatee [:id [:identifierValue "23141243X"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"]] 
-				 ] .
+                ##### The Power
+                [
+                    ##### The type of power neeeded to be authorised in the SP-Service. 
+                    ##### This power is defined in the EU Power Taxnomy. See file in GitHub:  
+                    ##### https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/03-Syntax_Bindings/OWL-DL-TTL/rpam/thesauri/EU_Power_Taxonomy.ttl
+                    :powerType pwr:STARTING_BUSINESS ;
+                    ##### The empowered Mandatee (Only the identifier is provided). 
+                    ##### Notice that Thomas is a non-Spanish citizen that is resident in Spain. 
+                    ##### Thomas is using a Spanish ID card issued by the Spanish Ministry of Interior to foreigners.
+                    :mandatee [:id [:identifierValue "23141243X"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"]] 
+                 ] .
 #### No document reference is needed in this example
 #### No constraints are applied at the Request level. See documentation and rules on the different levels of constraints.
