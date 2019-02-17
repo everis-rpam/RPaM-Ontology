@@ -75,14 +75,14 @@
 #### The mandate data structure specifiying the data about the mandatee that will be used by the eMandate Registry to retreive any mandates where this user was empowered with the powers required to be authorised in the SP Service.
 :man a :Mandate .
 #### The mandatee is the user trying to access the SP-Service. Thus the SP provides the mandatee id in the Request. 
-#### In the example-1 of dataset of mandates the mandatee 'Thomas' has the power of starting businesses on behalf of 'Vicenc'.
-#### (see file Mandates-Dataset-example-1.ttl). 
+#### In the example-1 of dataset of mandates the mandatee 'Thomas' has the power of starting businesses on behalf of 'Vicenc'. See file in GitHub: 
+#### https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/07-Testing/examples/Mandates-Dataset-example-1.ttl
 :man :empowerment 
 				##### The Power
 				[
 					##### The type of power neeeded to be authorised in the SP-Service. 
-					##### This power is defined in the EU Power Taxnomy.
-					##### See file 
+					##### This power is defined in the EU Power Taxnomy. See file in GitHub:  
+					##### https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/03-Syntax_Bindings/OWL-DL-TTL/rpam/thesauri/EU_Power_Taxonomy.ttl
 					:powerType pwr:STARTING_BUSINESS
 					##### The empowered Mandatee (Only the identifier is provided). 
 					##### Notice that Thomas is a non-Spanish citizen that is resident in Spain. 
