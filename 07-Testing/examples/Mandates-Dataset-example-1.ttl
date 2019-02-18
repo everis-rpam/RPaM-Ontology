@@ -69,37 +69,45 @@
 
 ############## Mandator´s empowerements ###################
 
-:SergeMandate-1 :empowerment :Power-1, :Power-3, :Power-4 ; 
+:SergeMandate-1 :id [:identifierValue "4de93044-60d1-4358-a848-2ea8943bda7a"; :schemeID "UUID" ; :schemeAgencyID "ES-REA" ; :schemeVersionID "4"] ;
+				:empowerment :Power-1, :Power-3, :Power-4 ; 
 				:mandator :Serge ;
 				:lifeSpan [:startDateTime "2017-01-21T12:01:00"^^xsd:dateTime ] .
 
-:VicencMandate-1 :empowerment :Power-2 ;
-				:mandator :Vicenc ;
-				:lifeSpan [:startDateTime "2017-05-12T02:03:10"^^xsd:dateTime ] .
+:VicencMandate-1 :id [:identifierValue "8fbe3774-b82c-4eee-86ca-3a3f27284b7c"; :schemeID "UUID" ; :schemeAgencyID "ES-REA" ; :schemeVersionID "4"] ; 
+				 :empowerment :Power-2 ;
+				 :mandator :Vicenc ;
+				 :lifeSpan [:startDateTime "2017-05-12T02:03:10"^^xsd:dateTime ] .
 
 #### This mandate has been struck-off, see endDate
-:PacoMandate-1 :empowerment :Power-5 ;
+:PacoMandate-1  :id [:identifierValue "4721cf9a-00d8-44c7-bc77-cc7d29be0f9c"; :schemeID "UUID" ; :schemeAgencyID "ES-REA" ; :schemeVersionID "4"] ; 
+				:empowerment :Power-5 ;
 				:mandator :Paco ;
 				:lifeSpan [:startDateTime "2018-01-01T12:13:11"^^xsd:dateTime ; :endDateTime "2018-01-01T12:13:11"^^xsd:dateTime ] .
 
-:KenMandate-1 :empowerment :Power-6 ;
+:KenMandate-1   :id [:identifierValue "c3042d91-3d94-486d-898a-ada76616c194"; :schemeID "UUID" ; :schemeAgencyID "ES-REA" ; :schemeVersionID "4"] ; 
+				:empowerment :Power-6 ;
 				:mandator :Ken ;
 				:lifeSpan [:startDateTime "2019-02-01T13:13:13"^^xsd:dateTime ] .
 
-:KenMandate-2 :empowerment :Power-7 ;
+:KenMandate-2   :id [:identifierValue "0b15efb3-ff6d-4fbe-ba65-5b9458549657"; :schemeID "UUID" ; :schemeAgencyID "ES-REA" ; :schemeVersionID "4"] ; 
+				:empowerment :Power-7 ;
 				:mandator :Ken ;
 				:lifeSpan [:startDateTime "2019-01-12T02:03:10"^^xsd:dateTime ] .
 
 
-:NeilMandate-1 :empowerment :Power-8 ;
+:NeilMandate-1 :id [:identifierValue "853b445d-b3b0-4bb1-b0de-e4a7567ebf6e"; :schemeID "UUID" ; :schemeAgencyID "ES-REA" ; :schemeVersionID "4"] ; 
+				:empowerment :Power-8 ;
 				:mandator :Neil ;
 				:lifeSpan [:startDateTime "2019-01-12T12:03:10"^^xsd:dateTime ] . 
 
-:RosaMandate-1 :empowerment :Power-9 ;
+:RosaMandate-1  :id [:identifierValue "032a0683-c772-4716-9708-77d883038273"; :schemeID "UUID" ; :schemeAgencyID "ES-REA" ; :schemeVersionID "4"] ; 
+				:empowerment :Power-9 ;
 				:mandator :Rosa ;
 				:lifeSpan [:startDateTime "2019-01-12T13:03:10"^^xsd:dateTime ] .
 
-:DIGITMandate-1 :empowerment :Power-10 ;
+:DIGITMandate-1 :id [:identifierValue "96a4c840-07d0-4e60-9e59-1334987bdecf"; :schemeID "UUID" ; :schemeAgencyID "ES-REA" ; :schemeVersionID "4"] ; 
+				:empowerment :Power-10 ;
 				:mandator :DIGIT ;
 				:lifeSpan [:startDateTime "2019-01-11T02:03:10"^^xsd:dateTime ] .
 

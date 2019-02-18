@@ -49,11 +49,6 @@
 :emr-1 :id [:identifierValue "f5a1c342-f07f-4825-a844-64b310f220c1"; :schemeID "UUID" ; :schemeAgencyID "FR-FIN"] .
 #### The date and time of issuance of this instance of Request. Normally stamped by the issuer System. 
 :emr-1 :issueDateTime  "2019-12-12T12:03:21"^^xsd:dateTime .
-#### The current version of the content of this document. Additional Information: Beware that this identifies the "content" of the document, 
-#### meaning that any subsequent modification of this document will have to change this version number and indicate which was the previous one 
-#### (thus making possible to "chain" all the existing versions of the document). Notice also that in this Request instance no mention to a 
-#### previous Request is made, as this is the first version and does not modifies a previous existing Request.
-:emr-1 :versionID [:identifierValue "1.0.0"; :schemeID "RPaM-VERSION-PATTERN" ; :schemeAgencyID "RPaM"] .
 #### No customizationID is provided, as the user does not use it in any particular way, but as commonly used by the RPaM community.
 #### No profileID is provided, as this Request is using the RPaM standard model, not an Application Profile.
 :emr-1 :profileExecutionID [:identifierValue "T-UC01-S01"; :schemeID "RPaM-PROFILE-PATTERN" ; :schemeAgencyID "RPaM"] .
@@ -76,7 +71,10 @@
 #### Association between Request and Mandate
 :emr-1 :requests :man .
 #### The mandate data structure specifiying the data about the mandatee that will be used by the eMandate Registry to retreive any mandates where this user was empowered with the powers required to be authorised in the SP Service.
-:man a :Mandate .
+#### The identifier of the mandate is provided by the user, but could also be "discovered" based on the user ID and a EU RoR (Registry of Registries) 
+#### discovery solution (provided the identifier of the user carries all the necessary CCTS attributes).
+:man a :Mandate ;
+    :id [:identifierValue "8fbe3774-b82c-4eee-86ca-3a3f27284b7c"; :schemeID "UUID" ; :schemeAgencyID "ES-REA" ; :schemeVersionID "4"] .
 #### The mandatee is the user trying to access the SP-Service. Thus the SP provides the mandatee id in the Request. 
 #### In the example-1 of dataset of mandates the mandatee 'Thomas' has the power of starting businesses on behalf of 'Vicenc'. See file in GitHub: 
 #### https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/07-Testing/examples/Mandates-Dataset-example-1.ttl

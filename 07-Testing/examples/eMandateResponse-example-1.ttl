@@ -50,11 +50,6 @@
 :res-1 :id [:identifierValue "594651a8-d0e5-4684-ae6e-87358aa5d962"; :schemeID "UUID" ; :schemeAgencyID "ES-REA"] .
 #### The date and time of issuance of this instance of Response. Normally stamped by the issuer System. 
 :res-1 :issueDateTime  "2019-12-12T12:04:59"^^xsd:dateTime .
-#### The current version of the content of this document. Additional Information: Beware that this identifies the "content" of the document, 
-#### meaning that any subsequent modification of this document will have to change this version number and indicate which was the previous one 
-#### (thus making possible to "chain" all the existing versions of the document). Notice also that in this Request instance no mention to a 
-#### previous Request is made, as this is the first version and does not modifies a previous existing Request.
-:res-1 :versionID [:identifierValue "1.0.0"; :schemeID "RPaM-VERSION-PATTERN" ; :schemeAgencyID "RPaM"] .
 #### No customizationID is provided, as the user does not use it in any particular way, but as commonly used by the RPaM community.
 #### No profileID is provided, as this Request is using the RPaM standard model, not an Application Profile.
 :res-1 :profileExecutionID [:identifierValue "T-UC01-S01"; :schemeID "RPaM-PROFILE-PATTERN" ; :schemeAgencyID "RPaM"] .
@@ -86,6 +81,7 @@
 :res-1 :requests :VincencMandate-1 .
 #### The mandate with the data about the power, mandator and mandatee
 :VincencMandate-1 a :Mandate ;
+		:id [:identifierValue "8fbe3774-b82c-4eee-86ca-3a3f27284b7c"; :schemeID "UUID" ; :schemeAgencyID "ES-REA" ; :schemeVersionID "4"] ; 
 		:mandator :Vicenc ;
 		:empowerment :pwr ;
 		#### The mandate is "alive", it has not been struck-off from the register. This should imply that the powers inside the mandate are also active.
