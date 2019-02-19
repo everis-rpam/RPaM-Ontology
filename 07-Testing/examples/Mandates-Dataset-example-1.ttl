@@ -513,7 +513,7 @@
 
 #Criterion Properties of Power-8
 
-:Morcp24 a   ccev:CriterionProperty ;
+:Morcp24 a  ccev:CriterionProperty ;
 			ccev:type ct:TerritorialUnitScope ;
 			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:EEA; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
 			.
@@ -538,7 +538,7 @@
 			ccev:type ct:TerritorialUnitScope ;
 			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:EEA; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
 			.
-:Meecp26 a   ccev:CriterionProperty ;
+:Meecp26 a  ccev:CriterionProperty ;
 			ccev:type ct:TerritorialUnitScope ;
 			ccev:constraint [ccev:datumCode  [ccts:codeValue tu:EU; ccts:schemeID "NUTS2016"; ccts:schemeAgencyID "EUROSTAT"]] 
 			.
@@ -548,7 +548,7 @@
 			ccev:constraint [ccev:datumAmount [ccts:amountValue "50000.00"^^xsd:decimal ; ccts:currencyID "EUR"]] 
 			.
 
-:Meecp28 a   ccev:CriterionProperty ;
+:Meecp28 a  ccev:CriterionProperty ;
 			ccev:type ct:ValidityPeriod ;
 			ccev:constraint [ccev:datumPeriod [ ubl:endDate "2019-05-31"^^xsd:date ]]
 			.
