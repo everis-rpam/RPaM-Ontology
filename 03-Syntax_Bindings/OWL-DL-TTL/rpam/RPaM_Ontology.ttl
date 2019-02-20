@@ -1,41 +1,46 @@
 @prefix : <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology#> .
+@prefix ccev: <https://joinup.ec.europa.eu/collection/semic/ccev/2.0.3/ontology#> .
+@prefix ccts: <http://www.unece.org/cefact#> .
+@prefix dct:    <http://purl.org/dc/elements/1.1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix org: <http://www.w3.org/ns/org#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix ubl: <http://docs.oasis-open.org/ubl#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix ccev: <https://joinup.ec.europa.eu/collection/semic/ccev/2.0.3/ontology#> .
-@prefix ccts: <http://www.unece.org/cefact#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @base <http://data.europa.eu/RPaM/ontology#> .
 
 <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology#> rdf:type owl:Ontology ;
-                                        owl:versionIRI <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology> .
+                                        owl:versionIRI <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology> ;
+                                        dct:description "The Ontology of the Representation Powers and Mandates conceptualises, formally encodes and makes available in an open, structured and machine-readable format data about the representation of powers and mandates."@en ;
+                                        dct:title "Representation Powers and Mandates Ontology."@en ;
+                                        dct:publisher "European Commission, ISA2 Programme"@en ;
+                                        dct:creator "everis, Spain, S.L.U"@en ;
+                                        dcat:distribution [
+                                                skos:note "This file contains an instance of eMandate Request used by a Service Provider (SP) to request data on a user who is a mandatee trying to access one SP Service."@en ;
+                                                dcat:accessURL <https://github.com/everis-rpam> ;
+                                                skos:note "The URL GitHub Repository to download this file."@en ;
+                                                dcat:downloadURL <https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/03-Syntax_Bindings/OWL-DL-TTL/rpam/RPaM_Ontology.ttl>
+                                        ] .
 
 #################################################################
 #    Object Properties
 #################################################################
 
+:empowerment rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
+          rdfs:domain :Mandate ;
+          rdfs:range :Power ;
+          rdfs:label "hasEmpowerment"@en ;
+          rdfs:definition "The assignment of one power and restrictions on its use to one or more mandatees ."@en .
+
 :id rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
-                       rdfs:domain :Mandate, :Empowerment, :Mandatee, :Mandator;
+                       rdfs:domain :Mandate, :Power, :Mandatee, :Mandator;
                        rdfs:range ccts:Identifier ;
-                       rdfs:label "The identifier of a mandate, mandator, mandatee or empowerment."@en .
-
-:mandatorConstraint  rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
-                     rdfs:label "power Use Constraint"@en ;
-                     skos:definition "Constraint(s) imposed on how mandators with delegated powers may use a power."@en ;
-                     skos:example "Geospatial, temporal, financial, contractual, etc. constraints or possible combinations of these."@en .
-
-:mandateeConstraint  rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
-                     rdfs:label "mandateeConstraint"@en ;
-                     skos:definition "Constraint(s) imposed on how mandators with delegated powers may use a power."@en ;
-                     skos:example "Geospatial, temporal, financial, contractual, etc. constraints or possible combinations of these."@en .
-
-:empowerment rdf:type owl:ObjectProperty, owl:FunctionalProperty;
-          rdfs:label "hasEmpowerment" ;
-          rdfs:definition "The assignment of one power and restrictions on its use to one or more mandatees ." .
+                       rdfs:label "Identifier"@en ;
+                       rdfs:definition "The identifier of a mandate, mandator, mandatee or empowerment."@en .
 
 :lifeSpan rdf:type owl:ObjectProperty ;
           rdfs:domain :Mandate ;
@@ -43,99 +48,152 @@
           rdfs:label "hasLifeSpan"@en ;
           skos:definition "The dates of creation and striking-off of a mandate in the eMandate Registry."@en .
                                  
-:mandator  rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
-          rdfs:label "hasMandator" ;
-          rdfs:definition "The person that empowers." .
-
 :mandatee  rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
-          rdfs:label "hasMandatee" ;
-          rdfs:definition "The person being empowered." .
+          rdfs:domain :Power ;
+          rdfs:range :Mandatee ;
+          rdfs:label "hasMandatee"@en ;
+          rdfs:definition "The person being empowered."@en .
 
-:powerType  rdf:type owl:ObjectProperty ;
-          rdfs:domain :Empowerment ;
-          rdfs:range :EUPowerTaxonomy ;
+:mandateeConstraint rdf:type owl:ObjectProperty; 
+            rdfs:domain :Power ;
+            rdfs:range ccev:CriterionProperty ;
+            rdfs:label "mandateeConstraint"@en ;
+            rdfs:definition "The constraints that are related to a mandatee."@en .
+
+:mandateeType rdf:type owl:ObjectProperty ;
+               rdfs:domain :Mandatee ;
+               rdfs:range skos:Concept ;
+               rdfs:label "hasMandateeType"@en ;
+               skos:definition "The type of the mandatee."@en .
+
+:mandateType rdf:type owl:ObjectProperty ;
+               rdfs:domain :Mandate ;
+               rdfs:range skos:Concept ;
+               rdfs:label "hasMandateType"@en ;
+               skos:definition "The type of the mandate."@en .
+
+:mandator  rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
+          rdfs:domain :Mandate ;
+          rdfs:range :Mandator ;
+          rdfs:label "hasMandator"@en ;
+          rdfs:definition "The person that empowers."@en .
+
+:mandatorconstraint rdf:type owl:ObjectProperty; 
+            rdfs:domain :Power ;
+            rdfs:range ccev:CriterionProperty ;
+            rdfs:label "mandatorConstraint"@en ;
+            rdfs:definition "The constraints that are related to a mandator."@en .
+
+:mandatorType rdf:type owl:ObjectProperty ;
+               rdfs:domain :Mandator ;
+               rdfs:range skos:Concept ;
+               rdfs:label "hasMandatorType"@en ;
+               skos:definition "The type of the mandator."@en .
+
+:powerType  rdf:type owl:ObjectProperty , owl:FunctionalProperty;
+          rdfs:domain :Power ;
+          rdfs:range :skos:Concept ;
           rdfs:label "hasPowerType."@en ;
-          skos:definition "The yype of power provided through the empowerment of Mandatee by a Mandator." .
+          skos:definition "The type of power with which the mandator empowers its mandatee(s)."@en .
 
 :statusType rdf:type owl:ObjectProperty ;
                rdfs:domain :Power ;
                rdfs:range skos:Concept ;
                rdfs:label "hasStatusType"@en ;
-               skos:definition "The status of the empowerment." .
-
+               skos:definition "The status of the empowerment."@en .
 
 #################################################################
 #    Data properties
 #################################################################
 
 :delegationLevel rdf:type owl:DatatypeProperty , owl:FunctionalProperty ;
-                           rdfs:domain :Empowerment ;
-                           rdfs:range xsd:integer ;
+                           rdfs:domain :Power ;
+                           rdfs:range xsd:nonNegativeInteger ;
                            rdfs:label "currentDelegationLevel"@en ;
                            skos:definition "The number of times that a power has been assigned by a mandatee to another mandatee."@en .
+
+:description rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :Mandate, :Power, :Mandatee, :Mandator ;
+                       rdfs:range xsd:string ;
+                       rdfs:lable "description"@en ;
+                       rdfs:description "The description of a mandate, mandator, mandatee or empowerment."@en . 
+
+:name rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Mandate, :Power ; 
+      rdfs:range xsd:string ;
+      rdfs:lable "name"@en ;
+      rdfs:description "The name of a mandate, empowerment."@en .
+
+:signatureCertificate rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :Mandatee, :Mandator ; 
+                          rdfs:range xsd:base64Binary ;
+                          rdfs:lable "SignatureCertificate"@en .
+                        # rdfs:description "The electronic signature of the mandate."@en .
 
 #################################################################
 #    Classes
 #################################################################
 
-:Empowerment rdf:type owl:Class ;
-       rdfs:label "Empowerment"@en ;
+:Power rdf:type owl:Class ;
+       rdfs:label "Power"@en ;
        skos:definition "The specification of how one mandator assigns one power, and possible constraints on its use, to one or more Mandatees." ;
-       owl:subClassOf [
+       
+       rdfs:subClassOf [
                              a owl:Restriction ;
-                             owl:someValuesFrom skos:Concept ;
+                             owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onProperty :mandatee
+                           ] ;
+
+       rdfs:subClassOf [
+                             a owl:Restriction ;
+                             owl:someValuesFrom ccev:CriterionProperty ;
+                             owl:onProperty :mandateeConstraint
+                           ] ; 
+       rdfs:subClassOf [
+                             a owl:Restriction ;
+                             owl:someValuesFrom ccev:CriterionProperty ;
+                             owl:onProperty :mandatorConstraint
+                           ] ;
+
+       rdfs:subClassOf [
+                             a owl:Restriction ;
+                             owl:minCardinality "1"^^xsd:nonNegativeInteger ;
                              owl:onProperty :powerType
                            ] ;
      
-       owl:subClassOf [
+        rdfs:subClassOf [
                              a owl:Restriction ;
-                             owl:someValuesFrom ccev:Criterion ;
-                             owl:onProperty :mandatorConstraint
-                           ] ;
-       owl:subClassOf [
-                             a owl:Restriction ;
-                             owl:someValuesFrom ccev:Criterion ;
-                             owl:onProperty :mandateeConstraint
-                    ] ;
-
-      owl:subClassOf [
-                             a owl:Restriction ;
-                             owl:someValuesFrom :Mandatee ;
-                             owl:onProperty :mandatee
-                           ] .                          
+                             owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onProperty :statusType
+                           ] .                        
 
 :Mandate rdf:type owl:Class ;
-       rdfs:label "Mandate"@en ;
-       skos:definition "Collection of empowerments."@en ;
+         rdfs:label "Mandate"@en ;
+         skos:definition "Collection of empowerments."@en ;
 
-      owl:subClassOf [
+       rdfs:subClassOf [
                              a owl:Restriction ;
-                             owl:allValuesFrom :Mandator ;
+                             owl:cardinality "1"^^xsd:nonNegativeInteger ;
                              owl:onProperty :mandator
                            ] ;
-       owl:subClassOf [
+       rdfs:subClassOf [
                              a owl:Restriction ;
-                             owl:someValuesFrom :Empowerment ;
+                             owl:minCardinality "1"^^xsd:nonNegativeInteger ;
                              owl:onProperty :empowerment
+                           ] ;
+
+       rdfs:subClassOf [
+                             a owl:Restriction ;
+                             owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onProperty :lifeSpan
                            ] .
-      
+
 :Mandatee rdf:type owl:Class ;
-          owl:rdfs:subClassOf foaf:Agent ;
+          rdfs:subClassOf foaf:Agent ;
           rdfs:label "Mandatee"@en ;
-          skos:definition "Natural or legal person that acts on behalf of another natural or legal person."@en ;
-          owl:subClassOf [
-                            a owl:Restriction ;
-                            owl:someValuesFrom ccev:Criterion  ;
-                            owl:onProperty :constraint ;
-                            skos:definition "Constraint(s) imposed on how mandatees may use a power."@en ;
-                            skos:example "Geospatial, temporal, financial, contractual, etc. constraints or possible combinations of these."@en 
-                         ] .
+          skos:definition "Natural or legal person that acts on behalf of another natural or legal person."@en .
 
 :Mandator rdf:type owl:Class ;
-          owl:rdfs:subClassOf foaf:Agent ;
+          rdfs:subClassOf foaf:Agent ;
           rdfs:label "Mandator"@en ;
-          skos:definition "Person who needs an activity executed in his name; creator of the mandate."@en ;
-          
-          .
-
-
+          skos:definition "Person who needs an activity executed in his name; creator of the mandate."@en .
