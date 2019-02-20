@@ -23,7 +23,7 @@
                                         dcat:distribution [
                                                 dcat:accessURL <https://github.com/everis-rpam> ;
                                                 skos:note "The URL GitHub Repository to download this file."@en ;
-                                                # dcat:downloadURL <https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/03-Syntax_Bindings/OWL-DL-TTL/rpam/RPaM_Ontology.ttl>
+                                                dcat:downloadURL <https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/03-Syntax_Bindings/OWL-DL-TTL/rpam/eMandateResponse.ttl>
                                         ] .
 
 #################################################################
