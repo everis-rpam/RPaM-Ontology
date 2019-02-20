@@ -1,8 +1,8 @@
 @prefix : <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology#> .
 @prefix ccev: <https://joinup.ec.europa.eu/collection/semic/ccev/2.0.3/ontology#> .
 @prefix ccts: <http://www.unece.org/cefact#> .
-@prefix dct:    <http://purl.org/dc/elements/1.1/> .
-@prefix dcat:   <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/elements/1.1/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -21,7 +21,6 @@
                                         dct:publisher "European Commission, ISA2 Programme"@en ;
                                         dct:creator "everis, Spain, S.L.U"@en ;
                                         dcat:distribution [
-                                                skos:note "This file contains an instance of eMandate Request used by a Service Provider (SP) to request data on a user who is a mandatee trying to access one SP Service."@en ;
                                                 dcat:accessURL <https://github.com/everis-rpam> ;
                                                 skos:note "The URL GitHub Repository to download this file."@en ;
                                                 dcat:downloadURL <https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/03-Syntax_Bindings/OWL-DL-TTL/rpam/RPaM_Ontology.ttl>
