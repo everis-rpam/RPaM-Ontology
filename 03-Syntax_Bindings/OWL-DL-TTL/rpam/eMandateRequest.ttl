@@ -17,7 +17,7 @@
 <https://joinup.ec.europa.eu/collection/rpam/1.0.0/ontology#> rdf:type owl:Ontology ;
                                         owl:versionIRI <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology> ;
                                        # dct:description "The Ontology of the Representation Powers and Mandates conceptualises, formally encodes and makes available in an open, structured and machine-readable format data about the representation of powers and mandates."@en ;
-                                        dct:title "eMandate Response Ontology."@en ;
+                                        dct:title "eMandate Request Ontology."@en ;
                                         dct:publisher "European Commission, ISA2 Programme"@en ;
                                         dct:creator "everis, Spain, S.L.U"@en ;
                                         dcat:distribution [
@@ -31,22 +31,16 @@
 #################################################################
 
 :customizationID rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
-                       rdfs:domain :eMandateResponse ;
+                       rdfs:domain :eMandateRequest ;
                        rdfs:range ccts:Identifier ;
                        rdfs:label "hasCustomizationID"@en ;
                        rdfs:definition "Identifies a user-defined customization of the RPaM standard model for a specific use."@en .
 
-:exceptionType rdf:type owl:ObjectProperty ;
-               rdfs:domain :Exception ;
-               rdfs:range skos:Concept ;
-               rdfs:label "hasExceptionType"@en ;
-               skos:definition "The type of the exception."@en .
-
 :id rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
-                       rdfs:domain :eMandateResponse, :System, :Mandate, :Exception ;
+                       rdfs:domain :eMandateRequest, :System, :Mandate ;
                        rdfs:range ccts:Identifier ;
                        rdfs:label "Identifier"@en ;
-                       rdfs:definition "The identifier of the eMandate Response, system, mandate or exception."@en .
+                       rdfs:definition "The identifier of the eMandate Request, system or mandate."@en .
 
 :mandateType rdf:type owl:ObjectProperty ;
                rdfs:domain :Mandate ;
@@ -54,44 +48,26 @@
                rdfs:label "hasMandateType"@en ;
                skos:definition "The type of the mandate."@en .
 
-:mitigationType rdf:type owl:ObjectProperty ;
-               rdfs:domain :Exception ;
-               rdfs:range skos:Concept ;
-               rdfs:label "hasMitigationType"@en ;
-               skos:definition "The type of the mitigation."@en .
-
 :note rdf:type owl:ObjectProperty ;
-               rdfs:domain :eMandateResponse ;
+               rdfs:domain :eMandateRequest ;
                rdfs:range skos:note ;
                rdfs:label "hasNote"@en ;
                skos:definition "The current status of the power, e.g. ACTIVE, REVOKED, TEMPORALITY_SUSPENDED, etc."@en .
 
 :profileID rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
-                       rdfs:domain :eMandateResponse ;
+                       rdfs:domain :eMandateRequest ;
                        rdfs:range ccts:Identifier ;
                        rdfs:label "hasProfileID"@en ;
                        rdfs:definition "Identifies a user-defined application profile of RPaM being used."@en .
 
 :profileExecutionID rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
-                       rdfs:domain :eMandateResponse ;
+                       rdfs:domain :eMandateRequest ;
                        rdfs:range ccts:Identifier ;
                        rdfs:label "hasProfileExecutionID"@en ;
                        rdfs:definition "Identifies an instance of executing a profile, to associate all transactions in a collaboration."@en .
 
-:requestID rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
-                       rdfs:domain :eMandateResponse ;
-                       rdfs:range ccts:Identifier ;
-                       rdfs:label "hasRequestID"@en ;
-                       rdfs:definition "The identifier of the eMandate Request document that triggered this eMandate Response document."@en .
-
-:requestVersionID rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
-                       rdfs:domain :eMandateResponse ;
-                       rdfs:range ccts:Identifier ;
-                       rdfs:label "hasRequestVersionID"@en ;
-                       rdfs:definition "The identifier of the version of the eMandate Request document that triggered this eMandate Response document."@en .
-
 :rpamVersionID rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
-                       rdfs:domain :eMandateResponse ;
+                       rdfs:domain :eMandateRequest ;
                        rdfs:range ccts:Identifier ;
                        rdfs:label "hasRpamVersionID"@en ;
                        rdfs:definition "The version of the RPaM specification upon which this document instance is based on."@en .
@@ -107,7 +83,7 @@
                        rdfs:description "The description of a mandate or exception."@en . 
 
 :issueDateTime rdf:type owl:DatatypeProperty ;
-               rdfs:domain :eMandateResponse ;
+               rdfs:domain :eMandateRequest ;
                rdfs:range xsd:dateTime ;
                rdfs:label "issueDateTime"@en ;
                rdfs:description "The date and time, assigned by the sender, on which this document was issued."@en . 
@@ -118,19 +94,13 @@
       rdfs:lable "name"@en ;
       rdfs:description "The name of a mandate or exception."@en .
 
-:requestDateTime rdf:type owl:DatatypeProperty ;
-               rdfs:domain :eMandateResponse ;
-               rdfs:range xsd:dateTime ;
-               rdfs:label "requestDateTime"@en ;
-               rdfs:description "The date and time, assigned by the sender, on which this document was requested."@en . 
-
 #################################################################
 #    Classes
 #################################################################
 
-:eMandateResponse rdf:type owl:Class ;
-          rdfs:label "eMandateResponse"@en ;
-          skos:definition "An eDocument provided by an eMandate Registry containing the data about an eMandate."@en ;
+:eMandateRequest rdf:type owl:Class ;
+          rdfs:label "eMandateRequest"@en ;
+          skos:definition "An eDocument requested to an eMandate Registry containing the data about an eMandate."@en ;
 
           owl:subClassOf [
                             a owl:Restriction ;
@@ -140,25 +110,21 @@
 
           owl:subClassOf [
                             a owl:Restriction ;
-                            owl:someValuesFrom :Mandate ;
-                            owl:onProperty :provides
-                         ] ;
-
-          owl:subClassOf [
-                            a owl:Restriction ;
-                            owl:someValuesFrom :Exception ;
-                            owl:onProperty :documents
+                            owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onProperty :requests
                          ] ;
 
           owl:subClassOf [
                             a owl:Restriction ;
                             owl:someValuesFrom ubl:DocumentReference ;
                             owl:onProperty :additional
-                         ] .
+                         ] ;
 
-:Exception rdf:type owl:Class  ;
-           rdfs:label "Exception"@en .
-          # skos:definition "..."@en .
+          owl:subClassOf [
+                            a owl:Restriction ;
+                            owl:someValuesFrom ccev:Criterion ;
+                            owl:onProperty :irc
+                         ] .
 
 :Mandate rdf:type owl:Class ;
           rdfs:label "Mandate"@en ;
@@ -168,3 +134,4 @@
         rdfs:subClassOf foaf:Agent ;
         rdfs:label "System"@en ;
         skos:definition "The system that issued the eMandateRequest document."@en .
+

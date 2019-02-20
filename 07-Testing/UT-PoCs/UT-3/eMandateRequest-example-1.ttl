@@ -60,7 +60,7 @@
 :emr-1 skos:note "In this Request, the SP requests mandates based on two main data: 1) the user identifier and 2) the type of power in the EU Power Taxonomy that is required to access the Service."@en ,
                  "The service is presumably a `harmonised-service`, thus no special SP-IRC (Service Provider-specific or Service-specific Information Requirements and Constraints) are specified."@en .
 #### The version of the RPaM specification upon which this document instance is based on.
-:emr-1 :RPaMVersionID [:identifierValue "1.1.0"; :schemeID "RPaM-VERSION-PATTERN" ; :schemeAgencyID "RPaM"] .
+:emr-1 :rpamVersionID [:identifierValue "1.1.0"; :schemeID "RPaM-VERSION-PATTERN" ; :schemeAgencyID "RPaM"] .
 
 #### The objects associated to the Request ###########################################################################
 #### Association between Request and System
