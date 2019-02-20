@@ -78,6 +78,15 @@
 						skosxl:literalForm "Confirmed"@en .
 					 ] .
 
+:CONSUMED a skos:Concept ;
+	skos:broader :APPROVED ;
+	skos:definition "The power has been consumed."@en ;
+	skos:inScheme :EU_RPaM_Status_Taxonomy ;
+	skosxl:prefLabel [
+						a skosxl:Label ;
+						skosxl:literalForm "Consumed"@en .
+					 ] .
+
 :EU_RPaM_STATUS_TAXONOMY a skos:Concept ;
 	dct:created "2018-10-25T11:16:28.041+02:00"^^xsd:dateTime ;
 	skosxl:prefLabel [
