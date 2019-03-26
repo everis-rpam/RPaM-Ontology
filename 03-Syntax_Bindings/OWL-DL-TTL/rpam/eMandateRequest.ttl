@@ -30,6 +30,16 @@
 #    Object Properties
 #################################################################
 
+:additional rdf:type owl:ObjectProperty ;
+            rdfs:domain :eMandateRequest ;
+            rdfs:range ubl:DocumentReference ;
+            rdfs:label "hasAdditionalDocument"@en .
+
+:belongsTo rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
+           rdfs:domain :System ;
+           rdfs:range :Agent ;
+           rdfs:label "belongsTo"@en . 
+
 :customizationID rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
                        rdfs:domain :eMandateRequest ;
                        rdfs:range ccts:Identifier ;
@@ -41,6 +51,16 @@
                        rdfs:range ccts:Identifier ;
                        rdfs:label "Identifier"@en ;
                        rdfs:definition "The identifier of the eMandate Request, system or mandate."@en .
+
+:irc rdf:type owl:ObjectProperty ;
+     rdfs:domain :eMandateRequest ;
+     rdfs:range ccev:Criterion ;
+     rdfs:label "informationRequirementConstraint"@en .
+
+:issuer rdf:type owl:ObjectProperty ;
+        rdfs:domain :eMandateRequest ;
+        rdfs:range :System ;
+        rdfs:label "hasIssuer"@en . 
 
 :mandateType rdf:type owl:ObjectProperty ;
                rdfs:domain :Mandate ;
@@ -66,6 +86,16 @@
                        rdfs:label "hasProfileExecutionID"@en ;
                        rdfs:definition "Identifies an instance of executing a profile, to associate all transactions in a collaboration."@en .
 
+:relyingService rdf:type owl:ObjectProperty ;
+                rdfs:domain :eMandateRequest ;
+                rdfs:range :Agent ;
+                rdfs:label "hasRelyingService"@en .
+
+:requests rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
+          rdfs:domain :eMandateRequest ;
+          rdfs:range :Mandate ;
+          rdfs:label "requests"@en . 
+
 :rpamVersionID rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
                        rdfs:domain :eMandateRequest ;
                        rdfs:range ccts:Identifier ;
@@ -81,6 +111,11 @@
                        rdfs:range xsd:string ;
                        rdfs:lable "description"@en ;
                        rdfs:description "The description of a mandate or exception."@en . 
+
+:endPoint rdf:type owl:DatatypeProperty ;
+          rdfs:domain :System ;
+          rdfs:range xsd:anyURI ;
+          rdfs:label "endPoint"@en .
 
 :issueDateTime rdf:type owl:DatatypeProperty ;
                rdfs:domain :eMandateRequest ;
