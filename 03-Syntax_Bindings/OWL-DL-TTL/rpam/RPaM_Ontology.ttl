@@ -156,13 +156,13 @@
 #################################################################
 
 :description rdf:type owl:DatatypeProperty ;
-                       rdfs:domain :Mandate, :Power, :Mandatee, :Mandator ;
+                       rdfs:domain :Power, :Mandatee, :Mandator, :Evidence ;
                        rdfs:range xsd:string ;
                        rdfs:lable "hasDescription"@en ;
                        rdfs:description "The description of a mandate, mandator, mandatee or empowerment."@en . 
 
 :name rdf:type owl:DatatypeProperty ;
-      rdfs:domain :Mandate, :Power ; 
+      rdfs:domain :Power, :Evidence ; 
       rdfs:range xsd:string ;
       rdfs:lable "hasName"@en ;
       rdfs:description "The name of a mandate, empowerment."@en .
