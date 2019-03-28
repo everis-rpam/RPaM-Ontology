@@ -45,22 +45,11 @@
 				  rdfs:label "hasCoRepresentative"@en .
 				  #skos:definition "..."@en .
 
-:powerDrawnFrom rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
-				rdfs:domain :PowerSource ;
-				rdfs:range :Mandator ;
-				rdfs:label "hasPowerDrawnFrom"@en .
-
 :evidence rdf:type owl:ObjectProperty;
 		  rdfs:domain :PowerSource ;
 		  rdfs:range ccev:Evidence ;
 		  rdfs:label "hasEvidence"@en .
 		  #skos:definition "..."@en .
-
-:grantedTo  rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
-          rdfs:domain :Power ;
-          rdfs:range :Mandatee ;
-          rdfs:label "grantedTo"@en ;
-          skos:definition "The person being empowered."@en .
 
 :id rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
         rdfs:domain :Mandate, :Power, :Mandatee, :Mandator;
@@ -124,15 +113,20 @@
                skos:definition "The type of the mandator."@en .
 
 :of rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
-	rdfs:domain :PowerSource ;
-	rdfs:range :Power ;
-	rdfs:label "powerSourceOf"@en . 
+	  rdfs:domain :PowerSource ;
+	  rdfs:range :Power ;
+	  rdfs:label "powerSourceOf"@en . 
 
 :power rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
-          rdfs:domain :Mandate ;
+          rdfs:domain :Mandator ;
           rdfs:range :Power ;
           rdfs:label "hasPower"@en ;
           skos:definition "The assignment of one power and restrictions on its use to one or more mandatees ."@en .
+
+:powerDrawnFrom rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
+        rdfs:domain :PowerSource ;
+        rdfs:range :Mandator ;
+        rdfs:label "hasPowerDrawnFrom"@en .
 
 :powerType  rdf:type owl:ObjectProperty , owl:FunctionalProperty;
           rdfs:domain :Power ;
@@ -144,6 +138,12 @@
 	   rdfs:domain :Agent ;
 	   rdfs:range :Mandator ;
 	   rdfs:label "hasProxy"@en . 
+
+:representationGrantedTo  rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
+          rdfs:domain :Power ;
+          rdfs:range :Mandatee ;
+          rdfs:label "hasRepresentationGrantedTo"@en ;
+          skos:definition "The person being empowered."@en .
 
 :statusType rdf:type owl:ObjectProperty ;
                rdfs:domain :Power ;
@@ -173,7 +173,7 @@
                           rdfs:label "hasSignatureCertificate"@en .
                         # rdfs:description "The electronic signature of the mandate."@en .
 
-:delegationLevel rdf:type owl:DatatypeProperty , owl:FunctionalProperty ;
+:delegationChainLevel rdf:type owl:DatatypeProperty , owl:FunctionalProperty ;
                            rdfs:domain :PowerSource ;
                            rdfs:range xsd:nonNegativeInteger ;
                            rdfs:label "hasDelegationLevel"@en ;
@@ -182,6 +182,16 @@
 #################################################################
 #    Classes
 #################################################################
+
+:Agent rdf:type rdfs:Class ;
+       rdfs:subClassOf foaf:Agent ;
+       rdfs:label "Agent"@en ;
+
+       rdfs:subClassOf [
+                        a owl:Restriction ;
+                        owl:someValuesFrom :Mandator ;
+                        owl:onProperty :proxy
+                       ] .
 
 :Mandate rdf:type owl:Class ;
 		 rdfs:subClassOf ccev:Evidence ;
@@ -195,12 +205,6 @@
                            ] ;
        rdfs:subClassOf [
                              a owl:Restriction ;
-                             owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onProperty :power
-                           ] ;
-
-       rdfs:subClassOf [
-                             a owl:Restriction ;
                              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
                              owl:onProperty :lifeSpan
                            ] .
@@ -211,9 +215,15 @@
           skos:definition "Natural or legal person that acts on behalf of another natural or legal person."@en .
 
 :Mandator rdf:type owl:Class ;
-          rdfs:subClassOf foaf:Agent ;
+          rdfs:subClassOf :Agent ;
           rdfs:label "Mandator"@en ;
-          skos:definition "Person who needs an activity executed in his name; creator of the mandate."@en .
+          skos:definition "Person who needs an activity executed in his name; creator of the mandate."@en ;
+
+          rdfs:subClassOf [
+                             a owl:Restriction ;
+                             owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onProperty :power
+                           ] .          
 
 :Power rdf:type owl:Class ;
        rdfs:label "Power"@en ;
@@ -222,7 +232,7 @@
        rdfs:subClassOf [
                              a owl:Restriction ;
                              owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onProperty :grantedTo
+                             owl:onProperty :representationGrantedTo
                            ] ;
 
        rdfs:subClassOf [
@@ -266,12 +276,12 @@
 
 			 rdfs:subClassOf [
 			 					a owl:Restriction ;
-			 					owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+			 					owl:cardinality "1"^^xsd:nonNegativeInteger ;
 			 					owl:onProperty :powerDrawnFrom 
 			 				 ] ;
 
 			 rdfs:subClassOf [
 			 					a owl:Restriction ;
-			 					owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+			 					owl:cardinality "1"^^xsd:nonNegativeInteger ;
 			 					owl:onProperty :of
 			 				 ] .
