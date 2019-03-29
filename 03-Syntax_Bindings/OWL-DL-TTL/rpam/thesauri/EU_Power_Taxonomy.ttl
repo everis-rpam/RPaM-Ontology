@@ -39,7 +39,7 @@
 :RPaM_ACTION a skos:ConceptScheme ;
 	skosxl:prefLabel :RPaM_POWER_ACTION .
 
-:RPaM_POWER_ACTION a skosxl:label ,
+:RPaM_POWER_ACTION a skosxl:label ;
 	skosxl:literalForm "RPaM Actions"@en .
 
 # # # # #
@@ -47,7 +47,7 @@
 :RPaM_EVENT a skos:ConceptScheme ;
 	skosxl:prefLabel :RPaM_POWER_EVENT .
 
-:RPaM_POWER_EVENT a skosxl:label ,
+:RPaM_POWER_EVENT a skosxl:label ;
 	skosxl:literalForm "RPaM Events"@en .
 
 # # # # #
@@ -55,7 +55,7 @@
 :RPaM_OBJECT a skos:ConceptScheme ;
 	skosxl:prefLabel :RPaM_POWER_OBJECT .
 
-:RPaM_POWER_OBJECT a skosxl:label ,
+:RPaM_POWER_OBJECT a skosxl:label ;
 	skosxl:literalForm "RPaM Objects"@en .
 
 ####################################################
@@ -69,7 +69,7 @@
 	skos:topConceptOf :RPaM_ACTION ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
-						skosxl:literalForm "Power Actions"@en .
+						skosxl:literalForm "Power Actions"@en 
 					 ] ;
 	skos:related :POWER_EVENT, :OBJECT .
 
@@ -80,7 +80,7 @@
 	skos:topConceptOf :RPaM_EVENT ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
-						skosxl:literalForm "Power Scope"@en .
+						skosxl:literalForm "Power Scope"@en 
 					 ] ;
 	skos:related :POWER_ACTION, :OBJECT .
 
@@ -91,7 +91,7 @@
 	skos:topConceptOf :RPaM_OBJECT ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
-						skosxl:literalForm "Event action evidene"@en .
+						skosxl:literalForm "Event action evidene"@en 
 					 ] ;
 	skos:related :POWER_ACTION, :POWER_EVENT .
 
@@ -207,7 +207,7 @@
 	dct:created "2018-10-23T15:03:21.672+02:00"^^xsd:dateTime ;
 	skos:definition "Powers related to activities that refer to birth."@en ;
 	skos:example "Power to request proof of registration of birth."@en ;
-	skos:broader ::PERSON_LIFE_EVENT ;
+	skos:broader :PERSON_LIFE_EVENT ;
 	skos:inScheme :RPaM_EVENT ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
@@ -218,7 +218,7 @@
 	dct:created "2018-10-23T15:05:11.980+02:00"^^xsd:dateTime ;
 	skos:definition "Powers related to moving activities, either in the same region or in a different region."@en ;
 	skos:example "Power to obtain emission stickers issued by a public body or institution."@en , "Power to register a change of address."@en , "Power to register a motor vehicle originating from or already registered in an EU Member State, in standard procedures."@en ;
-	skos:broader ::PERSON_LIFE_EVENT ;
+	skos:broader :PERSON_LIFE_EVENT ;
 	skos:inScheme :RPaM_EVENT ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
@@ -229,7 +229,7 @@
 	dct:created "2018-10-23T15:04:18.864+02:00"^^xsd:dateTime ;
 	skos:definition "Powers related to activities on the residence of a person."@en ;
 	skos:example "Power to request proof of residence."@en ;
-	skos:broader ::PERSON_LIFE_EVENT ;
+	skos:broader :PERSON_LIFE_EVENT ;
 	skos:inScheme :RPaM_EVENT ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
@@ -240,7 +240,7 @@
 	dct:created "2018-10-23T16:20:26.986+02:00"^^xsd:dateTime ;
 	skos:definition "Powers related to study and education activities."@en ;
 	skos:example "Power to apply for a tertiary education study financing, such as study grants and loans from a public body or institution."@en , "Power to submit an initial application for admission in public higher education institution."@en ;
-	skos:broader ::PERSON_LIFE_EVENT ;
+	skos:broader :PERSON_LIFE_EVENT ;
 	skos:inScheme :RPaM_EVENT ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
