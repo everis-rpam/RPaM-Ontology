@@ -105,6 +105,7 @@
 
 :Agent rdf:type owl:Class ;
        rdfs:subClassOf foaf:Agent ;
+       owl:disjointWith org:Organization, foaf:Person ;
        rdfs:label "Agent"@en ;
 
        rdfs:subClassOf [
@@ -131,10 +132,12 @@
 
 :LegalPerson rdf:type owl:Class ;
              rdfs:subClassOf org:Organization, :Agent ;
+             owl:disjointWith :NaturalPerson ;
              rdfs:label "LegalPerson"@en .
 
 :NaturalPerson rdf:type owl:Class ;
                rdfs:subClassOf foaf:Person, :Agent ;
+               owl:disjointWith :LegalPerson ;
                rdfs:label "NaturalPerson"@en .
 
 :System rdf:type owl:Class ;
@@ -143,11 +146,12 @@
 
 :Mandatee rdf:type owl:Class ;
           rdfs:subClassOf foaf:Agent ;
+          owl:disjointWith :Mandator ;
           rdfs:label "Mandatee"@en ;
           skos:definition "Natural or legal person that acts on behalf of another natural or legal person."@en .
 
 :Mandator rdf:type owl:Class ;
           rdfs:subClassOf foaf:Agent ;
+          owl:disjointWith :Mandatee ;
           rdfs:label "Mandator"@en ;
           skos:definition "Person who needs an activity executed in his name; creator of the mandate."@en .
-          
