@@ -222,7 +222,7 @@
 	skos:inScheme :RPaM_EVENT ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
-						skosxl:literalForm "Moving"@en .
+						skosxl:literalForm "Moving"@en 
 					 ] .
 
 :RESIDENCE a skos:Concept ;
@@ -374,7 +374,7 @@
 	skos:inScheme :RPaM_OBJECT ;
 	skosxl:prefLabel [
 						a skosxl:Label ; 
-						skosxl:literalForm "Contract"@en .
+						skosxl:literalForm "Contract"@en 
 					 ] .
 
 :LETTER a skos:Concept ;
