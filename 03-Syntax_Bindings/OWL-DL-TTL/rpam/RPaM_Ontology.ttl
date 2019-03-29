@@ -1,4 +1,5 @@
 @prefix : <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology#> .
+@prefix eupt: <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/powers#> .
 @prefix ccev: <https://joinup.ec.europa.eu/collection/semic/ccev/2.0.3/ontology#> .
 @prefix ccts: <http://www.unece.org/cefact#> .
 @prefix dct: <http://purl.org/dc/elements/1.1/> .
@@ -31,6 +32,12 @@
 #    Object Properties
 #################################################################
 
+:actionType rdf:type owl:ObjectProperty ;
+               rdfs:domain :Power ;
+               rdfs:range eupt:POWER_ACTION ;
+               rdfs:label "hasActionType"@en ;
+              #skos:definition "...."@en .
+
 :constraint rdf:type owl:ObjectProperty ;
 			rdfs:domain ccev:CriterionProperty ;
 			rdfs:range ccev:CriterionPropertyDatum ;
@@ -44,6 +51,12 @@
 				  rdfs:range :Mandatee ;
 				  rdfs:label "hasCoRepresentative"@en .
 				  #skos:definition "..."@en .
+
+:eventType rdf:type owl:ObjectProperty ;
+               rdfs:domain :Power ;
+               rdfs:range eupt:POWER_EVENT ;
+               rdfs:label "hasActionType"@en ;
+              #skos:definition "...."@en .
 
 :evidence rdf:type owl:ObjectProperty;
 		  rdfs:domain :PowerSource ;
@@ -112,6 +125,12 @@
                rdfs:label "hasMandatorType"@en ;
                skos:definition "The type of the mandator."@en .
 
+:objectType rdf:type owl:ObjectProperty ;
+               rdfs:domain :Power ;
+               rdfs:range eupt:OBJECT ;
+               rdfs:label "hasActionType"@en ;
+              #skos:definition "...."@en .
+
 :of rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
 	  rdfs:domain :PowerSource ;
 	  rdfs:range :Power ;
@@ -127,12 +146,6 @@
         rdfs:domain :PowerSource ;
         rdfs:range :Mandator ;
         rdfs:label "hasPowerDrawnFrom"@en .
-
-:powerType  rdf:type owl:ObjectProperty , owl:FunctionalProperty;
-          rdfs:domain :Power ;
-          rdfs:range :skos:Concept ;
-          rdfs:label "hasPowerType."@en ;
-          skos:definition "The type of power with which the mandator empowers its mandatee(s)."@en .
 
 :proxy rdf:type owl:ObjectProperty ;
 	   rdfs:domain :Agent ;
@@ -249,9 +262,21 @@
        rdfs:subClassOf [
                              a owl:Restriction ;
                              owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onProperty :powerType
+                             owl:onProperty :actionType
                            ] ;
+
+       rdfs:subClassOf [
+                             a owl:Restriction ;
+                             owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onProperty :eventType
+                           ] ;       
      
+       rdfs:subClassOf [
+                             a owl:Restriction ;
+                             owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onProperty :objectType
+                           ] ;
+
         rdfs:subClassOf [
                              a owl:Restriction ;
                              owl:minCardinality "1"^^xsd:nonNegativeInteger ;

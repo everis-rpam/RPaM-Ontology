@@ -36,12 +36,30 @@
 #skos:Conceptscheme
 ####################################################
 
-:conceptScheme_RPaM a skos:ConceptScheme ;
+:RPaM_ACTION a skos:ConceptScheme ;
 	dct:created "2018-10-23T14:55:43.055+02:00"^^xsd:dateTime ;
-	skosxl:prefLabel :EU_POWER .
+	skosxl:prefLabel :RPaM_POWER_ACTION .
 
-:EU_POWER a skosxl:Label ;
-	skosxl:literalForm "EU Power"@en .
+:RPaM_POWER_ACTION a skosxl:Label ;
+	skosxl:literalForm "RPaM Actions"@en .
+
+# # # # #
+
+:RPaM_EVENT a skos:ConceptScheme ;
+	dct:created "2018-10-23T14:55:43.055+02:00"^^xsd:dateTime ;
+	skosxl:prefLabel :RPaM_POWER_EVENT .
+
+:RPaM_POWER_EVENT a skosxl:Label ;
+	skosxl:literalForm "RPaM Events"@en .
+
+# # # # #
+
+:RPaM_OBJECT a skos:ConceptScheme ;
+	dct:created "2018-10-23T14:55:43.055+02:00"^^xsd:dateTime ;
+	skosxl:prefLabel :RPaM_POWER_OBJECT .
+
+:RPaM_POWER_OBJECT a skosxl:Label ;
+	skosxl:literalForm "RPaM Objects"@en .
 
 ####################################################
 #skos:topConceptOf
@@ -50,32 +68,35 @@
 :POWER_ACTION a skos:Concept ;
 	dct:created "2018-10-25T12:55:02.556+02:00"^^xsd:dateTime ;
 	skos:definition "The actions that a Mandatee can carry out on behalf of the Mandator."@en ;
-	skos:inScheme :conceptScheme_RPaM ;
-	skos:topConceptOf :conceptScheme_RPaM ;
+	skos:inScheme :RPaM_ACTION ;
+	skos:topConceptOf :RPaM_ACTION ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
 						skosxl:literalForm "Power Actions"@en .
-					 ] .
+					 ] ;
+	skos:related :POWER_EVENT, :OBJECT .
 
 :POWER_EVENT a skos:Concept ;
 	dct:created "2018-10-23T15:02:52.183+02:00"^^xsd:dateTime ;
 	skos:definition "The main areas where powers may be applied: life events and business events."@en ;
-	skos:inScheme :conceptScheme_RPaM ;
-	skos:topConceptOf :conceptScheme_RPaM ;
+	skos:inScheme :RPaM_EVENT ;
+	skos:topConceptOf :RPaM_EVENT ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
 						skosxl:literalForm "Power Scope"@en .
-					 ] .
+					 ] ;
+	skos:related :POWER_ACTION, :OBJECT .
 
-:EVENT_ACTION_EVIDENCE a skos:Concept ;
+:OBJECT a skos:Concept ;
 	dct:created "2018-10-23T15:02:52.183+02:00"^^xsd:dateTime ;
 	skos:definition "The result expected from a specific event together with a specific action."@en ;
-	skos:inScheme :conceptScheme_RPaM ;
-	skos:topConceptOf :conceptScheme_RPaM ;
+	skos:inScheme :RPaM_OBJECT ;
+	skos:topConceptOf :RPaM_OBJECT ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
 						skosxl:literalForm "Event action evidene"@en .
-					 ] .
+					 ] ;
+	skos:related :POWER_ACTION, :POWER_EVENT .
 
 ####################################################
 #skos:Concepts ACTIONS
@@ -85,9 +106,7 @@
 	dct:created "2018-10-25T10:52:12.963+02:00"^^xsd:dateTime ;
 	skos:definition "The action to petition something officially."@en ;
 	skos:broader :POWER_ACTION ;
-	skos:inScheme :conceptScheme_RPaM ;
-	skos:related :MOVING, :RESIDENCE, :STUDYING, :DOING_BUSINESS, :STARTING_BUSINESS, :RETIRING, :WORKING ;
-	skos:related :PERMIT, :INSCRIPTION, :LETTER, :CONTRACT, :LICENCE ;
+	skos:inScheme :RPaM_ACTION ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
 						skosxl:literalForm "Apply"@en .
@@ -97,9 +116,7 @@
 	dct:created "2018-10-25T10:53:42.672+02:00"^^xsd:dateTime ;
 	skos:definition "The act to get something by paying money for it."@en ;
 	skos:broader :POWER_ACTION ;
-	skos:inScheme :conceptScheme_RPaM ;
-	skos:related :RESIDENCE, :DOING_BUSINESS ;
-	skos:related :CERTIFICATE, :NOTIFICATION, :CERTIFIED_COPY, :INSCRIPTION, :LETTER, :CONTRACT ;
+	skos:inScheme :RPaM_ACTION ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
 						skosxl:literalForm "Buy"@en .
@@ -109,9 +126,7 @@
 	dct:created "2018-10-25T10:52:32.161+02:00"^^xsd:dateTime ;
 	skos:definition "..."@en ;
 	skos:broader :POWER_ACTION ;
-	skos:inScheme :conceptScheme_RPaM ;
-	skos:related :BIRTH, :MOVING, :RESIDENCE, :STUDYING, :DOING_BUSINESS, :STARTING_BUSINESS, :RETIRING, :WORKING ;
-	skos:related :CERTIFICATE, :PERMIT, :NOTIFICATION, :CERTIFIED_COPY, :INSCRIPTION, :LETTER, :CONTRACT, :DEED, :LICENCE ;
+	skos:inScheme :RPaM_ACTION ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
 						skosxl:literalForm "Claim"@en .
@@ -121,9 +136,7 @@
 	dct:created "2018-10-25T10:52:54.802+02:00"^^xsd:dateTime ;
 	skos:definition "The act of inform someone of something in an official manner."@en ;
 	skos:broader :POWER_ACTION ;
-	skos:inScheme :conceptScheme_RPaM ;
-	skos:related :BIRTH, :MOVING, :RESIDENCE, :STUDYING, :DOING_BUSINESS, :STARTING_BUSINESS, :RETIRING, :WORKING ;
-	skos:related :PERMIT, :INSCRIPTION, :LETTER, :DEED, :LICENCE ;
+	skos:inScheme :RPaM_ACTION ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
 						skosxl:literalForm "Notify"@en .
@@ -133,9 +146,7 @@
 	dct:created "2018-10-25T10:53:07.402+02:00"^^xsd:dateTime ;
 	skos:definition "The act of obtain or aquire something after having asked for it."@en ;
 	skos:broader :POWER_ACTION ;
-	skos:inScheme :conceptScheme_RPaM ;
-	skos:related :BIRTH, :MOVING, :RESIDENCE, :STUDYING, :DOING_BUSINESS, :STARTING_BUSINESS, :RETIRING, :WORKING ;
-	skos:related :CERTIFICATE, :PERMIT, :NOTIFICATION, :CERTIFIED_COPY, :INSCRIPTION, :LETTER, :CONTRACT, :DEED, :LICENCE ;
+	skos:inScheme :RPaM_ACTION ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
 						skosxl:literalForm "Obtain"@en .
@@ -145,9 +156,7 @@
 	dct:created "2018-10-25T10:53:26.681+02:00"^^xsd:dateTime ;
 	skos:definition "The act of giving money to someone in exchange for goods or services. "@en ;
 	skos:broader :POWER_ACTION ;
-	skos:inScheme :conceptScheme_RPaM ;
-	skos:related :BIRTH, :MOVING, :RESIDENCE, :STUDYING, :DOING_BUSINESS, :STARTING_BUSINESS, :RETIRING, :WORKING ;
-	skos:related :CERTIFICATE, :PERMIT, :CERTIFIED_COPY, :INSCRIPTION, :CONTRACT, :DEED, :LICENCE ;
+	skos:inScheme :RPaM_ACTION ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
 						skosxl:literalForm "Pay"@en .
@@ -157,9 +166,7 @@
 	dct:created "2018-10-25T10:53:53.931+02:00"^^xsd:dateTime ;
 	skos:definition "..."@en ;
 	skos:broader :POWER_ACTION ;
-	skos:inScheme :conceptScheme_RPaM ;
-	skos:related :BIRTH, :MOVING, :RESIDENCE, :STUDYING, :DOING_BUSINESS, :STARTING_BUSINESS, :WORKING ;
-	#skos:related :CERTIFICATE, :PERMIT, :NOTIFICATION, :CERTIFIED_COPY, :INSCRIPTION, :LETTER, :CONTRACT, :DEED, :LICENCE ;
+	skos:inScheme :RPaM_ACTION ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
 						skosxl:literalForm "Register"@en .
@@ -169,9 +176,7 @@
 	dct:created "2018-10-25T10:54:06.800+02:00"^^xsd:dateTime ;
 	skos:definition "An act of asking politely or formally for something."@en ;
 	skos:broader :POWER_ACTION ;
-	skos:inScheme :conceptScheme_RPaM ;
-	skos:related :BIRTH, :MOVING, :RESIDENCE, :STUDYING, :DOING_BUSINESS, :STARTING_BUSINESS, :RETIRING, :WORKING ;
-	skos:related :CERTIFICATE, :PERMIT, :NOTIFICATION, :CERTIFIED_COPY, :INSCRIPTION, :LETTER, :CONTRACT, :DEED, :LICENCE ;
+	skos:inScheme :RPaM_ACTION ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
 						skosxl:literalForm "Request"@en .
@@ -181,9 +186,7 @@
 	dct:created "2018-10-25T10:54:36.923+02:00"^^xsd:dateTime ;
 	skos:definition "The action of presenting a proposal, application, or other document for consideration or judgement."@en ;
 	skos:broader :POWER_ACTION ;
-	skos:inScheme :conceptScheme_RPaM ;
-	skos:related :MOVING, :RESIDENCE, :STUDYING, :DOING_BUSINESS, :STARTING_BUSINESS, :RETIRING, :WORKING ;
-	skos:related :PERMIT, :INSCRIPTION, :DEED ;
+	skos:inScheme :RPaM_ACTION ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
 						skosxl:literalForm "Submit"@en .
@@ -197,7 +200,7 @@
 	dct:created "2018-10-25T10:06:36.202+02:00"^^xsd:dateTime ;
 	skos:definition "Situations that take place in someone's life. This event may cause a major change in a person's life."@en ;
 	skos:broader :POWER_EVENT ;
-	skos:inScheme :conceptScheme_RPaM ;
+	skos:inScheme :RPaM_EVENT ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
 						skosxl:literalForm "Life_Event"@en .
@@ -208,7 +211,7 @@
 	skos:definition "Powers related to activities that refer to birth."@en ;
 	skos:example "Power to request proof of registration of birth."@en ;
 	skos:broader ::PERSON_LIFE_EVENT ;
-	skos:inScheme :conceptScheme_RPaM ;
+	skos:inScheme :RPaM_EVENT ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
 						skosxl:literalForm "Birth"@en .
@@ -219,7 +222,7 @@
 	skos:definition "Powers related to moving activities, either in the same region or in a different region."@en ;
 	skos:example "Power to obtain emission stickers issued by a public body or institution."@en , "Power to register a change of address."@en , "Power to register a motor vehicle originating from or already registered in an EU Member State, in standard procedures."@en ;
 	skos:broader ::PERSON_LIFE_EVENT ;
-	skos:inScheme :conceptScheme_RPaM ;
+	skos:inScheme :RPaM_EVENT ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
 						skosxl:literalForm "Moving"@en .
@@ -230,7 +233,7 @@
 	skos:definition "Powers related to activities on the residence of a person."@en ;
 	skos:example "Power to request proof of residence."@en ;
 	skos:broader ::PERSON_LIFE_EVENT ;
-	skos:inScheme :conceptScheme_RPaM ;
+	skos:inScheme :RPaM_EVENT ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
 						skosxl:literalForm "Residence"@en .
@@ -241,7 +244,7 @@
 	skos:definition "Powers related to study and education activities."@en ;
 	skos:example "Power to apply for a tertiary education study financing, such as study grants and loans from a public body or institution."@en , "Power to submit an initial application for admission in public higher education institution."@en ;
 	skos:broader ::PERSON_LIFE_EVENT ;
-	skos:inScheme :conceptScheme_RPaM ;
+	skos:inScheme :RPaM_EVENT ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
 						skosxl:literalForm "Studying"@en .
@@ -255,7 +258,7 @@
 	dct:created "2018-10-25T10:06:55.987+02:00"^^xsd:dateTime ;
 	skos:definition "Situations that take place in any business processes and in which there is always, at least, one person involved."@en ;
 	skos:broader :POWER_EVENT ;
-	skos:inScheme :conceptScheme_RPaM ;
+	skos:inScheme :RPaM_EVENT ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
 						skosxl:literalForm "Business Event"@en .
@@ -266,7 +269,7 @@
 	skos:definition "Powers related to certain activities at the time of cunducting business."@en ;
 	skos:example "Power to pay social contributions for employees."@en , "Power to submit a notification to the social security schemes of the end of contract with an employee, excluding procedures for the collective termination of employee contracts."@en ;
 	skos:broader :PERSON_BUSINESS_EVENT ;
-	skos:inScheme :conceptScheme_RPaM ;
+	skos:inScheme :RPaM_EVENT ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
 						skosxl:literalForm "Doing Business"@en .
@@ -277,7 +280,7 @@
 	skos:definition "Powers related to certain activities at the time of the establishment of a business."@en ;
 	skos:example "Power to register as employer (a natural person) with compulsory pension and insurance schemes."@en , "Power to register employees with compulsory pension and insurance schemes."@en , "Power to submit a notification of business activity, permissions of business activity, changes of business activity and the termination of a business activity not involving insolvency or liquidation procedures, excluding the initial registration of a business activity with the business register and excluding procedures concerning the constitution of or any subsequent filing by companies or firms within the meaning of the second paragraph of Article 54 TFEU."@en ;
 	skos:broader :PERSON_BUSINESS_EVENT ;
-	skos:inScheme :conceptScheme_RPaM ;
+	skos:inScheme :RPaM_EVENT ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
 						skosxl:literalForm "Starting_Business"@en .
@@ -288,7 +291,7 @@
 	skos:definition "Powers related to certain activities at the time of a person's retirement."@en ;
 	skos:example "Power to claim pension and pre-retirement benefits from compulsory schemes."@en , "Power to request information on the data related to pension from compulsory schemes."@en ;
 	skos:broader :PERSON_BUSINESS_EVENT ;
-	skos:inScheme :conceptScheme_RPaM ;
+	skos:inScheme :RPaM_EVENT ;
 	skosxl:prefLabel [
 						a skosxl:Label ; 
 						skosxl:literalForm "Retiring"@en .
@@ -301,7 +304,7 @@
 				 "Power to notify changes in personal or professional circumstances of the person receiving socialsecurity benefits, relevant for such benefits."@en , 
 				 "Power to request for determination of applicable legislation in accordance with Title II of Regulation (EC) No 883/2004 (i.e. social security)."@en ;
 	skos:broader :PERSON_BUSINESS_EVENT ;
-	skos:inScheme :conceptScheme_RPaM ;
+	skos:inScheme :RPaM_EVENT ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
 						skosxl:literalForm "Working"@en .
@@ -315,8 +318,8 @@
 	dct:created "2018-10-23T15:05:19.394+02:00"^^xsd:dateTime ;
 	#skos:definition "...."@en ;
 	skos:example "Request a birth certificate."@en ;
-	skos:broader :EVENT_ACTION_EVIDENCE ;
-	skos:inScheme :conceptScheme_RPaM ;
+	skos:broader :OBJECT ;
+	skos:inScheme :RPaM_OBJECT ;
 	skosxl:prefLabel [
 						a skosxl:Label ; 
 						skosxl:literalForm "Certificate"@en .
@@ -326,8 +329,8 @@
 	dct:created "2018-10-23T15:05:19.394+02:00"^^xsd:dateTime ;
 	#skos:definition "...."@en ;
 	#skos:example "..."@en ;
-	skos:broader :EVENT_ACTION_EVIDENCE ;
-	skos:inScheme :conceptScheme_RPaM ;
+	skos:broader :OBJECT ;
+	skos:inScheme :RPaM_OBJECT ;
 	skosxl:prefLabel [
 						a skosxl:Label ; 
 						skosxl:literalForm "Permir"@en .
@@ -337,8 +340,8 @@
 	dct:created "2018-10-23T15:05:19.394+02:00"^^xsd:dateTime ;
 	#skos:definition "...."@en ;
 	#skos:example "..."@en ;
-	skos:broader :EVENT_ACTION_EVIDENCE ;
-	skos:inScheme :conceptScheme_RPaM ;
+	skos:broader :OBJECT ;
+	skos:inScheme :RPaM_OBJECT ;
 	skosxl:prefLabel [
 						a skosxl:Label ; 
 						skosxl:literalForm "Notification"@en .
@@ -348,8 +351,8 @@
 	dct:created "2018-10-23T15:05:19.394+02:00"^^xsd:dateTime ;
 	#skos:definition "...."@en ;
 	#skos:example "..."@en ;
-	skos:broader :EVENT_ACTION_EVIDENCE ;
-	skos:inScheme :conceptScheme_RPaM ;
+	skos:broader :OBJECT ;
+	skos:inScheme :RPaM_OBJECT ;
 	skosxl:prefLabel [
 						a skosxl:Label ; 
 						skosxl:literalForm "Certified copy"@en .
@@ -359,8 +362,8 @@
 	dct:created "2018-10-23T15:05:19.394+02:00"^^xsd:dateTime ;
 	#skos:definition "...."@en ;
 	#skos:example "..."@en ;
-	skos:broader :EVENT_ACTION_EVIDENCE ;
-	skos:inScheme :conceptScheme_RPaM ;
+	skos:broader :OBJECT ;
+	skos:inScheme :RPaM_OBJECT ;
 	skosxl:prefLabel [
 						a skosxl:Label ; 
 						skosxl:literalForm "Inscription"@en .
@@ -370,8 +373,8 @@
 	dct:created "2018-10-23T15:05:19.394+02:00"^^xsd:dateTime ;
 	#skos:definition "...."@en ;
 	#skos:example "..."@en ;
-	skos:broader :EVENT_ACTION_EVIDENCE ;
-	skos:inScheme :conceptScheme_RPaM ;
+	skos:broader :OBJECT ;
+	skos:inScheme :RPaM_OBJECT ;
 	skosxl:prefLabel [
 						a skosxl:Label ; 
 						skosxl:literalForm "Contract"@en .
@@ -381,8 +384,8 @@
 	dct:created "2018-10-23T15:05:19.394+02:00"^^xsd:dateTime ;
 	#skos:definition "...."@en ;
 	#skos:example "..."@en ;
-	skos:broader :EVENT_ACTION_EVIDENCE ;
-	skos:inScheme :conceptScheme_RPaM ;
+	skos:broader :OBJECT ;
+	skos:inScheme :RPaM_OBJECT ;
 	skosxl:prefLabel [
 						a skosxl:Label ; 
 						skosxl:literalForm "Letter"@en .
@@ -392,8 +395,8 @@
 	dct:created "2018-10-23T15:05:19.394+02:00"^^xsd:dateTime ;
 	#skos:definition "...."@en ;
 	#skos:example "..."@en ;
-	skos:broader :EVENT_ACTION_EVIDENCE ;
-	skos:inScheme :conceptScheme_RPaM ;
+	skos:broader :OBJECT ;
+	skos:inScheme :RPaM_OBJECT ;
 	skosxl:prefLabel [
 						a skosxl:Label ; 
 						skosxl:literalForm "Deed"@en .
@@ -403,8 +406,8 @@
 	dct:created "2018-10-23T15:05:19.394+02:00"^^xsd:dateTime ;
 	#skos:definition "...."@en ;
 	#skos:example "..."@en ;
-	skos:broader :EVENT_ACTION_EVIDENCE ;
-	skos:inScheme :conceptScheme_RPaM ;
+	skos:broader :OBJECT ;
+	skos:inScheme :RPaM_OBJECT ;
 	skosxl:prefLabel [
 						a skosxl:Label ; 
 						skosxl:literalForm "Licence"@en .
