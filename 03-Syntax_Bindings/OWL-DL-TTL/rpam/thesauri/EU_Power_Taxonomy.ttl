@@ -37,28 +37,25 @@
 ####################################################
 
 :RPaM_ACTION a skos:ConceptScheme ;
-	dct:created "2018-10-23T14:55:43.055+02:00"^^xsd:dateTime ;
 	skosxl:prefLabel :RPaM_POWER_ACTION .
 
-:RPaM_POWER_ACTION a skosxl:Label ;
+:RPaM_POWER_ACTION a skosxl:label ,
 	skosxl:literalForm "RPaM Actions"@en .
 
 # # # # #
 
 :RPaM_EVENT a skos:ConceptScheme ;
-	dct:created "2018-10-23T14:55:43.055+02:00"^^xsd:dateTime ;
 	skosxl:prefLabel :RPaM_POWER_EVENT .
 
-:RPaM_POWER_EVENT a skosxl:Label ;
+:RPaM_POWER_EVENT a skosxl:label ,
 	skosxl:literalForm "RPaM Events"@en .
 
 # # # # #
 
 :RPaM_OBJECT a skos:ConceptScheme ;
-	dct:created "2018-10-23T14:55:43.055+02:00"^^xsd:dateTime ;
 	skosxl:prefLabel :RPaM_POWER_OBJECT .
 
-:RPaM_POWER_OBJECT a skosxl:Label ;
+:RPaM_POWER_OBJECT a skosxl:label ,
 	skosxl:literalForm "RPaM Objects"@en .
 
 ####################################################
@@ -109,7 +106,7 @@
 	skos:inScheme :RPaM_ACTION ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
-						skosxl:literalForm "Apply"@en .
+						skosxl:literalForm "Apply"@en 
 					 ] .
 
 :BUY a skos:Concept ;
@@ -119,7 +116,7 @@
 	skos:inScheme :RPaM_ACTION ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
-						skosxl:literalForm "Buy"@en .
+						skosxl:literalForm "Buy"@en 
 					 ] .
 
 :CLAIM a skos:Concept ;
@@ -129,7 +126,7 @@
 	skos:inScheme :RPaM_ACTION ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
-						skosxl:literalForm "Claim"@en .
+						skosxl:literalForm "Claim"@en 
 					 ] .
 
 :NOTIFY a skos:Concept ;
@@ -139,7 +136,7 @@
 	skos:inScheme :RPaM_ACTION ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
-						skosxl:literalForm "Notify"@en .
+						skosxl:literalForm "Notify"@en 
 					 ] .
 
 :OBTAIN a skos:Concept ;
@@ -149,7 +146,7 @@
 	skos:inScheme :RPaM_ACTION ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
-						skosxl:literalForm "Obtain"@en .
+						skosxl:literalForm "Obtain"@en 
 					 ] .
 
 :PAY a skos:Concept ;
@@ -159,7 +156,7 @@
 	skos:inScheme :RPaM_ACTION ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
-						skosxl:literalForm "Pay"@en .
+						skosxl:literalForm "Pay"@en 
 					 ] .
 
 :REGISTER a skos:Concept ;
@@ -169,7 +166,7 @@
 	skos:inScheme :RPaM_ACTION ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
-						skosxl:literalForm "Register"@en .
+						skosxl:literalForm "Register"@en 
 					 ] .
 
 :REQUEST a skos:Concept ;
@@ -179,7 +176,7 @@
 	skos:inScheme :RPaM_ACTION ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
-						skosxl:literalForm "Request"@en .
+						skosxl:literalForm "Request"@en 
 					 ] .
 
 :SUBMIT a skos:Concept ;
@@ -189,7 +186,7 @@
 	skos:inScheme :RPaM_ACTION ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
-						skosxl:literalForm "Submit"@en .
+						skosxl:literalForm "Submit"@en 
 					 ] .
 
 ####################################################
@@ -203,7 +200,7 @@
 	skos:inScheme :RPaM_EVENT ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
-						skosxl:literalForm "Life_Event"@en .
+						skosxl:literalForm "Life_Event"@en 
 					 ] .
 
 :BIRTH a skos:Concept ;
@@ -214,7 +211,7 @@
 	skos:inScheme :RPaM_EVENT ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
-						skosxl:literalForm "Birth"@en .
+						skosxl:literalForm "Birth"@en 
 					 ] .
 
 :MOVING a skos:Concept ;
@@ -236,7 +233,7 @@
 	skos:inScheme :RPaM_EVENT ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
-						skosxl:literalForm "Residence"@en .
+						skosxl:literalForm "Residence"@en 
 					 ] .
 
 :STUDYING a skos:Concept ;
@@ -247,7 +244,7 @@
 	skos:inScheme :RPaM_EVENT ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
-						skosxl:literalForm "Studying"@en .
+						skosxl:literalForm "Studying"@en 
 					 ] .
 
 ####################################################
@@ -261,7 +258,7 @@
 	skos:inScheme :RPaM_EVENT ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
-						skosxl:literalForm "Business Event"@en .
+						skosxl:literalForm "Business Event"@en 
 					 ] .
 
 :DOING_BUSINESS a skos:Concept ;
@@ -272,7 +269,7 @@
 	skos:inScheme :RPaM_EVENT ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
-						skosxl:literalForm "Doing Business"@en .
+						skosxl:literalForm "Doing Business"@en 
 					 ] .
 
 :STARTING_BUSINESS a skos:Concept ;
@@ -283,7 +280,7 @@
 	skos:inScheme :RPaM_EVENT ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
-						skosxl:literalForm "Starting_Business"@en .
+						skosxl:literalForm "Starting_Business"@en 
 					 ] .
 
 :RETIRING a skos:Concept ;
@@ -294,7 +291,7 @@
 	skos:inScheme :RPaM_EVENT ;
 	skosxl:prefLabel [
 						a skosxl:Label ; 
-						skosxl:literalForm "Retiring"@en .
+						skosxl:literalForm "Retiring"@en 
 					 ] .
 
 :WORKING a skos:Concept ;
@@ -307,7 +304,7 @@
 	skos:inScheme :RPaM_EVENT ;
 	skosxl:prefLabel [
 						a skosxl:Label ;
-						skosxl:literalForm "Working"@en .
+						skosxl:literalForm "Working"@en 
 					 ] .
 
 ####################################################
@@ -322,7 +319,7 @@
 	skos:inScheme :RPaM_OBJECT ;
 	skosxl:prefLabel [
 						a skosxl:Label ; 
-						skosxl:literalForm "Certificate"@en .
+						skosxl:literalForm "Certificate"@en 
 					 ] .
 
 :PERMIT a skos:Concept ;
@@ -333,7 +330,7 @@
 	skos:inScheme :RPaM_OBJECT ;
 	skosxl:prefLabel [
 						a skosxl:Label ; 
-						skosxl:literalForm "Permir"@en .
+						skosxl:literalForm "Permir"@en 
 					 ] .
 
 :NOTIFICATION a skos:Concept ;
@@ -344,7 +341,7 @@
 	skos:inScheme :RPaM_OBJECT ;
 	skosxl:prefLabel [
 						a skosxl:Label ; 
-						skosxl:literalForm "Notification"@en .
+						skosxl:literalForm "Notification"@en 
 					 ] .
 
 :CERTIFIED_COPY a skos:Concept ;
@@ -355,7 +352,7 @@
 	skos:inScheme :RPaM_OBJECT ;
 	skosxl:prefLabel [
 						a skosxl:Label ; 
-						skosxl:literalForm "Certified copy"@en .
+						skosxl:literalForm "Certified copy"@en 
 					 ] .
 
 :INSCRIPTION a skos:Concept ;
@@ -366,7 +363,7 @@
 	skos:inScheme :RPaM_OBJECT ;
 	skosxl:prefLabel [
 						a skosxl:Label ; 
-						skosxl:literalForm "Inscription"@en .
+						skosxl:literalForm "Inscription"@en 
 					 ] .
 
 :CONTRACT a skos:Concept ;
@@ -388,7 +385,7 @@
 	skos:inScheme :RPaM_OBJECT ;
 	skosxl:prefLabel [
 						a skosxl:Label ; 
-						skosxl:literalForm "Letter"@en .
+						skosxl:literalForm "Letter"@en 
 					 ] .
 
 :DEED a skos:Concept ;
@@ -399,7 +396,7 @@
 	skos:inScheme :RPaM_OBJECT ;
 	skosxl:prefLabel [
 						a skosxl:Label ; 
-						skosxl:literalForm "Deed"@en .
+						skosxl:literalForm "Deed"@en 
 					 ] .
 
 :LICENCE a skos:Concept ;
@@ -410,5 +407,5 @@
 	skos:inScheme :RPaM_OBJECT ;
 	skosxl:prefLabel [
 						a skosxl:Label ; 
-						skosxl:literalForm "Licence"@en .
+						skosxl:literalForm "Licence"@en 
 					 ] .
