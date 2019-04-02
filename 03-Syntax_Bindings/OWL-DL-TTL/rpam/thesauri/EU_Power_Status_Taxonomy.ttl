@@ -145,7 +145,7 @@
 					 ] .
 
 
-:STRUCK-OFF-MANDATE a skos:Concept ;
+:STRUCK_OFF_MANDATE a skos:Concept ;
 	dct:created "2019-02-17T14:18:16"^^xsd:dateTime ;
 	skos:broader :ePower_Status ;
 	skos:definition "The power is no longer valid because the mandate where it was defined has been struck off."@en ;
