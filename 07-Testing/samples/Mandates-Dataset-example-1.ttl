@@ -21,8 +21,7 @@
 @prefix tu:     <https://eurostat/nuts/2016/> .
 @prefix org:    <http://www.w3.org/ns/org#> .
 @prefix ct: 	<https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/moremee#> .
-@prefix eupt:   <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/powers#> .
-@prefix agt:    <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/agent#> .
+@prefix eupt: 	<https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/power#> .
 
 <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology#> rdf:type owl:Ontology, dcat:Dataset ;
                                         owl:versionIRI "https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology.ttl" ;
@@ -50,18 +49,6 @@
 :Lula 	:givenName "Pura"   ; :familyName "Lula" ; :id [ccts:identifierValue "54ec3a48-a564-4491-8fde-ed0f85cbb291"; :schemeID "ES-NIF" ; :schemeAgencyID "ES-INTERIOR"] .
 :Helena :givenName "Helena" ; :familyName "Staropitxoska" ; :id [ccts:identifierValue "53f93eab-a8df-454b-970a-365358756b0b"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"] .
 :Suzane :givenName "Suzane" ; :familyName "Wittgenstein" ; :id [ccts:identifierValue "17b95980-efb1-47bb-8578-f47c78179613"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"] .
-
-############## Mandatees ###################
-:Vicenc a :Mandatee , agt:naturalPerson ; :id [ccts:identifierValue "86ffbab8-02c0-4429-b5fa-fca8f2867b41"] .
-:Thomas a :Mandatee , agt:naturalPerson ; :id [ccts:identifierValue "62f0d6a1-bc7f-426f-97a6-9fb9bccf2ece"] .
-:Roberto a :Mandatee , agt::naturalPerson ; :id [ccts:identifierValue "c36da8dc-8e51-4c72-b759-57b66c491b15"] .
-:Paula a :Mandatee , agt::naturalPerson ; :id [ccts:identifierValue "ffccb5fa-d28c-42a7-9af9-231d69b2a828"] .
-:Ken a :Mandatee , agt::naturalPerson ; :id [ccts:identifierValue "5cfc4286-42ef-41a4-888d-34d0ad640218"] .
-:Helena a :Mandatee , agt::naturalPerson ; :id [ccts:identifierValue "c41b206b-289f-42f0-9a19-dc1032c1f577"] .
-:Lula a :Mandatee , agt::naturalPerson ; :id [ccts:identifierValue "5f906f72-8894-424c-93af-8e44901b7d75"] .
-:Berto a :Mandatee , agt::naturalPerson ; :id [ccts:identifierValue "ff1d7da6-a33a-48f9-a59c-513d7add56f0"] .
-:everis a :Mandatee , agt::naturalPerson ; :id [ccts:identifierValue "3149e4e4-eab6-475b-9732-68930da8afbc"] .
-:Juan a :Mandatee , agt::naturalPerson ; :id [ccts:identifierValue "6588a2b5-cb24-4336-88ae-014ef5d222ac"] .
 
 ############## Mandates ###################
 :Mandate-1 a :Mandate ;
@@ -136,6 +123,19 @@
 		:power :Power-9 .
 :everis a :Mandator , org:Organization ; :id [ccts:identifierValue "61bcae8d-5691-425e-a7ad-56ea9fff3659"] ;
 		:power :Power-10 .
+
+
+############## Mandatees ###################
+:Vicenc a :Mandatee , :naturalPerson ; :id [ccts:identifierValue "86ffbab8-02c0-4429-b5fa-fca8f2867b41"] .
+:Thomas a :Mandatee , :naturalPerson ; :id [ccts:identifierValue "62f0d6a1-bc7f-426f-97a6-9fb9bccf2ece"] .
+:Roberto a :Mandatee , :naturalPerson ; :id [ccts:identifierValue "c36da8dc-8e51-4c72-b759-57b66c491b15"] .
+:Paula a :Mandatee , :naturalPerson ; :id [ccts:identifierValue "ffccb5fa-d28c-42a7-9af9-231d69b2a828"] .
+:Ken a :Mandatee , :naturalPerson ; :id [ccts:identifierValue "5cfc4286-42ef-41a4-888d-34d0ad640218"] .
+:Helena a :Mandatee , :naturalPerson ; :id [ccts:identifierValue "c41b206b-289f-42f0-9a19-dc1032c1f577"] .
+:Lula a :Mandatee , :naturalPerson ; :id [ccts:identifierValue "5f906f72-8894-424c-93af-8e44901b7d75"] .
+:Berto a :Mandatee , :naturalPerson ; :id [ccts:identifierValue "ff1d7da6-a33a-48f9-a59c-513d7add56f0"] .
+:everis a :Mandatee , :naturalPerson ; :id [ccts:identifierValue "3149e4e4-eab6-475b-9732-68930da8afbc"] .
+:Juan a :Mandatee , :naturalPerson ; :id [ccts:identifierValue "6588a2b5-cb24-4336-88ae-014ef5d222ac"] .
 
 ############# Powers #############
 # RULE 1: One Mandate -> One Mandator -> Many empowerments 
