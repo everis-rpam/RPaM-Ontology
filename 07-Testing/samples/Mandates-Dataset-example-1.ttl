@@ -22,10 +22,11 @@
 @prefix org:    <http://www.w3.org/ns/org#> .
 @prefix ct: 	<https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/moremee#> .
 @prefix eupt:   <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/powers#> .
+@prefix agt:    <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/agent#> .
 
 <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology#> rdf:type owl:Ontology, dcat:Dataset ;
                                         owl:versionIRI "https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology.ttl" ;
-                                                                                dct:description "This file contains instances of mandates that would be kept in a MS eMandate Registry."@en ;
+                                        dct:description "This file contains instances of mandates that would be kept in a MS eMandate Registry."@en ;
                                         dct:title "Example of a dataset containing mandates."@en ;
                                         dct:publisher "European Commission, ISA2 Programme"@en ;
                                         dct:creator "everis, Spain, S.L.U"@en ;
@@ -50,89 +51,91 @@
 :Helena :givenName "Helena" ; :familyName "Staropitxoska" ; :id [ccts:identifierValue "53f93eab-a8df-454b-970a-365358756b0b"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"] .
 :Suzane :givenName "Suzane" ; :familyName "Wittgenstein" ; :id [ccts:identifierValue "17b95980-efb1-47bb-8578-f47c78179613"; :schemeID "ES-NIE" ; :schemeAgencyID "ES-INTERIOR"] .
 
-############## Mandators ###################
-:Serge a :Mandator , foaf:Person ; :id [ccts:identifierValue "822a65c7-b429-4c6e-af65-7221583fbbd2"] .
-:Vicenc a :Mandator , foaf:Person ; :id [ccts:identifierValue "58cb08ba-f716-45d8-95f9-7ce5db45c3dd"] .
-:DIGIT a :Mandator , org:Organization ; :id [ccts:identifierValue "0f8f2df7-58e1-4a9f-a904-61d0f5eabf40"] .
-:Paco a :Mandator , foaf:Person ; :id [ccts:identifierValue "29c69de1-a883-4b8d-b667-59fce5598d9b"] .
-:Ken a :Mandator , foaf:Person ; :id [ccts:identifierValue "969a36b6-4d3e-4b8e-8725-e362078579fd"] .
-:Neil a :Mandator , foaf:Person ; :id [ccts:identifierValue "44cfc641-09cf-4cc5-b23b-f92fe2af5b61"] .
-:Rosa a :Mandator , foaf:Person ; :id [ccts:identifierValue "5c4d8e5a-f73f-414d-bfee-01feed9e7935"] .
-:everis a :Mandator , org:Organization ; :id [ccts:identifierValue "61bcae8d-5691-425e-a7ad-56ea9fff3659"] .
-:Louis a :Mandator , org:Organization ; :id [ccts:identifierValue "5741c8e0-248b-4e7c-a808-4f7ed3754ce3"] .
-
 ############## Mandatees ###################
-:Vicenc a :Mandatee , foaf:Person ; :id [ccts:identifierValue "86ffbab8-02c0-4429-b5fa-fca8f2867b41"] .
-:Thomas a :Mandatee , foaf:Person ; :id [ccts:identifierValue "62f0d6a1-bc7f-426f-97a6-9fb9bccf2ece"] .
-:Roberto a :Mandatee , foaf:Person ; :id [ccts:identifierValue "c36da8dc-8e51-4c72-b759-57b66c491b15"] .
-:Paula a :Mandatee , foaf:Person ; :id [ccts:identifierValue "ffccb5fa-d28c-42a7-9af9-231d69b2a828"] .
-:Ken a :Mandatee , foaf:Person ; :id [ccts:identifierValue "5cfc4286-42ef-41a4-888d-34d0ad640218"] .
-:Helena a :Mandatee , foaf:Person ; :id [ccts:identifierValue "c41b206b-289f-42f0-9a19-dc1032c1f577"] .
-:Lula a :Mandatee , foaf:Person ; :id [ccts:identifierValue "5f906f72-8894-424c-93af-8e44901b7d75"] .
-:Berto a :Mandatee , foaf:Person ; :id [ccts:identifierValue "ff1d7da6-a33a-48f9-a59c-513d7add56f0"] .
-:everis a :Mandatee , org:Organization ; :id [ccts:identifierValue "3149e4e4-eab6-475b-9732-68930da8afbc"] .
-:Juan a :Mandatee , org:Organization ; :id [ccts:identifierValue "6588a2b5-cb24-4336-88ae-014ef5d222ac"] .
+:Vicenc a :Mandatee , agt:naturalPerson ; :id [ccts:identifierValue "86ffbab8-02c0-4429-b5fa-fca8f2867b41"] .
+:Thomas a :Mandatee , agt:naturalPerson ; :id [ccts:identifierValue "62f0d6a1-bc7f-426f-97a6-9fb9bccf2ece"] .
+:Roberto a :Mandatee , agt::naturalPerson ; :id [ccts:identifierValue "c36da8dc-8e51-4c72-b759-57b66c491b15"] .
+:Paula a :Mandatee , agt::naturalPerson ; :id [ccts:identifierValue "ffccb5fa-d28c-42a7-9af9-231d69b2a828"] .
+:Ken a :Mandatee , agt::naturalPerson ; :id [ccts:identifierValue "5cfc4286-42ef-41a4-888d-34d0ad640218"] .
+:Helena a :Mandatee , agt::naturalPerson ; :id [ccts:identifierValue "c41b206b-289f-42f0-9a19-dc1032c1f577"] .
+:Lula a :Mandatee , agt::naturalPerson ; :id [ccts:identifierValue "5f906f72-8894-424c-93af-8e44901b7d75"] .
+:Berto a :Mandatee , agt::naturalPerson ; :id [ccts:identifierValue "ff1d7da6-a33a-48f9-a59c-513d7add56f0"] .
+:everis a :Mandatee , agt::naturalPerson ; :id [ccts:identifierValue "3149e4e4-eab6-475b-9732-68930da8afbc"] .
+:Juan a :Mandatee , agt::naturalPerson ; :id [ccts:identifierValue "6588a2b5-cb24-4336-88ae-014ef5d222ac"] .
 
 ############## Mandates ###################
 :Mandate-1 a :Mandate ;
-				:id [ccts:identifierValue "86ffbab8-02c0-4429-b5fa-fca8f2867b41"] ;
-				:power :Power-1, :Power-3, :Power-4 ;
+				:id [ccts:identifierValue "d088bad4-d19e-4219-86f6-760c8e6334f4"] ;
 				:mandator :Serge ;
 				:lifeSpan [:startDateTime "2017-01-21T12:01:00"^^xsd:dateTime] .
 
 :Mandate-2 a :Mandate ;
-				:id [ccts:identifierValue "86ffbab8-02c0-4429-b5fa-fca8f2867b41"] ;
+				:id [ccts:identifierValue "23210c1b-01fd-4d92-83c7-e77ddf2d5109"] ;
 				:mandator :Vicenc ;
 				:lifeSpan [:startDateTime "2017-05-12T02:03:10"^^xsd:dateTime ] .
 
 #### This mandate has been struck-off, see endDate
 #Paco
 :Mandate-3  a :Mandate ;
-				:id [ccts:identifierValue "86ffbab8-02c0-4429-b5fa-fca8f2867b41"] ;
+				:id [ccts:identifierValue "46c59347-30e0-4467-81bf-ca330470b322"] ;
 				:mandator :Paco ;
 				:lifeSpan [:startDateTime "2018-01-01T12:13:11"^^xsd:dateTime ; :endDateTime "2018-01-01T12:13:11"^^xsd:dateTime ] .
 
 #Ken
 :Mandate-4 a :Mandate ;
-				:id [ccts:identifierValue "86ffbab8-02c0-4429-b5fa-fca8f2867b41"] ;
+				:id [ccts:identifierValue "a19a34e7-1f03-4020-a50d-156d79edd050"] ;
 				:mandator :Ken ;
 				:lifeSpan [:startDateTime "2019-02-01T13:13:13"^^xsd:dateTime ] .
 
 #Ken
 :Mandate-5 a :Mandate ;
-				:id [ccts:identifierValue "86ffbab8-02c0-4429-b5fa-fca8f2867b41"] ;
+				:id [ccts:identifierValue "aa3e4a3b-172f-495c-9922-45eae02c3b59"] ;
 				:mandator :Ken ;
 				:lifeSpan [:startDateTime "2019-01-12T02:03:10"^^xsd:dateTime ] .
 
 #Neil
 :Mandate-6 a :Mandate ; 
-				:id [ccts:identifierValue "86ffbab8-02c0-4429-b5fa-fca8f2867b41"] ;
+				:id [ccts:identifierValue "bb1482e1-0513-4c90-9c80-98a2e4d14984"] ;
 				:mandator :Neil ;
 				:lifeSpan [:startDateTime "2019-01-12T12:03:10"^^xsd:dateTime ] . 
 
 #Rosa
 :Mandate-7 a :Mandate ; 
-				:id [ccts:identifierValue "86ffbab8-02c0-4429-b5fa-fca8f2867b41"] ;
+				:id [ccts:identifierValue "874cc206-6279-4497-8793-4239249ddcba"] ;
 				:mandator :Rosa ;
 				:lifeSpan [:startDateTime "2019-01-12T13:03:10"^^xsd:dateTime ] .
 
 #DIGIT
 :Mandate-8 a :Mandate ; 
-				:id [ccts:identifierValue "86ffbab8-02c0-4429-b5fa-fca8f2867b41"] ;
+				:id [ccts:identifierValue "172b1725-bc58-4ddf-862f-0191f4bcb7ed"] ;
 				:mandator :DIGIT ;
 				:lifeSpan [:startDateTime "2019-01-11T02:03:10"^^xsd:dateTime ] .
 
 ############# Power Source #############
 :POWERSource-1 a :PowerSource ;
-				 :id [ccts:identifierValue "86ffbab8-02c0-4429-b5fa-fca8f2867b41"] ;
+				 :id [ccts:identifierValue "e1e898d5-a36d-4b0b-b26d-c6acdb33b4a5"] ;
 				 :delegationLevel 1 ;
 				 :Power :Power-2 ;
 			     :evidence :Mandate-1 .
 				 #Interpretation: The mandate of serge is the power source of the 
 
-############# Legislation ##############
-
-
+############## Mandators ###################
+:Serge a :Mandator , foaf:Person ; :id [ccts:identifierValue "822a65c7-b429-4c6e-af65-7221583fbbd2"] ;
+		:power :Power-1, :Power-3, :Power-4 .
+:Vicenc a :Mandator , foaf:Person ; :id [ccts:identifierValue "58cb08ba-f716-45d8-95f9-7ce5db45c3dd"] ;
+		:power :Power-2 .
+:DIGIT a :Mandator , org:Organization ; :id [ccts:identifierValue "0f8f2df7-58e1-4a9f-a904-61d0f5eabf40"] ;
+		:power :Power-5 .
+:Paco a :Mandator , foaf:Person ; :id [ccts:identifierValue "29c69de1-a883-4b8d-b667-59fce5598d9b"] ;
+		:power :Power-6 .
+:Ken a :Mandator , foaf:Person ; :id [ccts:identifierValue "969a36b6-4d3e-4b8e-8725-e362078579fd"] ;
+		:power :Power-7 .
+:Neil a :Mandator , foaf:Person ; :id [ccts:identifierValue "44cfc641-09cf-4cc5-b23b-f92fe2af5b61"] ;
+		:power :Power-8 .
+:Rosa a :Mandator , foaf:Person ; :id [ccts:identifierValue "5c4d8e5a-f73f-414d-bfee-01feed9e7935"] ;
+		:power :Power-9 .
+:everis a :Mandator , org:Organization ; :id [ccts:identifierValue "61bcae8d-5691-425e-a7ad-56ea9fff3659"] ;
+		:power :Power-10 .
 
 ############# Powers #############
 # RULE 1: One Mandate -> One Mandator -> Many empowerments 
@@ -140,6 +143,7 @@
 # Rule 3: One empowerment -> Many Constraints applied to the Mandator 
 # Rule 3: One empowerment -> Many Constraints applied to ALL the Mandatees
 :Power-1  a :Power ;
+				:id [ccts:identifierValue "c484921e-4fdf-49e6-a2da-27614d5b88e1"] ;
                 :actionType eupt:REQUEST ;
 				:eventType eupt:BIRTH;
 				:evidenceType eupt:CERTIFICATE ;
@@ -148,6 +152,7 @@
                 :mandateeConstraint :Meecp01, :Meecp02, :Meecp03, :Meecp04 .
 
 :Power-2  a :Power ;
+				:id [ccts:identifierValue "2235ee4a-1cc8-4118-86fb-ea996bb8c2f4"] ;
                 :mandator :Vicenc ;
                 :actionType eupt:REQUEST ;
 				:eventType eupt:BIRTH;
@@ -157,14 +162,16 @@
                 :mandatee :Thomas .
 
 :Power-3  a :Power ;
+				:id [ccts:identifierValue "e1e898d5-a36d-4b0b-b26d-c6acdb33b4a5"] ;
                 :actionType eupt:CANCEL ;
 				:eventType eupt:RESIDING;
 				:evidenceType eupt:PERMIT ;
                 :mandatorConstraint :Morcp09, :Morcp10, :Morcp11, :Morcp12 ;
                 :mandateeConstraint :Meecp09, :Meecp10, :Meecp11, :Meecp12 ;
-				:mandatee :Vicenc, :Thomas .
+				:mandatee :Thomas, :Ken .
 
 :Power-4  a :Power ;
+				:id [ccts:identifierValue "b7ec0ed6-8f7c-44ec-ad48-b0e7013b2559"] ;
                 :mandatorConstraint :Morcp13, :Morcp14 ;
                 :actionType eupt:REQUEST ;
 				:eventType eupt:STUDYING ;
@@ -173,6 +180,7 @@
                 :mandatee :Roberto .
 
 :Power-5  a :Power ;
+				:id [ccts:identifierValue "c025c6dc-8ea0-4b01-aa93-a2922c045d3b"] ;
                 :actionType eupt:REQUEST ;
 				:eventType eupt:STUDYING ;
 				:evidenceType eupt:INSCRIPTION;
@@ -181,6 +189,7 @@
                 :mandatee :Paula, :Ken .
 
 :Power-6  a :Power ;
+				:id [ccts:identifierValue "e1e898d5-a36d-4b0b-b25d-c6acdb33b4a5"] ;
 			    :actionType eupt:REQUEST ;
 				:eventType eupt:STUDYING ;
 				:evidenceType eupt:INSCRIPTION;
@@ -189,6 +198,7 @@
                 :mandatee :Helena, :Berto .
 
 :Power-7  a :Power ;
+				:id [ccts:identifierValue "e1e898d5-a36d-4b0b-b26d-c6acdb33b4a5"] ;
 				:actionType eupt:OBTAIN ;
 				:eventType eupt:STUDIYING ;
 				:evidenceType eupt:CERTIFICATE;
@@ -197,6 +207,7 @@
                 :mandatee :Paula .
 
 :Power-8  a :Power ;
+				:id [ccts:identifierValue "e1e898d5-a76d-4b0b-b26d-c6acdb33b4a5"] ;
 				:actionType eupt:SUBMIT ;
 				:eventType eupt:STUDIYING ;
 				:evidenceType eupt:CERTIFICATE ;
@@ -205,6 +216,7 @@
                 :mandatee :Lula .
 
 :Power-9  a :Power ;
+				:id [ccts:identifierValue "e1e898d5-a36d-480b-b26d-c6acdb33b4a5"] ;
 				:actionType eupt:OBTAIN ;
 				:eventType eupt:PAY ;
 				:evidenceType eupt:CERTIFICATE ;
@@ -213,6 +225,7 @@
                 :mandatee :Berto .
 
 :Power-10 a :Power ;
+				:id [ccts:identifierValue "e1e5898d5-a36d-480b-b26d-c6acdb33b4a5"] ;
 				:actionType eupt:STARTING_BUSINESS ;
 				:eventType eupt:PAY ;
 				:evidenceType eupt:CERTIFICATE ;

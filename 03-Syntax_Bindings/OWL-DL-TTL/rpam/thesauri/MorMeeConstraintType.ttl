@@ -41,4 +41,4 @@
 :OneSingleUse a owl:NamedIndividual, skos:Concept ;
 			skos:prefLabel "One single use"@en ;
 			skos:inScheme :PowerUseConstraints ;
-			skos:definition "The person cannot use the power more than once"@en ;
+			skos:definition "The person cannot use the power more than once"@en .
