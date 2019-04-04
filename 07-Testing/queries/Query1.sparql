@@ -1,0 +1,37 @@
+PREFIX : <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ccts: <http://www.unece.org/cefact#>
+PREFIX cc: <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/countrycode#>
+PREFIX ccev: <https://joinup.ec.europa.eu/collection/semic/ccev/2.0.3/ontology#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+# USER STORY: The mandates, powers and mandatees of the mandator called Serge.
+select distinct ?Mandate ?MandatorName ?MandateeName ?Power ?actionType ?eventType ?evidenceType 
+
+where {
+    ?Mandate  a :Mandate ;
+                :id [ccts:identifierValue ?MandateID] ;
+             	:mandator ?Mandator .
+     
+    
+    ?Mandator :id [ccts:identifierValue ?MandatorID] ;
+        	 :givenName ?MorgivenName ;
+              :familyName ?MorfamilyName ;
+    			:power ?Power .
+    
+    ?Mandatee :id [ccts:identifierValue ?MandateeID] ;
+        		:givenName ?MeegivenName ;
+              :familyName ?MeefamilyName .
+    
+	?Power :id [ccts:identifierValue ?PowerID] ;
+        	:actionType ?actionType ;
+           :eventType ?eventType ;
+           :evidenceType ?evidenceType ;
+    	   :mandatee ?Mandatee .
+    
+    bind (concat(?MorgivenName, " ", ?MorfamilyName) AS ?MandatorName)
+    bind (concat(?MeegivenName, " ", ?MeefamilyName) AS ?MandateeName)
+    
+	filter (?Mandator = :Serge)
+              	
+} order by ?Mandate

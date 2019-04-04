@@ -103,7 +103,7 @@
 				 :id [ccts:identifierValue "e1e898d5-a36d-4b0b-b26d-c6acdb33b4a5"] ;
 				 :delegationLevel 1 ;
 				 :Power :Power-2 ;
-			     :evidence :Mandate-1 .
+			     :object :Mandate-1 .
 				 #Interpretation: The mandate of serge is the power source of the 
 
 ############## Mandators ###################

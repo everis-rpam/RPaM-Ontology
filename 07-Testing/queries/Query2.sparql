@@ -1,0 +1,40 @@
+PREFIX : <https://joinup.ec.europa.eu/collection/rpam/1.1.0/ontology#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ccts: <http://www.unece.org/cefact#>
+PREFIX cc: <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/countrycode#>
+PREFIX ccev: <https://joinup.ec.europa.eu/collection/semic/ccev/2.0.3/ontology#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+# USER STORY: The mandates, powers and mandatees of the mandator called Vincenc and the power source of his powers.
+select distinct ?Mandate ?MandatorName ?MandateeName ?PowerSourceEvidence ?actionType ?eventType ?objectType 
+
+where {
+    ?Mandate  a :Mandate ;
+                :id [ccts:identifierValue ?MandateID] ;
+              :mandator ?Mandator .
+     
+    
+    ?Mandator :id [ccts:identifierValue ?MandatorID] ;
+           :givenName ?MorgivenName ;
+              :familyName ?MorfamilyName ;
+          :power ?Power .
+    
+    ?Mandatee :id [ccts:identifierValue ?MandateeID] ;
+            :givenName ?MeegivenName ;
+              :familyName ?MeefamilyName .
+    
+  ?Power :id [ccts:identifierValue ?PowerID] ;
+          :actionType ?actionType ;
+           :eventType ?eventType ;
+           :evidenceType ?objectType ;
+         :mandatee ?Mandatee .
+    
+    ?PowerSource a :PowerSource ;
+             :evidence ?PowerSourceEvidence .
+    
+    bind (concat(?MorgivenName, " ", ?MorfamilyName) AS ?MandatorName)
+    bind (concat(?MeegivenName, " ", ?MeefamilyName) AS ?MandateeName)
+    
+  filter (?Mandator = :Vicenc)
+                
+} order by ?Mandate
