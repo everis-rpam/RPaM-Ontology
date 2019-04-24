@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataElementDictionary xmlns:epo="http://data.europa.eu/ePO/ontology#"
+                       xmlns:ccts="urn:un:unece:uncefact:documentation:2"
+                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                       xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
+                       xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0"
+                       xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"
+                       xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
+                       xmlns:sembu="http://www.everis.com/sembu/glossary/ods2iso11179#">
+   <sembu:DictionaryEntry>
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+            <ccts:DictionaryEntryName>Agent</ccts:DictionaryEntryName>
+            <ccts:Definition>A natural person, a legal person or a system.</ccts:Definition>
+            <ccts:Source>RPaM</ccts:Source>
+            <ccts:EntryType>CLASS</ccts:EntryType>
+         </xsd:documentation>
+      </xsd:annotation>
+   </sembu:DictionaryEntry>
+   <sembu:DictionaryEntry>
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+            <ccts:DictionaryEntryName>eAuthentication</ccts:DictionaryEntryName>
+            <ccts:Definition>An electronic process that enables the electronic identification of a natural or legal person, or the origin and integrity of data in electronic form to be confirmed.</ccts:Definition>
+            <ccts:AdditionalInformation>See Article 3, Definitions, of the eIDAS Regulation.</ccts:AdditionalInformation>
+            <ccts:Source>eIDAS Regulation</ccts:Source>
+            <ccts:SourceURL>https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32014R0910</ccts:SourceURL>
+            <ccts:EntryType>CLASS</ccts:EntryType>
+         </xsd:documentation>
+      </xsd:annotation>
+   </sembu:DictionaryEntry>
+   <sembu:DictionaryEntry>
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+            <ccts:DictionaryEntryName>eAuthorisation</ccts:DictionaryEntryName>
+            <ccts:Definition>An electronic process that enables an agent to access and use a system after checking that the agent, or the one represented by the agent, has the right to use it.</ccts:Definition>
+            <ccts:AdditionalInformation>eAuthorisation occurs after previous eIdentification and eAuthentication in that system. Agents that are authorised can be natural persons or systems. Agents that act on behalf of a natural or legal persons may need a mandate.</ccts:AdditionalInformation>
+            <ccts:EntryType>CLASS</ccts:EntryType>
+         </xsd:documentation>
+      </xsd:annotation>
+   </sembu:DictionaryEntry>
+   <sembu:DictionaryEntry>
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+            <ccts:DictionaryEntryName>eAuthorisation criterion</ccts:DictionaryEntryName>
+            <ccts:Definition>A condition that needs to be answered to evaluate whether a user has the right to use a system.</ccts:Definition>
+            <ccts:AdditionalInformation>In the context of RPaM, eAuthorisation Criteria may contain a tuple composed of an Information Requirement and a Constraint used to evaluate the right of a mandatee to use a Service.Both the Information Requirement and the Constraint are optional elements.The answer to the criterion is normally expected from an authority, e.g. an offiicial Mandate Registry or Management System.</ccts:AdditionalInformation>
+            <ccts:Source>Adapted from the definition of the Criterion by the Core Criterion and Evidence Vocabulary</ccts:Source>
+            <ccts:SourceURL>https://github.com/everis-rpam/RPaM-Ontology/wiki/The-use-of-the-CCEV-in-RPaM</ccts:SourceURL>
+            <ccts:EntryType>CLASS</ccts:EntryType>
+         </xsd:documentation>
+      </xsd:annotation>
+   </sembu:DictionaryEntry>
+   <sembu:DictionaryEntry>
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+            <ccts:DictionaryEntryName>eBusiness document</ccts:DictionaryEntryName>
+            <ccts:Definition>A set of interrelated information representing the facts, data, or opinions, in any medium or form, including textual, numerical, graphic, cartographic, narrative, or audio-visual forms that the capability exchanges with other capabilities to support the execution of value streams.</ccts:Definition>
+            <ccts:Source>ISA2</ccts:Source>
+            <ccts:EntryType>CLASS</ccts:EntryType>
+         </xsd:documentation>
+      </xsd:annotation>
+   </sembu:DictionaryEntry>
+   <sembu:DictionaryEntry>
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+            <ccts:DictionaryEntryName>eIdentification</ccts:DictionaryEntryName>
+            <ccts:Definition>Electronic identification means the process of using person identification data in electronic form uniquely representing either a natural or legal person, or a natural person representing a legal person.</ccts:Definition>
+            <ccts:AdditionalInformation>See Article 3, Definitions, of the eIDAS Regulation.</ccts:AdditionalInformation>
+            <ccts:Source>eIDAS Regulation</ccts:Source>
+            <ccts:SourceURL>https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32014R0910</ccts:SourceURL>
+            <ccts:EntryType>CLASS</ccts:EntryType>
+         </xsd:documentation>
+      </xsd:annotation>
+   </sembu:DictionaryEntry>
+   <sembu:DictionaryEntry>
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+            <ccts:DictionaryEntryName>eSignature</ccts:DictionaryEntryName>
+            <ccts:Definition>Data in electronic form which is attached to or logically associated with other data in electronic form and which is used by the signatory to sign.</ccts:Definition>
+            <ccts:AdditionalInformation>See Article 3, Definitions, of the eIDAS Regulation.</ccts:AdditionalInformation>
+            <ccts:Source>eIDAS Regulation</ccts:Source>
+            <ccts:SourceURL>https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32014R0910</ccts:SourceURL>
+            <ccts:EntryType>CLASS</ccts:EntryType>
+         </xsd:documentation>
+      </xsd:annotation>
+   </sembu:DictionaryEntry>
+   <sembu:DictionaryEntry>
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+            <ccts:DictionaryEntryName>Legal person</ccts:DictionaryEntryName>
+            <ccts:Definition>A body of persons or an entity (as a corporation) considered as having many of the rights and responsibilities of a natural person.</ccts:Definition>
+            <ccts:Source>Merriam-Webster</ccts:Source>
+            <ccts:SourceURL>https://www.merriam-webster.com/legal/natural%20person</ccts:SourceURL>
+            <ccts:EntryType>CLASS</ccts:EntryType>
+         </xsd:documentation>
+      </xsd:annotation>
+   </sembu:DictionaryEntry>
+   <sembu:DictionaryEntry>
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+            <ccts:DictionaryEntryName>Mandate</ccts:DictionaryEntryName>
+            <ccts:Definition>Record that describes the terms under which a mandator grants a representation power to a mandatee.</ccts:Definition>
+            <ccts:Source>REA, Registro Electrónico de Apoderamientos, Spain</ccts:Source>
+            <ccts:SourceURL>https://github.com/everis-rpam/RPaM-Ontology/issues/13</ccts:SourceURL>
+            <ccts:EntryType>CLASS</ccts:EntryType>
+         </xsd:documentation>
+      </xsd:annotation>
+   </sembu:DictionaryEntry>
+   <sembu:DictionaryEntry>
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+            <ccts:DictionaryEntryName>Mandatee</ccts:DictionaryEntryName>
+            <ccts:Definition>An agent that can act on behalf of another agent using a mandate.</ccts:Definition>
+            <ccts:Source>RPaM</ccts:Source>
+            <ccts:EntryType>CLASS</ccts:EntryType>
+         </xsd:documentation>
+      </xsd:annotation>
+   </sembu:DictionaryEntry>
+   <sembu:DictionaryEntry>
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+            <ccts:DictionaryEntryName>Mandator</ccts:DictionaryEntryName>
+            <ccts:Definition>An agent that grants one or more powers to another agent via a mandate.</ccts:Definition>
+            <ccts:Source>RPaM</ccts:Source>
+            <ccts:EntryType>CLASS</ccts:EntryType>
+         </xsd:documentation>
+      </xsd:annotation>
+   </sembu:DictionaryEntry>
+   <sembu:DictionaryEntry>
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+            <ccts:DictionaryEntryName>Natural person</ccts:DictionaryEntryName>
+            <ccts:Definition>A human being as distinguished from a person (as a corporation) created by operation of law.</ccts:Definition>
+            <ccts:Source>RPaM</ccts:Source>
+            <ccts:EntryType>CLASS</ccts:EntryType>
+         </xsd:documentation>
+      </xsd:annotation>
+   </sembu:DictionaryEntry>
+   <sembu:DictionaryEntry>
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+            <ccts:DictionaryEntryName>Person</ccts:DictionaryEntryName>
+            <ccts:Definition>A natural and/or legal person.</ccts:Definition>
+            <ccts:AdditionalInformation>In the context of RPaM, the term "person" is used to refer to any type of person, i.e. natural or legal person.</ccts:AdditionalInformation>
+            <ccts:Source>RPaM</ccts:Source>
+            <ccts:EntryType>CLASS</ccts:EntryType>
+         </xsd:documentation>
+      </xsd:annotation>
+   </sembu:DictionaryEntry>
+   <sembu:DictionaryEntry>
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+            <ccts:DictionaryEntryName>Power</ccts:DictionaryEntryName>
+            <ccts:Definition>The capacity to act.</ccts:Definition>
+            <ccts:AdditionalInformation>This refers normally to the power of the person that "owns" the power, which in the context of RPaM this is the "represented person".</ccts:AdditionalInformation>
+            <ccts:Source>RPaM</ccts:Source>
+            <ccts:EntryType>CLASS</ccts:EntryType>
+         </xsd:documentation>
+      </xsd:annotation>
+   </sembu:DictionaryEntry>
+   <sembu:DictionaryEntry>
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+            <ccts:DictionaryEntryName>Representation power</ccts:DictionaryEntryName>
+            <ccts:Definition>The capacity to act on behalf of a person.</ccts:Definition>
+            <ccts:Source>RPaM</ccts:Source>
+            <ccts:EntryType>CLASS</ccts:EntryType>
+         </xsd:documentation>
+      </xsd:annotation>
+   </sembu:DictionaryEntry>
+   <sembu:DictionaryEntry>
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+            <ccts:DictionaryEntryName>Service Provider</ccts:DictionaryEntryName>
+            <ccts:Definition>An organisation, public or private, that provides an online service.</ccts:Definition>
+            <ccts:AdditionalInformation>In the context of RPaM these are normally public administrations online that rely on the information contained in a mandate issued by an authoritative Mandate Management System.</ccts:AdditionalInformation>
+            <ccts:EntryType>CLASS</ccts:EntryType>
+         </xsd:documentation>
+      </xsd:annotation>
+   </sembu:DictionaryEntry>
+   <sembu:DictionaryEntry>
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+            <ccts:DictionaryEntryName>Mandate Management System</ccts:DictionaryEntryName>
+            <ccts:Definition>A repository of mandates that are accessible by electronic means.</ccts:Definition>
+            <ccts:AdditionalInformation>In the context of RPaM these are normally authoritative registries. Hence, in RPaM, we also call them "eMandate Registries".</ccts:AdditionalInformation>
+            <ccts:Source>RPaM</ccts:Source>
+            <ccts:EntryType>CLASS</ccts:EntryType>
+         </xsd:documentation>
+      </xsd:annotation>
+   </sembu:DictionaryEntry>
+</DataElementDictionary>
