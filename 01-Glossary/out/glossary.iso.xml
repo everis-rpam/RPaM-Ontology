@@ -7,17 +7,6 @@
                        xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"
                        xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
                        xmlns:sembu="http://www.everis.com/sembu/glossary/ods2iso11179#">
-   <sembu:ProjectMetadata>
-      <sembu:ProjectShortName>RPaM</sembu:ProjectShortName>
-      <sembu:ProjectLongName>Representation Powers and Mandates</sembu:ProjectLongName>
-      <sembu:ProjectVersionID>v1.1.0</sembu:ProjectVersionID>
-      <sembu:ProjectStatus>On going</sembu:ProjectStatus>
-      <sembu:ProjectGlossaryTitle>RPaM Ontology Glossary</sembu:ProjectGlossaryTitle>
-      <sembu:ProjectDescriptionLine>The following list of concepts have been identified through the analysis of the RPaM Business Domain.</sembu:ProjectDescriptionLine>
-      <sembu:ProjectDescriptionLine>Click on a term to hide/show the definition and related terms.</sembu:ProjectDescriptionLine>
-      <sembu:ProjectDescriptionLine>Each entry of the glossary represents a capital concept of the business domain and the ontology.</sembu:ProjectDescriptionLine>
-      <sembu:ProjectDescriptionLine>For more details on the properties of a concept please visit the conceptual diagrams in the [RPaM GitHub wiki](https://github.com/everis-rpam/RPaM-Ontology/wiki/Conceptual-Model-v1.1).</sembu:ProjectDescriptionLine>
-   </sembu:ProjectMetadata>
    <sembu:DictionaryEntry>
       <xsd:annotation>
          <xsd:documentation xml:lang="en">
