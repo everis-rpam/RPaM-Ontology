@@ -12,13 +12,14 @@ xmlns:math="http://exslt.org/math"
 extension-element-prefixes="math sembu office style table text">
 
 	<xsl:output method="html" encoding="UTF-8" indent="yes"/>
+	<xsl:param name="title" select="//*/sembu:ProjectGlossaryTitle"/>
 
 	<xsl:template match="/">
 		<xsl:call-template name="HTMLHeader"/>
 		<xsl:call-template name="beginBody"/>
 			<xsl:text disable-output-escaping="yes">&lt;tr&gt;</xsl:text>
 				<xsl:text disable-output-escaping="yes">&lt;td&gt;</xsl:text>
-					<xsl:apply-templates/>
+					<!--xsl:apply-templates/-->
 				<xsl:text disable-output-escaping="yes">&lt;/td&gt;</xsl:text>
 				<xsl:text disable-output-escaping="yes">&lt;tr&gt;</xsl:text>
 		<xsl:call-template name="endBody"/>		
@@ -101,10 +102,11 @@ extension-element-prefixes="math sembu office style table text">
 	</xsl:template>
 
 	<xsl:template name="HTMLHeader">
+		
 		<xsl:text disable-output-escaping="yes">&lt;html&gt;</xsl:text>	
 		<head>
 			<meta charset="UTF-8"/>
-			<title>Glossary</title>
+			<title><xsl:value-of select="$title"/></title>
 			<link rel = "stylesheet"   type = "text/css"   href = "./css/Glossary.css"/>
 		</head>
 	</xsl:template>
@@ -115,10 +117,11 @@ extension-element-prefixes="math sembu office style table text">
 		<xsl:text disable-output-escaping="yes">&lt;tr&gt;</xsl:text>
 			<xsl:text disable-output-escaping="yes">&lt;td&gt;</xsl:text>
 				<xsl:text disable-output-escaping="yes">&lt;body&gt;</xsl:text>
-				<h1 class="title_font">Ontology Glossary</h1>
+		<h1 class="title_font"><xsl:value-of select="$title"/></h1>
 				<div class="normal_font">
-					<p>The following list of concepts have been identified through the analysis of the Business Domain.</p>
-					<p>Click on the term to see the definition and related information.</p>
+					<!-- xsl:for-each select="//*/sembu:ProjectDescriptionLine"-->
+						<p/><xsl:value-of select="/DataElementDictionary/sembu:ProjectMetadata/sembu:ProjectDescriptionLine"/>
+					<!--/xsl:for-each-->
 				</div>
 
 				<p>

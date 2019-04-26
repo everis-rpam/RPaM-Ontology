@@ -25,9 +25,14 @@ xmlns:sembu="http://www.everis.com/sembu/glossary/ods2iso11179#">
 	</xsl:template>
 	
 	<xsl:template match="office:spreadsheet/table:table" priority="3">
-		<xsl:if test="@table:name='Glossary'">
-					<xsl:apply-templates select="table:table-row"/>
-		</xsl:if>				
+		<xsl:choose>
+			<xsl:when test="upper-case(@table:name)='GLOSSARY'">
+				<xsl:apply-templates select="table:table-row"/>				
+			</xsl:when>
+			<xsl:when test="upper-case(@table:name)='METADATA'">
+				<xsl:call-template name="createMetadata"/>
+			</xsl:when>
+		</xsl:choose>
 	</xsl:template>
 
 	<xsl:function name="sembu:getCellContent">
@@ -87,4 +92,38 @@ xmlns:sembu="http://www.everis.com/sembu/glossary/ods2iso11179#">
 			</sembu:DictionaryEntry>
 		</xsl:if>
 	</xsl:template>	
+	
+	<xsl:template name="createMetadata">
+		
+		<xsl:variable name="projectShortName" select="lower-case('${shortname}')"/>
+		<xsl:variable name="projectLongName" select="lower-case('${longname}')"/>
+		<xsl:variable name="projectVersionID" select="lower-case('${versionid}')"/>
+		<xsl:variable name="projectStatus" select="lower-case('${projectstatus}')"/>
+		<xsl:variable name="glossaryTitle" select="lower-case('${glossarytitle}')"/>
+		<xsl:variable name="descriptionLine" select="lower-case('${descriptionline}')"/>
+		<sembu:ProjectMetadata>
+		<xsl:for-each select="table:table-row">
+			<xsl:choose>
+				<xsl:when test="lower-case(sembu:getCellContent(., 5)) = $projectShortName">
+					<sembu:ProjectShortName><xsl:value-of select="sembu:getCellContent(., 3)"/></sembu:ProjectShortName>
+				</xsl:when>
+				<xsl:when test="lower-case(sembu:getCellContent(., 5)) = $projectLongName">
+					<sembu:ProjectLongName><xsl:value-of select="sembu:getCellContent(., 3)"/></sembu:ProjectLongName>
+				</xsl:when>
+				<xsl:when test="lower-case(sembu:getCellContent(., 5)) = $projectVersionID">
+					<sembu:ProjectVersionID><xsl:value-of select="sembu:getCellContent(., 3)"/></sembu:ProjectVersionID>
+				</xsl:when>
+				<xsl:when test="lower-case(sembu:getCellContent(., 5)) = $projectStatus">
+					<sembu:ProjectStatus><xsl:value-of select="sembu:getCellContent(., 3)"/></sembu:ProjectStatus>
+				</xsl:when>
+				<xsl:when test="lower-case(sembu:getCellContent(., 5)) = $glossaryTitle">
+					<sembu:ProjectGlossaryTitle><xsl:value-of select="sembu:getCellContent(., 3)"/></sembu:ProjectGlossaryTitle>
+				</xsl:when>
+				<xsl:when test="lower-case(sembu:getCellContent(., 5)) = $descriptionLine">
+					<sembu:ProjectDescriptionLine><xsl:value-of select="sembu:getCellContent(., 3)"/></sembu:ProjectDescriptionLine>
+				</xsl:when>
+			</xsl:choose>
+		</xsl:for-each>
+		</sembu:ProjectMetadata>
+	</xsl:template>
 </xsl:stylesheet>
