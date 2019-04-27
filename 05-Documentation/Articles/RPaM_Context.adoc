@@ -1,0 +1,10 @@
+== RPaM Context
+
+Representation Powers and Mandates (RPaM), is an 
+link:https://joinup.ec.europa.eu/collection/isa-action-201612-semantic-interoperability-representation-powers-and-mandates-0/about[ISA2 Action] 
+aiming at the creation of a *shared European data model about representation powers and mandates*, which allows powers/mandates information originated in the information systems of one country to be directly processed automatically by the information systems in other country. 
+
+The RPaM project takes in the developments of other EU projects, notably the ones by link:https://joinup.ec.europa.eu/collection/secure-identity-across-borders-linked-stork/about[STORK 2.0], where significant results were achieved by means of pilots. ISA2 takes leverage takes over the work done in STORK 2.0 and other initiatives and puts forward the development of a *_Representation powers and mandates ontology_*, thus progressing towards 
+the single digital market and the semantic harmonisation Europe-wide.
+
+

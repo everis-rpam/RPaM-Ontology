@@ -1,0 +1,6 @@
+== The RPaM Ontology
+
+The ultimate objective of the RPaM Ontology is to put forth a commonly agreed vocabulary that will conceptualise, formally encode and make available in an open, structured and machine-readable format data about the representation of powers and mandates, covering it from end to end. It is the intention of the vocabulary to unify existing practices, thus facilitating seamless exchange, access and reuse of data.
+
+
+

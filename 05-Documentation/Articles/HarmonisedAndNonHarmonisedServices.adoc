@@ -1,0 +1,39 @@
+ *_Disclaimer_*
+
+ _The information and views set out in this publication are those of the author(s) and do not necessarily reflect the official opinion of the European Commission. The Commission does not guarantee the accuracy of the data included in this document. Neither the Commission nor any person acting on the Commission’s behalf may be held responsible for the use which may be made of the information contained therein._
+
+ _(c) European Union, 2019_
+
+If the data and services that interoperate are based on common EU legislation and agreed
+processes and instruments footnote:[_Instrument_ is used here in a broad sense, meaning and ad-hoc legal and technical solution to ensure the responsibilities and business
+capabilities of the stakeholders supporting the systems that interoperate.], it should possible to have common service models, so that one MS recognises the validity and authenticity of the information provided by another MS, as if it were provided by an authority of its own country. 
+
+In the context of the European Union, this harmonisation should be possible, at least for common public administrative procedures footnote:[One example could be the actions in front of public administrations described in the proposal of a Single Digital Gateway
+Regulation (SDGR). 
+
+This should build a “ring of trust” based on the responsibilities and liabilities that each stakeholder assumes when
+committing to interoperate. Harmonised services can be seen as services that are identical or very similar in terms of objectives, processes, inputs and outputs for all EU MS. 
+
+Users should be able to access services regardless of the MS where the service is implemented. Hence, it is necessary to distinguish between systems that provide “harmonised” services and those that do not.
+
+In both cases the the system providing the service (the service provider, or SP) needs to rely on the data provided by a cross-border source of truth (e.g. a Register, a recognised data base, other authoritative sources).
+
+In regards to the RPaM Ontology, we state that two or more _services are harmonised when 1) they have identical service information requirements and constraints, and 2) the responses to these can be conveyed in a mandate._
+
+Non-harmonised services should also be brought into the "ring of trust" progressively. Hence RPaM puts forward solutions for the non-harmonised service providers to define service-specific information requirements and constraints. Let us call them "eAuthorisation criteria". The RPaM ontology provides also eBusiness Document placeholders to convey these criteria. 
+
+[Tip]
+====
+*_For more information about Service Information Requirements and Constraints see this piece of documentation link:https://github.com/everis-rpam/RPaM-Ontology/wiki/Use-of-the-CCEV-in-RPaM[Use of the CCEV in RPaM]_*
+==== 
+
+In time, instruments such as eIDAS Regulation and the eIDAS infrastructure (and other alike, some to be defined), should be sufficient for non-harmonised services, both public and private, to jump onto the "ring-of-trust".
+
+From the interoperability perspective, there is yet an organisational aspect footnote:[See the definition of "organisational interoperability" in the link:https://ec.europa.eu/isa2/eif_en[EIF] (European Interoperability Framework)] that needs to be considered. The possibility that any service defines its own specific eAuthorisation criteria may end up in a so high number of heterogeneous criteria than it would be impossible to manage them on the end-user side. If the criteria to use a cross-boder service cannot be somehow easily "mapped" between the EU MS Service Providers the burden imposed on the user and the administrations will be too high, and the interoperability crippled.
+
+In ISA2 there is a reusable solution that copes with exactly this situation: link:https://joinup.ec.europa.eu/collection/ict-standards-procurement/eprocurement[eCertis]. In RPaM we propose to use eCertis as the tool 1) for the Service Providers to define and manage eAuthorisation criteria (eAC management), and 2) for the eMandate Registries to define constraints on the use of powers (PUC management). This is a proposal that will need thorough reflection, policy drafting and most probably legal support. 
+
+[Tip]
+====
+*_For more details on how RPaM approaches this proposal see this piece of documentation link:[Use of eCertis in RPaM]._
+==== 
