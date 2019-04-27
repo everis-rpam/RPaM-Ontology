@@ -7,6 +7,17 @@
                        xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"
                        xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
                        xmlns:sembu="http://www.everis.com/sembu/glossary/ods2iso11179#">
+   <sembu:GlossaryMetadata>
+      <sembu:ProjectShortName>RPaM</sembu:ProjectShortName>
+      <sembu:ProjectLongName>Representation Powers and Mandates</sembu:ProjectLongName>
+      <sembu:ProjectVersionID>v1.1.0</sembu:ProjectVersionID>
+      <sembu:ProjectStatus>On going</sembu:ProjectStatus>
+      <sembu:GlossaryTitle>RPaM Ontology Glossary</sembu:GlossaryTitle>
+      <sembu:DescriptionLine>The following list of concepts have been identified through the analysis of the RPaM Business Domain.</sembu:DescriptionLine>
+      <sembu:DescriptionLine>Click on a term to hide/show the definition and related terms.</sembu:DescriptionLine>
+      <sembu:DescriptionLine>Each entry of the glossary represents a capital concept of the business domain and the ontology.</sembu:DescriptionLine>
+      <sembu:DescriptionLine>For more details on the properties of a concept please visit the conceptual diagrams in the [RPaM GitHub wiki](https://github.com/everis-rpam/RPaM-Ontology/wiki/Conceptual-Model-v1.1).</sembu:DescriptionLine>
+   </sembu:GlossaryMetadata>
    <sembu:DictionaryEntry>
       <xsd:annotation>
          <xsd:documentation xml:lang="en">
@@ -35,6 +46,8 @@
             <ccts:DictionaryEntryName>eAuthorisation</ccts:DictionaryEntryName>
             <ccts:Definition>An electronic process that enables an agent to access and use a system after checking that the agent, or the one represented by the agent, has the right to use it.</ccts:Definition>
             <ccts:AdditionalInformation>eAuthorisation occurs after previous eIdentification and eAuthentication in that system. Agents that are authorised can be natural persons or systems. Agents that act on behalf of a natural or legal persons may need a mandate.</ccts:AdditionalInformation>
+            <ccts:Source>RPaM</ccts:Source>
+            <ccts:SourceURL>https://github.com/everis-rpam/RPaM-Ontology/wiki/</ccts:SourceURL>
             <ccts:EntryType>CLASS</ccts:EntryType>
          </xsd:documentation>
       </xsd:annotation>
@@ -56,7 +69,7 @@
          <xsd:documentation xml:lang="en">
             <ccts:DictionaryEntryName>eBusiness document</ccts:DictionaryEntryName>
             <ccts:Definition>A set of interrelated information representing the facts, data, or opinions, in any medium or form, including textual, numerical, graphic, cartographic, narrative, or audio-visual forms that the capability exchanges with other capabilities to support the execution of value streams.</ccts:Definition>
-            <ccts:Source>ISA2</ccts:Source>
+            <ccts:Source>ISA2 (SEMIC internal definition)</ccts:Source>
             <ccts:EntryType>CLASS</ccts:EntryType>
          </xsd:documentation>
       </xsd:annotation>
@@ -101,6 +114,7 @@
          <xsd:documentation xml:lang="en">
             <ccts:DictionaryEntryName>Mandate</ccts:DictionaryEntryName>
             <ccts:Definition>Record that describes the terms under which a mandator grants a representation power to a mandatee.</ccts:Definition>
+            <ccts:AdditionalInformation>Mandates are registered in Mandate Management Systems (e.g. authoritative Mandate Registries). When the creation and registration of the mandate is not performed by the represented person his or her explicit consent is required. The consent of the mandatee is also frequently required. Special situations where the represented person does not consent may occur, too, e.g. when the person is incapacitated and the mandate is created by a intermediary agent.</ccts:AdditionalInformation>
             <ccts:Source>REA, Registro Electrónico de Apoderamientos, Spain</ccts:Source>
             <ccts:SourceURL>https://github.com/everis-rpam/RPaM-Ontology/issues/13</ccts:SourceURL>
             <ccts:EntryType>CLASS</ccts:EntryType>
@@ -110,8 +124,42 @@
    <sembu:DictionaryEntry>
       <xsd:annotation>
          <xsd:documentation xml:lang="en">
+            <ccts:DictionaryEntryName>Mandate Request</ccts:DictionaryEntryName>
+            <ccts:Definition>An eBusiness Document used by the Service Provider to ask for one or more mandates aimed to authorise a user that is trying to use its Service(s).</ccts:Definition>
+            <ccts:AdditionalInformation>The Mandate Request specifies mainly the data that will be needed to find one or more mandates with the information needed to authorise the access of the user.</ccts:AdditionalInformation>
+            <ccts:Source>RPaM</ccts:Source>
+            <ccts:SourceURL>https://github.com/everis-rpam/RPaM-Ontology/wiki/</ccts:SourceURL>
+            <ccts:EntryType>CLASS</ccts:EntryType>
+         </xsd:documentation>
+      </xsd:annotation>
+   </sembu:DictionaryEntry>
+   <sembu:DictionaryEntry>
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+            <ccts:DictionaryEntryName>Mandate Response</ccts:DictionaryEntryName>
+            <ccts:Definition>An eBusiness Document used by the Mandate Management System as an answer to a Mandate Request.</ccts:Definition>
+            <ccts:AdditionalInformation>The Mandate Response contains the mandate(s) and optional additional information necessary to authorise a user in a relying service provider system.</ccts:AdditionalInformation>
+            <ccts:Source>RPaM</ccts:Source>
+            <ccts:EntryType>CLASS</ccts:EntryType>
+         </xsd:documentation>
+      </xsd:annotation>
+   </sembu:DictionaryEntry>
+   <sembu:DictionaryEntry>
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
             <ccts:DictionaryEntryName>Mandatee</ccts:DictionaryEntryName>
             <ccts:Definition>An agent that can act on behalf of another agent using a mandate.</ccts:Definition>
+            <ccts:Source>RPaM</ccts:Source>
+            <ccts:EntryType>CLASS</ccts:EntryType>
+         </xsd:documentation>
+      </xsd:annotation>
+   </sembu:DictionaryEntry>
+   <sembu:DictionaryEntry>
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+            <ccts:DictionaryEntryName>Mandate Management System</ccts:DictionaryEntryName>
+            <ccts:Definition>A repository of mandates that are accessible by electronic means.</ccts:Definition>
+            <ccts:AdditionalInformation>In the context of RPaM these are normally authoritative registries. Hence, in RPaM, they are also called "eMandate Registries".</ccts:AdditionalInformation>
             <ccts:Source>RPaM</ccts:Source>
             <ccts:EntryType>CLASS</ccts:EntryType>
          </xsd:documentation>
@@ -141,7 +189,7 @@
       <xsd:annotation>
          <xsd:documentation xml:lang="en">
             <ccts:DictionaryEntryName>Person</ccts:DictionaryEntryName>
-            <ccts:Definition>A natural and/or legal person.</ccts:Definition>
+            <ccts:Definition>A natural or a legal person.</ccts:Definition>
             <ccts:AdditionalInformation>In the context of RPaM, the term "person" is used to refer to any type of person, i.e. natural or legal person.</ccts:AdditionalInformation>
             <ccts:Source>RPaM</ccts:Source>
             <ccts:EntryType>CLASS</ccts:EntryType>
@@ -175,16 +223,6 @@
             <ccts:DictionaryEntryName>Service Provider</ccts:DictionaryEntryName>
             <ccts:Definition>An organisation, public or private, that provides an online service.</ccts:Definition>
             <ccts:AdditionalInformation>In the context of RPaM these are normally public administrations online that rely on the information contained in a mandate issued by an authoritative Mandate Management System.</ccts:AdditionalInformation>
-            <ccts:EntryType>CLASS</ccts:EntryType>
-         </xsd:documentation>
-      </xsd:annotation>
-   </sembu:DictionaryEntry>
-   <sembu:DictionaryEntry>
-      <xsd:annotation>
-         <xsd:documentation xml:lang="en">
-            <ccts:DictionaryEntryName>Mandate Management System</ccts:DictionaryEntryName>
-            <ccts:Definition>A repository of mandates that are accessible by electronic means.</ccts:Definition>
-            <ccts:AdditionalInformation>In the context of RPaM these are normally authoritative registries. Hence, in RPaM, we also call them "eMandate Registries".</ccts:AdditionalInformation>
             <ccts:Source>RPaM</ccts:Source>
             <ccts:EntryType>CLASS</ccts:EntryType>
          </xsd:documentation>

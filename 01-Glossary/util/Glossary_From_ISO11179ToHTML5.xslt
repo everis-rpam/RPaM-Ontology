@@ -10,18 +10,19 @@ xmlns:ccts="urn:un:unece:uncefact:documentation:2"
 xmlns:sembu="http://www.everis.com/sembu/glossary/ods2iso11179#"
 xmlns:math="http://exslt.org/math"
 extension-element-prefixes="math sembu office style table text">
-
+	<xsl:import href="inc/url-md2html.xsl"/>
 	<xsl:output method="html" encoding="UTF-8" indent="yes"/>
-
+	<xsl:param name="title" select="//*/sembu:GlossaryTitle"/>
 	<xsl:template match="/">
 		<xsl:call-template name="HTMLHeader"/>
 		<xsl:call-template name="beginBody"/>
-			<xsl:text disable-output-escaping="yes">&lt;tr&gt;</xsl:text>
+		<xsl:text disable-output-escaping="yes">&lt;tr&gt;</xsl:text>
 				<xsl:text disable-output-escaping="yes">&lt;td&gt;</xsl:text>
-					<xsl:apply-templates/>
+					<xsl:apply-templates select="//*/sembu:DictionaryEntry"/>
 				<xsl:text disable-output-escaping="yes">&lt;/td&gt;</xsl:text>
 				<xsl:text disable-output-escaping="yes">&lt;tr&gt;</xsl:text>
-		<xsl:call-template name="endBody"/>		
+		<xsl:call-template name="endBody"/>
+				
 	</xsl:template>
 	
 	<xsl:template match="sembu:DictionaryEntry">
@@ -32,7 +33,7 @@ extension-element-prefixes="math sembu office style table text">
 		<xsl:apply-templates select="xsd:documentation"/>
 	</xsl:template>
 
-<xsl:template match="xsd:documentation">
+	<xsl:template match="xsd:documentation">
 		
 		<xsl:variable name="entryPos">
 			<xsl:number count="sembu:DictionaryEntry" format="1"/>
@@ -104,23 +105,39 @@ extension-element-prefixes="math sembu office style table text">
 		<xsl:text disable-output-escaping="yes">&lt;html&gt;</xsl:text>	
 		<head>
 			<meta charset="UTF-8"/>
-			<title>Glossary</title>
+			<title><xsl:value-of select="$title"/></title>
 			<link rel = "stylesheet"   type = "text/css"   href = "./css/Glossary.css"/>
 		</head>
 	</xsl:template>
-	
+
+	<xsl:template name="metadata">
+		<h1 class="title_font"><xsl:value-of select="$title"/></h1>
+			<div class="normal_font">
+				<xsl:for-each select="//*/sembu:DescriptionLine">
+					<xsl:variable name="line" select="."/>
+					<xsl:choose>
+						<xsl:when test="contains($line, '[') 
+							and contains($line, ']') and contains($line, '(') 
+							and contains($line, ')')">
+							<p/>
+							<xsl:call-template name="sembu:url">
+								<xsl:with-param name="line" select="."/>
+							</xsl:call-template>
+					</xsl:when>
+					<xsl:otherwise>
+						<p/><xsl:value-of select="$line"/>
+					</xsl:otherwise>
+					</xsl:choose>
+				</xsl:for-each>					
+		</div>
+	</xsl:template>
 	<xsl:template name="beginBody">
 		
 	<xsl:text disable-output-escaping="yes">&lt;table width=70%" align="center"&gt;</xsl:text>
 		<xsl:text disable-output-escaping="yes">&lt;tr&gt;</xsl:text>
 			<xsl:text disable-output-escaping="yes">&lt;td&gt;</xsl:text>
 				<xsl:text disable-output-escaping="yes">&lt;body&gt;</xsl:text>
-				<h1 class="title_font">Ontology Glossary</h1>
-				<div class="normal_font">
-					<p>The following list of concepts have been identified through the analysis of the Business Domain.</p>
-					<p>Click on the term to see the definition and related information.</p>
-				</div>
-
+				<xsl:call-template name="metadata"/>
 				<p>
 					<a class="anchor" href="#index"/>
 					<div class="index" id="index">
