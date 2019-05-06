@@ -1,4 +1,5 @@
-@prefix : 	<https://joinup.ec.europa.eu/collectiocc
+@prefix : <https://joinup.ec.europa.eu/collection/rpam/1.0.0/thesauri/MorMee> .
+
 :ValidityPeriodConstraint a owl:NamedIndividual, skos:Concept ;
 			skos:prefLabel "Validity period"@en ;
 			skos:inScheme :PowerUseConstraints ;
@@ -8,3 +9,4 @@
 			skos:prefLabel "One single use"@en ;
 			skos:inScheme :PowerUseConstraints ;
 			skos:definition "The person cannot use the power more than once"@en .
+
