@@ -34,7 +34,7 @@
 
 :actionType rdf:type owl:ObjectProperty ;
                rdfs:domain :Power ;
-               rdfs:range eupt:POWER_ACTION ;
+               rdfs:range skos:Concept ;
                rdfs:label "hasActionType"@en .
               #skos:definition "...."@en .
 
@@ -44,13 +44,10 @@
 			rdfs:label "belongsTo"@en .
 			#skos:definition "..."@en .
 
-:constraint rdf:type owl:ObjectProperty ;
-			rdfs:domain ccev:CriterionProperty ;
-			rdfs:range ccev:CriterionPropertyDatum ;
-			owl:disjointWith :informationRequirement ;
-			# owl2:disjointObjectProperties :informationRequirement ; I think this approach is better. Needs to be discussed.
-			rdfs:label "hasConstraint"@en .
-			#skos:definition "..."@en .
+:constraintType rdf:type owl:ObjectProperty ;
+				rdfs:domain ccev:CriterionProperty ;
+				rdfs:range skos:concept ;
+				rdfs:label "hasConstraintType"@en .
 
 :contact rdf:type owl:ObjectProperty ;
          rdfs:domain :Agent ;
@@ -63,9 +60,17 @@
           rdfs:label "hasCoRepresentative"@en .
           #skos:definition "..."@en .
 
+:datum rdf:type owl:ObjectProperty ;
+			rdfs:domain ccev:CriterionProperty ;
+			rdfs:range ccev:CriterionPropertyDatum ;
+			owl:disjointWith :informationRequirement ;
+			# owl2:disjointObjectProperties :informationRequirement ; I think this approach is better. Needs to be discussed.
+			rdfs:label "hasDatum"@en .
+			#skos:definition "..."@en .
+
 :eventType rdf:type owl:ObjectProperty ;
                rdfs:domain :Power ;
-               rdfs:range eupt:POWER_EVENT ;
+               rdfs:range skos:Concept ;
                rdfs:label "hasActionType"@en .
               #skos:definition "...."@en .
 
@@ -89,8 +94,7 @@
 :informationRequirement rdf:type owl:ObjectProperty ;
 						rdfs:domain ccev:CriterionProperty ;
 						rdfs:range ccev:CriterionPropertyDatum ;
-						rdfs:label "hasInformationRequirement"@en ;
-						owl:disjointWith :constraint .
+						rdfs:label "hasInformationRequirement"@en .
 						#skos:definition "..."@en .
 
 :legalBasis rdf:type owl:ObjectProperty ;
@@ -111,18 +115,6 @@
             rdfs:label "hasMandateeConstraint"@en ;
             skos:definition "The constraints that are related to a mandatee."@en .
 
-:mandateeType rdf:type owl:ObjectProperty ;
-               rdfs:domain :Mandatee ;
-               rdfs:range skos:Concept ;
-               rdfs:label "hasMandateeType"@en ;
-               skos:definition "The type of the mandatee."@en .
-
-:mandateType rdf:type owl:ObjectProperty ;
-               rdfs:domain :Mandate ;
-               rdfs:range skos:Concept ;
-               rdfs:label "hasMandateType"@en ;
-               skos:definition "The type of the mandate."@en .
-
 :mandator  rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
           rdfs:domain :Mandate ;
           rdfs:range :Mandator ;
@@ -135,12 +127,6 @@
             rdfs:label "hasMandatorConstraint"@en ;
             skos:definition "The constraints that are related to a mandator."@en .
 
-:mandatorType rdf:type owl:ObjectProperty ;
-               rdfs:domain :Mandator ;
-               rdfs:range skos:Concept ;
-               rdfs:label "hasMandatorType"@en ;
-               skos:definition "The type of the mandator."@en .
-
 :mother rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
           rdfs:domain :NaturalPerson ;
           rdfs:range :NaturalPerson ;
@@ -148,7 +134,7 @@
 
 :objectType rdf:type owl:ObjectProperty ;
                rdfs:domain :Power ;
-               rdfs:range eupt:OBJECT ;
+               rdfs:range skos:Concept ;
                rdfs:label "hasActionType"@en .
               #skos:definition "...."@en .
 
@@ -157,6 +143,11 @@
 	  rdfs:range :Power ;
 	  rdfs:label "powerSourceOf"@en . 
 
+:originedByRoleOf rdf:type owl:ObjectProperty ;
+				  rdfs:domain :PowerSource ;
+				  rdfs:range :Agent ;
+				  rdfs:label "originedByRoleOf"@en .
+
 :power rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
           rdfs:domain :Mandator ;
           rdfs:range :Power ;
@@ -164,14 +155,14 @@
           skos:definition "The assignment of one power and restrictions on its use to one or more mandatees ."@en .
 
 :powerDrawnFrom rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
-        rdfs:domain :PowerSource ;
-        rdfs:range :Mandator ;
+        rdfs:domain :Power ;
+        rdfs:range :PowerSource ;
         rdfs:label "hasPowerDrawnFrom"@en .
 
-:proxy rdf:type owl:ObjectProperty ;
-	   rdfs:domain :Agent ;
-	   rdfs:range :Mandator ;
-	   rdfs:label "hasProxy"@en . 
+:powerSourceType rdf:type owl:ObjectProperty ;
+				 rdfs:domain :PowerSource ;
+				 rdfs:range ccev:Legislation, ccev:Evidence ;
+				 rdfs:label "hasPowerSourceType"@en .
 
 :representationGrantedTo  rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
           rdfs:domain :Power ;
@@ -179,16 +170,22 @@
           rdfs:label "hasRepresentationGrantedTo"@en ;
           skos:definition "The person being empowered."@en .
 
+:roleType rdf:type owl:ObjectProperty ;
+               rdfs:domain :Mandator, :Agent ;
+               rdfs:range skos:Concept ;
+               rdfs:label "hasRoleType"@en ;
+               skos:definition "The role type of the regulated profession of the mandator."@en .
+
 :site rdf:type owl:ObjectProperty ;
       rdfs:domain :Contact ;
       rdfs:range org:Site ;
       rdfs:label "hasSite"@en .
 
 :statusType rdf:type owl:ObjectProperty ;
-               rdfs:domain :Power ;
-               rdfs:range skos:Concept ;
-               rdfs:label "hasStatusType"@en ;
-               skos:definition "The status of the empowerment."@en .
+			rdfs:domain :Power ;
+			rdfs:range skos:Concept ; 
+			rdfs:label "hasStatusType"@en . 
+
 
 #################################################################
 #    Data properties
@@ -246,13 +243,8 @@
                           a owl:Restriction ;
                           owl:minCardinality "1"^^xsd:nonNegativeInteger ;
                           owl:onProperty :contact
-                       ] ;
-
-       rdfs:subClassOf [
-                          a owl:Restriction ;
-                          owl:someValuesFrom :Mandator ;
-                          owl:onProperty :proxy
                        ] .
+
 
 :Contact rdf:type owl:Class ;
          rdfs:subClassOf ubl:Contact ;
@@ -264,10 +256,12 @@
                           owl:onProperty :site
                        ] .
 
+
 :LegalPerson rdf:type owl:Class ;
              rdfs:subClassOf org:Organization, :Agent ;
              owl:disjointWith :NaturalPerson ;
              rdfs:label "LegalPerson"@en .
+
 
 :Mandate rdf:type owl:Class ;
 		 rdfs:subClassOf ccev:Evidence ;
@@ -285,11 +279,13 @@
                              owl:onProperty :lifeSpan
                            ] .
 
+
 :Mandatee rdf:type owl:Class ;
           rdfs:subClassOf :Agent ;
           owl:disjointWith :Mandator ;
           rdfs:label "Mandatee"@en ;
           skos:definition "Natural or legal person that acts on behalf of another natural or legal person."@en .
+
 
 :Mandator rdf:type owl:Class ;
           rdfs:subClassOf :Agent ;
@@ -303,10 +299,12 @@
                              owl:onProperty :power
                            ] .    
 
+
 :NaturalPerson rdf:type owl:Class ;
                rdfs:subClassOf foaf:Person, :Agent ;
                owl:disjointWith :LegalPerson ;
                rdfs:label "NaturalPerson"@en .
+
 
 :Power rdf:type owl:Class ;
        rdfs:label "Power"@en ;
@@ -353,6 +351,7 @@
                              owl:onProperty :statusType
                            ] .                        
 
+
 :PowerSource rdf:type owl:Class ;
 			 rdfs:label "PowerSource"@en ;
 			 #skos:definition "..."@en ;
@@ -380,6 +379,7 @@
 			 					owl:cardinality "1"^^xsd:nonNegativeInteger ;
 			 					owl:onProperty :of
 			 				 ] .
+
 
 :System rdf:type owl:Class ;
         rdfs:subClassOf :Agent ;
