@@ -8,7 +8,7 @@ In parallel to this process, a working group composed of stakeholders from multi
 
 # Release notes
 
-## Version 1.1.0 (on going, presented on the 31st January 2019)
+## Version 1.1.0 (07/04/2019)
 
 The verion 1.1.0 implements the feedback received until the 07/05/2019 during the working group meetings or through the github issues. The main changes are:
 
@@ -18,11 +18,11 @@ The verion 1.1.0 implements the feedback received until the 07/05/2019 during th
 * Update of the [Business Rules](https://github.com/everis-rpam/RPaM-Ontology/tree/v1.1.0/04-%20Business%20Rules)
 * Creation of specifications supporting the implementation of the ontology. [See Wiki](https://github.com/everis-rpam/RPaM-Ontology/wiki)
 
-In order to consult the complete development report, [Click here](https://github.com/everis-rpam/RPaM-Ontology/tree/v1.1.0/02-Vocabularies/RPaM)
+In order to consult the complete development report, [Click here](https://github.com/everis-rpam/RPaM-Ontology/tree/v1.1.0/02-Vocabularies/RPaM).
 
-The next phase of the project consists of a proof of concept with the collaboration of EU Member States. For additional details regarding governance and change management policy, [Click here](https://github.com/everis-rpam/RPaM-Ontology/wiki/Governance-and-Change-Management-Proposal)
+The next phase of the project consists of a proof of concept with the collaboration of EU Member States. For additional details regarding governance and change management policy, [Click here](https://github.com/everis-rpam/RPaM-Ontology/wiki/Governance-and-Change-Management-Proposal).
 
-## Version 1.0.0 (10th January 2019)
+## Version 1.0.0 (10/04/2019)
 
 This is the first release of the RPaM Ontology-related deliverables, which encompasses namely:
 
