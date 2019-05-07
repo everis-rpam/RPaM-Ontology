@@ -10,17 +10,17 @@ In parallel to this process, a working group composed of stakeholders from multi
 
 ## Version 1.1.0 (on going, presented on the 31st January 2019)
 
-The verion 1.1.0 implements the feedback received until the 07/05/2019 through webinar or github issues.
+The verion 1.1.0 implements the feedback received until the 07/05/2019 during the working group meetings or through the github issues. The main changes are:
 
 * Modification of the [Conceptual Data Model v1.1.0](https://github.com/everis-rpam/RPaM-Ontology/wiki/Conceptual-Model-v1.1)
 * Refactoring of the corresponding [TTL files](https://github.com/everis-rpam/RPaM-Ontology/tree/v1.1.0/02-Vocabularies/RPaM)
-* Update of the [EU Powers Taxonomy](https://github.com/everis-rpam/RPaM-Ontology/blob/master/02-Vocabularies/RPaM/EU_Powers_Taxonomy.ttl). 
-* Update of the [Business Rules](https://github.com/everis-rpam/RPaM-Ontology/tree/v1.1.0/04-%20Business%20Rules) .
+* Update of the [EU Powers Taxonomy](https://github.com/everis-rpam/RPaM-Ontology/blob/master/02-Vocabularies/RPaM/EU_Powers_Taxonomy.ttl)
+* Update of the [Business Rules](https://github.com/everis-rpam/RPaM-Ontology/tree/v1.1.0/04-%20Business%20Rules)
 * Creation of specifications supporting the implementation of the ontology. [See Wiki](https://github.com/everis-rpam/RPaM-Ontology/wiki)
 
-In order to consult the complete development report, [Click here](https://github.com/everis-rpam/RPaM-Ontology/tree/v1.1.0/02-Vocabularies/RPaM).
+In order to consult the complete development report, [Click here](https://github.com/everis-rpam/RPaM-Ontology/tree/v1.1.0/02-Vocabularies/RPaM)
 
-The next phase of the project consists of a proof of concept with the collaboration of EU Member States. For additional details regarding governance and change management policy, [Click here](https://github.com/everis-rpam/RPaM-Ontology/wiki/Governance-and-Change-Management-Proposal).
+The next phase of the project consists of a proof of concept with the collaboration of EU Member States. For additional details regarding governance and change management policy, [Click here](https://github.com/everis-rpam/RPaM-Ontology/wiki/Governance-and-Change-Management-Proposal)
 
 ## Version 1.0.0 (10th January 2019)
 
