@@ -10,15 +10,17 @@ In parallel to this process, a working group composed of stakeholders from multi
 
 ## Version 1.1.0 (on going, presented on the 31st January 2019)
 
-Branch 1.1.0 makes available a second iteration of development and refining of:
+The verion 1.1.0 implements the feedback received until the 07/05/2019 through webinar or github issues.
 
-* The Conceptual Data Model ([CDM v1.1.0](https://github.com/everis-rpam/RPaM-Ontology/wiki/Conceptual-Model-v1.1))
+* Modification of the [Conceptual Data Model v1.1.0](https://github.com/everis-rpam/RPaM-Ontology/wiki/Conceptual-Model-v1.1)
 * Refactoring of the corresponding [TTL files](https://github.com/everis-rpam/RPaM-Ontology/tree/v1.1.0/02-Vocabularies/RPaM)
-* Simplification of the [SP-Information Requirements](https://github.com/everis-rpam/RPaM-Ontology/tree/v1.1.0/04-SP-Information_Requirements) based on the CCEV vocabulary
-* Implementation of simple datasets for the [testing the CDM v1.1.0](https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/05-Testing/Mandates/Mandates-Dataset-01.ttl) and the [SP-Information Requirements and Constraints](https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/04-SP-Information_Requirements/SP-Request.ttl)
-* Implementation of a few simple SPARQL [Queries](https://github.com/everis-rpam/RPaM-Ontology/tree/v1.1.0/05-Testing/Queries) for testing the CDM v1.1.0
+* Update of the [EU Powers Taxonomy](https://github.com/everis-rpam/RPaM-Ontology/blob/master/02-Vocabularies/RPaM/EU_Powers_Taxonomy.ttl). 
+* Update of the [Business Rules](https://github.com/everis-rpam/RPaM-Ontology/tree/v1.1.0/04-%20Business%20Rules) .
+* Creation of specifications supporting the implementation of the ontology. [See Wiki](https://github.com/everis-rpam/RPaM-Ontology/wiki)
 
-See also the WG [presentation](https://github.com/everis-rpam/RPaM-Ontology/blob/v1.1.0/05-Working_Group/20190131-WG_Meeting%232v0.1.pptx) used for the WG meeting #2.
+In order to consult the complete development report, [Click here](https://github.com/everis-rpam/RPaM-Ontology/tree/v1.1.0/02-Vocabularies/RPaM).
+
+The next phase of the project consists of a proof of concept with the collaboration of EU Member States. For additional details regarding governance and change management policy, [Click here](https://github.com/everis-rpam/RPaM-Ontology/wiki/Governance-and-Change-Management-Proposal).
 
 ## Version 1.0.0 (10th January 2019)
 
