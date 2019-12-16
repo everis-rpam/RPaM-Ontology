@@ -80,6 +80,12 @@
                        rdfs:label "hasProfileID"@en ;
                        rdfs:definition "Identifies a user-defined application profile of RPaM being used."@en .
 
+:mandateExpected rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
+                       rdfs:domain :eMandateRequest ;
+                       rdfs:range ccts:Identifier ;
+                       rdfs:label "ExpectsMandate"@en ;
+                       rdfs:definition "Specifies if the Mandate is expected in the response to the mandate request"@en .
+
 :profileExecutionID rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
                        rdfs:domain :eMandateRequest ;
                        rdfs:range ccts:Identifier ;

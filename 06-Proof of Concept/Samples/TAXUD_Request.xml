@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ns1:MandateRequest xmlns:ns1="urn:isa2:names:specification:rpam:ubl:schema:xsd:MandateResponse-1MandateRequest" xmlns:PAM="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cct="urn:un:unece:uncefact:data:specification:CoreComponentTypeSchemaModule:2" xmlns:ccts="urn:un:unece:uncefact:documentation:2" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:dsig11="http://www.w3.org/2009/xmldsig11#" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:ns0="urn:oasis:names:specification:ubl:schema:xsd:CommonSignatureComponents-2" xmlns:ns2="http://uri.etsi.org/01903/v1.4.1#" xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDataTypes-2" xmlns:sac="urn:oasis:names:specification:ubl:schema:xsd:SignatureAggregateComponents-2" xmlns:sbc="urn:oasis:names:specification:ubl:schema:xsd:SignatureBasicComponents-2" xmlns:udt="urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2" xmlns:xades="http://uri.etsi.org/01903/v1.3.2#" xmlns:xhb="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:isa2:names:specification:rpam:ubl:schema:xsd:MandateResponse-1MandateRequest file:/C:/Users/kpetrovi/Desktop/Share/temp4bdxr/Workspace/XHE-Tooling-20190404-2010z/artefacts/csd01wd00/xsd/maindoc/MandateRequest-1.0.xsd">
+    <xhb:ProfileID>ProfileID0</xhb:ProfileID>
+    <xhb:RPAMVersionID>RPAMVersionID0</xhb:RPAMVersionID>
+    <xhb:ID>3592</xhb:ID>
+    <xhb:IssueDateTime>2019-11-26T15:05:05.239</xhb:IssueDateTime>
+    <xhb:MandateExpectedNumeric>1</xhb:MandateExpectedNumeric>
+    <PAM:IssuerSystem>    
+        <xhb:EndpointURL>TAXUD-001</xhb:EndpointURL>
+        <PAM:SystemIdentifier>
+            <xhb:ID>TAXUD-001-001</xhb:ID>
+        </PAM:SystemIdentifier>
+        <PAM:BelongstoPartyLegalEntity>
+            <xhb:RegistrationName>TAXUD</xhb:RegistrationName>
+        </PAM:BelongstoPartyLegalEntity>
+    </PAM:IssuerSystem>
+    <PAM:RecipientSystem>
+        <xhb:EndpointURL>Austria-001</xhb:EndpointURL>
+        <PAM:SystemIdentifier>
+            <xhb:ID>Austria-001-001</xhb:ID>
+        </PAM:SystemIdentifier>
+        <PAM:BelongstoPartyLegalEntity>     
+            <xhb:RegistrationName>Austria</xhb:RegistrationName>
+        </PAM:BelongstoPartyLegalEntity>
+    </PAM:RecipientSystem>
+    
+<PAM:RequestsMandate>
+   <PAM:Mandator>
+      <PAM:NaturalPerson>
+         <PAM:NaturalPersonIdentifier>
+            <xhb:ID>456def</xhb:ID>
+         </PAM:NaturalPersonIdentifier>
+         <PAM:NaturalPersonPerson>
+            <xhb:FirstName>ccccccc</xhb:FirstName>
+            <xhb:FamilyName>ddddddddd</xhb:FamilyName>
+         </PAM:NaturalPersonPerson>
+      </PAM:NaturalPerson>
+      <PAM:Power>
+         <xhb:RpaMPowerCode>BE_TOP.AC_REPRESENTING.OB_NATURAL_PERSON.OT.RECEIPT</xhb:RpaMPowerCode>
+         <xhb:StatusTypeStatusCode>VALID</xhb:StatusTypeStatusCode>
+         <PAM:RepresentationGrantedToMandatee>
+            <PAM:NaturalPerson>
+               <PAM:NaturalPersonIdentifier>
+                  <xhb:ID>123abc</xhb:ID>
+               </PAM:NaturalPersonIdentifier>
+               <PAM:NaturalPersonPerson>
+                  <xhb:FirstName>aaaaaaaa</xhb:FirstName>
+                  <xhb:FamilyName>bbbbbbbb</xhb:FamilyName>
+               </PAM:NaturalPersonPerson>
+            </PAM:NaturalPerson>
+         </PAM:RepresentationGrantedToMandatee>
+      </PAM:Power>
+   </PAM:Mandator>
+   <PAM:MandateIdentifier>
+      <xhb:ID>d1e1</xhb:ID>
+   </PAM:MandateIdentifier>
+</PAM:RequestsMandate></ns1:MandateRequest>

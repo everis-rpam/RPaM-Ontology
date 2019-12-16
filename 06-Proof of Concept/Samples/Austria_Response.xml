@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ns2:MandateResponse xmlns:ns2="urn:isa2:names:specification:rpam:ubl:schema:xsd:MandateResponse-1MandateResponse" xmlns:PAM="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:ccts="urn:un:unece:uncefact:documentation:2" xmlns:ccts-cct="urn:un:unece:uncefact:data:specification:CoreComponentTypeSchemaModule:2" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:dsig11="http://www.w3.org/2009/xmldsig11#" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:ns0="urn:oasis:names:specification:ubl:schema:xsd:CommonSignatureComponents-2" xmlns:ns1="http://uri.etsi.org/01903/v1.4.1#" xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDataTypes-2" xmlns:sac="urn:oasis:names:specification:ubl:schema:xsd:SignatureAggregateComponents-2" xmlns:sbc="urn:oasis:names:specification:ubl:schema:xsd:SignatureBasicComponents-2" xmlns:udt="urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2" xmlns:xades="http://uri.etsi.org/01903/v1.3.2#" xmlns:xhb="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:isa2:names:specification:rpam:ubl:schema:xsd:MandateResponse-1MandateResponse file:/C:/Users/kpetrovi/Desktop/Share/temp4bdxr/Workspace/XHE-Tooling-20190404-2010z/artefacts/csd01wd00/xsd/maindoc/MandateResponse-1.0.xsd">
+    <xhb:ID>6832</xhb:ID>
+    <xhb:IssueDateTime>2019-11-26T14:58:40.369</xhb:IssueDateTime>
+    <xhb:RequestID>9891</xhb:RequestID>
+    <xhb:RequestVersionID>1</xhb:RequestVersionID>
+    <PAM:IssuerSystem>    
+        <xhb:EndpointURL>AT-001</xhb:EndpointURL>
+        <PAM:SystemIdentifier>
+            <xhb:ID>AT-001-001</xhb:ID>
+        </PAM:SystemIdentifier>
+        <PAM:BelongstoPartyLegalEntity>
+            <xhb:RegistrationName>Austria</xhb:RegistrationName>
+        </PAM:BelongstoPartyLegalEntity>
+    </PAM:IssuerSystem>
+    <PAM:RecipientSystem>
+        <xhb:EndpointURL>FI-001</xhb:EndpointURL>
+        <PAM:SystemIdentifier>
+            <xhb:ID>FI-001-001</xhb:ID>
+        </PAM:SystemIdentifier>
+        <PAM:BelongstoPartyLegalEntity>
+            <xhb:RegistrationName>Finland</xhb:RegistrationName>
+        </PAM:BelongstoPartyLegalEntity>
+    </PAM:RecipientSystem>
+<PAM:ProvidesMandate>
+   <PAM:LifeSpanPeriod>
+      <xhb:StartDate>2019-05-20</xhb:StartDate>
+      <xhb:EndDate>2024-05-19</xhb:EndDate>
+   </PAM:LifeSpanPeriod>
+   <PAM:Mandator>
+      <PAM:NaturalPerson>
+         <PAM:NaturalPersonIdentifier>
+            <xhb:ID>280280-998H</xhb:ID>
+         </PAM:NaturalPersonIdentifier>
+         <PAM:NaturalPersonPerson>
+            <xhb:FirstName>Eva</xhb:FirstName>
+            <xhb:FamilyName>Huusko</xhb:FamilyName>
+         </PAM:NaturalPersonPerson>
+      </PAM:NaturalPerson>
+      <PAM:Power>
+         <xhb:AdditionalInformation>This mandate allows the assignee to:
+            - pick up medication from the pharmacy on behalf of the assignor
+            - request that the assignor’s prescription is renewed by the pharmacy
+            - request the pharmacy to check the benefit data related to the assignor’s prescriptions and medicines and to give information on them to the assignee
+            - give their consent for the invalidation of the assignor’s prescription at the pharmacy
+            - ask for a summary of the assignor’s prescriptions.</xhb:AdditionalInformation>
+         <xhb:RpaMPowerCode>LE_TOP.LE_MEDICINES_AND_PHARMACIES.AC_MANAGING.OB_PHARMACY_SERVICES.OT_NOTIFICATION</xhb:RpaMPowerCode>
+         <xhb:StatusTypeStatusCode>VALID</xhb:StatusTypeStatusCode>
+         <PAM:RepresentationGrantedToMandatee>
+            <PAM:NaturalPerson>
+               <PAM:NaturalPersonIdentifier>
+                  <xhb:ID>251159-999E</xhb:ID>
+               </PAM:NaturalPersonIdentifier>
+               <PAM:NaturalPersonPerson>
+                  <xhb:FirstName>Andre</xhb:FirstName>
+                  <xhb:FamilyName>Kahkonen</xhb:FamilyName>
+               </PAM:NaturalPersonPerson>
+            </PAM:NaturalPerson>
+         </PAM:RepresentationGrantedToMandatee>
+      </PAM:Power>
+   </PAM:Mandator>
+   <PAM:MandateIdentifier>
+      <xhb:ID>d1e1</xhb:ID>
+   </PAM:MandateIdentifier>
+</PAM:ProvidesMandate></ns2:MandateResponse>

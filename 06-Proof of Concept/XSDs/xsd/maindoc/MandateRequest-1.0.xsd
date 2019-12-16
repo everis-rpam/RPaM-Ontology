@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Library:           Representation of Powers and Mandates (RPaM) 1.0 CSD02
+                     http://www.unece.org/cefact
+                     http://docs.oasis-open.org/bdxr/bdx-xhe/v1.0/csd02/
+  Release Date:      13 March 2019
+  Module:            xsd/maindoc/MandateRequest-1.0.xsd
+  Generated on:      2019-11-12 10:23z
+  Copyright (c) UN/CEFACT 2019. All Rights Reserved.
+  Copyright (c) OASIS Open 2019. All Rights Reserved.
+-->
+<xsd:schema xmlns="urn:isa2:names:specification:rpam:ubl:schema:xsd:MandateResponse-1MandateRequest"
+            xmlns:PAM="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+            xmlns:xhb="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+            xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+            xmlns:ccts="urn:un:unece:uncefact:documentation:2"
+            targetNamespace="urn:isa2:names:specification:rpam:ubl:schema:xsd:MandateResponse-1MandateRequest"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+            version="1.1">
+   <!-- ===== Imports ===== -->
+   <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+               schemaLocation="../common/UBL-CommonAggregateComponents-2.2.xsd"/>
+   <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+               schemaLocation="../common/UBL-CommonBasicComponents-2.2.xsd"/>
+   <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
+               schemaLocation="../common/UBL-CommonExtensionComponents-2.2.xsd"/>
+
+   <!-- ===== Incorporate W3C signature specification-->
+   <xsd:import namespace="http://www.w3.org/2000/09/xmldsig#"
+               schemaLocation="common/UBL-xmldsig1-schema-2.2.xsd"/>
+          
+   <!-- ===== Element Declarations ===== -->
+   <xsd:element name="MandateRequest" type="MandateRequestType">
+      <xsd:annotation>
+         <xsd:documentation>This element MUST be conveyed as the root element in any instance document based on this Schema expression</xsd:documentation>
+      </xsd:annotation>
+   </xsd:element>
+   <!-- ===== Type Definitions ===== -->
+   <!-- ===== Aggregate Business Information Entity Type Definitions ===== -->
+   <xsd:complexType name="MandateRequestType">
+      <xsd:annotation>
+         <xsd:documentation>
+            <ccts:Component>
+               <ccts:CEFACTNames/>
+               <ccts:OASISNames>
+                  <ccts:ComponentType>ABIE</ccts:ComponentType>
+                  <ccts:DictionaryEntryName>Mandate Request. Details</ccts:DictionaryEntryName>
+                  <ccts:Definition>An eBusiness Document used by the Service Provider to ask for one or more mandates aimed to authorise a user that is trying to use its Service(s).</ccts:Definition>
+                  <ccts:ObjectClass>Mandate Request</ccts:ObjectClass>
+               </ccts:OASISNames>
+            </ccts:Component>
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element ref="ext:UBLExtensions" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>A container for extensions foreign to the document.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+        <xsd:element ref="xhb:CustomizationID" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>
+                  <ccts:Component>
+                     <ccts:CEFACTNames/>
+                     <ccts:OASISNames>
+                        <ccts:ComponentType>BBIE</ccts:ComponentType>
+                        <ccts:DictionaryEntryName>Mandate Request. Customization Identifier. Identifier</ccts:DictionaryEntryName>
+                        <ccts:Definition>TODO</ccts:Definition>
+                        <ccts:Cardinality>0..1</ccts:Cardinality>
+                        <ccts:ObjectClass>Mandate Request</ccts:ObjectClass>
+                        <ccts:PropertyTerm>Customization Identifier</ccts:PropertyTerm>
+                        <ccts:RepresentationTerm>Identifier</ccts:RepresentationTerm>
+                        <ccts:DataType>Identifier. Type</ccts:DataType>
+                     </ccts:OASISNames>
+                  </ccts:Component>
+               </xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element ref="xhb:Note" minOccurs="0" maxOccurs="unbounded">
+            <xsd:annotation>
+               <xsd:documentation>
+                  <ccts:Component>
+                     <ccts:CEFACTNames/>
+                     <ccts:OASISNames>
+                        <ccts:ComponentType>BBIE</ccts:ComponentType>
+                        <ccts:DictionaryEntryName>Mandate Request. Note. Text</ccts:DictionaryEntryName>
+                        <ccts:Definition>Free-form text conveying information that is not contained explicitly in other structures.</ccts:Definition>
+                        <ccts:Cardinality>0..n</ccts:Cardinality>
+                        <ccts:ObjectClass>Mandate Request</ccts:ObjectClass>
+                        <ccts:PropertyTerm>Note</ccts:PropertyTerm>
+                        <ccts:RepresentationTerm>Text</ccts:RepresentationTerm>
+                        <ccts:DataType>Text. Type</ccts:DataType>
+                     </ccts:OASISNames>
+                  </ccts:Component>
+               </xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element ref="xhb:ProfileExecutionID" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>
+                  <ccts:Component>
+                     <ccts:CEFACTNames/>
+                     <ccts:OASISNames>
+                        <ccts:ComponentType>BBIE</ccts:ComponentType>
+                        <ccts:DictionaryEntryName>Mandate Request. Profile Execution Identifier. Identifier</ccts:DictionaryEntryName>
+                        <ccts:Definition>TODO</ccts:Definition>
+                        <ccts:Cardinality>0..1</ccts:Cardinality>
+                        <ccts:ObjectClass>Mandate Request</ccts:ObjectClass>
+                        <ccts:PropertyTerm>Profile Execution Identifier</ccts:PropertyTerm>
+                        <ccts:RepresentationTerm>Identifier</ccts:RepresentationTerm>
+                        <ccts:DataType>Identifier. Type</ccts:DataType>
+                     </ccts:OASISNames>
+                  </ccts:Component>
+               </xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element ref="xhb:ProfileID" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>
+                  <ccts:Component>
+                     <ccts:CEFACTNames/>
+                     <ccts:OASISNames>
+                        <ccts:ComponentType>BBIE</ccts:ComponentType>
+                        <ccts:DictionaryEntryName>Mandate Request. Profile Identifier. Identifier</ccts:DictionaryEntryName>
+                        <ccts:Definition>The identifier for this profile.</ccts:Definition>
+                        <ccts:Cardinality>0..1</ccts:Cardinality>
+                        <ccts:ObjectClass>Mandate Request</ccts:ObjectClass>
+                        <ccts:PropertyTerm>Profile Identifier</ccts:PropertyTerm>
+                        <ccts:RepresentationTerm>Identifier</ccts:RepresentationTerm>
+                        <ccts:DataType>Identifier. Type</ccts:DataType>
+                     </ccts:OASISNames>
+                  </ccts:Component>
+               </xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element ref="xhb:RPAMVersionID" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>
+                  <ccts:Component>
+                     <ccts:CEFACTNames/>
+                     <ccts:OASISNames>
+                        <ccts:ComponentType>BBIE</ccts:ComponentType>
+                        <ccts:DictionaryEntryName>Mandate Request. RPAM Version Identifier. Identifier</ccts:DictionaryEntryName>
+                        <ccts:Definition>TODO</ccts:Definition>
+                        <ccts:Cardinality>0..1</ccts:Cardinality>
+                        <ccts:ObjectClass>Mandate Request</ccts:ObjectClass>
+                        <ccts:PropertyTerm>RPAM Version Identifier</ccts:PropertyTerm>
+                        <ccts:RepresentationTerm>Identifier</ccts:RepresentationTerm>
+                        <ccts:DataType>Identifier. Type</ccts:DataType>
+                     </ccts:OASISNames>
+                  </ccts:Component>
+               </xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element ref="xhb:ID" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>
+                  <ccts:Component>
+                     <ccts:CEFACTNames/>
+                     <ccts:OASISNames>
+                        <ccts:ComponentType>BBIE</ccts:ComponentType>
+                        <ccts:DictionaryEntryName>Mandate Request. Identifier</ccts:DictionaryEntryName>
+                        <ccts:Definition>An Identifier for the Mandate Response.</ccts:Definition>
+                        <ccts:Cardinality>1</ccts:Cardinality>
+                        <ccts:ObjectClass>Mandate Request</ccts:ObjectClass>
+                        <ccts:PropertyTerm>Identifier</ccts:PropertyTerm>
+                        <ccts:RepresentationTerm>Identifier</ccts:RepresentationTerm>
+                        <ccts:DataType>Identifier. Type</ccts:DataType>
+                     </ccts:OASISNames>
+                  </ccts:Component>
+               </xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element ref="xhb:IssueDateTime" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>
+                  <ccts:Component>
+                     <ccts:CEFACTNames/>
+                     <ccts:OASISNames>
+                        <ccts:ComponentType>BBIE</ccts:ComponentType>
+                        <ccts:DictionaryEntryName>Mandate Request. Issue Date Time. Date Time</ccts:DictionaryEntryName>
+                        <ccts:Definition>The date and time when the issue was created.</ccts:Definition>
+                        <ccts:Cardinality>1</ccts:Cardinality>
+                        <ccts:ObjectClass>Mandate Request</ccts:ObjectClass>
+                        <ccts:PropertyTerm>Issue Date Time</ccts:PropertyTerm>
+                        <ccts:RepresentationTerm>Date Time</ccts:RepresentationTerm>
+                        <ccts:DataType>Date Time. Type</ccts:DataType>
+                     </ccts:OASISNames>
+                  </ccts:Component>
+               </xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element ref="xhb:MandateExpectedNumeric" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>
+                  <ccts:Component>
+                     <ccts:CEFACTNames/>
+                     <ccts:OASISNames>
+                        <ccts:ComponentType>BBIE</ccts:ComponentType>
+                        <ccts:DictionaryEntryName>Mandate Request. Mandate Expected. Numeric</ccts:DictionaryEntryName>
+                        <ccts:Definition>Yes or No response whether a Mandate is expected in the Response.</ccts:Definition>
+                        <ccts:Cardinality>1</ccts:Cardinality>
+                        <ccts:ObjectClass>Mandate Request</ccts:ObjectClass>
+                        <ccts:PropertyTerm>Mandate Expected</ccts:PropertyTerm>
+                        <ccts:RepresentationTerm>Numeric</ccts:RepresentationTerm>
+                        <ccts:DataType>Numeric. Type</ccts:DataType>
+                     </ccts:OASISNames>
+                  </ccts:Component>
+               </xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element ref="PAM:RelyingServiceProviderNaturalPerson" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>
+                  <ccts:Component>
+                     <ccts:CEFACTNames/>
+                     <ccts:OASISNames>
+                        <ccts:ComponentType>ASBIE</ccts:ComponentType>
+                        <ccts:DictionaryEntryName>Mandate Request. Relying Service Provider_ Natural Person. Natural Person</ccts:DictionaryEntryName>
+                        <ccts:Definition>A human being as distinguished from a person (as a corporation) created by operation of law</ccts:Definition>
+                        <ccts:Cardinality>0..1</ccts:Cardinality>
+                        <ccts:ObjectClass>Mandate Request</ccts:ObjectClass>
+                        <ccts:PropertyTermQualifier>Relying Service Provider</ccts:PropertyTermQualifier>
+                        <ccts:PropertyTerm>Natural Person</ccts:PropertyTerm>
+                        <ccts:AssociatedObjectClass>Natural Person</ccts:AssociatedObjectClass>
+                        <ccts:RepresentationTerm>Natural Person</ccts:RepresentationTerm>
+                     </ccts:OASISNames>
+                  </ccts:Component>
+               </xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element ref="PAM:RelyingServiceProviderLegalPersonPartyLegalEntity" minOccurs="0"
+                      maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>
+                  <ccts:Component>
+                     <ccts:CEFACTNames/>
+                     <ccts:OASISNames>
+                        <ccts:ComponentType>ASBIE</ccts:ComponentType>
+                        <ccts:DictionaryEntryName>Mandate Request. Relying Service Provider Legal Person_ Party Legal Entity. Party Legal Entity</ccts:DictionaryEntryName>
+                        <ccts:Definition>A body of persons or an entity (as a corporation) considered as having many of the rights and responsibilities of a natural person.</ccts:Definition>
+                        <ccts:Cardinality>0..1</ccts:Cardinality>
+                        <ccts:ObjectClass>Mandate Request</ccts:ObjectClass>
+                        <ccts:PropertyTermQualifier>Relying Service Provider Legal Person</ccts:PropertyTermQualifier>
+                        <ccts:PropertyTerm>Party Legal Entity</ccts:PropertyTerm>
+                        <ccts:AssociatedObjectClass>Party Legal Entity</ccts:AssociatedObjectClass>
+                        <ccts:RepresentationTerm>Party Legal Entity</ccts:RepresentationTerm>
+                     </ccts:OASISNames>
+                  </ccts:Component>
+               </xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element ref="PAM:RelyingServiceProviderSystem" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>
+                  <ccts:Component>
+                     <ccts:CEFACTNames/>
+                     <ccts:OASISNames>
+                        <ccts:ComponentType>ASBIE</ccts:ComponentType>
+                        <ccts:DictionaryEntryName>Mandate Request. Relying Service Provider_ System. System</ccts:DictionaryEntryName>
+                        <ccts:Definition>The system that issued the eMandateRequest document</ccts:Definition>
+                        <ccts:Cardinality>0..1</ccts:Cardinality>
+                        <ccts:ObjectClass>Mandate Request</ccts:ObjectClass>
+                        <ccts:PropertyTermQualifier>Relying Service Provider</ccts:PropertyTermQualifier>
+                        <ccts:PropertyTerm>System</ccts:PropertyTerm>
+                        <ccts:AssociatedObjectClass>System</ccts:AssociatedObjectClass>
+                        <ccts:RepresentationTerm>System</ccts:RepresentationTerm>
+                     </ccts:OASISNames>
+                  </ccts:Component>
+               </xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element ref="PAM:IssuerSystem" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>
+                  <ccts:Component>
+                     <ccts:CEFACTNames/>
+                     <ccts:OASISNames>
+                        <ccts:ComponentType>ASBIE</ccts:ComponentType>
+                        <ccts:DictionaryEntryName>Mandate Request. Issuer_ System. System</ccts:DictionaryEntryName>
+                        <ccts:Definition>TODO</ccts:Definition>
+                        <ccts:Cardinality>0..1</ccts:Cardinality>
+                        <ccts:ObjectClass>Mandate Request</ccts:ObjectClass>
+                        <ccts:PropertyTermQualifier>Issuer</ccts:PropertyTermQualifier>
+                        <ccts:PropertyTerm>System</ccts:PropertyTerm>
+                        <ccts:AssociatedObjectClass>System</ccts:AssociatedObjectClass>
+                        <ccts:RepresentationTerm>System</ccts:RepresentationTerm>
+                     </ccts:OASISNames>
+                  </ccts:Component>
+               </xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element ref="PAM:RecipientSystem" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>
+                  <ccts:Component>
+                     <ccts:CEFACTNames/>
+                     <ccts:OASISNames>
+                        <ccts:ComponentType>ASBIE</ccts:ComponentType>
+                        <ccts:DictionaryEntryName>Mandate Request. Recipient_ System. System</ccts:DictionaryEntryName>
+                        <ccts:Definition>TODO</ccts:Definition>
+                        <ccts:Cardinality>0..1</ccts:Cardinality>
+                        <ccts:ObjectClass>Mandate Request</ccts:ObjectClass>
+                        <ccts:PropertyTermQualifier>Recipient</ccts:PropertyTermQualifier>
+                        <ccts:PropertyTerm>System</ccts:PropertyTerm>
+                        <ccts:AssociatedObjectClass>System</ccts:AssociatedObjectClass>
+                        <ccts:RepresentationTerm>System</ccts:RepresentationTerm>
+                     </ccts:OASISNames>
+                  </ccts:Component>
+               </xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element ref="PAM:RequestsMandate" minOccurs="1" maxOccurs="unbounded">
+            <xsd:annotation>
+               <xsd:documentation>
+                  <ccts:Component>
+                     <ccts:CEFACTNames/>
+                     <ccts:OASISNames>
+                        <ccts:ComponentType>ASBIE</ccts:ComponentType>
+                        <ccts:DictionaryEntryName>Mandate Request. Requests_ Mandate. Mandate</ccts:DictionaryEntryName>
+                        <ccts:Definition>The records requested that describe the terms under which a mandator grants a representation power to a mandatee.</ccts:Definition>
+                        <ccts:Cardinality>1..n</ccts:Cardinality>
+                        <ccts:ObjectClass>Mandate Request</ccts:ObjectClass>
+                        <ccts:PropertyTermQualifier>Requests</ccts:PropertyTermQualifier>
+                        <ccts:PropertyTerm>Mandate</ccts:PropertyTerm>
+                        <ccts:AssociatedObjectClass>Mandate</ccts:AssociatedObjectClass>
+                        <ccts:RepresentationTerm>Mandate</ccts:RepresentationTerm>
+                     </ccts:OASISNames>
+                  </ccts:Component>
+               </xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element ref="PAM:IRCCriterion" minOccurs="0" maxOccurs="unbounded">
+            <xsd:annotation>
+               <xsd:documentation>
+                  <ccts:Component>
+                     <ccts:CEFACTNames/>
+                     <ccts:OASISNames>
+                        <ccts:ComponentType>ASBIE</ccts:ComponentType>
+                        <ccts:DictionaryEntryName>Mandate Request. IRC_ Criterion. Criterion</ccts:DictionaryEntryName>
+                        <ccts:Definition>TODO</ccts:Definition>
+                        <ccts:Cardinality>0..n</ccts:Cardinality>
+                        <ccts:ObjectClass>Mandate Request</ccts:ObjectClass>
+                        <ccts:PropertyTermQualifier>IRC</ccts:PropertyTermQualifier>
+                        <ccts:PropertyTerm>Criterion</ccts:PropertyTerm>
+                        <ccts:AssociatedObjectClass>Criterion</ccts:AssociatedObjectClass>
+                        <ccts:RepresentationTerm>Criterion</ccts:RepresentationTerm>
+                     </ccts:OASISNames>
+                  </ccts:Component>
+               </xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element ref="PAM:AdditionalDocumentReference" minOccurs="0" maxOccurs="unbounded">
+            <xsd:annotation>
+               <xsd:documentation>
+                  <ccts:Component>
+                     <ccts:CEFACTNames/>
+                     <ccts:OASISNames>
+                        <ccts:ComponentType>ASBIE</ccts:ComponentType>
+                        <ccts:DictionaryEntryName>Mandate Request. Additional_ Document Reference. Document Reference</ccts:DictionaryEntryName>
+                        <ccts:Definition>Additional document attachments if necessary</ccts:Definition>
+                        <ccts:Cardinality>0..n</ccts:Cardinality>
+                        <ccts:ObjectClass>Mandate Request</ccts:ObjectClass>
+                        <ccts:PropertyTermQualifier>Additional</ccts:PropertyTermQualifier>
+                        <ccts:PropertyTerm>Document Reference</ccts:PropertyTerm>
+                        <ccts:AssociatedObjectClass>Document Reference</ccts:AssociatedObjectClass>
+                        <ccts:RepresentationTerm>Document Reference</ccts:RepresentationTerm>
+                     </ccts:OASISNames>
+                  </ccts:Component>
+               </xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element ref="ds:Signature" minOccurs="0" maxOccurs="unbounded">
+           <xsd:annotation>
+               <xsd:documentation>This is an optional set of digital signatures as defined by the W3C specification.</xsd:documentation>
+           </xsd:annotation>
+         </xsd:element>
+          </xsd:sequence>
+   </xsd:complexType>
+</xsd:schema>
+<!-- ===== Copyright Notice ===== --><!--
+UN/CEFACT
+
+   This document and translations of it may be copied and furnished to others,
+   and derivative works that comment on or otherwise explain it or assist
+   in its implementation may be prepared, copied, published and distributed,
+   in whole or in part, without restriction of any kind, provided that the
+   above copyright notice and this paragraph are included on all such copies
+   and derivative works. However, this document itself may not be modified in
+   any way, such as by removing the copyright notice or references to
+   UN/CEFACT, except as needed for the purpose of developing UN/CEFACT
+   specifications, in which case the procedures for copyrights defined in the
+   UN/CEFACT Intellectual Property Rights document must be followed, or as
+   required to translate it into languages other than English.
+   The limited permissions granted above are perpetual and will not be revoked
+   by UN/CEFACT or its successors or assigns.
+   
+   This document and the information contained herein is provided on an "AS IS"
+   basis and UN/CEFACT DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING
+   BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE INFORMATION HEREIN WILL
+   NOT INFRINGE ANY RIGHTS OR ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR
+   FITNESS FOR A PARTICULAR PURPOSE.
+
+OASIS
+
+  OASIS takes no position regarding the validity or scope of any 
+  intellectual property or other rights that might be claimed to pertain 
+  to the implementation or use of the technology described in this 
+  document or the extent to which any license under such rights 
+  might or might not be available; neither does it represent that it has 
+  made any effort to identify any such rights. Information on OASIS's 
+  procedures with respect to rights in OASIS specifications can be 
+  found at the OASIS website. Copies of claims of rights made 
+  available for publication and any assurances of licenses to be made 
+  available, or the result of an attempt made to obtain a general 
+  license or permission for the use of such proprietary rights by 
+  implementors or users of this specification, can be obtained from 
+  the OASIS Executive Director.
+
+  OASIS invites any interested party to bring to its attention any 
+  copyrights, patents or patent applications, or other proprietary 
+  rights which may cover technology that may be required to 
+  implement this specification. Please address the information to the 
+  OASIS Executive Director.
+  
+  This document and translations of it may be copied and furnished to 
+  others, and derivative works that comment on or otherwise explain 
+  it or assist in its implementation may be prepared, copied, 
+  published and distributed, in whole or in part, without restriction of 
+  any kind, provided that the above copyright notice and this 
+  paragraph are included on all such copies and derivative works. 
+  However, this document itself may not be modified in any way, 
+  such as by removing the copyright notice or references to OASIS, 
+  except as needed for the purpose of developing OASIS 
+  specifications, in which case the procedures for copyrights defined 
+  in the OASIS Intellectual Property Rights document must be 
+  followed, or as required to translate it into languages other than 
+  English. 
+
+  The limited permissions granted above are perpetual and will not be 
+  revoked by OASIS or its successors or assigns. 
+
+  This document and the information contained herein is provided on 
+  an "AS IS" basis and OASIS DISCLAIMS ALL WARRANTIES, 
+  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY 
+  WARRANTY THAT THE USE OF THE INFORMATION HEREIN 
+  WILL NOT INFRINGE ANY RIGHTS OR ANY IMPLIED 
+  WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A 
+  PARTICULAR PURPOSE.    
+-->

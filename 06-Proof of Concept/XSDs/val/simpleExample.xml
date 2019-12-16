@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XHE xmlns="oasis-cefact-xhe-1.0-ExchangeHeaderEnvelope"
+     xmlns:xhb="oasis-cefact-xhe-1.0-BasicComponents"
+     xmlns:xha="oasis-cefact-xhe-1.0-AggregateComponents"
+     xmlns:ext="oasis-cefact-xhe-1.0-ExtensionComponents">
+  <xhb:XHEVersionID>1.0</xhb:XHEVersionID>
+  <xha:Header>
+    <xhb:ID>123</xhb:ID>
+    <xhb:CreationDateTime>2015-02-08T20:34:00-04:00</xhb:CreationDateTime>
+    <xha:BusinessScope>
+      <xha:BusinessScopeCriterion>
+        <xhb:BusinessScopeCriterionTypeCode
+                                    >test</xhb:BusinessScopeCriterionTypeCode>
+        <xhb:BusinessScopeCriterionValue>123</xhb:BusinessScopeCriterionValue>
+      </xha:BusinessScopeCriterion>
+      <xha:ExternalReference>
+        <xhb:ID>http://www.company.com</xhb:ID>
+      </xha:ExternalReference>
+    </xha:BusinessScope>
+    <xha:FromParty>
+      <xha:PartyIdentification>
+        <xhb:ID>A</xhb:ID>
+      </xha:PartyIdentification>
+    </xha:FromParty>
+    <xha:ToParty>
+      <xha:PartyIdentification>
+        <xhb:ID>B</xhb:ID>
+      </xha:PartyIdentification>
+    </xha:ToParty>
+  </xha:Header>
+  <xha:Payloads>
+    <xha:Payload>
+      <xhb:InstanceEncryptionIndicator>false</xhb:InstanceEncryptionIndicator>
+      <xha:PayloadContent>
+        <myDocumentHere>
+          <myElement>My Content</myElement>
+          <myElement>My Content</myElement>
+          <myElement>My Content</myElement>
+        </myDocumentHere>
+      </xha:PayloadContent>
+    </xha:Payload>
+    <xha:Payload>
+      <xhb:ContentTypeCode>text/plain</xhb:ContentTypeCode>
+      <xhb:InstanceEncryptionIndicator>false</xhb:InstanceEncryptionIndicator>
+      <xha:PayloadContent>
+Non-XML payload here, with sensitive characters 
+escaped such as &amp;, &lt; and ]]&gt;.
+
+Any text, provided it has been escaped, can be included in a payload.
+      </xha:PayloadContent>
+    </xha:Payload>
+    <xha:Payload>
+      <xhb:InstanceEncryptionIndicator>false</xhb:InstanceEncryptionIndicator>
+      <xha:PayloadContent>
+        <myOtherDocumentHere>
+          <myOtherElement>My Content</myOtherElement>
+          <myOtherElement>My Content</myOtherElement>
+          <myOtherElement>My Content</myOtherElement>
+        </myOtherDocumentHere>
+      </xha:PayloadContent>
+    </xha:Payload>
+  </xha:Payloads>
+</XHE>
